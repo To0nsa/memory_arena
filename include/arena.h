@@ -148,12 +148,360 @@ extern "C"
 		t_arena_hooks hooks; /**< Allocation hooks for monitoring/debugging. */
 	} t_arena;
 
+	/**
+	 * @brief
+	 * Allocate and initialize a dynamic arena with an internal buffer.
+	 *
+	 * @details
+	 * This is the main constructor-style function for creating a new `t_arena` on the heap.
+	 * It performs both the allocation of the arena **structure** itself and a fresh internal
+	 * memory buffer of the requested size. It then initializes metadata, locking (if enabled),
+	 * and a unique ID.
+	 *
+	 * Use this when:
+	 * - You want the arena struct and its buffer to be fully heap-allocated.
+	 * - You want to manage the arena via a pointer and destroy/free it dynamically.
+	 * - You prefer a simplified interface without manually supplying memory.
+	 *
+	 * It performs:
+	 * - A check for invalid size (must be non-zero).
+	 * - A call to `arena_alloc_struct()` to create the arena.
+	 * - A call to `arena_alloc_buffer()` to allocate zeroed memory.
+	 * - Initialization via `arena_finish_init()` and setup of a default debug label.
+	 *
+	 * If any step fails, the function cleans up and returns `NULL`, with error reporting.
+	 *
+	 * @param size        Size (in bytes) of the internal memory buffer.
+	 * @param allow_grow  Whether the arena is allowed to grow dynamically if needed.
+	 *
+	 * @return Pointer to a fully initialized `t_arena`, or `NULL` on failure.
+	 *
+	 * @ingroup arena_core
+	 *
+	 * @note
+	 * The returned arena must be destroyed with `arena_destroy()` and freed with `arena_delete()`.
+	 * Use `arena_init()` instead if you have a statically or stack-allocated arena struct.
+	 *
+	 * @see arena_init
+	 * @see arena_destroy
+	 * @see arena_delete
+	 *
+	 * @example
+	 * @code
+	 * t_arena* heap_arena = arena_create(16384, true);
+	 * if (!heap_arena) {
+	 *     // handle error
+	 * }
+	 * void* ptr = arena_alloc(heap_arena, 512);
+	 * arena_destroy(heap_arena);
+	 * arena_delete(&heap_arena);
+	 * @endcode
+	 */
 	t_arena* arena_create(size_t size, bool allow_grow);
+	/**
+	 * @brief
+	 * Initialize a pre-allocated arena struct with a newly allocated buffer.
+	 *
+	 * @details
+	 * This function is used when the `t_arena` structure has already been allocated
+	 * (typically on the stack or statically). It allocates a fresh internal buffer
+	 * of the given size, and then initializes the arena metadata, mutex (if thread-safe),
+	 * and assigns a unique ID.
+	 *
+	 * Use this when:
+	 * - You already have a `t_arena` instance allocated (e.g., on the stack).
+	 * - You want to control the lifetime of the arena struct manually.
+	 * - You still want the arena to manage its own buffer internally.
+	 *
+	 * It performs:
+	 * - Basic input validation.
+	 * - Allocation of a zeroed internal buffer using `arena_alloc_buffer()`.
+	 * - Final setup via `arena_finish_init()`.
+	 * - Assignment of a default debug label ("arena_stack") if none is set.
+	 *
+	 * On failure, errors are reported via `arena_report_error()` and any allocated buffer is freed.
+	 *
+	 * @param arena       Pointer to an already-allocated `t_arena` struct.
+	 * @param size        Size (in bytes) of the memory buffer to allocate.
+	 * @param allow_grow  Whether the arena is allowed to grow dynamically.
+	 *
+	 * @return `true` on success, `false` on failure.
+	 *
+	 * @ingroup arena_core
+	 *
+	 * @note
+	 * The memory buffer is owned by the arena and will be freed by `arena_destroy()`.
+	 * The struct itself is *not* freed—this is the main difference from `arena_create()`.
+	 *
+	 * @see arena_create
+	 * @see arena_destroy
+	 * @see arena_reset
+	 *
+	 * @example
+	 * @code
+	 * t_arena my_arena;
+	 * if (!arena_init(&my_arena, 4096, false)) {
+	 *     // handle failure
+	 * }
+	 * void* mem = arena_alloc(&my_arena, 256);
+	 * arena_destroy(&my_arena); // Frees buffer, not struct
+	 * @endcode
+	 */
 	bool     arena_init(t_arena* arena, size_t size, bool allow_grow);
+	/**
+	 * @brief
+	 * Initialize a pre-allocated arena struct using a user-supplied or dynamically allocated buffer.
+	 *
+	 * @details
+	 * This function is used when the `t_arena` structure has already been allocated
+	 * (e.g., on the stack or statically), and you want to initialize it using:
+	 * - a buffer you provide (you retain ownership), or
+	 * - a buffer that the arena allocates internally (arena takes ownership).
+	 *
+	 * Use this when:
+	 * - You want to supply a pre-existing memory buffer (e.g., stack, static, or pre-mapped memory).
+	 * - You want to avoid dynamic allocation for the arena struct itself.
+	 * - You want full control over memory layout or reuse of arena buffers.
+	 *
+	 * Behavior:
+	 * - If `buffer == NULL` and `size > 0`, a zero-initialized buffer is allocated internally.
+	 *   The arena takes ownership and will free it during `arena_destroy()`.
+	 * - If `buffer != NULL`, the arena uses the supplied buffer without taking ownership.
+	 *   You are responsible for freeing it yourself (if dynamically allocated).
+	 *
+	 * Initialization steps:
+	 * - Metadata is reset via `arena_reset_metadata()`.
+	 * - The `can_grow` flag is stored atomically.
+	 * - A mutex is initialized if thread safety is enabled.
+	 * - The buffer is either set directly or allocated internally.
+	 * - A default debug label is set if none exists.
+	 * - A unique arena ID is generated.
+	 *
+	 * @param arena       Pointer to the `t_arena` structure to initialize.
+	 * @param buffer      Optional buffer to use for arena memory. Can be `NULL`.
+	 * @param size        Size of the buffer in bytes. Required if `buffer == NULL`.
+	 * @param allow_grow  Whether the arena is allowed to grow dynamically.
+	 *
+	 * @ingroup arena_init
+	 *
+	 * @note
+	 * If `buffer == NULL`, the arena allocates memory internally and takes ownership of it.
+	 * If `buffer != NULL`, the arena does **not** take ownership — you must free it manually.
+	 *
+	 * @warning
+	 * Passing `buffer == NULL && size == 0` creates an arena with no usable memory.
+	 *
+	 * @see arena_create
+	 * @see arena_init
+	 * @see arena_destroy
+	 *
+	 * @example
+	 * @code
+	 * // Example 1: arena allocates its own buffer
+	 * t_arena arena;
+	 * arena_init_with_buffer(&arena, NULL, 8192, false); // Arena owns buffer
+	 * void* data = arena_alloc(&arena, 128);
+	 * arena_destroy(&arena); // Frees internal buffer
+	 *
+	 * // Example 2: user-provided buffer (you own the buffer)
+	 * uint8_t external_buf[4096];
+	 * t_arena arena2;
+	 * arena_init_with_buffer(&arena2, external_buf, sizeof(external_buf), false);
+	 * void* ptr = arena_alloc(&arena2, 64);
+	 * arena_destroy(&arena2); // Does not free external_buf
+	 *
+	 * // Example 3: user-allocated buffer (you must free it manually)
+	 * uint8_t* heap_buf = malloc(4096);
+	 * arena_init_with_buffer(&arena2, heap_buf, 4096, false);
+	 * arena_destroy(&arena2); // Arena does NOT free heap_buf
+	 * free(heap_buf);         // You must free it yourself
+	 * @endcode
+	 */
 	void     arena_init_with_buffer(t_arena* arena, void* buffer, size_t size, bool allow_grow);
+
+	/**
+	 * @brief
+	 * Destroy and reinitialize an arena using a new buffer.
+	 *
+	 * @details
+	 * This function first calls `arena_destroy()` to release any resources
+	 * currently owned by the given arena, then reinitializes it in-place
+	 * with a new buffer (or a newly allocated one if `buffer == NULL`).
+	 *
+	 * Use this when:
+	 * - You want to recycle an existing arena instance with a new memory region.
+	 * - You want to reset an arena's growth policy or memory layout without allocating a new struct.
+	 * - You want to reassign ownership of an arena without calling `arena_delete()`.
+	 *
+	 * Behavior:
+	 * - If `buffer == NULL`, a new buffer of `size` bytes is allocated and **owned** by the arena.
+	 *   It will be freed automatically by `arena_destroy()`.
+	 * - If `buffer != NULL`, it is used directly without being freed by the arena.
+	 *   You remain responsible for releasing it manually if it was heap-allocated.
+	 *
+	 * @param arena       Pointer to an existing `t_arena` structure to reinitialize.
+	 * @param buffer      Optional buffer to use for the new memory region. Can be `NULL`.
+	 * @param size        Size of the buffer in bytes. Must be non-zero if `buffer == NULL`.
+	 * @param allow_grow  Whether the arena is allowed to grow dynamically.
+	 *
+	 * @ingroup arena_init
+	 *
+	 * @note
+	 * If `buffer == NULL`, a new zeroed buffer is allocated and owned by the arena.
+	 * If `buffer != NULL`, the arena does not take ownership — you must free it manually if needed.
+	 *
+	 * @warning
+	 * Any active pointers to memory previously allocated from the arena become invalid after this call.
+	 * Ensure no references remain before reinitializing.
+	 *
+	 * @see arena_destroy
+	 * @see arena_init_with_buffer
+	 *
+	 * @example
+	 * @code
+	 * // Example 1: recycle arena with new internal buffer
+	 * t_arena arena;
+	 * arena_init(&arena, 8192, false);
+	 * arena_reinit_with_buffer(&arena, NULL, 16384, false); // Arena owns new buffer
+	 *
+	 * // Example 2: reinitialize with external stack buffer
+	 * uint8_t buffer[4096];
+	 * arena_reinit_with_buffer(&arena, buffer, sizeof(buffer), false);
+	 *
+	 * // Example 3: reinitialize with heap buffer (manual free required)
+	 * uint8_t* heap_buffer = malloc(8192);
+	 * arena_reinit_with_buffer(&arena, heap_buffer, 8192, false);
+	 * arena_destroy(&arena);
+	 * free(heap_buffer); // Arena does not free this
+	 * @endcode
+	 */
 	void     arena_reinit_with_buffer(t_arena* arena, void* buffer, size_t size, bool allow_grow);
+	/**
+	 * @brief
+	 * Safely deinitialize an arena and release all owned resources.
+	 *
+	 * @details
+	 * This function performs a full teardown of the arena's internal state.
+	 * It frees the memory buffer and growth history if the arena owns them,
+	 * resets all internal fields (via `arena_zero_metadata`), and destroys
+	 * the mutex if thread safety is enabled.
+	 *
+	 * To prevent double-destruction or race conditions in multithreaded contexts,
+	 * it uses `atomic_compare_exchange_strong` to set the `is_destroying` flag,
+	 * ensuring destruction logic runs only once.
+	 *
+	 * If `ARENA_ENABLE_THREAD_SAFE` is defined and locking is active:
+	 * - It acquires the arena's internal lock before proceeding.
+	 * - It performs a consistency check (`ARENA_CHECK`), then safely destroys data.
+	 * - It unlocks the mutex and destroys it afterward.
+	 *
+	 * If locking is not enabled or needed, the teardown proceeds directly.
+	 *
+	 * This function does **not** free the arena struct itself. Use `arena_delete()`
+	 * to destroy and deallocate a heap-allocated arena.
+	 *
+	 * @param arena Pointer to the `t_arena` to be destroyed. May be `NULL`.
+	 *
+	 * @ingroup arena_cleanup
+	 *
+	 * @note
+	 * All allocations returned from the arena become invalid after this call.
+	 * Thread-safe cleanup requires exclusive access or locking protection.
+	 *
+	 * @see arena_delete
+	 * @see arena_free_buffer_if_owned
+	 * @see arena_free_growth_history
+	 * @see arena_zero_metadata
+	 *
+	 * @example
+	 * @code
+	 * // Example 1: stack-allocated arena
+	 * t_arena stack_arena;
+	 * arena_init(&stack_arena, 8192, false);
+	 * void* ptr = arena_alloc(&stack_arena, 512);
+	 * arena_destroy(&stack_arena); // Frees buffer, but not struct
+	 * @endcode
+	 */
 	void     arena_destroy(t_arena* arena);
+	/**
+	 * @brief
+	 * Fully delete a heap-allocated arena, including its struct and internal buffer.
+	 *
+	 * @details
+	 * This function is used to safely destroy and free a `t_arena` that was created
+	 * using `arena_create()`. It first calls `arena_destroy()` to release all internal
+	 * resources (buffer, stats, mutex, etc.), then frees the arena struct itself,
+	 * and nullifies the pointer to prevent dangling references.
+	 *
+	 * Use this when:
+	 * - The arena was allocated with `arena_create()`.
+	 * - You no longer need the arena and want to clean up fully.
+	 *
+	 * If `arena` is `NULL` or already points to `NULL`, the function does nothing.
+	 *
+	 * @param arena A pointer to a pointer to a `t_arena` instance to delete. May be `NULL`.
+	 *
+	 * @ingroup arena_cleanup
+	 *
+	 * @note
+	 * This function leaves the original pointer set to `NULL` after deletion,
+	 * which prevents accidental reuse or double-free.
+	 *
+	 * @see arena_create
+	 * @see arena_destroy
+	 *
+	 * @example
+	 * @code
+	 * t_arena* heap_arena = arena_create(4096, true);
+	 * // ... use arena
+	 * arena_delete(&heap_arena); // Frees both arena and its buffer
+	 * @endcode
+	 */
 	void     arena_delete(t_arena** arena);
+	/**
+	 * @brief
+	 * Reset the arena to an empty state by clearing all allocations.
+	 *
+	 * @details
+	 * This function sets the arena’s internal offset to zero, effectively
+	 * discarding all previous allocations. The underlying memory buffer is not
+	 * freed but reused for future allocations.
+	 *
+	 * - All memory is overwritten using `arena_poison_memory()` to catch
+	 *   use-after-reset bugs (only in debug or poison-enabled builds).
+	 * - Statistics like `peak_usage` and `live_allocations` are not reset.
+	 *
+	 * Thread-safe: this function locks the arena during the reset.
+	 *
+	 * @param arena Pointer to the arena to reset.
+	 *
+	 * @return void
+	 *
+	 * @ingroup arena_state
+	 *
+	 * @note
+	 * This is an extremely fast alternative to freeing each allocation individually.
+	 * Useful in scenarios like frame-based memory usage or scratch allocations.
+	 *
+	 * @see arena_pop
+	 * @see arena_mark
+	 *
+	 * @example
+	 * @code
+	 * t_arena* arena = arena_create(4096, true);
+	 *
+	 * for (int frame = 0; frame < 10; ++frame)
+	 * {
+	 *     char* frame_buffer = arena_alloc(arena, 1024);
+	 *     // Use memory for current frame...
+	 *
+	 *     // Reuse arena next frame
+	 *     arena_reset(arena);
+	 * }
+	 *
+	 * arena_delete(&arena);
+	 * @endcode
+	 */
 	void     arena_reset(t_arena* arena);
 
 	void* arena_alloc_internal(t_arena* arena, size_t size, size_t alignment, const char* label);
