@@ -12,7 +12,7 @@
 > `Memory_Arena` is a lightweight, high-performance memory allocator written in C, fully compatible with C++.
 
 [🔗 View on GitHub](https://github.com/to0nsa/Memory_Arena)
-**[📚 View full documentation](https://to0nsa.github.io/Memory_Arena/)**
+**[📚 View full documentation](https://to0nsa.github.io/memory_arena/)**
 
 ___
 
@@ -99,7 +99,7 @@ Includes over 30 unit and multithreaded tests. Supports ASAN, TSAN, and custom d
 Written in pure C11 with no external dependencies outside optional visualizer.
 
 📚 **Well Documented**
-Each function and internal module is documented using Doxygen with usage examples, groupings, and full cross-references. **[View full documentation](https://to0nsa.github.io/Memory_Arena/)**
+Each function and internal module is documented using Doxygen with usage examples, groupings, and full cross-references. **[View full documentation](https://to0nsa.github.io/memory_arena/)**
 
 </details>
 
