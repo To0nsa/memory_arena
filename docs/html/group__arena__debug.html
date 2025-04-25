@@ -71,7 +71,6 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#files">Files</a> &#124;
-<a href="#func-members">Functions</a> &#124;
 <a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">Debugging and Validation</div></div>
 </div><!--header-->
@@ -89,24 +88,6 @@ Files</h2></td></tr>
 <tr class="memdesc:arena__debug_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debugging utilities and hooks for the arena memory allocator. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:ga3e58b128a2f84c4ed41102243bf38634" id="r_ga3e58b128a2f84c4ed41102243bf38634"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a> (const char *msg, void *ctx)</td></tr>
-<tr class="memdesc:ga3e58b128a2f84c4ed41102243bf38634"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default fallback error callback (prints to stderr).  <br /></td></tr>
-<tr class="separator:ga3e58b128a2f84c4ed41102243bf38634"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga04a9de28f7c7ffe93039cce9927ac875" id="r_ga04a9de28f7c7ffe93039cce9927ac875"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
-<tr class="memdesc:ga04a9de28f7c7ffe93039cce9927ac875"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a unique debug ID for an arena.  <br /></td></tr>
-<tr class="separator:ga04a9de28f7c7ffe93039cce9927ac875"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad19e051bc49dc6b6dcda0f31561e222d" id="r_gad19e051bc49dc6b6dcda0f31561e222d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, const char *fmt,...)</td></tr>
-<tr class="memdesc:gad19e051bc49dc6b6dcda0f31561e222d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report an error from an arena using its configured error callback.  <br /></td></tr>
-<tr class="separator:gad19e051bc49dc6b6dcda0f31561e222d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga744fe6131dcbab131363be8e8760128f" id="r_ga744fe6131dcbab131363be8e8760128f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__debug.html#ga744fe6131dcbab131363be8e8760128f">arena_set_debug_label</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, const char *label)</td></tr>
-<tr class="memdesc:ga744fe6131dcbab131363be8e8760128f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign a debug label to an arena.  <br /></td></tr>
-<tr class="separator:ga744fe6131dcbab131363be8e8760128f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4750eb2d8122ed76c9396a65bcb47aaa" id="r_ga4750eb2d8122ed76c9396a65bcb47aaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__debug.html#ga4750eb2d8122ed76c9396a65bcb47aaa">arena_set_error_callback</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, <a class="el" href="arena__debug_8h.html#a2877be7952d7022448151c3c2c53033b">arena_error_callback</a> cb, void *context)</td></tr>
-<tr class="memdesc:ga4750eb2d8122ed76c9396a65bcb47aaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a custom error callback function for reporting arena errors.  <br /></td></tr>
-<tr class="separator:ga4750eb2d8122ed76c9396a65bcb47aaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:ga546ff0ddaab0fa267366384405c98c4a" id="r_ga546ff0ddaab0fa267366384405c98c4a"><td class="memItemLeft" align="right" valign="top">static atomic_int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__debug.html#ga546ff0ddaab0fa267366384405c98c4a">g_arena_id_counter</a> = 0</td></tr>
@@ -122,223 +103,6 @@ Variables</h2></td></tr>
 <li>Arena integrity validation for development and testing</li>
 </ul>
 <p>These are primarily intended for debug builds and are configurable via macros like <code>ARENA_DEBUG_CHECKS</code>. </p>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="ga3e58b128a2f84c4ed41102243bf38634" name="ga3e58b128a2f84c4ed41102243bf38634"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3e58b128a2f84c4ed41102243bf38634">&#9670;&#160;</a></span>arena_default_error_callback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void arena_default_error_callback </td>
-          <td>(</td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>msg</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>ctx</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="arena__debug_8h.html">arena_debug.h</a>&gt;</code></p>
-
-<p>Default fallback error callback (prints to stderr). </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_create_8c-example.html#a21">/home/toonsa/myProjects/memoryArena/srcs/core/arena_create.c</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2internal_2arena_debug_8c-example.html#a8">/home/toonsa/myProjects/memoryArena/srcs/internal/arena_debug.c</a>.</dd>
-</dl>
-<div class="fragment"><div class="line"><span class="lineno">  311</span>{</div>
-<div class="line"><span class="lineno">  312</span>    (void) ctx;</div>
-<div class="line"><span class="lineno">  313</span>    fprintf(stderr, <span class="stringliteral">&quot;[ARENA ERROR] %s\n&quot;</span>, msg);</div>
-<div class="line"><span class="lineno">  314</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ga04a9de28f7c7ffe93039cce9927ac875" name="ga04a9de28f7c7ffe93039cce9927ac875"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga04a9de28f7c7ffe93039cce9927ac875">&#9670;&#160;</a></span>arena_generate_id()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void arena_generate_id </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__arena.html">t_arena</a> *&#160;</td>
-          <td class="paramname"><em>arena</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="arena__debug_8h.html">arena_debug.h</a>&gt;</code></p>
-
-<p>Generate a unique debug ID for an arena. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_create_8c-example.html#a16">/home/toonsa/myProjects/memoryArena/srcs/core/arena_create.c</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2internal_2arena_debug_8c-example.html#a2">/home/toonsa/myProjects/memoryArena/srcs/internal/arena_debug.c</a>.</dd>
-</dl>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>{</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  106</span> </div>
-<div class="line"><span class="lineno">  107</span>    snprintf(arena-&gt;debug.id, <a class="code hl_define" href="arena__config_8h.html#a5489ebed19870e9f0cdbe626a20521e9">ARENA_ID_LEN</a>, <span class="stringliteral">&quot;A#%04d&quot;</span>, atomic_fetch_add(&amp;<a class="code hl_variable" href="group__arena__debug.html#ga546ff0ddaab0fa267366384405c98c4a">g_arena_id_counter</a>, 1));</div>
-<div class="line"><span class="lineno">  108</span>}</div>
-<div class="ttc" id="aarena__config_8h_html_a5489ebed19870e9f0cdbe626a20521e9"><div class="ttname"><a href="arena__config_8h.html#a5489ebed19870e9f0cdbe626a20521e9">ARENA_ID_LEN</a></div><div class="ttdeci">#define ARENA_ID_LEN</div><div class="ttdoc">Max characters for arena ID strings.</div><div class="ttdef"><b>Definition</b> arena_config.h:6</div></div>
-<div class="ttc" id="agroup__arena__debug_html_ga546ff0ddaab0fa267366384405c98c4a"><div class="ttname"><a href="group__arena__debug.html#ga546ff0ddaab0fa267366384405c98c4a">g_arena_id_counter</a></div><div class="ttdeci">static atomic_int g_arena_id_counter</div><div class="ttdoc">Global atomic counter for generating unique arena IDs.</div><div class="ttdef"><b>Definition</b> arena_debug.c:66</div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="gad19e051bc49dc6b6dcda0f31561e222d" name="gad19e051bc49dc6b6dcda0f31561e222d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gad19e051bc49dc6b6dcda0f31561e222d">&#9670;&#160;</a></span>arena_report_error()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void arena_report_error </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__arena.html">t_arena</a> *&#160;</td>
-          <td class="paramname"><em>arena</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>fmt</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="arena__debug_8h.html">arena_debug.h</a>&gt;</code></p>
-
-<p>Report an error from an arena using its configured error callback. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2allocation_2arena_alloc_8c-example.html#a19">/home/toonsa/myProjects/memoryArena/srcs/core/allocation/arena_alloc.c</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2allocation_2arena_alloc_sub_8c-example.html#a15">/home/toonsa/myProjects/memoryArena/srcs/core/allocation/arena_alloc_sub.c</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2allocation_2arena_calloc_8c-example.html#a11">/home/toonsa/myProjects/memoryArena/srcs/core/allocation/arena_calloc.c</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2allocation_2arena_realloc_last_8c-example.html#a13">/home/toonsa/myProjects/memoryArena/srcs/core/allocation/arena_realloc_last.c</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_create_8c-example.html#a15">/home/toonsa/myProjects/memoryArena/srcs/core/arena_create.c</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_hooks_8c-example.html#a6">/home/toonsa/myProjects/memoryArena/srcs/core/arena_hooks.c</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a19">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a9">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_state_8c-example.html#a12">/home/toonsa/myProjects/memoryArena/srcs/core/arena_state.c</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_tlscratch_8c-example.html#a9">/home/toonsa/myProjects/memoryArena/srcs/core/arena_tlscratch.c</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2internal_2arena_debug_8c-example.html#a9">/home/toonsa/myProjects/memoryArena/srcs/internal/arena_debug.c</a>.</dd>
-</dl>
-<div class="fragment"><div class="line"><span class="lineno">  254</span>{</div>
-<div class="line"><span class="lineno">  255</span>    va_list args;</div>
-<div class="line"><span class="lineno">  256</span>    va_start(args, fmt);</div>
-<div class="line"><span class="lineno">  257</span> </div>
-<div class="line"><span class="lineno">  258</span>    <span class="keywordtype">char</span> message[512];</div>
-<div class="line"><span class="lineno">  259</span>    vsnprintf(message, <span class="keyword">sizeof</span>(message), fmt, args);</div>
-<div class="line"><span class="lineno">  260</span>    va_end(args);</div>
-<div class="line"><span class="lineno">  261</span> </div>
-<div class="line"><span class="lineno">  262</span>    <span class="keywordflow">if</span> (arena &amp;&amp; arena-&gt;debug.error_cb)</div>
-<div class="line"><span class="lineno">  263</span>    {</div>
-<div class="line"><span class="lineno">  264</span>        arena-&gt;debug.error_cb(message, arena-&gt;debug.error_context);</div>
-<div class="line"><span class="lineno">  265</span>    }</div>
-<div class="line"><span class="lineno">  266</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  267</span>    {</div>
-<div class="line"><span class="lineno">  268</span>        fprintf(stderr, <span class="stringliteral">&quot;[ARENA ERROR]&quot;</span>);</div>
-<div class="line"><span class="lineno">  269</span>        <span class="keywordflow">if</span> (arena &amp;&amp; arena-&gt;debug.label)</div>
-<div class="line"><span class="lineno">  270</span>            fprintf(stderr, <span class="stringliteral">&quot; (%s)&quot;</span>, arena-&gt;debug.label);</div>
-<div class="line"><span class="lineno">  271</span>        fprintf(stderr, <span class="stringliteral">&quot; %s\n&quot;</span>, message);</div>
-<div class="line"><span class="lineno">  272</span>    }</div>
-<div class="line"><span class="lineno">  273</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ga744fe6131dcbab131363be8e8760128f" name="ga744fe6131dcbab131363be8e8760128f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga744fe6131dcbab131363be8e8760128f">&#9670;&#160;</a></span>arena_set_debug_label()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void arena_set_debug_label </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__arena.html">t_arena</a> *&#160;</td>
-          <td class="paramname"><em>arena</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>label</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="arena__debug_8h.html">arena_debug.h</a>&gt;</code></p>
-
-<p>Assign a debug label to an arena. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2allocation_2arena_alloc_sub_8c-example.html#a18">/home/toonsa/myProjects/memoryArena/srcs/core/allocation/arena_alloc_sub.c</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2internal_2arena_debug_8c-example.html#a5">/home/toonsa/myProjects/memoryArena/srcs/internal/arena_debug.c</a>.</dd>
-</dl>
-<div class="fragment"><div class="line"><span class="lineno">  148</span>{</div>
-<div class="line"><span class="lineno">  149</span>    <span class="keywordflow">if</span> (arena)</div>
-<div class="line"><span class="lineno">  150</span>        arena-&gt;debug.label = label;</div>
-<div class="line"><span class="lineno">  151</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ga4750eb2d8122ed76c9396a65bcb47aaa" name="ga4750eb2d8122ed76c9396a65bcb47aaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga4750eb2d8122ed76c9396a65bcb47aaa">&#9670;&#160;</a></span>arena_set_error_callback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void arena_set_error_callback </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structt__arena.html">t_arena</a> *&#160;</td>
-          <td class="paramname"><em>arena</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="arena__debug_8h.html#a2877be7952d7022448151c3c2c53033b">arena_error_callback</a>&#160;</td>
-          <td class="paramname"><em>cb</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>context</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="arena__debug_8h.html">arena_debug.h</a>&gt;</code></p>
-
-<p>Set a custom error callback function for reporting arena errors. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2internal_2arena_debug_8c-example.html#a6">/home/toonsa/myProjects/memoryArena/srcs/internal/arena_debug.c</a>.</dd>
-</dl>
-<div class="fragment"><div class="line"><span class="lineno">  202</span>{</div>
-<div class="line"><span class="lineno">  203</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  204</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  205</span> </div>
-<div class="line"><span class="lineno">  206</span>    arena-&gt;debug.error_cb      = cb ? cb : <a class="code hl_function" href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a>;</div>
-<div class="line"><span class="lineno">  207</span>    arena-&gt;debug.error_context = cb ? context : NULL;</div>
-<div class="line"><span class="lineno">  208</span>}</div>
-<div class="ttc" id="agroup__arena__debug_html_ga3e58b128a2f84c4ed41102243bf38634"><div class="ttname"><a href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a></div><div class="ttdeci">void arena_default_error_callback(const char *msg, void *ctx)</div><div class="ttdoc">Default fallback error callback (prints to stderr).</div><div class="ttdef"><b>Definition</b> arena_debug.c:310</div></div>
-</div><!-- fragment -->
-</div>
-</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a id="ga546ff0ddaab0fa267366384405c98c4a" name="ga546ff0ddaab0fa267366384405c98c4a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga546ff0ddaab0fa267366384405c98c4a">&#9670;&#160;</a></span>g_arena_id_counter</h2>
@@ -363,9 +127,9 @@ Variables</h2></td></tr>
 <p><code>#include &lt;<a class="el" href="arena__debug_8c.html">arena_debug.c</a>&gt;</code></p>
 
 <p>Global atomic counter for generating unique arena IDs. </p>
-<p>This counter is used to assign a unique identifier string to each arena when <code><a class="el" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875" title="Generate a unique debug ID for an arena.">arena_generate_id()</a></code> is called. It ensures that each arena gets a distinct label (e.g., "A#0001", "A#0002", etc.), which can help in debugging, profiling, and tracking arena lifetimes.</p>
+<p>This counter is used to assign a unique identifier string to each arena when <code><a class="el" href="arena__debug_8c.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id()</a></code> is called. It ensures that each arena gets a distinct label (e.g., "A#0001", "A#0002", etc.), which can help in debugging, profiling, and tracking arena lifetimes.</p>
 <p>The counter is atomic to ensure thread-safe incrementation in concurrent environments.</p>
-<dl class="section note"><dt>Note</dt><dd>This variable is internal to the debug system and should not be accessed directly. Use <code><a class="el" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875" title="Generate a unique debug ID for an arena.">arena_generate_id()</a></code> to retrieve or assign an arena ID. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>This variable is internal to the debug system and should not be accessed directly. Use <code><a class="el" href="arena__debug_8c.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id()</a></code> to retrieve or assign an arena ID. </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2internal_2arena_debug_8c-example.html#a3">/home/toonsa/myProjects/memoryArena/srcs/internal/arena_debug.c</a>.</dd>
 </dl>
 

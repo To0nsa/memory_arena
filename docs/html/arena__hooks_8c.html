@@ -134,7 +134,7 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga049a09c0c438a1e77064022a9c26fd46" id="r_ga049a09c0c438a1e77064022a9c26fd46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46">arena_set_allocation_hook</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, <a class="el" href="arena__hooks_8h.html#af00a46507125773d89254554a8eedc74">arena_allocation_hook</a> cb, void *context)</td></tr>
-<tr class="memdesc:ga049a09c0c438a1e77064022a9c26fd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set or remove an allocation hook on a given arena.  <br /></td></tr>
+<tr class="memdesc:ga049a09c0c438a1e77064022a9c26fd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a custom allocation hook for the given arena.  <br /></td></tr>
 <tr class="separator:ga049a09c0c438a1e77064022a9c26fd46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -167,16 +167,16 @@ Functions</h2></td></tr>
 <div class="ttc" id="astructt__arena_html"><div class="ttname"><a href="structt__arena.html">t_arena</a></div><div class="ttdoc">The main memory arena structure used for fast allocation.</div></div>
 </div><!-- fragment --></li>
 <li>Register it with the arena: <div class="fragment"><div class="line"><a class="code hl_function" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46">arena_set_allocation_hook</a>(my_arena, my_hook, NULL);</div>
-<div class="ttc" id="agroup__arena__alloc_html_ga049a09c0c438a1e77064022a9c26fd46"><div class="ttname"><a href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46">arena_set_allocation_hook</a></div><div class="ttdeci">void arena_set_allocation_hook(t_arena *arena, arena_allocation_hook cb, void *context)</div><div class="ttdoc">Set or remove an allocation hook on a given arena.</div><div class="ttdef"><b>Definition</b> arena_hooks.c:163</div></div>
+<div class="ttc" id="agroup__arena__alloc_html_ga049a09c0c438a1e77064022a9c26fd46"><div class="ttname"><a href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46">arena_set_allocation_hook</a></div><div class="ttdeci">void arena_set_allocation_hook(t_arena *arena, arena_allocation_hook cb, void *context)</div><div class="ttdoc">Set a custom allocation hook for the given arena.</div><div class="ttdef"><b>Definition</b> arena_hooks.c:163</div></div>
 </div><!-- fragment --></li>
 <li>Make allocations as usual. Your hook will be invoked on each.</li>
 </ol>
 <p>You can also unset the hook by passing <code>NULL</code> to disable tracking.</p>
 <dl class="section warning"><dt>Warning</dt><dd>The hook callback must not perform allocations from the same arena, or it may cause infinite recursion or deadlocks.</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>Hooks are optional. If unset (<code>NULL</code>), no callbacks are triggered. Hooks can be updated or cleared at any time via <code><a class="el" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46" title="Set or remove an allocation hook on a given arena.">arena_set_allocation_hook()</a></code>, if <code>cb</code> is <code>NULL</code>, the current hook will be removed and no further allocation events will be displayed.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Hooks are optional. If unset (<code>NULL</code>), no callbacks are triggered. Hooks can be updated or cleared at any time via <code><a class="el" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46" title="Set a custom allocation hook for the given arena.">arena_set_allocation_hook()</a></code>, if <code>cb</code> is <code>NULL</code>, the current hook will be removed and no further allocation events will be displayed.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__hooks_8h.html#af00a46507125773d89254554a8eedc74" title="Allocation hook callback type.">arena_allocation_hook</a> </dd>
 <dd>
-<a class="el" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46" title="Set or remove an allocation hook on a given arena.">arena_set_allocation_hook</a> </dd>
+<a class="el" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46" title="Set a custom allocation hook for the given arena.">arena_set_allocation_hook</a> </dd>
 <dd>
 <a class="el" href="arena__hooks_8h.html" title="Allocation hook system for arena-based memory tracking and introspection.">arena_hooks.h</a> </dd>
 <dd>

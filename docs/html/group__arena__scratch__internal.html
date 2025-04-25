@@ -260,7 +260,7 @@ Functions</h2></td></tr>
 
 <p>Initialize a single scratch slot with its own arena. </p>
 <p>This internal helper sets up a <code>t_scratch_slot</code> by initializing the internal arena with the given <code>slot_size</code>. The arena is marked as growable, and the slot is initially marked as not in use.</p>
-<p>On failure, an error is reported using <code><a class="el" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d" title="Report an error from an arena using its configured error callback.">arena_report_error()</a></code>, indicating the index of the slot that failed to initialize.</p>
+<p>On failure, an error is reported using <code><a class="el" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error()</a></code>, indicating the index of the slot that failed to initialize.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">slot</td><td>Pointer to the scratch slot to initialize. </td></tr>
@@ -279,14 +279,14 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  450</span>{</div>
 <div class="line"><span class="lineno">  451</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a>(&amp;slot-&gt;<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>, slot_size, <span class="keyword">true</span>))</div>
 <div class="line"><span class="lineno">  452</span>    {</div>
-<div class="line"><span class="lineno">  453</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_slot_init failed: arena_init failed for slot %d&quot;</span>, index);</div>
+<div class="line"><span class="lineno">  453</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_slot_init failed: arena_init failed for slot %d&quot;</span>, index);</div>
 <div class="line"><span class="lineno">  454</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  455</span>    }</div>
 <div class="line"><span class="lineno">  456</span>    atomic_store(&amp;slot-&gt;<a class="code hl_variable" href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">in_use</a>, <span class="keyword">false</span>);</div>
 <div class="line"><span class="lineno">  457</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">  458</span>}</div>
 <div class="ttc" id="aarena_8h_html_a245dff47ef4fe5693b657a42deecf988"><div class="ttname"><a href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a></div><div class="ttdeci">bool arena_init(t_arena *arena, size_t size, bool allow_grow)</div><div class="ttdef"><b>Definition</b> arena_create.c:190</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="agroup__arena__scratch__internal_html_a52279bc596790848ee8b4c00064f3782"><div class="ttname"><a href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">s_scratch_slot::in_use</a></div><div class="ttdeci">atomic_bool in_use</div><div class="ttdoc">Atomic flag for acquisition tracking.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:76</div></div>
 <div class="ttc" id="agroup__arena__scratch__internal_html_a8e53aefa580a0552977802026307e540"><div class="ttname"><a href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">s_scratch_slot::arena</a></div><div class="ttdeci">t_arena arena</div><div class="ttdoc">Memory arena associated with this slot.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:75</div></div>
 </div><!-- fragment -->

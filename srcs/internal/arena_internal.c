@@ -177,7 +177,7 @@ bool arena_is_valid(const t_arena* arena)
  *
  * @param stats Pointer to the `t_arena_stats` structure to reset.
  *
- * @ingroup arena_internal
+ * @ingroup arena_state
  *
  * @note
  * If `stats` is `NULL`, the function does nothing.

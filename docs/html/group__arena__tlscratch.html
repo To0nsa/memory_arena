@@ -88,16 +88,16 @@ Files</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga1a0eb2e7749d6ec6c075f492b1e94b2a" id="r_ga1a0eb2e7749d6ec6c075f492b1e94b2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__tlscratch.html#ga1a0eb2e7749d6ec6c075f492b1e94b2a">destroy_thread_scratch_arena</a> (void)</td></tr>
-<tr class="memdesc:ga1a0eb2e7749d6ec6c075f492b1e94b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the thread-local scratch arena for the calling thread.  <br /></td></tr>
+<tr class="memdesc:ga1a0eb2e7749d6ec6c075f492b1e94b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy the thread-local scratch arena for the current thread.  <br /></td></tr>
 <tr class="separator:ga1a0eb2e7749d6ec6c075f492b1e94b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga392826340bc341861ed75127cc012fa9" id="r_ga392826340bc341861ed75127cc012fa9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__arena.html">t_arena</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9">get_thread_scratch_arena</a> (void)</td></tr>
-<tr class="memdesc:ga392826340bc341861ed75127cc012fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the thread-local scratch arena, resetting it before use.  <br /></td></tr>
+<tr class="memdesc:ga392826340bc341861ed75127cc012fa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a thread-local scratch arena for fast temporary allocations.  <br /></td></tr>
 <tr class="separator:ga392826340bc341861ed75127cc012fa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab24595ce8301a844ccd7d733ce3f6b5b" id="r_gab24595ce8301a844ccd7d733ce3f6b5b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__arena.html">t_arena</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__tlscratch.html#gab24595ce8301a844ccd7d733ce3f6b5b">get_thread_scratch_arena_ref</a> (void)</td></tr>
-<tr class="memdesc:gab24595ce8301a844ccd7d733ce3f6b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Access the raw thread-local arena pointer without initialization.  <br /></td></tr>
+<tr class="memdesc:gab24595ce8301a844ccd7d733ce3f6b5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal accessor for the thread-local scratch arena reference.  <br /></td></tr>
 <tr class="separator:gab24595ce8301a844ccd7d733ce3f6b5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab2ee547b04bb69903eed01d6afd4487e" id="r_gab2ee547b04bb69903eed01d6afd4487e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__tlscratch.html#gab2ee547b04bb69903eed01d6afd4487e">set_thread_scratch_arena_size</a> (size_t size)</td></tr>
-<tr class="memdesc:gab2ee547b04bb69903eed01d6afd4487e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure the initial size for the thread-local scratch arena.  <br /></td></tr>
+<tr class="memdesc:gab2ee547b04bb69903eed01d6afd4487e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the initial size for the thread-local scratch arena.  <br /></td></tr>
 <tr class="separator:gab2ee547b04bb69903eed01d6afd4487e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -129,15 +129,22 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__tlscratch_8h.html">arena_tlscratch.h</a>&gt;</code></p>
 
-<p>Destroy the thread-local scratch arena for the calling thread. </p>
-<dl class="section note"><dt>Note</dt><dd>This resets internal state and frees any allocated buffer.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Get the thread-local scratch arena, resetting it before use.">get_thread_scratch_arena</a> </dd></dl>
+<p>Destroy the thread-local scratch arena for the current thread. </p>
+<p>This function deinitializes the thread-local scratch arena created by <code><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena()</a></code> by calling <code><a class="el" href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy()</a></code> on it. It is useful when you want to release the thread’s scratch memory before the thread exits, or to reset the arena entirely with a fresh configuration.</p>
+<p>After calling this function:</p><ul>
+<li>The arena is marked as uninitialized.</li>
+<li>Any subsequent call to <code><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena()</a></code> will reinitialize it.</li>
+</ul>
+<dl class="section note"><dt>Note</dt><dd>This function only affects the calling thread’s local arena. It does nothing if the arena has not yet been initialized.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena</a> </dd>
+<dd>
+<a class="el" href="group__arena__tlscratch.html#gab2ee547b04bb69903eed01d6afd4487e" title="Set the initial size for the thread-local scratch arena.">set_thread_scratch_arena_size</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_tlscratch_8c-example.html#a7">/home/toonsa/myProjects/memoryArena/srcs/core/arena_tlscratch.c</a>.</dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">  296</span>{</div>
-<div class="line"><span class="lineno">  297</span>    <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;destroy_thread_scratch_arena() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
+<div class="line"><span class="lineno">  297</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;destroy_thread_scratch_arena() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
 <div class="line"><span class="lineno">  298</span>}</div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -159,15 +166,24 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__tlscratch_8h.html">arena_tlscratch.h</a>&gt;</code></p>
 
-<p>Get the thread-local scratch arena, resetting it before use. </p>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the thread-local <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code>, or <code>NULL</code> if disabled or failed.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__tlscratch.html#ga1a0eb2e7749d6ec6c075f492b1e94b2a" title="Destroy the thread-local scratch arena for the calling thread.">destroy_thread_scratch_arena</a> </dd>
+<p>Retrieve a thread-local scratch arena for fast temporary allocations. </p>
+<p>This function returns a pointer to a thread-local memory arena (<code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code>) that is unique to the calling thread. The arena is initialized only once per thread, using the size configured via <code><a class="el" href="group__arena__tlscratch.html#gab2ee547b04bb69903eed01d6afd4487e" title="Set the initial size for the thread-local scratch arena.">set_thread_scratch_arena_size()</a></code> or the default size (8192 bytes) if not set.</p>
+<p>On every call:</p><ul>
+<li>If the arena is not initialized for this thread, it is created and marked initialized.</li>
+<li>The arena is then reset, clearing any previous allocations.</li>
+</ul>
+<p>This is designed for fast, single-threaded scratch memory that does not require synchronization. The returned arena can be reused immediately without freeing individual allocations.</p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the thread-local arena, or <code>NULL</code> on failure.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>You should not share this arena across threads. Each thread gets its own instance.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__tlscratch.html#gab2ee547b04bb69903eed01d6afd4487e" title="Set the initial size for the thread-local scratch arena.">set_thread_scratch_arena_size</a> </dd>
 <dd>
-<a class="el" href="group__arena__tlscratch.html#gab2ee547b04bb69903eed01d6afd4487e" title="Configure the initial size for the thread-local scratch arena.">set_thread_scratch_arena_size</a> </dd></dl>
+<a class="el" href="group__arena__tlscratch.html#ga1a0eb2e7749d6ec6c075f492b1e94b2a" title="Destroy the thread-local scratch arena for the current thread.">destroy_thread_scratch_arena</a> </dd>
+<dd>
+<a class="el" href="arena_8h.html#a1a2582ca5fb4e571ac150fbd77bd0d82">arena_reset</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_tlscratch_8c-example.html#a1">/home/toonsa/myProjects/memoryArena/srcs/core/arena_tlscratch.c</a>.</dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">  290</span>{</div>
-<div class="line"><span class="lineno">  291</span>    <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;get_thread_scratch_arena() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
+<div class="line"><span class="lineno">  291</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;get_thread_scratch_arena() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
 <div class="line"><span class="lineno">  292</span>    <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><span class="lineno">  293</span>}</div>
 </div><!-- fragment -->
@@ -191,13 +207,19 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__tlscratch_8h.html">arena_tlscratch.h</a>&gt;</code></p>
 
-<p>Access the raw thread-local arena pointer without initialization. </p>
-<dl class="section return"><dt>Returns</dt><dd>Raw pointer to the current thread's <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code>.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>May return an uninitialized arena if accessed before <code><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Get the thread-local scratch arena, resetting it before use.">get_thread_scratch_arena()</a></code>. </dd></dl>
+<p>Internal accessor for the thread-local scratch arena reference. </p>
+<p>This function returns a raw pointer to the thread-local <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code> instance used for scratch allocations in the current thread. Unlike <code><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena()</a></code>, it does not perform initialization or reset, and may return an uninitialized arena if called before first use.</p>
+<p>This is intended for low-level tools such as debuggers, allocators, or introspection tools that need direct access to the arena's internal state.</p>
+<dl class="section return"><dt>Returns</dt><dd>Pointer to the thread-local <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code> instance.</dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Do not use this function for normal allocations. Use <code><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena()</a></code> instead to ensure proper initialization and cleanup.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Calling this before the arena has been initialized (via <code><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena()</a></code>) may result in undefined behavior or access to uninitialized memory.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena</a> </dd>
+<dd>
+<a class="el" href="group__arena__tlscratch.html#ga1a0eb2e7749d6ec6c075f492b1e94b2a" title="Destroy the thread-local scratch arena for the current thread.">destroy_thread_scratch_arena</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_tlscratch_8c-example.html#a4">/home/toonsa/myProjects/memoryArena/srcs/core/arena_tlscratch.c</a>.</dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">  308</span>{</div>
-<div class="line"><span class="lineno">  309</span>    <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;get_thread_scratch_arena_ref() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
+<div class="line"><span class="lineno">  309</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;get_thread_scratch_arena_ref() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
 <div class="line"><span class="lineno">  310</span>    <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><span class="lineno">  311</span>}</div>
 </div><!-- fragment -->
@@ -221,19 +243,25 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__tlscratch_8h.html">arena_tlscratch.h</a>&gt;</code></p>
 
-<p>Configure the initial size for the thread-local scratch arena. </p>
+<p>Set the initial size for the thread-local scratch arena. </p>
+<p>This function configures the initial size of the thread-local scratch arena. It must be called <b>before</b> the first call to <code><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena()</a></code> in the current thread. If the arena has already been initialized, this call has no effect.</p>
+<p>This allows per-thread customization of scratch arena size without modifying global configuration or headers.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">size</td><td>Desired size in bytes.</td></tr>
+    <tr><td class="paramname">size</td><td>Desired initial size (in bytes) for the thread-local arena.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Must be called <b>before</b> <code><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Get the thread-local scratch arena, resetting it before use.">get_thread_scratch_arena()</a></code> is used in the same thread. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The new size will only take effect for threads that have not yet used <code><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena()</a></code>. Once initialized, the size is fixed for that thread.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>This function does not allocate memory. It only sets the size to be used on the first arena initialization.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__tlscratch.html#ga392826340bc341861ed75127cc012fa9" title="Retrieve a thread-local scratch arena for fast temporary allocations.">get_thread_scratch_arena</a> </dd>
+<dd>
+<a class="el" href="group__arena__tlscratch.html#ga1a0eb2e7749d6ec6c075f492b1e94b2a" title="Destroy the thread-local scratch arena for the current thread.">destroy_thread_scratch_arena</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_tlscratch_8c-example.html#a3">/home/toonsa/myProjects/memoryArena/srcs/core/arena_tlscratch.c</a>.</dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">  301</span>{</div>
 <div class="line"><span class="lineno">  302</span>    (void)size;</div>
-<div class="line"><span class="lineno">  303</span>    <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;set_thread_scratch_arena_size() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is &quot;</span></div>
+<div class="line"><span class="lineno">  303</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;set_thread_scratch_arena_size() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is &quot;</span></div>
 <div class="line"><span class="lineno">  304</span>                             <span class="stringliteral">&quot;disabled&quot;</span>);</div>
 <div class="line"><span class="lineno">  305</span>}</div>
 </div><!-- fragment -->

@@ -252,7 +252,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  288</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  289</span>    <span class="keywordflow">if</span> (marker &gt; arena-&gt;offset)</div>
 <div class="line"><span class="lineno">  290</span>    {</div>
-<div class="line"><span class="lineno">  291</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_pop failed: invalid marker %zu (offset: %zu)&quot;</span>, marker, arena-&gt;offset);</div>
+<div class="line"><span class="lineno">  291</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_pop failed: invalid marker %zu (offset: %zu)&quot;</span>, marker, arena-&gt;offset);</div>
 <div class="line"><span class="lineno">  292</span>        <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  293</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">  294</span>    }</div>
@@ -261,8 +261,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  297</span>    arena-&gt;offset = marker;</div>
 <div class="line"><span class="lineno">  298</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  299</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:123</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:334</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -320,7 +320,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  355</span> </div>
 <div class="line"><span class="lineno">  356</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  357</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_a45fe83c0004caeffb8724c787d022110"><div class="ttname"><a href="arena__debug_8h.html#a45fe83c0004caeffb8724c787d022110">ARENA_ASSERT_VALID</a></div><div class="ttdeci">#define ARENA_ASSERT_VALID(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:159</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a45fe83c0004caeffb8724c787d022110"><div class="ttname"><a href="arena__debug_8h.html#a45fe83c0004caeffb8724c787d022110">ARENA_ASSERT_VALID</a></div><div class="ttdeci">#define ARENA_ASSERT_VALID(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:420</div></div>
 </div><!-- fragment -->
 </div>
 </div>

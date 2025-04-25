@@ -145,7 +145,7 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (size == 0)</div>
 <div class="line">    {</div>
-<div class="line">        <a id="a15" name="a15"></a><a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: zero size requested&quot;</span>);</div>
+<div class="line">        <a id="a15" name="a15"></a><a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: zero size requested&quot;</span>);</div>
 <div class="line">        <span class="keywordflow">return</span> NULL;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -167,7 +167,7 @@ $(function() {
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_function" href="group__arena__internal.html#ga9460f83f6dae2993ccbd6a388944bf7c">arena_set_default_label</a>(arena, <span class="stringliteral">&quot;arena_heap&quot;</span>);</div>
-<div class="line">    <a id="a16" name="a16"></a><a class="code hl_function" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
+<div class="line">    <a id="a16" name="a16"></a><a class="code hl_function" href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
 <div class="line">    <span class="keywordflow">return</span> arena;</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -175,7 +175,7 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!arena || size == 0)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_init failed: invalid arena or size&quot;</span>);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_init failed: invalid arena or size&quot;</span>);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -188,13 +188,13 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__internal.html#ga2dcc4e3f99d12e69a37bac4cf5401b63">arena_finish_init</a>(arena, buffer, size, allow_grow))</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_init: arena_finish_init failed&quot;</span>);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_init: arena_finish_init failed&quot;</span>);</div>
 <div class="line">        free(buffer);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_function" href="group__arena__internal.html#ga9460f83f6dae2993ccbd6a388944bf7c">arena_set_default_label</a>(arena, <span class="stringliteral">&quot;arena_stack&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
+<div class="line">    <a class="code hl_function" href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -202,7 +202,7 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!arena)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_init_with_buffer: NULL arena&quot;</span>);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_init_with_buffer: NULL arena&quot;</span>);</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -214,7 +214,7 @@ $(function() {
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line"> </div>
 <div class="line">    <a class="code hl_function" href="group__arena__internal.html#ga9460f83f6dae2993ccbd6a388944bf7c">arena_set_default_label</a>(arena, <span class="stringliteral">&quot;arena_from_buffer&quot;</span>);</div>
-<div class="line">    <a class="code hl_function" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
+<div class="line">    <a class="code hl_function" href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> <a id="a19" name="a19"></a><a class="code hl_function" href="arena_8h.html#ab4a51df7e56b31156d46bbe201b39b2a">arena_reinit_with_buffer</a>(<a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena, <span class="keywordtype">void</span>* buffer, <span class="keywordtype">size_t</span> size, <span class="keywordtype">bool</span> allow_grow)</div>
@@ -242,10 +242,10 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!arena || !*arena)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
-<div class="line">    <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(*arena, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
+<div class="line">    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(*arena, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
 <div class="line">    <a class="code hl_function" href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a>(*arena);</div>
 <div class="line">    <a class="code hl_function" href="arena_8h.html#a7821a62eaf6d9f982322e49eaf6153e8">arena_delete</a>(arena);</div>
 <div class="line">}</div>
@@ -254,7 +254,7 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordtype">void</span>* buffer = calloc(1, size);</div>
 <div class="line">    <span class="keywordflow">if</span> (!buffer)</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: buffer allocation of %zu bytes failed&quot;</span>, size);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: buffer allocation of %zu bytes failed&quot;</span>, size);</div>
 <div class="line">    <span class="keywordflow">return</span> buffer;</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -268,14 +268,14 @@ $(function() {
 <div class="line">    arena-&gt;parent_ref = NULL;</div>
 <div class="line"> </div>
 <div class="line">    arena-&gt;grow_cb             = <a id="a20" name="a20"></a><a class="code hl_function" href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a>;</div>
-<div class="line">    arena-&gt;debug.error_cb      = <a id="a21" name="a21"></a><a class="code hl_function" href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a>;</div>
+<div class="line">    arena-&gt;debug.error_cb      = <a id="a21" name="a21"></a><a class="code hl_function" href="arena__debug_8h.html#a3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a>;</div>
 <div class="line">    arena-&gt;debug.error_context = NULL;</div>
 <div class="line">    arena-&gt;debug.label         = NULL;</div>
 <div class="line"> </div>
 <div class="line">    arena-&gt;hooks.hook_cb = NULL;</div>
 <div class="line">    arena-&gt;hooks.context = NULL;</div>
 <div class="line"> </div>
-<div class="line">    <a id="a22" name="a22"></a><a class="code hl_function" href="group__arena__stats.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a>(&amp;arena-&gt;stats);</div>
+<div class="line">    <a id="a22" name="a22"></a><a class="code hl_function" href="group__arena__state.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a>(&amp;arena-&gt;stats);</div>
 <div class="line"> </div>
 <div class="line">    atomic_store_explicit(&amp;arena-&gt;owns_buffer, <span class="keyword">false</span>, memory_order_release);</div>
 <div class="line">    atomic_store_explicit(&amp;arena-&gt;can_grow, <span class="keyword">false</span>, memory_order_release);</div>
@@ -302,7 +302,7 @@ $(function() {
 <div class="line">fail_attr:</div>
 <div class="line">    pthread_mutexattr_destroy(&amp;attr);</div>
 <div class="line">fail:</div>
-<div class="line">    <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: mutex setup failed&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: mutex setup failed&quot;</span>);</div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="preprocessor">#else</span></div>
 <div class="line">    (void) arena;</div>
@@ -324,7 +324,7 @@ $(function() {
 <div class="line">        free(buffer);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
-<div class="line">    <a class="code hl_function" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
+<div class="line">    <a class="code hl_function" href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">}</div>
 <div class="line"> </div>
@@ -333,7 +333,7 @@ $(function() {
 <div class="line">    <span class="keywordtype">void</span>* buffer = calloc(1, size);</div>
 <div class="line">    <span class="keywordflow">if</span> (!buffer)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_init_with_buffer: malloc for %zu bytes failed&quot;</span>, size);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_init_with_buffer: malloc for %zu bytes failed&quot;</span>, size);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">    arena-&gt;buffer = (uint8_t*) buffer;</div>
@@ -361,21 +361,21 @@ $(function() {
 <div class="ttc" id="aarena_8h_html_a245dff47ef4fe5693b657a42deecf988"><div class="ttname"><a href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a></div><div class="ttdeci">bool arena_init(t_arena *arena, size_t size, bool allow_grow)</div><div class="ttdef"><b>Definition</b> arena_create.c:190</div></div>
 <div class="ttc" id="aarena_8h_html_a4a0d8e453e26366da91c18877495ad42"><div class="ttname"><a href="arena_8h.html#a4a0d8e453e26366da91c18877495ad42">arena_init_with_buffer</a></div><div class="ttdeci">void arena_init_with_buffer(t_arena *arena, void *buffer, size_t size, bool allow_grow)</div><div class="ttdef"><b>Definition</b> arena_create.c:286</div></div>
 <div class="ttc" id="aarena_8h_html_ab4a51df7e56b31156d46bbe201b39b2a"><div class="ttname"><a href="arena_8h.html#ab4a51df7e56b31156d46bbe201b39b2a">arena_reinit_with_buffer</a></div><div class="ttdeci">void arena_reinit_with_buffer(t_arena *arena, void *buffer, size_t size, bool allow_grow)</div><div class="ttdef"><b>Definition</b> arena_create.c:361</div></div>
-<div class="ttc" id="agroup__arena__debug_html_ga04a9de28f7c7ffe93039cce9927ac875"><div class="ttname"><a href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a></div><div class="ttdeci">void arena_generate_id(t_arena *arena)</div><div class="ttdoc">Generate a unique debug ID for an arena.</div><div class="ttdef"><b>Definition</b> arena_debug.c:102</div></div>
-<div class="ttc" id="agroup__arena__debug_html_ga3e58b128a2f84c4ed41102243bf38634"><div class="ttname"><a href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a></div><div class="ttdeci">void arena_default_error_callback(const char *msg, void *ctx)</div><div class="ttdoc">Default fallback error callback (prints to stderr).</div><div class="ttdef"><b>Definition</b> arena_debug.c:310</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a04a9de28f7c7ffe93039cce9927ac875"><div class="ttname"><a href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a></div><div class="ttdeci">void arena_generate_id(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_debug.c:102</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a3e58b128a2f84c4ed41102243bf38634"><div class="ttname"><a href="arena__debug_8h.html#a3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a></div><div class="ttdeci">void arena_default_error_callback(const char *msg, void *ctx)</div><div class="ttdef"><b>Definition</b> arena_debug.c:310</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga158ae1db776df1d113e7cddff4c9ca2f"><div class="ttname"><a href="group__arena__internal.html#ga158ae1db776df1d113e7cddff4c9ca2f">arena_reset_metadata</a></div><div class="ttdeci">static void arena_reset_metadata(t_arena *arena)</div><div class="ttdoc">Reset all arena metadata fields to their default initial state.</div><div class="ttdef"><b>Definition</b> arena_create.c:530</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga1d3f6bfa8145e31ab67a0cf9bce5f222"><div class="ttname"><a href="group__arena__internal.html#ga1d3f6bfa8145e31ab67a0cf9bce5f222">arena_set_user_buffer</a></div><div class="ttdeci">static void arena_set_user_buffer(t_arena *arena, void *buffer, size_t size)</div><div class="ttdoc">Assign a user-provided buffer to an arena without taking ownership.</div><div class="ttdef"><b>Definition</b> arena_create.c:719</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga2d9a7cc2eb2dd849843b312892303c71"><div class="ttname"><a href="group__arena__internal.html#ga2d9a7cc2eb2dd849843b312892303c71">arena_log_and_teardown</a></div><div class="ttdeci">static void arena_log_and_teardown(t_arena **arena, const char *msg)</div><div class="ttdoc">Report an error, destroy the arena, and free its memory.</div><div class="ttdef"><b>Definition</b> arena_create.c:458</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga2dcc4e3f99d12e69a37bac4cf5401b63"><div class="ttname"><a href="group__arena__internal.html#ga2dcc4e3f99d12e69a37bac4cf5401b63">arena_finish_init</a></div><div class="ttdeci">static bool arena_finish_init(t_arena *arena, void *buffer, size_t size, bool allow_grow)</div><div class="ttdoc">Finalize the initialization of an arena with a provided buffer.</div><div class="ttdef"><b>Definition</b> arena_create.c:640</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga5f5cec8e7ef56c3bf1ec9336e54f1a48"><div class="ttname"><a href="group__arena__internal.html#ga5f5cec8e7ef56c3bf1ec9336e54f1a48">arena_set_or_alloc_buffer</a></div><div class="ttdeci">static bool arena_set_or_alloc_buffer(t_arena *arena, void *buffer, size_t size)</div><div class="ttdoc">Configure an arena's buffer by either assigning a user-provided region or allocating one internally.</div><div class="ttdef"><b>Definition</b> arena_create.c:750</div></div>
-<div class="ttc" id="agroup__arena__internal_html_ga627d4fdc46e225dccde0388ae40d04de"><div class="ttname"><a href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a></div><div class="ttdeci">size_t default_grow_cb(size_t current_size, size_t requested_size)</div><div class="ttdoc">Default growth policy callback for arena resizing.</div><div class="ttdef"><b>Definition</b> arena_internal.c:78</div></div>
+<div class="ttc" id="agroup__arena__internal_html_ga627d4fdc46e225dccde0388ae40d04de"><div class="ttname"><a href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a></div><div class="ttdeci">size_t default_grow_cb(size_t current_size, size_t requested_size)</div><div class="ttdoc">Default growth strategy for arenas that support dynamic resizing.</div><div class="ttdef"><b>Definition</b> arena_internal.c:78</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga6bcc9b8d8f8dcac0c269eccc0b8cf8d2"><div class="ttname"><a href="group__arena__internal.html#ga6bcc9b8d8f8dcac0c269eccc0b8cf8d2">arena_alloc_buffer</a></div><div class="ttdeci">static void * arena_alloc_buffer(size_t size)</div><div class="ttdoc">Allocate a zero-initialized memory buffer for the arena.</div><div class="ttdef"><b>Definition</b> arena_create.c:492</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga8e94425910ed0ce27fd21cda3937ad56"><div class="ttname"><a href="group__arena__internal.html#ga8e94425910ed0ce27fd21cda3937ad56">arena_set_allocated_buffer</a></div><div class="ttdeci">static bool arena_set_allocated_buffer(t_arena *arena, size_t size)</div><div class="ttdoc">Allocate and assign a zero-initialized buffer to an arena.</div><div class="ttdef"><b>Definition</b> arena_create.c:682</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga9460f83f6dae2993ccbd6a388944bf7c"><div class="ttname"><a href="group__arena__internal.html#ga9460f83f6dae2993ccbd6a388944bf7c">arena_set_default_label</a></div><div class="ttdeci">static void arena_set_default_label(t_arena *arena, const char *fallback)</div><div class="ttdoc">Set a fallback debug label if none is set.</div><div class="ttdef"><b>Definition</b> arena_create.c:398</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga9b703d033342ea54cf18d08eac74d5b1"><div class="ttname"><a href="group__arena__internal.html#ga9b703d033342ea54cf18d08eac74d5b1">arena_init_mutex</a></div><div class="ttdeci">static bool arena_init_mutex(t_arena *arena)</div><div class="ttdoc">Initialize the mutex used for thread-safe arena operations.</div><div class="ttdef"><b>Definition</b> arena_create.c:585</div></div>
 <div class="ttc" id="agroup__arena__internal_html_gaf3f69ef616d39542b2f9d81f954998cd"><div class="ttname"><a href="group__arena__internal.html#gaf3f69ef616d39542b2f9d81f954998cd">arena_alloc_struct</a></div><div class="ttdeci">static t_arena * arena_alloc_struct(void)</div><div class="ttdoc">Allocate and zero-initialize a new arena struct.</div><div class="ttdef"><b>Definition</b> arena_create.c:426</div></div>
-<div class="ttc" id="agroup__arena__stats_html_ga158f6a0623850d3dc681d9ecab1fe27f"><div class="ttname"><a href="group__arena__stats.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a></div><div class="ttdeci">void arena_stats_reset(t_arena_stats *stats)</div><div class="ttdoc">Reset the given statistics structure to zero.</div><div class="ttdef"><b>Definition</b> arena_internal.c:187</div></div>
+<div class="ttc" id="agroup__arena__state_html_ga158f6a0623850d3dc681d9ecab1fe27f"><div class="ttname"><a href="group__arena__state.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a></div><div class="ttdeci">void arena_stats_reset(t_arena_stats *stats)</div><div class="ttdoc">Reset all allocation statistics in an arena stats structure.</div><div class="ttdef"><b>Definition</b> arena_internal.c:187</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

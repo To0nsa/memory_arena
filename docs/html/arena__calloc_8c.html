@@ -304,7 +304,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  280</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="group__arena__internal.html#ga23b2d670602172508845e71559ac6a01">would_overflow_mul</a>(count, size, &amp;total))</div>
 <div class="line"><span class="lineno">  281</span>    {</div>
 <div class="line"><span class="lineno">  282</span>        <a class="code hl_function" href="arena__calloc_8c.html#a1bb6fbb5aae63740e21f508452b4961f">arena_record_failed_alloc</a>(arena);</div>
-<div class="line"><span class="lineno">  283</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena,</div>
+<div class="line"><span class="lineno">  283</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena,</div>
 <div class="line"><span class="lineno">  284</span>                           <span class="stringliteral">&quot;arena_calloc failed: multiplication overflow &quot;</span></div>
 <div class="line"><span class="lineno">  285</span>                           <span class="stringliteral">&quot;(count = %zu, size = %zu)&quot;</span>,</div>
 <div class="line"><span class="lineno">  286</span>                           count, size);</div>
@@ -315,8 +315,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  291</span>}</div>
 <div class="ttc" id="aarena__calloc_8c_html_a1bb6fbb5aae63740e21f508452b4961f"><div class="ttname"><a href="arena__calloc_8c.html#a1bb6fbb5aae63740e21f508452b4961f">arena_record_failed_alloc</a></div><div class="ttdeci">static void arena_record_failed_alloc(t_arena *arena)</div><div class="ttdoc">Increment the arena's failed allocation counter in a thread-safe manner.</div><div class="ttdef"><b>Definition</b> arena_calloc.c:375</div></div>
 <div class="ttc" id="aarena__calloc_8c_html_ab8e04b7e761a22a4d1386d809c7e0a46"><div class="ttname"><a href="arena__calloc_8c.html#ab8e04b7e761a22a4d1386d809c7e0a46">validate_arena_calloc_input</a></div><div class="ttdeci">static bool validate_arena_calloc_input(t_arena *arena, size_t count, size_t size)</div><div class="ttdoc">Validate input parameters for a calloc-style arena allocation.</div><div class="ttdef"><b>Definition</b> arena_calloc.c:326</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="agroup__arena__alloc__internal_html_ga133779294340b3b7b1353e5e41870855"><div class="ttname"><a href="group__arena__alloc__internal.html#ga133779294340b3b7b1353e5e41870855">arena_alloc_internal</a></div><div class="ttdeci">void * arena_alloc_internal(t_arena *arena, size_t size, size_t alignment, const char *label)</div><div class="ttdoc">Core internal allocator with alignment and labeling support.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:721</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga23b2d670602172508845e71559ac6a01"><div class="ttname"><a href="group__arena__internal.html#ga23b2d670602172508845e71559ac6a01">would_overflow_mul</a></div><div class="ttdeci">static bool would_overflow_mul(size_t a, size_t b, size_t *result)</div><div class="ttdoc">Perform a checked multiplication of two size_t values.</div><div class="ttdef"><b>Definition</b> arena_math.h:79</div></div>
 </div><!-- fragment -->
 </div>
@@ -486,19 +486,19 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  327</span>{</div>
 <div class="line"><span class="lineno">  328</span>    <span class="keywordflow">if</span> (!arena)</div>
 <div class="line"><span class="lineno">  329</span>    {</div>
-<div class="line"><span class="lineno">  330</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_calloc failed: NULL arena provided&quot;</span>);</div>
+<div class="line"><span class="lineno">  330</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_calloc failed: NULL arena provided&quot;</span>);</div>
 <div class="line"><span class="lineno">  331</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  332</span>    }</div>
 <div class="line"><span class="lineno">  333</span> </div>
 <div class="line"><span class="lineno">  334</span>    <span class="keywordflow">if</span> (count == 0)</div>
 <div class="line"><span class="lineno">  335</span>    {</div>
-<div class="line"><span class="lineno">  336</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_calloc failed: zero count (count = %zu)&quot;</span>, count);</div>
+<div class="line"><span class="lineno">  336</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_calloc failed: zero count (count = %zu)&quot;</span>, count);</div>
 <div class="line"><span class="lineno">  337</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  338</span>    }</div>
 <div class="line"><span class="lineno">  339</span> </div>
 <div class="line"><span class="lineno">  340</span>    <span class="keywordflow">if</span> (size == 0)</div>
 <div class="line"><span class="lineno">  341</span>    {</div>
-<div class="line"><span class="lineno">  342</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_calloc failed: zero element size (size = %zu)&quot;</span>, size);</div>
+<div class="line"><span class="lineno">  342</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_calloc failed: zero element size (size = %zu)&quot;</span>, size);</div>
 <div class="line"><span class="lineno">  343</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  344</span>    }</div>
 <div class="line"><span class="lineno">  345</span> </div>

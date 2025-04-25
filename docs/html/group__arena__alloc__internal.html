@@ -242,7 +242,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  743</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__alloc__internal.html#gaeb6bc4f71524a7a594b0e248eb0dbda0">arena_ensure_capacity</a>(arena, size, alignment, label, &amp;aligned_offset, &amp;wasted))</div>
 <div class="line"><span class="lineno">  744</span>    {</div>
 <div class="line"><span class="lineno">  745</span>        arena-&gt;stats.failed_allocations++;</div>
-<div class="line"><span class="lineno">  746</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: out of memory (requested: %zu)&quot;</span>, label, size);</div>
+<div class="line"><span class="lineno">  746</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: out of memory (requested: %zu)&quot;</span>, label, size);</div>
 <div class="line"><span class="lineno">  747</span>        <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  748</span>        <span class="keywordflow">return</span> NULL;</div>
 <div class="line"><span class="lineno">  749</span>    }</div>
@@ -258,8 +258,9 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  759</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  760</span>    <span class="keywordflow">return</span> result;</div>
 <div class="line"><span class="lineno">  761</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_abf0e7a681c28a08824cb678ec3f9a6c6"><div class="ttname"><a href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a></div><div class="ttdeci">#define ALOG(...)</div><div class="ttdoc">Debug logging macro (enabled only if ARENA_DEBUG_LOG is set).</div><div class="ttdef"><b>Definition</b> arena_debug.h:173</div></div>
-<div class="ttc" id="aarena__debug_8h_html_af130b4bbc0466511d1efc74412d5ef3c"><div class="ttname"><a href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a></div><div class="ttdeci">#define ARENA_CHECK(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:158</div></div>
+<div class="ttc" id="aarena__debug_8h_html_abf0e7a681c28a08824cb678ec3f9a6c6"><div class="ttname"><a href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a></div><div class="ttdeci">#define ALOG(...)</div><div class="ttdoc">Debug logging macro (enabled only if ARENA_DEBUG_LOG is set).</div><div class="ttdef"><b>Definition</b> arena_debug.h:434</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+<div class="ttc" id="aarena__debug_8h_html_af130b4bbc0466511d1efc74412d5ef3c"><div class="ttname"><a href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a></div><div class="ttdeci">#define ARENA_CHECK(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:419</div></div>
 <div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> arena_internal.h:62</div></div>
 <div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> arena_internal.h:61</div></div>
 <div class="ttc" id="agroup__arena__alloc__internal_html_ga3a85314e0611147a92383d02d616bc1a"><div class="ttname"><a href="group__arena__alloc__internal.html#ga3a85314e0611147a92383d02d616bc1a">arena_alloc_validate_input</a></div><div class="ttdeci">static bool arena_alloc_validate_input(t_arena *arena, size_t size, size_t alignment, const char *label)</div><div class="ttdoc">Validate input parameters for arena allocation.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:311</div></div>
@@ -269,7 +270,6 @@ Functions</h2></td></tr>
 <div class="ttc" id="agroup__arena__alloc__internal_html_ga9f456348bfdf8040dd8d3fbf26bfd4fa"><div class="ttname"><a href="group__arena__alloc__internal.html#ga9f456348bfdf8040dd8d3fbf26bfd4fa">arena_commit_allocation</a></div><div class="ttdeci">static void arena_commit_allocation(t_arena *arena, size_t size, size_t wasted, size_t aligned_offset)</div><div class="ttdoc">Update offset, peak usage, and statistics.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:593</div></div>
 <div class="ttc" id="agroup__arena__alloc__internal_html_gad3e406beb730e9664468c0ca3ba8ec3e"><div class="ttname"><a href="group__arena__alloc__internal.html#gad3e406beb730e9664468c0ca3ba8ec3e">arena_zero_if_needed</a></div><div class="ttdeci">static void arena_zero_if_needed(void *ptr, size_t size, const char *label)</div><div class="ttdoc">Zero or poison a memory region depending on allocation label.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:628</div></div>
 <div class="ttc" id="agroup__arena__alloc__internal_html_gaeb6bc4f71524a7a594b0e248eb0dbda0"><div class="ttname"><a href="group__arena__alloc__internal.html#gaeb6bc4f71524a7a594b0e248eb0dbda0">arena_ensure_capacity</a></div><div class="ttdeci">static bool arena_ensure_capacity(t_arena *arena, size_t size, size_t alignment, const char *label, size_t *aligned_offset, size_t *wasted)</div><div class="ttdoc">Ensure that the arena has enough space for a new allocation with alignment.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:503</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -328,7 +328,7 @@ Functions</h2></td></tr>
 <li>The requested <code>size</code> is greater than zero.</li>
 <li>The <code>alignment</code> is a non-zero power of two (required for valid memory alignment).</li>
 </ul>
-<p>If any of these checks fail, an appropriate error is reported using <code><a class="el" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d" title="Report an error from an arena using its configured error callback.">arena_report_error()</a></code> with a descriptive message and the provided label.</p>
+<p>If any of these checks fail, an appropriate error is reported using <code><a class="el" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error()</a></code> with a descriptive message and the provided label.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arena</td><td>Pointer to the <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code> to validate. </td></tr>
@@ -345,17 +345,17 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  312</span>{</div>
 <div class="line"><span class="lineno">  313</span>    <span class="keywordflow">if</span> (!arena)</div>
 <div class="line"><span class="lineno">  314</span>    {</div>
-<div class="line"><span class="lineno">  315</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;%s failed: NULL arena&quot;</span>, label);</div>
+<div class="line"><span class="lineno">  315</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;%s failed: NULL arena&quot;</span>, label);</div>
 <div class="line"><span class="lineno">  316</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  317</span>    }</div>
 <div class="line"><span class="lineno">  318</span>    <span class="keywordflow">if</span> (size == 0)</div>
 <div class="line"><span class="lineno">  319</span>    {</div>
-<div class="line"><span class="lineno">  320</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: zero-size allocation&quot;</span>, label);</div>
+<div class="line"><span class="lineno">  320</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: zero-size allocation&quot;</span>, label);</div>
 <div class="line"><span class="lineno">  321</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  322</span>    }</div>
 <div class="line"><span class="lineno">  323</span>    <span class="keywordflow">if</span> (alignment == 0 || (alignment &amp; (alignment - 1)) != 0)</div>
 <div class="line"><span class="lineno">  324</span>    {</div>
-<div class="line"><span class="lineno">  325</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: alignment (%zu) is not a power-of-two&quot;</span>, label, alignment);</div>
+<div class="line"><span class="lineno">  325</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: alignment (%zu) is not a power-of-two&quot;</span>, label, alignment);</div>
 <div class="line"><span class="lineno">  326</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  327</span>    }</div>
 <div class="line"><span class="lineno">  328</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -489,7 +489,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  390</span>    <span class="keywordflow">if</span> (size &gt; SIZE_MAX - arena-&gt;offset)</div>
 <div class="line"><span class="lineno">  391</span>    {</div>
 <div class="line"><span class="lineno">  392</span>        arena-&gt;stats.failed_allocations++;</div>
-<div class="line"><span class="lineno">  393</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: size overflow (requested: %zu)&quot;</span>, label, size);</div>
+<div class="line"><span class="lineno">  393</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: size overflow (requested: %zu)&quot;</span>, label, size);</div>
 <div class="line"><span class="lineno">  394</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">  395</span>    }</div>
 <div class="line"><span class="lineno">  396</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -546,7 +546,7 @@ Functions</h2></td></tr>
 <p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Update offset, peak usage, and statistics. </p>
-<p>This internal helper is used after determining that an allocation can safely be performed. It updates the arena's <code>offset</code> to reflect the new allocation, invokes <code><a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813" title="Update the arena’s peak memory usage if the current usage exceeds it.">arena_update_peak()</a></code> to track maximum usage, and updates internal statistics such as allocation count, total allocated bytes, and alignment waste via <code><a class="el" href="group__arena__alloc__internal.html#gac58e6becbc80f328dce1ad2ecf17c2f0" title="Update allocation statistics after a successful arena allocation.">arena_update_stats()</a></code>.</p>
+<p>This internal helper is used after determining that an allocation can safely be performed. It updates the arena's <code>offset</code> to reflect the new allocation, invokes <code><a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813" title="Update the peak usage metric of the arena.">arena_update_peak()</a></code> to track maximum usage, and updates internal statistics such as allocation count, total allocated bytes, and alignment waste via <code><a class="el" href="group__arena__alloc__internal.html#gac58e6becbc80f328dce1ad2ecf17c2f0" title="Update allocation statistics after a successful arena allocation.">arena_update_stats()</a></code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arena</td><td>Pointer to the arena being updated. </td></tr>
@@ -561,7 +561,7 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="group__arena__alloc__internal.html#gac58e6becbc80f328dce1ad2ecf17c2f0" title="Update allocation statistics after a successful arena allocation.">arena_update_stats</a> </dd>
 <dd>
-<a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813" title="Update the arena’s peak memory usage if the current usage exceeds it.">arena_update_peak</a> </dd></dl>
+<a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813" title="Update the peak usage metric of the arena.">arena_update_peak</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2allocation_2arena_alloc_8c-example.html#a11">/home/toonsa/myProjects/memoryArena/srcs/core/allocation/arena_alloc.c</a>.</dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">  594</span>{</div>
@@ -570,7 +570,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  597</span>    <a class="code hl_function" href="group__arena__alloc__internal.html#gac58e6becbc80f328dce1ad2ecf17c2f0">arena_update_stats</a>(arena, size, wasted);</div>
 <div class="line"><span class="lineno">  598</span>}</div>
 <div class="ttc" id="agroup__arena__alloc__internal_html_gac58e6becbc80f328dce1ad2ecf17c2f0"><div class="ttname"><a href="group__arena__alloc__internal.html#gac58e6becbc80f328dce1ad2ecf17c2f0">arena_update_stats</a></div><div class="ttdeci">static void arena_update_stats(t_arena *arena, size_t size, size_t wasted)</div><div class="ttdoc">Update allocation statistics after a successful arena allocation.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:551</div></div>
-<div class="ttc" id="agroup__arena__internal_html_gaa3a1838aa18111801b980c0b81e37813"><div class="ttname"><a href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813">arena_update_peak</a></div><div class="ttdeci">void arena_update_peak(t_arena *arena)</div><div class="ttdoc">Update the arena’s peak memory usage if the current usage exceeds it.</div><div class="ttdef"><b>Definition</b> arena_internal.c:118</div></div>
+<div class="ttc" id="agroup__arena__internal_html_gaa3a1838aa18111801b980c0b81e37813"><div class="ttname"><a href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813">arena_update_peak</a></div><div class="ttdeci">void arena_update_peak(t_arena *arena)</div><div class="ttdoc">Update the peak usage metric of the arena.</div><div class="ttdef"><b>Definition</b> arena_internal.c:118</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -763,7 +763,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>If no hook is set, this function does nothing.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46" title="Set or remove an allocation hook on a given arena.">arena_set_allocation_hook</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46" title="Set a custom allocation hook for the given arena.">arena_set_allocation_hook</a> </dd>
 <dd>
 <a class="el" href="group__arena__alloc__internal.html#ga133779294340b3b7b1353e5e41870855" title="Core internal allocator with alignment and labeling support.">arena_alloc_internal</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2allocation_2arena_alloc_8c-example.html#a13">/home/toonsa/myProjects/memoryArena/srcs/core/allocation/arena_alloc.c</a>.</dd>
@@ -888,7 +888,7 @@ Functions</h2></td></tr>
 <li>The <code>old_ptr</code> is not <code>NULL</code>.</li>
 <li>The <code>new_size</code> is greater than zero.</li>
 </ul>
-<p>If any check fails, a descriptive error is reported using <code><a class="el" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d" title="Report an error from an arena using its configured error callback.">arena_report_error()</a></code>.</p>
+<p>If any check fails, a descriptive error is reported using <code><a class="el" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error()</a></code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arena</td><td>Pointer to the arena where the reallocation is performed. </td></tr>
@@ -900,16 +900,16 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><code>true</code> if inputs are valid, <code>false</code> otherwise.</dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__realloc__last_8c.html#a6c647c686994ff6f760d3590696c0976">arena_realloc_last</a> </dd>
 <dd>
-<a class="el" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d" title="Report an error from an arena using its configured error callback.">arena_report_error</a> </dd></dl>
+<a class="el" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2allocation_2arena_realloc_last_8c-example.html#a5">/home/toonsa/myProjects/memoryArena/srcs/core/allocation/arena_realloc_last.c</a>.</dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">  168</span>{</div>
 <div class="line"><span class="lineno">  169</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_realloc_last failed: NULL arena&quot;</span>), <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_realloc_last failed: NULL arena&quot;</span>), <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  171</span>    <span class="keywordflow">if</span> (!old_ptr)</div>
-<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_realloc_last failed: NULL old_ptr&quot;</span>), <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  172</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_realloc_last failed: NULL old_ptr&quot;</span>), <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  173</span>    <span class="keywordflow">if</span> (new_size == 0)</div>
-<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_realloc_last failed: zero-size reallocation&quot;</span>), <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_realloc_last failed: zero-size reallocation&quot;</span>), <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  175</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">  176</span>}</div>
 </div><!-- fragment -->
@@ -978,12 +978,12 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  455</span>{</div>
 <div class="line"><span class="lineno">  456</span>    <span class="keywordflow">if</span> (!arena-&gt;can_grow)</div>
 <div class="line"><span class="lineno">  457</span>    {</div>
-<div class="line"><span class="lineno">  458</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: cannot grow&quot;</span>, label);</div>
+<div class="line"><span class="lineno">  458</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: cannot grow&quot;</span>, label);</div>
 <div class="line"><span class="lineno">  459</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  460</span>    }</div>
 <div class="line"><span class="lineno">  461</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="arena_8h.html#a223081ace38b33a46cc1ed0eaadf867f">arena_grow</a>(arena, size))</div>
 <div class="line"><span class="lineno">  462</span>    {</div>
-<div class="line"><span class="lineno">  463</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: growth failed&quot;</span>, label);</div>
+<div class="line"><span class="lineno">  463</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: growth failed&quot;</span>, label);</div>
 <div class="line"><span class="lineno">  464</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  465</span>    }</div>
 <div class="line"><span class="lineno">  466</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -1140,7 +1140,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  632</span>    <span class="keywordflow">else</span></div>
 <div class="line"><span class="lineno">  633</span>        <a class="code hl_define" href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a>(ptr, size);</div>
 <div class="line"><span class="lineno">  634</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:123</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:334</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1377,7 +1377,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  286</span>    <span class="keywordtype">size_t</span> new_end = arena-&gt;offset - old_size + new_size;</div>
 <div class="line"><span class="lineno">  287</span> </div>
 <div class="line"><span class="lineno">  288</span>    <span class="keywordflow">if</span> (new_end &gt; arena-&gt;size &amp;&amp; !<a class="code hl_function" href="arena_8h.html#a223081ace38b33a46cc1ed0eaadf867f">arena_grow</a>(arena, new_size - old_size))</div>
-<div class="line"><span class="lineno">  289</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_realloc_last failed: growth failed (needed %zu bytes)&quot;</span>,</div>
+<div class="line"><span class="lineno">  289</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_realloc_last failed: growth failed (needed %zu bytes)&quot;</span>,</div>
 <div class="line"><span class="lineno">  290</span>                                  new_size - old_size),</div>
 <div class="line"><span class="lineno">  291</span>               NULL;</div>
 <div class="line"><span class="lineno">  292</span> </div>
@@ -1447,7 +1447,7 @@ Functions</h2></td></tr>
 <p>Update arena statistics after a successful reallocation. </p>
 <p>This internal helper updates the arena's internal state to reflect a successful in-place reallocation. It performs the following:</p><ul>
 <li>Adjusts the <code>offset</code> to account for the new allocation size.</li>
-<li>Updates peak usage via <code><a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813" title="Update the arena’s peak memory usage if the current usage exceeds it.">arena_update_peak()</a></code>.</li>
+<li>Updates peak usage via <code><a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813" title="Update the peak usage metric of the arena.">arena_update_peak()</a></code>.</li>
 <li>Increments allocation-related counters.</li>
 <li>Records metadata about the last allocation (size, offset).</li>
 <li>Triggers the allocation hook if one is registered.</li>
@@ -1469,7 +1469,7 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="arena__realloc__last_8c.html#a6c647c686994ff6f760d3590696c0976">arena_realloc_last</a> </dd>
 <dd>
-<a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813" title="Update the arena’s peak memory usage if the current usage exceeds it.">arena_update_peak</a> </dd></dl>
+<a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813" title="Update the peak usage metric of the arena.">arena_update_peak</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2allocation_2arena_realloc_last_8c-example.html#a7">/home/toonsa/myProjects/memoryArena/srcs/core/allocation/arena_realloc_last.c</a>.</dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">  237</span>{</div>

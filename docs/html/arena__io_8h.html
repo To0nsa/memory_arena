@@ -171,10 +171,8 @@ Functions</h2></td></tr>
 <tr class="memdesc:aa1710210a6b8eca29c71eb46b01b51e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Header structure prepended to saved arena snapshots.  <br /></td></tr>
 <tr class="separator:aa1710210a6b8eca29c71eb46b01b51e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abf8617fba731d0f3cd2421ccaca9206b" id="r_abf8617fba731d0f3cd2421ccaca9206b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__io_8h.html#abf8617fba731d0f3cd2421ccaca9206b">arena_load_from_file</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, const char *path)</td></tr>
-<tr class="memdesc:abf8617fba731d0f3cd2421ccaca9206b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load arena contents from a snapshot file.  <br /></td></tr>
 <tr class="separator:abf8617fba731d0f3cd2421ccaca9206b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a301654434865dfe084792622514c0af3" id="r_a301654434865dfe084792622514c0af3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__io_8h.html#a301654434865dfe084792622514c0af3">arena_save_to_file</a> (const <a class="el" href="structt__arena.html">t_arena</a> *arena, const char *path)</td></tr>
-<tr class="memdesc:a301654434865dfe084792622514c0af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the current contents of an arena to a file.  <br /></td></tr>
 <tr class="separator:a301654434865dfe084792622514c0af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
@@ -196,8 +194,8 @@ Variables</h2></td></tr>
 <p>This header declares functions to serialize and deserialize the memory contents of an arena. These operations allow arenas to be saved to disk and restored later, enabling features such as state persistence, debugging snapshots, or offline replay.</p>
 <p>The snapshot includes a compact header (<code>t_arena_snapshot_header</code>) followed by the raw used memory buffer of the arena.</p>
 <ul>
-<li><code><a class="el" href="arena__io_8h.html#a301654434865dfe084792622514c0af3" title="Save the current contents of an arena to a file.">arena_save_to_file()</a></code> writes the arena's used memory to a file.</li>
-<li><code><a class="el" href="arena__io_8h.html#abf8617fba731d0f3cd2421ccaca9206b" title="Load arena contents from a snapshot file.">arena_load_from_file()</a></code> restores the memory contents from a file into an existing arena.</li>
+<li><code><a class="el" href="arena__io_8h.html#a301654434865dfe084792622514c0af3">arena_save_to_file()</a></code> writes the arena's used memory to a file.</li>
+<li><code><a class="el" href="arena__io_8h.html#abf8617fba731d0f3cd2421ccaca9206b">arena_load_from_file()</a></code> restores the memory contents from a file into an existing arena.</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>These functions are meant for single-threaded or externally synchronized use. They assume the arena is not being mutated during I/O. </dd></dl>
 </div><h2 class="groupheader">Macro Definition Documentation</h2>
@@ -261,6 +259,8 @@ Variables</h2></td></tr>
 <li>The number of bytes used in the saved arena.</li>
 </ul>
 <p>This header is written/read before the actual memory contents of the arena. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_io_8h-example.html#a9">/home/toonsa/myProjects/memoryArena/include/arena_io.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -289,19 +289,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Load arena contents from a snapshot file. </p>
-<p>This function reads a snapshot file created with <code><a class="el" href="arena__io_8h.html#a301654434865dfe084792622514c0af3" title="Save the current contents of an arena to a file.">arena_save_to_file()</a></code> and writes the contents into the provided arena buffer.</p>
-<p>The arena must have been initialized with a buffer large enough to hold the restored data. The arena's internal offset will be updated accordingly.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arena</td><td>Pointer to the arena to restore. </td></tr>
-    <tr><td class="paramname">path</td><td>Path to the snapshot file. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> on success, <code>false</code> on failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_io_8c-example.html#a5">/home/toonsa/myProjects/memoryArena/srcs/core/arena_io.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_io_8h-example.html#a10">/home/toonsa/myProjects/memoryArena/include/arena_io.h</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_io_8c-example.html#a5">/home/toonsa/myProjects/memoryArena/srcs/core/arena_io.c</a>.</dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">  256</span>{</div>
 <div class="line"><span class="lineno">  257</span>    <span class="keywordflow">if</span> (!arena || !path)</div>
@@ -355,18 +343,7 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Save the current contents of an arena to a file. </p>
-<p>This function writes a snapshot of the arena to the specified file path. The snapshot includes a header and all memory up to <code>arena-&gt;offset</code>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arena</td><td>Pointer to the arena to save. </td></tr>
-    <tr><td class="paramname">path</td><td>Path to the output file. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> on success, <code>false</code> on failure. </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_io_8c-example.html#a4">/home/toonsa/myProjects/memoryArena/srcs/core/arena_io.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_io_8h-example.html#a4">/home/toonsa/myProjects/memoryArena/include/arena_io.h</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_io_8c-example.html#a4">/home/toonsa/myProjects/memoryArena/srcs/core/arena_io.c</a>.</dd>
 </dl>
 <div class="fragment"><div class="line"><span class="lineno">  162</span>{</div>
 <div class="line"><span class="lineno">  163</span>    <span class="keywordflow">if</span> (!arena || !path)</div>

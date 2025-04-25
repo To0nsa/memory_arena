@@ -172,17 +172,17 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!arena)</div>
 <div class="line">    {</div>
-<div class="line">        <a id="a19" name="a19"></a><a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;%s failed: NULL arena&quot;</span>, label);</div>
+<div class="line">        <a id="a19" name="a19"></a><a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;%s failed: NULL arena&quot;</span>, label);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">if</span> (size == 0)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: zero-size allocation&quot;</span>, label);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: zero-size allocation&quot;</span>, label);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">if</span> (alignment == 0 || (alignment &amp; (alignment - 1)) != 0)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: alignment (%zu) is not a power-of-two&quot;</span>, label, alignment);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: alignment (%zu) is not a power-of-two&quot;</span>, label, alignment);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -201,7 +201,7 @@ $(function() {
 <div class="line">    <span class="keywordflow">if</span> (size &gt; SIZE_MAX - arena-&gt;offset)</div>
 <div class="line">    {</div>
 <div class="line">        arena-&gt;stats.failed_allocations++;</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: size overflow (requested: %zu)&quot;</span>, label, size);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: size overflow (requested: %zu)&quot;</span>, label, size);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -218,12 +218,12 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!arena-&gt;can_grow)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: cannot grow&quot;</span>, label);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: cannot grow&quot;</span>, label);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">if</span> (!<a id="a21" name="a21"></a><a class="code hl_function" href="arena_8h.html#a223081ace38b33a46cc1ed0eaadf867f">arena_grow</a>(arena, size))</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: growth failed&quot;</span>, label);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: growth failed&quot;</span>, label);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
@@ -311,7 +311,7 @@ $(function() {
 <div class="line">    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__alloc__internal.html#gaeb6bc4f71524a7a594b0e248eb0dbda0">arena_ensure_capacity</a>(arena, size, alignment, label, &amp;aligned_offset, &amp;wasted))</div>
 <div class="line">    {</div>
 <div class="line">        arena-&gt;stats.failed_allocations++;</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: out of memory (requested: %zu)&quot;</span>, label, size);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;%s failed: out of memory (requested: %zu)&quot;</span>, label, size);</div>
 <div class="line">        <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line">        <span class="keywordflow">return</span> NULL;</div>
 <div class="line">    }</div>
@@ -333,9 +333,10 @@ $(function() {
 <div class="ttc" id="aarena_8h_html_a3c9a2623dab46020e9d9462d48120261"><div class="ttname"><a href="arena_8h.html#a3c9a2623dab46020e9d9462d48120261">arena_alloc_aligned</a></div><div class="ttdeci">void * arena_alloc_aligned(t_arena *arena, size_t size, size_t alignment)</div><div class="ttdef"><b>Definition</b> arena_alloc.c:167</div></div>
 <div class="ttc" id="aarena_8h_html_ad0e41d4f7cc6043cab06d317e13f298e"><div class="ttname"><a href="arena_8h.html#ad0e41d4f7cc6043cab06d317e13f298e">arena_alloc_labeled</a></div><div class="ttdeci">void * arena_alloc_labeled(t_arena *arena, size_t size, const char *label)</div><div class="ttdef"><b>Definition</b> arena_alloc.c:217</div></div>
 <div class="ttc" id="aarena__config_8h_html_a66ef203ef1d1e5112ebc6c81a3237e98"><div class="ttname"><a href="arena__config_8h.html#a66ef203ef1d1e5112ebc6c81a3237e98">ARENA_DEFAULT_ALIGNMENT</a></div><div class="ttdeci">#define ARENA_DEFAULT_ALIGNMENT</div><div class="ttdoc">Default alignment value supported.</div><div class="ttdef"><b>Definition</b> arena_config.h:31</div></div>
-<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:123</div></div>
-<div class="ttc" id="aarena__debug_8h_html_abf0e7a681c28a08824cb678ec3f9a6c6"><div class="ttname"><a href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a></div><div class="ttdeci">#define ALOG(...)</div><div class="ttdoc">Debug logging macro (enabled only if ARENA_DEBUG_LOG is set).</div><div class="ttdef"><b>Definition</b> arena_debug.h:173</div></div>
-<div class="ttc" id="aarena__debug_8h_html_af130b4bbc0466511d1efc74412d5ef3c"><div class="ttname"><a href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a></div><div class="ttdeci">#define ARENA_CHECK(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:158</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:334</div></div>
+<div class="ttc" id="aarena__debug_8h_html_abf0e7a681c28a08824cb678ec3f9a6c6"><div class="ttname"><a href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a></div><div class="ttdeci">#define ALOG(...)</div><div class="ttdoc">Debug logging macro (enabled only if ARENA_DEBUG_LOG is set).</div><div class="ttdef"><b>Definition</b> arena_debug.h:434</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+<div class="ttc" id="aarena__debug_8h_html_af130b4bbc0466511d1efc74412d5ef3c"><div class="ttname"><a href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a></div><div class="ttdeci">#define ARENA_CHECK(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:419</div></div>
 <div class="ttc" id="aarena__hooks_8h_html_af00a46507125773d89254554a8eedc74"><div class="ttname"><a href="arena__hooks_8h.html#af00a46507125773d89254554a8eedc74">arena_allocation_hook</a></div><div class="ttdeci">void(* arena_allocation_hook)(t_arena *arena, int alloc_id, void *ptr, size_t size, size_t offset, size_t wasted, const char *label)</div><div class="ttdoc">Allocation hook callback type.</div><div class="ttdef"><b>Definition</b> arena_hooks.h:58</div></div>
 <div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> arena_internal.h:62</div></div>
 <div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> arena_internal.h:61</div></div>
@@ -350,9 +351,8 @@ $(function() {
 <div class="ttc" id="agroup__arena__alloc__internal_html_gac58e6becbc80f328dce1ad2ecf17c2f0"><div class="ttname"><a href="group__arena__alloc__internal.html#gac58e6becbc80f328dce1ad2ecf17c2f0">arena_update_stats</a></div><div class="ttdeci">static void arena_update_stats(t_arena *arena, size_t size, size_t wasted)</div><div class="ttdoc">Update allocation statistics after a successful arena allocation.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:551</div></div>
 <div class="ttc" id="agroup__arena__alloc__internal_html_gad3e406beb730e9664468c0ca3ba8ec3e"><div class="ttname"><a href="group__arena__alloc__internal.html#gad3e406beb730e9664468c0ca3ba8ec3e">arena_zero_if_needed</a></div><div class="ttdeci">static void arena_zero_if_needed(void *ptr, size_t size, const char *label)</div><div class="ttdoc">Zero or poison a memory region depending on allocation label.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:628</div></div>
 <div class="ttc" id="agroup__arena__alloc__internal_html_gaeb6bc4f71524a7a594b0e248eb0dbda0"><div class="ttname"><a href="group__arena__alloc__internal.html#gaeb6bc4f71524a7a594b0e248eb0dbda0">arena_ensure_capacity</a></div><div class="ttdeci">static bool arena_ensure_capacity(t_arena *arena, size_t size, size_t alignment, const char *label, size_t *aligned_offset, size_t *wasted)</div><div class="ttdoc">Ensure that the arena has enough space for a new allocation with alignment.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:503</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga2e09625e200e30dafcb85771b821a355"><div class="ttname"><a href="group__arena__internal.html#ga2e09625e200e30dafcb85771b821a355">align_up</a></div><div class="ttdeci">static size_t align_up(size_t value, size_t alignment)</div><div class="ttdoc">Align a value upwards to the nearest multiple of alignment.</div><div class="ttdef"><b>Definition</b> arena_math.h:52</div></div>
-<div class="ttc" id="agroup__arena__internal_html_gaa3a1838aa18111801b980c0b81e37813"><div class="ttname"><a href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813">arena_update_peak</a></div><div class="ttdeci">void arena_update_peak(t_arena *arena)</div><div class="ttdoc">Update the arena’s peak memory usage if the current usage exceeds it.</div><div class="ttdef"><b>Definition</b> arena_internal.c:118</div></div>
+<div class="ttc" id="agroup__arena__internal_html_gaa3a1838aa18111801b980c0b81e37813"><div class="ttname"><a href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813">arena_update_peak</a></div><div class="ttdeci">void arena_update_peak(t_arena *arena)</div><div class="ttdoc">Update the peak usage metric of the arena.</div><div class="ttdef"><b>Definition</b> arena_internal.c:118</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

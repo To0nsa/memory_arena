@@ -236,26 +236,26 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  159</span>    <span class="keywordtype">size_t</span> new_size = <a class="code hl_function" href="group__arena__resize__internal.html#gacf88b84bcca00ad988303735c64c05ab">arena_grow_compute_new_size</a>(arena, required_size);</div>
 <div class="line"><span class="lineno">  160</span>    <span class="keywordflow">if</span> (new_size == 0)</div>
 <div class="line"><span class="lineno">  161</span>    {</div>
-<div class="line"><span class="lineno">  162</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow failed: computed size invalid&quot;</span>);</div>
+<div class="line"><span class="lineno">  162</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow failed: computed size invalid&quot;</span>);</div>
 <div class="line"><span class="lineno">  163</span>        <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  164</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  165</span>    }</div>
 <div class="line"><span class="lineno">  166</span> </div>
 <div class="line"><span class="lineno">  167</span>    <span class="keywordflow">if</span> (new_size &gt; (<span class="keywordtype">size_t</span>)(1ULL &lt;&lt; 32)) <span class="comment">// 4GiB</span></div>
 <div class="line"><span class="lineno">  168</span>    {</div>
-<div class="line"><span class="lineno">  169</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow rejected size: %zu&quot;</span>, new_size);</div>
+<div class="line"><span class="lineno">  169</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow rejected size: %zu&quot;</span>, new_size);</div>
 <div class="line"><span class="lineno">  170</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  171</span>    }</div>
 <div class="line"><span class="lineno">  172</span>    <span class="keywordtype">bool</span> success = <a class="code hl_function" href="group__arena__resize__internal.html#ga2c41abb420264a89db3a977a23d0a86c">arena_grow_realloc_buffer</a>(arena, new_size, old_size);</div>
 <div class="line"><span class="lineno">  173</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  174</span>    <span class="keywordflow">return</span> success;</div>
 <div class="line"><span class="lineno">  175</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> arena_internal.h:62</div></div>
 <div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> arena_internal.h:61</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
-<div class="ttc" id="agroup__arena__resize__internal_html_ga2c41abb420264a89db3a977a23d0a86c"><div class="ttname"><a href="group__arena__resize__internal.html#ga2c41abb420264a89db3a977a23d0a86c">arena_grow_realloc_buffer</a></div><div class="ttdeci">static bool arena_grow_realloc_buffer(t_arena *arena, size_t new_size, size_t old_size)</div><div class="ttdoc">Reallocate the arena's buffer to a new size.</div><div class="ttdef"><b>Definition</b> arena_resize.c:594</div></div>
-<div class="ttc" id="agroup__arena__resize__internal_html_ga4d80b5a3e6b0f4f15be8e871759bbca5"><div class="ttname"><a href="group__arena__resize__internal.html#ga4d80b5a3e6b0f4f15be8e871759bbca5">arena_grow_validate</a></div><div class="ttdeci">static bool arena_grow_validate(t_arena *arena, size_t required_size)</div><div class="ttdoc">Validate whether the arena is allowed to grow for a given request.</div><div class="ttdef"><b>Definition</b> arena_resize.c:513</div></div>
-<div class="ttc" id="agroup__arena__resize__internal_html_gacf88b84bcca00ad988303735c64c05ab"><div class="ttname"><a href="group__arena__resize__internal.html#gacf88b84bcca00ad988303735c64c05ab">arena_grow_compute_new_size</a></div><div class="ttdeci">static size_t arena_grow_compute_new_size(t_arena *arena, size_t required_size)</div><div class="ttdoc">Compute the new size for the arena based on the growth policy.</div><div class="ttdef"><b>Definition</b> arena_resize.c:553</div></div>
+<div class="ttc" id="agroup__arena__resize__internal_html_ga2c41abb420264a89db3a977a23d0a86c"><div class="ttname"><a href="group__arena__resize__internal.html#ga2c41abb420264a89db3a977a23d0a86c">arena_grow_realloc_buffer</a></div><div class="ttdeci">static bool arena_grow_realloc_buffer(t_arena *arena, size_t new_size, size_t old_size)</div><div class="ttdoc">Reallocate the arena's buffer to a new size.</div><div class="ttdef"><b>Definition</b> arena_resize.c:593</div></div>
+<div class="ttc" id="agroup__arena__resize__internal_html_ga4d80b5a3e6b0f4f15be8e871759bbca5"><div class="ttname"><a href="group__arena__resize__internal.html#ga4d80b5a3e6b0f4f15be8e871759bbca5">arena_grow_validate</a></div><div class="ttdeci">static bool arena_grow_validate(t_arena *arena, size_t required_size)</div><div class="ttdoc">Validate whether the arena is allowed to grow for a given request.</div><div class="ttdef"><b>Definition</b> arena_resize.c:512</div></div>
+<div class="ttc" id="agroup__arena__resize__internal_html_gacf88b84bcca00ad988303735c64c05ab"><div class="ttname"><a href="group__arena__resize__internal.html#gacf88b84bcca00ad988303735c64c05ab">arena_grow_compute_new_size</a></div><div class="ttdeci">static size_t arena_grow_compute_new_size(t_arena *arena, size_t required_size)</div><div class="ttdoc">Compute the new size for the arena based on the growth policy.</div><div class="ttdef"><b>Definition</b> arena_resize.c:552</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -274,37 +274,37 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  386</span>{</div>
-<div class="line"><span class="lineno">  387</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__resize__internal.html#ga6abbceb590e3634b0832e8ae5a34f249">should_attempt_shrink</a>(arena))</div>
-<div class="line"><span class="lineno">  388</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  389</span> </div>
-<div class="line"><span class="lineno">  390</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  391</span>    <a class="code hl_define" href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a>(arena);</div>
-<div class="line"><span class="lineno">  392</span> </div>
-<div class="line"><span class="lineno">  393</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a> = arena-&gt;offset;</div>
-<div class="line"><span class="lineno">  394</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> size = arena-&gt;size;</div>
-<div class="line"><span class="lineno">  395</span> </div>
-<div class="line"><span class="lineno">  396</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="group__arena__resize__internal.html#gae22777b5f27566fdb53247d3b34423cc">arena_should_maybe_shrink</a>(<a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a>, size))</div>
-<div class="line"><span class="lineno">  397</span>    {</div>
-<div class="line"><span class="lineno">  398</span>        <span class="keyword">const</span> <span class="keywordtype">size_t</span> target = <a class="code hl_function" href="group__arena__resize__internal.html#ga11682f2046cdc92c45cc6ac544a0576b">arena_shrink_target</a>(<a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a>);</div>
-<div class="line"><span class="lineno">  399</span> </div>
-<div class="line"><span class="lineno">  400</span>        <span class="keywordflow">if</span> (target &lt; size)</div>
-<div class="line"><span class="lineno">  401</span>        {</div>
-<div class="line"><span class="lineno">  402</span>            <a class="code hl_function" href="arena__resize_8c.html#ac09092abf5d001bd4ff11af16fed346d">arena_shrink</a>(arena, target);</div>
-<div class="line"><span class="lineno">  403</span>            <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  404</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  405</span>        }</div>
-<div class="line"><span class="lineno">  406</span>    }</div>
-<div class="line"><span class="lineno">  407</span> </div>
-<div class="line"><span class="lineno">  408</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  409</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  410</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_af130b4bbc0466511d1efc74412d5ef3c"><div class="ttname"><a href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a></div><div class="ttdeci">#define ARENA_CHECK(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:158</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  385</span>{</div>
+<div class="line"><span class="lineno">  386</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__resize__internal.html#ga6abbceb590e3634b0832e8ae5a34f249">should_attempt_shrink</a>(arena))</div>
+<div class="line"><span class="lineno">  387</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  388</span> </div>
+<div class="line"><span class="lineno">  389</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  390</span>    <a class="code hl_define" href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a>(arena);</div>
+<div class="line"><span class="lineno">  391</span> </div>
+<div class="line"><span class="lineno">  392</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a> = arena-&gt;offset;</div>
+<div class="line"><span class="lineno">  393</span>    <span class="keyword">const</span> <span class="keywordtype">size_t</span> size = arena-&gt;size;</div>
+<div class="line"><span class="lineno">  394</span> </div>
+<div class="line"><span class="lineno">  395</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="group__arena__resize__internal.html#gae22777b5f27566fdb53247d3b34423cc">arena_should_maybe_shrink</a>(<a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a>, size))</div>
+<div class="line"><span class="lineno">  396</span>    {</div>
+<div class="line"><span class="lineno">  397</span>        <span class="keyword">const</span> <span class="keywordtype">size_t</span> target = <a class="code hl_function" href="group__arena__resize__internal.html#ga11682f2046cdc92c45cc6ac544a0576b">arena_shrink_target</a>(<a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a>);</div>
+<div class="line"><span class="lineno">  398</span> </div>
+<div class="line"><span class="lineno">  399</span>        <span class="keywordflow">if</span> (target &lt; size)</div>
+<div class="line"><span class="lineno">  400</span>        {</div>
+<div class="line"><span class="lineno">  401</span>            <a class="code hl_function" href="arena__resize_8c.html#ac09092abf5d001bd4ff11af16fed346d">arena_shrink</a>(arena, target);</div>
+<div class="line"><span class="lineno">  402</span>            <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  403</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  404</span>        }</div>
+<div class="line"><span class="lineno">  405</span>    }</div>
+<div class="line"><span class="lineno">  406</span> </div>
+<div class="line"><span class="lineno">  407</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  408</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  409</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_af130b4bbc0466511d1efc74412d5ef3c"><div class="ttname"><a href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a></div><div class="ttdeci">#define ARENA_CHECK(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:419</div></div>
 <div class="ttc" id="aarena__io_8h_html_ae8cc011bf3ee2d3c19743095ffc0f7a5"><div class="ttname"><a href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a></div><div class="ttdeci">size_t used</div><div class="ttdoc">Number of bytes used in the arena buffer.</div><div class="ttdef"><b>Definition</b> arena_io.h:2</div></div>
 <div class="ttc" id="aarena__resize_8c_html_ac09092abf5d001bd4ff11af16fed346d"><div class="ttname"><a href="arena__resize_8c.html#ac09092abf5d001bd4ff11af16fed346d">arena_shrink</a></div><div class="ttdeci">void arena_shrink(t_arena *arena, size_t new_size)</div><div class="ttdef"><b>Definition</b> arena_resize.c:267</div></div>
-<div class="ttc" id="agroup__arena__resize__internal_html_ga11682f2046cdc92c45cc6ac544a0576b"><div class="ttname"><a href="group__arena__resize__internal.html#ga11682f2046cdc92c45cc6ac544a0576b">arena_shrink_target</a></div><div class="ttdeci">static size_t arena_shrink_target(size_t used)</div><div class="ttdoc">Compute the target buffer size for a shrink operation.</div><div class="ttdef"><b>Definition</b> arena_resize.c:819</div></div>
-<div class="ttc" id="agroup__arena__resize__internal_html_ga6abbceb590e3634b0832e8ae5a34f249"><div class="ttname"><a href="group__arena__resize__internal.html#ga6abbceb590e3634b0832e8ae5a34f249">should_attempt_shrink</a></div><div class="ttdeci">static bool should_attempt_shrink(t_arena *arena)</div><div class="ttdoc">Determine whether the arena is eligible for dynamic shrinking.</div><div class="ttdef"><b>Definition</b> arena_resize.c:755</div></div>
-<div class="ttc" id="agroup__arena__resize__internal_html_gae22777b5f27566fdb53247d3b34423cc"><div class="ttname"><a href="group__arena__resize__internal.html#gae22777b5f27566fdb53247d3b34423cc">arena_should_maybe_shrink</a></div><div class="ttdeci">static bool arena_should_maybe_shrink(size_t used, size_t size)</div><div class="ttdoc">Decide whether the arena buffer should be shrunk based on usage ratio.</div><div class="ttdef"><b>Definition</b> arena_resize.c:788</div></div>
+<div class="ttc" id="agroup__arena__resize__internal_html_ga11682f2046cdc92c45cc6ac544a0576b"><div class="ttname"><a href="group__arena__resize__internal.html#ga11682f2046cdc92c45cc6ac544a0576b">arena_shrink_target</a></div><div class="ttdeci">static size_t arena_shrink_target(size_t used)</div><div class="ttdoc">Compute the target buffer size for a shrink operation.</div><div class="ttdef"><b>Definition</b> arena_resize.c:818</div></div>
+<div class="ttc" id="agroup__arena__resize__internal_html_ga6abbceb590e3634b0832e8ae5a34f249"><div class="ttname"><a href="group__arena__resize__internal.html#ga6abbceb590e3634b0832e8ae5a34f249">should_attempt_shrink</a></div><div class="ttdeci">static bool should_attempt_shrink(t_arena *arena)</div><div class="ttdoc">Determine whether the arena is eligible for dynamic shrinking.</div><div class="ttdef"><b>Definition</b> arena_resize.c:754</div></div>
+<div class="ttc" id="agroup__arena__resize__internal_html_gae22777b5f27566fdb53247d3b34423cc"><div class="ttname"><a href="group__arena__resize__internal.html#gae22777b5f27566fdb53247d3b34423cc">arena_should_maybe_shrink</a></div><div class="ttdeci">static bool arena_should_maybe_shrink(size_t used, size_t size)</div><div class="ttdoc">Decide whether the arena buffer should be shrunk based on usage ratio.</div><div class="ttdef"><b>Definition</b> arena_resize.c:787</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -345,8 +345,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  277</span>    (void) ok;</div>
 <div class="line"><span class="lineno">  278</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  279</span>}</div>
-<div class="ttc" id="agroup__arena__resize__internal_html_ga4857922d4fafe26b957397c9f6857f41"><div class="ttname"><a href="group__arena__resize__internal.html#ga4857922d4fafe26b957397c9f6857f41">arena_shrink_validate</a></div><div class="ttdeci">static bool arena_shrink_validate(t_arena *arena, size_t new_size)</div><div class="ttdoc">Validate whether an arena can be safely shrunk to a new size.</div><div class="ttdef"><b>Definition</b> arena_resize.c:681</div></div>
-<div class="ttc" id="agroup__arena__resize__internal_html_ga648ef2e28b422c3ea050e1a0c8d16f82"><div class="ttname"><a href="group__arena__resize__internal.html#ga648ef2e28b422c3ea050e1a0c8d16f82">arena_shrink_apply</a></div><div class="ttdeci">static bool arena_shrink_apply(t_arena *arena, size_t new_size)</div><div class="ttdoc">Apply the memory shrink operation to an arena's buffer.</div><div class="ttdef"><b>Definition</b> arena_resize.c:720</div></div>
+<div class="ttc" id="agroup__arena__resize__internal_html_ga4857922d4fafe26b957397c9f6857f41"><div class="ttname"><a href="group__arena__resize__internal.html#ga4857922d4fafe26b957397c9f6857f41">arena_shrink_validate</a></div><div class="ttdeci">static bool arena_shrink_validate(t_arena *arena, size_t new_size)</div><div class="ttdoc">Validate whether an arena can be safely shrunk to a new size.</div><div class="ttdef"><b>Definition</b> arena_resize.c:680</div></div>
+<div class="ttc" id="agroup__arena__resize__internal_html_ga648ef2e28b422c3ea050e1a0c8d16f82"><div class="ttname"><a href="group__arena__resize__internal.html#ga648ef2e28b422c3ea050e1a0c8d16f82">arena_shrink_apply</a></div><div class="ttdeci">static bool arena_shrink_apply(t_arena *arena, size_t new_size)</div><div class="ttdoc">Apply the memory shrink operation to an arena's buffer.</div><div class="ttdef"><b>Definition</b> arena_resize.c:719</div></div>
 </div><!-- fragment -->
 </div>
 </div>

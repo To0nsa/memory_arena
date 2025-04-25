@@ -381,7 +381,6 @@ void arena_shrink(t_arena* arena, size_t new_size)
  * }
  * @endcode
  */
-
 bool arena_might_shrink(t_arena* arena)
 {
 	if (!should_attempt_shrink(arena))

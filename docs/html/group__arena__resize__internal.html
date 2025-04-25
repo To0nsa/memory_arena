@@ -185,25 +185,25 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__resize_8c.html#ac09092abf5d001bd4ff11af16fed346d">arena_shrink</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a10">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  641</span>{</div>
-<div class="line"><span class="lineno">  642</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  643</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  644</span> </div>
-<div class="line"><span class="lineno">  645</span>    <span class="keywordtype">bool</span> owns = atomic_load_explicit(&amp;arena-&gt;owns_buffer, memory_order_acquire);</div>
-<div class="line"><span class="lineno">  646</span>    <span class="keywordtype">bool</span> grow = atomic_load_explicit(&amp;arena-&gt;can_grow, memory_order_acquire);</div>
-<div class="line"><span class="lineno">  647</span> </div>
-<div class="line"><span class="lineno">  648</span>    <span class="keywordflow">if</span> (!owns || !grow)</div>
-<div class="line"><span class="lineno">  649</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  650</span> </div>
-<div class="line"><span class="lineno">  651</span>    <span class="keywordflow">if</span> (new_size &lt; arena-&gt;offset)</div>
-<div class="line"><span class="lineno">  652</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  653</span> </div>
-<div class="line"><span class="lineno">  654</span>    <span class="keywordflow">if</span> (new_size == arena-&gt;offset)</div>
-<div class="line"><span class="lineno">  655</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  656</span> </div>
-<div class="line"><span class="lineno">  657</span>    <span class="keywordtype">double</span> shrink_ratio = (double) new_size / (<span class="keywordtype">double</span>) arena-&gt;size;</div>
-<div class="line"><span class="lineno">  658</span>    <span class="keywordflow">return</span> shrink_ratio &lt;= <a class="code hl_define" href="arena__config_8h.html#af980329701af53ca4e64074d249a43c3">ARENA_MIN_SHRINK_RATIO</a>;</div>
-<div class="line"><span class="lineno">  659</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  640</span>{</div>
+<div class="line"><span class="lineno">  641</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">  642</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  643</span> </div>
+<div class="line"><span class="lineno">  644</span>    <span class="keywordtype">bool</span> owns = atomic_load_explicit(&amp;arena-&gt;owns_buffer, memory_order_acquire);</div>
+<div class="line"><span class="lineno">  645</span>    <span class="keywordtype">bool</span> grow = atomic_load_explicit(&amp;arena-&gt;can_grow, memory_order_acquire);</div>
+<div class="line"><span class="lineno">  646</span> </div>
+<div class="line"><span class="lineno">  647</span>    <span class="keywordflow">if</span> (!owns || !grow)</div>
+<div class="line"><span class="lineno">  648</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  649</span> </div>
+<div class="line"><span class="lineno">  650</span>    <span class="keywordflow">if</span> (new_size &lt; arena-&gt;offset)</div>
+<div class="line"><span class="lineno">  651</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  652</span> </div>
+<div class="line"><span class="lineno">  653</span>    <span class="keywordflow">if</span> (new_size == arena-&gt;offset)</div>
+<div class="line"><span class="lineno">  654</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  655</span> </div>
+<div class="line"><span class="lineno">  656</span>    <span class="keywordtype">double</span> shrink_ratio = (double) new_size / (<span class="keywordtype">double</span>) arena-&gt;size;</div>
+<div class="line"><span class="lineno">  657</span>    <span class="keywordflow">return</span> shrink_ratio &lt;= <a class="code hl_define" href="arena__config_8h.html#af980329701af53ca4e64074d249a43c3">ARENA_MIN_SHRINK_RATIO</a>;</div>
+<div class="line"><span class="lineno">  658</span>}</div>
 <div class="ttc" id="aarena__config_8h_html_af980329701af53ca4e64074d249a43c3"><div class="ttname"><a href="arena__config_8h.html#af980329701af53ca4e64074d249a43c3">ARENA_MIN_SHRINK_RATIO</a></div><div class="ttdeci">#define ARENA_MIN_SHRINK_RATIO</div><div class="ttdoc">Shrink threshold: offset &lt; ratio * size.</div><div class="ttdef"><b>Definition</b> arena_config.h:16</div></div>
 </div><!-- fragment -->
 </div>
@@ -265,23 +265,23 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="arena_8h.html#abb1be1f36e6a52d5673bdd0e98cfb7f1">arena_grow_callback</a> </dd>
 <dd>
-<a class="el" href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de" title="Default growth policy callback for arena resizing.">default_grow_cb</a> </dd></dl>
+<a class="el" href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de" title="Default growth strategy for arenas that support dynamic resizing.">default_grow_cb</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a8">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  554</span>{</div>
-<div class="line"><span class="lineno">  555</span>    <a class="code hl_typedef" href="arena_8h.html#abb1be1f36e6a52d5673bdd0e98cfb7f1">arena_grow_callback</a> cb        = arena-&gt;grow_cb ? arena-&gt;grow_cb : <a class="code hl_function" href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a>;</div>
-<div class="line"><span class="lineno">  556</span>    <span class="keywordtype">size_t</span>              requested = arena-&gt;offset + required_size;</div>
-<div class="line"><span class="lineno">  557</span>    <span class="keywordtype">size_t</span>              new_size  = cb(arena-&gt;size, required_size);</div>
-<div class="line"><span class="lineno">  558</span> </div>
-<div class="line"><span class="lineno">  559</span>    <span class="keywordflow">if</span> (new_size &lt; requested)</div>
-<div class="line"><span class="lineno">  560</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  561</span>    <span class="keywordflow">if</span> (new_size &gt; SIZE_MAX)</div>
-<div class="line"><span class="lineno">  562</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  563</span> </div>
-<div class="line"><span class="lineno">  564</span>    <span class="keywordflow">return</span> new_size;</div>
-<div class="line"><span class="lineno">  565</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  553</span>{</div>
+<div class="line"><span class="lineno">  554</span>    <a class="code hl_typedef" href="arena_8h.html#abb1be1f36e6a52d5673bdd0e98cfb7f1">arena_grow_callback</a> cb        = arena-&gt;grow_cb ? arena-&gt;grow_cb : <a class="code hl_function" href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a>;</div>
+<div class="line"><span class="lineno">  555</span>    <span class="keywordtype">size_t</span>              requested = arena-&gt;offset + required_size;</div>
+<div class="line"><span class="lineno">  556</span>    <span class="keywordtype">size_t</span>              new_size  = cb(arena-&gt;size, required_size);</div>
+<div class="line"><span class="lineno">  557</span> </div>
+<div class="line"><span class="lineno">  558</span>    <span class="keywordflow">if</span> (new_size &lt; requested)</div>
+<div class="line"><span class="lineno">  559</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  560</span>    <span class="keywordflow">if</span> (new_size &gt; SIZE_MAX)</div>
+<div class="line"><span class="lineno">  561</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  562</span> </div>
+<div class="line"><span class="lineno">  563</span>    <span class="keywordflow">return</span> new_size;</div>
+<div class="line"><span class="lineno">  564</span>}</div>
 <div class="ttc" id="aarena_8h_html_abb1be1f36e6a52d5673bdd0e98cfb7f1"><div class="ttname"><a href="arena_8h.html#abb1be1f36e6a52d5673bdd0e98cfb7f1">arena_grow_callback</a></div><div class="ttdeci">size_t(* arena_grow_callback)(size_t current_size, size_t requested_size)</div><div class="ttdef"><b>Definition</b> arena.h:79</div></div>
-<div class="ttc" id="agroup__arena__internal_html_ga627d4fdc46e225dccde0388ae40d04de"><div class="ttname"><a href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a></div><div class="ttdeci">size_t default_grow_cb(size_t current_size, size_t requested_size)</div><div class="ttdoc">Default growth policy callback for arena resizing.</div><div class="ttdef"><b>Definition</b> arena_internal.c:78</div></div>
+<div class="ttc" id="agroup__arena__internal_html_ga627d4fdc46e225dccde0388ae40d04de"><div class="ttname"><a href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a></div><div class="ttdeci">size_t default_grow_cb(size_t current_size, size_t requested_size)</div><div class="ttdoc">Default growth strategy for arenas that support dynamic resizing.</div><div class="ttdef"><b>Definition</b> arena_internal.c:78</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -351,23 +351,23 @@ Functions</h2></td></tr>
 realloc </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a9">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  595</span>{</div>
-<div class="line"><span class="lineno">  596</span>    <span class="keywordtype">void</span>* new_buf = realloc(arena-&gt;buffer, new_size);</div>
-<div class="line"><span class="lineno">  597</span>    <span class="keywordflow">if</span> (!new_buf)</div>
-<div class="line"><span class="lineno">  598</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow failed: realloc failed&quot;</span>), <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  599</span> </div>
-<div class="line"><span class="lineno">  600</span>    arena-&gt;buffer = (uint8_t*) new_buf;</div>
-<div class="line"><span class="lineno">  601</span>    arena-&gt;size   = new_size;</div>
-<div class="line"><span class="lineno">  602</span>    arena-&gt;stats.reallocations++;</div>
-<div class="line"><span class="lineno">  603</span> </div>
-<div class="line"><span class="lineno">  604</span>    <a class="code hl_function" href="group__arena__resize__internal.html#gad63a48e38ca9296f79b12d8dee576fda">arena_record_growth</a>(arena, old_size);</div>
-<div class="line"><span class="lineno">  605</span> </div>
-<div class="line"><span class="lineno">  606</span>    <a class="code hl_define" href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a>(<span class="stringliteral">&quot;[arena_grow] Arena %p grown from %zu to %zu bytes\n&quot;</span>, (<span class="keywordtype">void</span>*) arena, old_size, new_size);</div>
-<div class="line"><span class="lineno">  607</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  608</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_abf0e7a681c28a08824cb678ec3f9a6c6"><div class="ttname"><a href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a></div><div class="ttdeci">#define ALOG(...)</div><div class="ttdoc">Debug logging macro (enabled only if ARENA_DEBUG_LOG is set).</div><div class="ttdef"><b>Definition</b> arena_debug.h:173</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
-<div class="ttc" id="agroup__arena__resize__internal_html_gad63a48e38ca9296f79b12d8dee576fda"><div class="ttname"><a href="group__arena__resize__internal.html#gad63a48e38ca9296f79b12d8dee576fda">arena_record_growth</a></div><div class="ttdeci">static void arena_record_growth(t_arena *arena, size_t old_size)</div><div class="ttdoc">Record the previous size of the arena in the growth history.</div><div class="ttdef"><b>Definition</b> arena_resize.c:473</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  594</span>{</div>
+<div class="line"><span class="lineno">  595</span>    <span class="keywordtype">void</span>* new_buf = realloc(arena-&gt;buffer, new_size);</div>
+<div class="line"><span class="lineno">  596</span>    <span class="keywordflow">if</span> (!new_buf)</div>
+<div class="line"><span class="lineno">  597</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow failed: realloc failed&quot;</span>), <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  598</span> </div>
+<div class="line"><span class="lineno">  599</span>    arena-&gt;buffer = (uint8_t*) new_buf;</div>
+<div class="line"><span class="lineno">  600</span>    arena-&gt;size   = new_size;</div>
+<div class="line"><span class="lineno">  601</span>    arena-&gt;stats.reallocations++;</div>
+<div class="line"><span class="lineno">  602</span> </div>
+<div class="line"><span class="lineno">  603</span>    <a class="code hl_function" href="group__arena__resize__internal.html#gad63a48e38ca9296f79b12d8dee576fda">arena_record_growth</a>(arena, old_size);</div>
+<div class="line"><span class="lineno">  604</span> </div>
+<div class="line"><span class="lineno">  605</span>    <a class="code hl_define" href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a>(<span class="stringliteral">&quot;[arena_grow] Arena %p grown from %zu to %zu bytes\n&quot;</span>, (<span class="keywordtype">void</span>*) arena, old_size, new_size);</div>
+<div class="line"><span class="lineno">  606</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  607</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_abf0e7a681c28a08824cb678ec3f9a6c6"><div class="ttname"><a href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a></div><div class="ttdeci">#define ALOG(...)</div><div class="ttdoc">Debug logging macro (enabled only if ARENA_DEBUG_LOG is set).</div><div class="ttdef"><b>Definition</b> arena_debug.h:434</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+<div class="ttc" id="agroup__arena__resize__internal_html_gad63a48e38ca9296f79b12d8dee576fda"><div class="ttname"><a href="group__arena__resize__internal.html#gad63a48e38ca9296f79b12d8dee576fda">arena_record_growth</a></div><div class="ttdeci">static void arena_record_growth(t_arena *arena, size_t old_size)</div><div class="ttdoc">Record the previous size of the arena in the growth history.</div><div class="ttdef"><b>Definition</b> arena_resize.c:472</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -414,7 +414,7 @@ realloc </dd></dl>
 <li>That the arena owns its buffer (<code>owns_buffer == true</code>).</li>
 <li>That the requested growth does not overflow <code>size_t</code> when added to the current offset.</li>
 </ul>
-<p>If any condition fails, an error is reported using <code><a class="el" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d" title="Report an error from an arena using its configured error callback.">arena_report_error()</a></code> and the function returns <code>false</code>.</p>
+<p>If any condition fails, an error is reported using <code><a class="el" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error()</a></code> and the function returns <code>false</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">arena</td><td>Pointer to the arena to validate. </td></tr>
@@ -429,16 +429,16 @@ realloc </dd></dl>
 <a class="el" href="group__arena__resize__internal.html#ga29d65ae92e063e9ae4b37940fe3c0963" title="Check whether the arena is allowed to grow.">arena_should_grow</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a7">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  514</span>{</div>
-<div class="line"><span class="lineno">  515</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__resize__internal.html#ga29d65ae92e063e9ae4b37940fe3c0963">arena_should_grow</a>(arena))</div>
-<div class="line"><span class="lineno">  516</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow failed: growth not allowed&quot;</span>), <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  517</span> </div>
-<div class="line"><span class="lineno">  518</span>    <span class="keywordflow">if</span> (required_size &gt; SIZE_MAX - arena-&gt;offset)</div>
-<div class="line"><span class="lineno">  519</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow failed: size overflow&quot;</span>), <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  520</span> </div>
-<div class="line"><span class="lineno">  521</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  522</span>}</div>
-<div class="ttc" id="agroup__arena__resize__internal_html_ga29d65ae92e063e9ae4b37940fe3c0963"><div class="ttname"><a href="group__arena__resize__internal.html#ga29d65ae92e063e9ae4b37940fe3c0963">arena_should_grow</a></div><div class="ttdeci">static bool arena_should_grow(const t_arena *arena)</div><div class="ttdoc">Check whether the arena is allowed to grow.</div><div class="ttdef"><b>Definition</b> arena_resize.c:441</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  513</span>{</div>
+<div class="line"><span class="lineno">  514</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__resize__internal.html#ga29d65ae92e063e9ae4b37940fe3c0963">arena_should_grow</a>(arena))</div>
+<div class="line"><span class="lineno">  515</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow failed: growth not allowed&quot;</span>), <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  516</span> </div>
+<div class="line"><span class="lineno">  517</span>    <span class="keywordflow">if</span> (required_size &gt; SIZE_MAX - arena-&gt;offset)</div>
+<div class="line"><span class="lineno">  518</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_grow failed: size overflow&quot;</span>), <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  519</span> </div>
+<div class="line"><span class="lineno">  520</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  521</span>}</div>
+<div class="ttc" id="agroup__arena__resize__internal_html_ga29d65ae92e063e9ae4b37940fe3c0963"><div class="ttname"><a href="group__arena__resize__internal.html#ga29d65ae92e063e9ae4b37940fe3c0963">arena_should_grow</a></div><div class="ttdeci">static bool arena_should_grow(const t_arena *arena)</div><div class="ttdoc">Check whether the arena is allowed to grow.</div><div class="ttdef"><b>Definition</b> arena_resize.c:440</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -492,14 +492,14 @@ realloc </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__resize_8c.html#a223081ace38b33a46cc1ed0eaadf867f">arena_grow</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a6">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  474</span>{</div>
-<div class="line"><span class="lineno">  475</span>    <span class="keywordtype">size_t</span>* temp = realloc(arena-&gt;stats.growth_history, <span class="keyword">sizeof</span>(<span class="keywordtype">size_t</span>) * (arena-&gt;stats.growth_history_count + 1));</div>
-<div class="line"><span class="lineno">  476</span>    <span class="keywordflow">if</span> (temp)</div>
-<div class="line"><span class="lineno">  477</span>    {</div>
-<div class="line"><span class="lineno">  478</span>        arena-&gt;stats.growth_history                                      = temp;</div>
-<div class="line"><span class="lineno">  479</span>        arena-&gt;stats.growth_history[arena-&gt;stats.growth_history_count++] = old_size;</div>
-<div class="line"><span class="lineno">  480</span>    }</div>
-<div class="line"><span class="lineno">  481</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  473</span>{</div>
+<div class="line"><span class="lineno">  474</span>    <span class="keywordtype">size_t</span>* temp = realloc(arena-&gt;stats.growth_history, <span class="keyword">sizeof</span>(<span class="keywordtype">size_t</span>) * (arena-&gt;stats.growth_history_count + 1));</div>
+<div class="line"><span class="lineno">  475</span>    <span class="keywordflow">if</span> (temp)</div>
+<div class="line"><span class="lineno">  476</span>    {</div>
+<div class="line"><span class="lineno">  477</span>        arena-&gt;stats.growth_history                                      = temp;</div>
+<div class="line"><span class="lineno">  478</span>        arena-&gt;stats.growth_history[arena-&gt;stats.growth_history_count++] = old_size;</div>
+<div class="line"><span class="lineno">  479</span>    }</div>
+<div class="line"><span class="lineno">  480</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -546,11 +546,11 @@ realloc </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__resize_8c.html#a223081ace38b33a46cc1ed0eaadf867f">arena_grow</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a5">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  442</span>{</div>
-<div class="line"><span class="lineno">  443</span>    <span class="keywordtype">bool</span> owns = atomic_load_explicit(&amp;arena-&gt;owns_buffer, memory_order_acquire);</div>
-<div class="line"><span class="lineno">  444</span>    <span class="keywordtype">bool</span> grow = atomic_load_explicit(&amp;arena-&gt;can_grow, memory_order_acquire);</div>
-<div class="line"><span class="lineno">  445</span>    <span class="keywordflow">return</span> owns &amp;&amp; grow;</div>
-<div class="line"><span class="lineno">  446</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  441</span>{</div>
+<div class="line"><span class="lineno">  442</span>    <span class="keywordtype">bool</span> owns = atomic_load_explicit(&amp;arena-&gt;owns_buffer, memory_order_acquire);</div>
+<div class="line"><span class="lineno">  443</span>    <span class="keywordtype">bool</span> grow = atomic_load_explicit(&amp;arena-&gt;can_grow, memory_order_acquire);</div>
+<div class="line"><span class="lineno">  444</span>    <span class="keywordflow">return</span> owns &amp;&amp; grow;</div>
+<div class="line"><span class="lineno">  445</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -608,13 +608,13 @@ realloc </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__resize_8c.html#a43195b93eadf7cbd1155836c887ac54d">arena_might_shrink</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a14">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  789</span>{</div>
-<div class="line"><span class="lineno">  790</span>    <span class="keywordflow">if</span> (size == 0)</div>
-<div class="line"><span class="lineno">  791</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  792</span> </div>
-<div class="line"><span class="lineno">  793</span>    <span class="keywordtype">double</span> ratio = (double) <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a> / (<span class="keywordtype">double</span>) size;</div>
-<div class="line"><span class="lineno">  794</span>    <span class="keywordflow">return</span> ratio &lt; <a class="code hl_define" href="arena__config_8h.html#af980329701af53ca4e64074d249a43c3">ARENA_MIN_SHRINK_RATIO</a>;</div>
-<div class="line"><span class="lineno">  795</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  788</span>{</div>
+<div class="line"><span class="lineno">  789</span>    <span class="keywordflow">if</span> (size == 0)</div>
+<div class="line"><span class="lineno">  790</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  791</span> </div>
+<div class="line"><span class="lineno">  792</span>    <span class="keywordtype">double</span> ratio = (double) <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a> / (<span class="keywordtype">double</span>) size;</div>
+<div class="line"><span class="lineno">  793</span>    <span class="keywordflow">return</span> ratio &lt; <a class="code hl_define" href="arena__config_8h.html#af980329701af53ca4e64074d249a43c3">ARENA_MIN_SHRINK_RATIO</a>;</div>
+<div class="line"><span class="lineno">  794</span>}</div>
 <div class="ttc" id="aarena__io_8h_html_ae8cc011bf3ee2d3c19743095ffc0f7a5"><div class="ttname"><a href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a></div><div class="ttdeci">size_t used</div><div class="ttdoc">Number of bytes used in the arena buffer.</div><div class="ttdef"><b>Definition</b> arena_io.h:2</div></div>
 </div><!-- fragment -->
 </div>
@@ -677,18 +677,18 @@ realloc </dd></dl>
 <a class="el" href="arena__resize_8c.html#ac09092abf5d001bd4ff11af16fed346d">arena_shrink</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a12">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  721</span>{</div>
-<div class="line"><span class="lineno">  722</span>    <span class="keywordtype">void</span>* new_buf = realloc(arena-&gt;buffer, new_size);</div>
-<div class="line"><span class="lineno">  723</span>    <span class="keywordflow">if</span> (!new_buf)</div>
-<div class="line"><span class="lineno">  724</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  725</span> </div>
-<div class="line"><span class="lineno">  726</span>    arena-&gt;buffer = (uint8_t*) new_buf;</div>
-<div class="line"><span class="lineno">  727</span>    arena-&gt;size   = new_size;</div>
-<div class="line"><span class="lineno">  728</span>    arena-&gt;stats.shrinks++;</div>
-<div class="line"><span class="lineno">  729</span> </div>
-<div class="line"><span class="lineno">  730</span>    <a class="code hl_define" href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a>(<span class="stringliteral">&quot;[arena_shrink] Arena %p shrunk to %zu bytes\n&quot;</span>, (<span class="keywordtype">void</span>*) arena, new_size);</div>
-<div class="line"><span class="lineno">  731</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  732</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  720</span>{</div>
+<div class="line"><span class="lineno">  721</span>    <span class="keywordtype">void</span>* new_buf = realloc(arena-&gt;buffer, new_size);</div>
+<div class="line"><span class="lineno">  722</span>    <span class="keywordflow">if</span> (!new_buf)</div>
+<div class="line"><span class="lineno">  723</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  724</span> </div>
+<div class="line"><span class="lineno">  725</span>    arena-&gt;buffer = (uint8_t*) new_buf;</div>
+<div class="line"><span class="lineno">  726</span>    arena-&gt;size   = new_size;</div>
+<div class="line"><span class="lineno">  727</span>    arena-&gt;stats.shrinks++;</div>
+<div class="line"><span class="lineno">  728</span> </div>
+<div class="line"><span class="lineno">  729</span>    <a class="code hl_define" href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a>(<span class="stringliteral">&quot;[arena_shrink] Arena %p shrunk to %zu bytes\n&quot;</span>, (<span class="keywordtype">void</span>*) arena, new_size);</div>
+<div class="line"><span class="lineno">  730</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  731</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -733,9 +733,9 @@ realloc </dd></dl>
 <a class="el" href="arena__resize_8c.html#ac09092abf5d001bd4ff11af16fed346d">arena_shrink</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a16">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  820</span>{</div>
-<div class="line"><span class="lineno">  821</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a> + <a class="code hl_define" href="arena__config_8h.html#aced1b6e804e7cc6cdcc93894dcee11ee">ARENA_SHRINK_PADDING</a>;</div>
-<div class="line"><span class="lineno">  822</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  819</span>{</div>
+<div class="line"><span class="lineno">  820</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a> + <a class="code hl_define" href="arena__config_8h.html#aced1b6e804e7cc6cdcc93894dcee11ee">ARENA_SHRINK_PADDING</a>;</div>
+<div class="line"><span class="lineno">  821</span>}</div>
 <div class="ttc" id="aarena__config_8h_html_aced1b6e804e7cc6cdcc93894dcee11ee"><div class="ttname"><a href="arena__config_8h.html#aced1b6e804e7cc6cdcc93894dcee11ee">ARENA_SHRINK_PADDING</a></div><div class="ttdeci">#define ARENA_SHRINK_PADDING</div><div class="ttdoc">Extra padding when computing shrink sizes.</div><div class="ttdef"><b>Definition</b> arena_config.h:21</div></div>
 </div><!-- fragment -->
 </div>
@@ -791,16 +791,16 @@ realloc </dd></dl>
 <a class="el" href="arena__resize_8c.html#ac09092abf5d001bd4ff11af16fed346d">arena_shrink</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a11">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  682</span>{</div>
-<div class="line"><span class="lineno">  683</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  684</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  685</span> </div>
-<div class="line"><span class="lineno">  686</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__resize__internal.html#ga770aa7d0f606aecdb9c6858d6d04bc6e">arena_can_shrink</a>(arena, new_size))</div>
-<div class="line"><span class="lineno">  687</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  688</span> </div>
-<div class="line"><span class="lineno">  689</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  690</span>}</div>
-<div class="ttc" id="agroup__arena__resize__internal_html_ga770aa7d0f606aecdb9c6858d6d04bc6e"><div class="ttname"><a href="group__arena__resize__internal.html#ga770aa7d0f606aecdb9c6858d6d04bc6e">arena_can_shrink</a></div><div class="ttdeci">static bool arena_can_shrink(t_arena *arena, size_t new_size)</div><div class="ttdoc">Determine whether the arena is eligible for shrinking to a smaller size.</div><div class="ttdef"><b>Definition</b> arena_resize.c:640</div></div>
+<div class="fragment"><div class="line"><span class="lineno">  681</span>{</div>
+<div class="line"><span class="lineno">  682</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">  683</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  684</span> </div>
+<div class="line"><span class="lineno">  685</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__resize__internal.html#ga770aa7d0f606aecdb9c6858d6d04bc6e">arena_can_shrink</a>(arena, new_size))</div>
+<div class="line"><span class="lineno">  686</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  687</span> </div>
+<div class="line"><span class="lineno">  688</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  689</span>}</div>
+<div class="ttc" id="agroup__arena__resize__internal_html_ga770aa7d0f606aecdb9c6858d6d04bc6e"><div class="ttname"><a href="group__arena__resize__internal.html#ga770aa7d0f606aecdb9c6858d6d04bc6e">arena_can_shrink</a></div><div class="ttdeci">static bool arena_can_shrink(t_arena *arena, size_t new_size)</div><div class="ttdoc">Determine whether the arena is eligible for shrinking to a smaller size.</div><div class="ttdef"><b>Definition</b> arena_resize.c:639</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -846,12 +846,12 @@ realloc </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__resize_8c.html#a43195b93eadf7cbd1155836c887ac54d">arena_might_shrink</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_resize_8c-example.html#a13">/home/toonsa/myProjects/memoryArena/srcs/core/arena_resize.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  756</span>{</div>
-<div class="line"><span class="lineno">  757</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  758</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  759</span> </div>
-<div class="line"><span class="lineno">  760</span>    <span class="keywordflow">return</span> atomic_load_explicit(&amp;arena-&gt;can_grow, memory_order_acquire);</div>
-<div class="line"><span class="lineno">  761</span>}</div>
+<div class="fragment"><div class="line"><span class="lineno">  755</span>{</div>
+<div class="line"><span class="lineno">  756</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">  757</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  758</span> </div>
+<div class="line"><span class="lineno">  759</span>    <span class="keywordflow">return</span> atomic_load_explicit(&amp;arena-&gt;can_grow, memory_order_acquire);</div>
+<div class="line"><span class="lineno">  760</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>

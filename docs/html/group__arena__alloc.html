@@ -97,7 +97,7 @@ Files</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga049a09c0c438a1e77064022a9c26fd46" id="r_ga049a09c0c438a1e77064022a9c26fd46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46">arena_set_allocation_hook</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, <a class="el" href="arena__hooks_8h.html#af00a46507125773d89254554a8eedc74">arena_allocation_hook</a> cb, void *context)</td></tr>
-<tr class="memdesc:ga049a09c0c438a1e77064022a9c26fd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set or remove an allocation hook on a given arena.  <br /></td></tr>
+<tr class="memdesc:ga049a09c0c438a1e77064022a9c26fd46"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set a custom allocation hook for the given arena.  <br /></td></tr>
 <tr class="separator:ga049a09c0c438a1e77064022a9c26fd46"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -137,21 +137,7 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__hooks_8h.html">arena_hooks.h</a>&gt;</code></p>
 
-<p>Set or remove an allocation hook on a given arena. </p>
-<p>Set a custom allocation hook for the given arena.</p>
-<p>This function installs a callback that will be invoked after each successful allocation (including realloc and calloc) within the specified arena.</p>
-<p>If <code>cb</code> is <code>NULL</code>, any previously installed hook is removed.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arena</td><td>Pointer to the target arena. </td></tr>
-    <tr><td class="paramname">cb</td><td>Hook callback function (or <code>NULL</code> to disable). </td></tr>
-    <tr><td class="paramname">context</td><td>Optional user-defined context passed to the hook.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Do not perform allocations from the same arena within the hook itself. Doing so can cause recursion or deadlocks.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__hooks_8h.html#af00a46507125773d89254554a8eedc74" title="Allocation hook callback type.">arena_allocation_hook</a></dd></dl>
+<p>Set a custom allocation hook for the given arena. </p>
 <p>This function installs a user-defined allocation hook on the specified arena. The hook is a callback function that will be invoked after each successful memory allocation (<code>arena_alloc</code>, <code>arena_calloc</code>, <code>arena_realloc_last</code>), allowing custom instrumentation, logging, debugging, or tracking.</p>
 <p>The hook receives detailed metadata for each allocation, including:</p><ul>
 <li>The arena pointer.</li>
@@ -183,7 +169,7 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  164</span>{</div>
 <div class="line"><span class="lineno">  165</span>    <span class="keywordflow">if</span> (!arena)</div>
 <div class="line"><span class="lineno">  166</span>    {</div>
-<div class="line"><span class="lineno">  167</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_set_allocation_hook failed: NULL arena&quot;</span>);</div>
+<div class="line"><span class="lineno">  167</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_set_allocation_hook failed: NULL arena&quot;</span>);</div>
 <div class="line"><span class="lineno">  168</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">  169</span>    }</div>
 <div class="line"><span class="lineno">  170</span> </div>
@@ -192,9 +178,9 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  173</span>    arena-&gt;hooks.context = context;</div>
 <div class="line"><span class="lineno">  174</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
 <div class="line"><span class="lineno">  175</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> arena_internal.h:62</div></div>
 <div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> arena_internal.h:61</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 </div><!-- fragment -->
 </div>
 </div>

@@ -72,27 +72,43 @@ extern "C"
 
 	/**
 	 * @brief
-	 * Set or remove an allocation hook on a given arena.
+	 * Set a custom allocation hook for the given arena.
 	 *
 	 * @details
-	 * This function installs a callback that will be invoked after each
-	 * successful allocation (including realloc and calloc) within the specified arena.
+	 * This function installs a user-defined allocation hook on the specified arena.
+	 * The hook is a callback function that will be invoked after each successful
+	 * memory allocation (`arena_alloc`, `arena_calloc`, `arena_realloc_last`), allowing
+	 * custom instrumentation, logging, debugging, or tracking.
 	 *
-	 * If `cb` is `NULL`, any previously installed hook is removed.
+	 * The hook receives detailed metadata for each allocation, including:
+	 * - The arena pointer.
+	 * - A unique allocation ID.
+	 * - The pointer to the allocated memory.
+	 * - The size and offset of the allocation.
+	 * - The number of alignment/wasted bytes.
+	 * - An optional user-defined label (may be `NULL`).
 	 *
-	 * @param arena   Pointer to the target arena.
-	 * @param cb      Hook callback function (or `NULL` to disable).
-	 * @param context Optional user-defined context passed to the hook.
+	 * If `cb` is `NULL`, the current hook will be removed and no further
+	 * allocation events will be triggered.
+	 *
+	 * @param arena   Pointer to the arena to attach the hook to.
+	 * @param cb      Hook callback function, or `NULL` to disable.
+	 * @param context Optional user data or context to associate with the hook (not used internally).
 	 *
 	 * @return void
 	 *
 	 * @ingroup arena_alloc
 	 *
+	 * @note
+	 * Hooks are invoked inside the `arena_alloc_internal()` implementation.
+	 * If thread safety is enabled, this function acquires the arena lock to modify internal state.
+	 *
 	 * @warning
-	 * Do not perform allocations from the same arena within the hook itself.
-	 * Doing so can cause recursion or deadlocks.
+	 * Hooks should not perform allocations from the same arena to avoid recursion or deadlocks.
 	 *
 	 * @see arena_allocation_hook
+	 * @see arena_alloc
+	 * @see arena_hooks.h
 	 */
 	void arena_set_allocation_hook(t_arena* arena, arena_allocation_hook cb, void* context);
 

@@ -143,10 +143,8 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:abf8617fba731d0f3cd2421ccaca9206b" id="r_abf8617fba731d0f3cd2421ccaca9206b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__io_8c.html#abf8617fba731d0f3cd2421ccaca9206b">arena_load_from_file</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, const char *path)</td></tr>
-<tr class="memdesc:abf8617fba731d0f3cd2421ccaca9206b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Load arena contents from a snapshot file.  <br /></td></tr>
 <tr class="separator:abf8617fba731d0f3cd2421ccaca9206b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a301654434865dfe084792622514c0af3" id="r_a301654434865dfe084792622514c0af3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__io_8c.html#a301654434865dfe084792622514c0af3">arena_save_to_file</a> (const <a class="el" href="structt__arena.html">t_arena</a> *arena, const char *path)</td></tr>
-<tr class="memdesc:a301654434865dfe084792622514c0af3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save the current contents of an arena to a file.  <br /></td></tr>
 <tr class="separator:a301654434865dfe084792622514c0af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -155,8 +153,8 @@ Functions</h2></td></tr>
 <dl class="section date"><dt>Date</dt><dd>2025</dd></dl>
 <p>This file provides I/O utilities for saving and loading arena memory snapshots to and from binary files. It enables serialization of the arena's buffer content for persistence or debugging purposes.</p>
 <p>Functions included:</p><ul>
-<li><code><a class="el" href="arena__io_8c.html#a301654434865dfe084792622514c0af3" title="Save the current contents of an arena to a file.">arena_save_to_file()</a></code>: Save the current contents of an arena to a <code>.bin</code> file.</li>
-<li><code><a class="el" href="arena__io_8c.html#abf8617fba731d0f3cd2421ccaca9206b" title="Load arena contents from a snapshot file.">arena_load_from_file()</a></code>: Load previously saved contents into an arena buffer.</li>
+<li><code><a class="el" href="arena__io_8c.html#a301654434865dfe084792622514c0af3">arena_save_to_file()</a></code>: Save the current contents of an arena to a <code>.bin</code> file.</li>
+<li><code><a class="el" href="arena__io_8c.html#abf8617fba731d0f3cd2421ccaca9206b">arena_load_from_file()</a></code>: Load previously saved contents into an arena buffer.</li>
 </ul>
 <p>Features:</p><ul>
 <li>Snapshot format includes a magic header and version check.</li>
@@ -195,18 +193,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Load arena contents from a snapshot file. </p>
-<p>This function reads a snapshot file created with <code><a class="el" href="arena__io_8h.html#a301654434865dfe084792622514c0af3" title="Save the current contents of an arena to a file.">arena_save_to_file()</a></code> and writes the contents into the provided arena buffer.</p>
-<p>The arena must have been initialized with a buffer large enough to hold the restored data. The arena's internal offset will be updated accordingly.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arena</td><td>Pointer to the arena to restore. </td></tr>
-    <tr><td class="paramname">path</td><td>Path to the snapshot file. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> on success, <code>false</code> on failure. </dd></dl>
 <div class="fragment"><div class="line"><span class="lineno">  256</span>{</div>
 <div class="line"><span class="lineno">  257</span>    <span class="keywordflow">if</span> (!arena || !path)</div>
 <div class="line"><span class="lineno">  258</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
@@ -259,17 +245,6 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Save the current contents of an arena to a file. </p>
-<p>This function writes a snapshot of the arena to the specified file path. The snapshot includes a header and all memory up to <code>arena-&gt;offset</code>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arena</td><td>Pointer to the arena to save. </td></tr>
-    <tr><td class="paramname">path</td><td>Path to the output file. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> on success, <code>false</code> on failure. </dd></dl>
 <div class="fragment"><div class="line"><span class="lineno">  162</span>{</div>
 <div class="line"><span class="lineno">  163</span>    <span class="keywordflow">if</span> (!arena || !path)</div>
 <div class="line"><span class="lineno">  164</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>

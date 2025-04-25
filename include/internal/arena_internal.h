@@ -68,51 +68,133 @@ extern "C"
 
 	/**
 	 * @brief
-	 * Check whether the given arena is in a valid, initialized state.
+	 * Check whether an arena is in a valid state.
 	 *
-	 * @param arena Pointer to the arena to check.
+	 * @details
+	 * This function verifies the structural integrity of a `t_arena` instance.
+	 * It ensures:
+	 * - The arena pointer is not `NULL`.
+	 * - The buffer pointer is initialized.
+	 * - The size is non-zero and the current offset does not exceed the size.
+	 *
+	 * This is useful for defensive checks before performing operations on an arena.
+	 *
+	 * @param arena Pointer to the arena to validate.
+	 *
 	 * @return `true` if the arena is valid, `false` otherwise.
 	 *
 	 * @ingroup arena_internal
+	 *
+	 * @note
+	 * This function does not verify internal metadata such as mutex state or hooks.
+	 *
+	 * @see arena_init
 	 */
 	bool arena_is_valid(const t_arena* arena);
 
 	/**
 	 * @brief
-	 * Default growth policy callback for arena resizing.
+	 * Default growth strategy for arenas that support dynamic resizing.
 	 *
 	 * @details
-	 * Computes the next size for an arena that needs to grow.
-	 * The result is typically a geometric increase (e.g., 2x rule),
-	 * optionally adjusted to accommodate the requested size.
+	 * This function computes a new arena size when a memory allocation
+	 * request exceeds the current capacity. The growth strategy works as follows:
 	 *
-	 * @param current_size    The current buffer size of the arena.
-	 * @param requested_size  The size that triggered the growth.
-	 * @return A new size value suitable for reallocation.
+	 * - If the current size is 0, it starts with a base size of 64 bytes.
+	 * - It ensures no overflow occurs when adding `current_size + requested_size`.
+	 * - It then doubles the size repeatedly until the new size is sufficient
+	 *   to satisfy the allocation.
+	 * - If doubling is not enough (due to near `SIZE_MAX`), it falls back
+	 *   to a minimal sufficient size.
+	 *
+	 * This strategy offers exponential growth (geometric progression)
+	 * to minimize reallocations and fragmentation.
+	 *
+	 * @param current_size     Current size of the arena in bytes.
+	 * @param requested_size   Additional memory needed for the new allocation.
+	 *
+	 * @return The new size in bytes, large enough to accommodate the request.
+	 *         Returns `SIZE_MAX` on overflow.
 	 *
 	 * @ingroup arena_internal
+	 *
+	 * @note
+	 * You can override this behavior by assigning a custom function to `arena->grow_cb`.
+	 * For example, use a fixed increment strategy instead of exponential growth
+	 * if your use case favors more predictable memory sizing or tighter control over memory usage:
+	 *
+	 * @code
+	 * arena->grow_cb = [](size_t current, size_t required) {
+	 *     return current + required + 128; // Fixed buffer with 128-byte padding
+	 * };
+	 * @endcode
+	 *
+	 * Reasons to use a custom strategy:
+	 * - You are working in a memory-constrained environment (e.g., embedded systems).
+	 * - You want deterministic memory usage patterns.
+	 * - You have prior knowledge of allocation patterns and want to tune growth granularity.
+	 *
+	 * @see arena_grow
+	 * @see arena_init_with_buffer
 	 */
 	size_t default_grow_cb(size_t current_size, size_t requested_size);
 
 	/**
 	 * @brief
-	 * Update the arena’s peak memory usage if the current usage exceeds it.
+	 * Update the peak usage metric of the arena.
 	 *
-	 * @param arena Pointer to the arena to update.
-	 * @return void
+	 * @details
+	 * This internal function updates the `peak_usage` statistic in the arena
+	 * if the current offset exceeds the previously recorded peak. This metric
+	 * reflects the highest memory usage observed since the arena was initialized
+	 * or last reset.
+	 *
+	 * It uses locking to ensure thread-safe updates in concurrent environments.
+	 *
+	 * @param arena Pointer to the arena whose peak usage should be updated.
 	 *
 	 * @ingroup arena_internal
+	 *
+	 * @note
+	 * This function is typically called after a successful allocation or reallocation.
+	 *
+	 * @see arena_commit_allocation
+	 * @see update_realloc_stats
 	 */
 	void arena_update_peak(t_arena* arena);
 
 	/**
 	 * @brief
-	 * Zero out and reset all debug/stats metadata associated with the arena.
+	 * Reset all metadata fields in an arena to their default values.
 	 *
-	 * @param arena Pointer to the arena to zero.
-	 * @return void
+	 * @details
+	 * This function clears all metadata inside a `t_arena` structure, preparing
+	 * it for safe reinitialization. It does **not** free or allocate memory,
+	 * but resets all fields related to memory layout, statistics, growth policies,
+	 * debugging, and hooks.
+	 *
+	 * Specifically, it:
+	 * - Sets the buffer pointer, size, and offset to zero.
+	 * - Resets ownership and growth flags atomically.
+	 * - Clears growth callback and parent references.
+	 * - Resets all statistical counters via `arena_stats_reset()`.
+	 * - Clears debug fields including ID, label, and error context.
+	 * - Resets hook-related pointers.
+	 *
+	 * Use this when:
+	 * - Preparing an arena for reuse.
+	 * - Initializing a static or pre-allocated arena.
+	 *
+	 * @param arena Pointer to the `t_arena` structure to reset.
 	 *
 	 * @ingroup arena_internal
+	 *
+	 * @note
+	 * This does **not** destroy any allocated memory. It should typically be
+	 * called before initializing the arena with a new or reused buffer.
+	 *
+	 * @see arena_stats_reset
+	 * @see arena_init_with_buffer
 	 */
 	void arena_zero_metadata(t_arena* arena);
 

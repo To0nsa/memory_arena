@@ -144,7 +144,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:ga9b703d033342ea54cf18d08eac74d5b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the mutex used for thread-safe arena operations.  <br /></td></tr>
 <tr class="separator:ga9b703d033342ea54cf18d08eac74d5b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga621d65813296246955027fa3f7f05838" id="r_ga621d65813296246955027fa3f7f05838"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga621d65813296246955027fa3f7f05838">arena_is_valid</a> (const <a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
-<tr class="memdesc:ga621d65813296246955027fa3f7f05838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the given arena is in a valid, initialized state.  <br /></td></tr>
+<tr class="memdesc:ga621d65813296246955027fa3f7f05838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether an arena is in a valid state.  <br /></td></tr>
 <tr class="separator:ga621d65813296246955027fa3f7f05838"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2d9a7cc2eb2dd849843b312892303c71" id="r_ga2d9a7cc2eb2dd849843b312892303c71"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga2d9a7cc2eb2dd849843b312892303c71">arena_log_and_teardown</a> (<a class="el" href="structt__arena.html">t_arena</a> **arena, const char *msg)</td></tr>
 <tr class="memdesc:ga2d9a7cc2eb2dd849843b312892303c71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Report an error, destroy the arena, and free its memory.  <br /></td></tr>
@@ -164,17 +164,14 @@ Functions</h2></td></tr>
 <tr class="memitem:ga1d3f6bfa8145e31ab67a0cf9bce5f222" id="r_ga1d3f6bfa8145e31ab67a0cf9bce5f222"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga1d3f6bfa8145e31ab67a0cf9bce5f222">arena_set_user_buffer</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, void *buffer, size_t size)</td></tr>
 <tr class="memdesc:ga1d3f6bfa8145e31ab67a0cf9bce5f222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assign a user-provided buffer to an arena without taking ownership.  <br /></td></tr>
 <tr class="separator:ga1d3f6bfa8145e31ab67a0cf9bce5f222"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga158f6a0623850d3dc681d9ecab1fe27f" id="r_ga158f6a0623850d3dc681d9ecab1fe27f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a> (<a class="el" href="group__arena__stats.html#ga5c30fe6780dafbd7e5a8c3b86d25afba">t_arena_stats</a> *stats)</td></tr>
-<tr class="memdesc:ga158f6a0623850d3dc681d9ecab1fe27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all allocation statistics in an arena stats structure.  <br /></td></tr>
-<tr class="separator:ga158f6a0623850d3dc681d9ecab1fe27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa3a1838aa18111801b980c0b81e37813" id="r_gaa3a1838aa18111801b980c0b81e37813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813">arena_update_peak</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
-<tr class="memdesc:gaa3a1838aa18111801b980c0b81e37813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the arena’s peak memory usage if the current usage exceeds it.  <br /></td></tr>
+<tr class="memdesc:gaa3a1838aa18111801b980c0b81e37813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the peak usage metric of the arena.  <br /></td></tr>
 <tr class="separator:gaa3a1838aa18111801b980c0b81e37813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga268aa3f7256dbdf405391501fedbabd4" id="r_ga268aa3f7256dbdf405391501fedbabd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4">arena_zero_metadata</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
-<tr class="memdesc:ga268aa3f7256dbdf405391501fedbabd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zero out and reset all debug/stats metadata associated with the arena.  <br /></td></tr>
+<tr class="memdesc:ga268aa3f7256dbdf405391501fedbabd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all metadata fields in an arena to their default values.  <br /></td></tr>
 <tr class="separator:ga268aa3f7256dbdf405391501fedbabd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga627d4fdc46e225dccde0388ae40d04de" id="r_ga627d4fdc46e225dccde0388ae40d04de"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a> (size_t current_size, size_t requested_size)</td></tr>
-<tr class="memdesc:ga627d4fdc46e225dccde0388ae40d04de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default growth policy callback for arena resizing.  <br /></td></tr>
+<tr class="memdesc:ga627d4fdc46e225dccde0388ae40d04de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default growth strategy for arenas that support dynamic resizing.  <br /></td></tr>
 <tr class="separator:ga627d4fdc46e225dccde0388ae40d04de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga81c528fdada659878311546faf6db2f7" id="r_ga81c528fdada659878311546faf6db2f7"><td class="memItemLeft" align="right" valign="top">static size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga81c528fdada659878311546faf6db2f7">next_power_of_two</a> (size_t x)</td></tr>
 <tr class="memdesc:ga81c528fdada659878311546faf6db2f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the next power of two greater than or equal to <code>x</code>.  <br /></td></tr>
@@ -287,10 +284,10 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  493</span>{</div>
 <div class="line"><span class="lineno">  494</span>    <span class="keywordtype">void</span>* buffer = calloc(1, size);</div>
 <div class="line"><span class="lineno">  495</span>    <span class="keywordflow">if</span> (!buffer)</div>
-<div class="line"><span class="lineno">  496</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: buffer allocation of %zu bytes failed&quot;</span>, size);</div>
+<div class="line"><span class="lineno">  496</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: buffer allocation of %zu bytes failed&quot;</span>, size);</div>
 <div class="line"><span class="lineno">  497</span>    <span class="keywordflow">return</span> buffer;</div>
 <div class="line"><span class="lineno">  498</span>}</div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -421,10 +418,10 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  651</span>        free(buffer);</div>
 <div class="line"><span class="lineno">  652</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  653</span>    }</div>
-<div class="line"><span class="lineno">  654</span>    <a class="code hl_function" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
+<div class="line"><span class="lineno">  654</span>    <a class="code hl_function" href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
 <div class="line"><span class="lineno">  655</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">  656</span>}</div>
-<div class="ttc" id="agroup__arena__debug_html_ga04a9de28f7c7ffe93039cce9927ac875"><div class="ttname"><a href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a></div><div class="ttdeci">void arena_generate_id(t_arena *arena)</div><div class="ttdoc">Generate a unique debug ID for an arena.</div><div class="ttdef"><b>Definition</b> arena_debug.c:102</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a04a9de28f7c7ffe93039cce9927ac875"><div class="ttname"><a href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a></div><div class="ttdeci">void arena_generate_id(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_debug.c:102</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga158ae1db776df1d113e7cddff4c9ca2f"><div class="ttname"><a href="group__arena__internal.html#ga158ae1db776df1d113e7cddff4c9ca2f">arena_reset_metadata</a></div><div class="ttdeci">static void arena_reset_metadata(t_arena *arena)</div><div class="ttdoc">Reset all arena metadata fields to their default initial state.</div><div class="ttdef"><b>Definition</b> arena_create.c:530</div></div>
 <div class="ttc" id="agroup__arena__internal_html_ga9b703d033342ea54cf18d08eac74d5b1"><div class="ttname"><a href="group__arena__internal.html#ga9b703d033342ea54cf18d08eac74d5b1">arena_init_mutex</a></div><div class="ttdeci">static bool arena_init_mutex(t_arena *arena)</div><div class="ttdoc">Initialize the mutex used for thread-safe arena operations.</div><div class="ttdef"><b>Definition</b> arena_create.c:585</div></div>
 </div><!-- fragment -->
@@ -488,7 +485,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  598</span>fail_attr:</div>
 <div class="line"><span class="lineno">  599</span>    pthread_mutexattr_destroy(&amp;attr);</div>
 <div class="line"><span class="lineno">  600</span>fail:</div>
-<div class="line"><span class="lineno">  601</span>    <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: mutex setup failed&quot;</span>);</div>
+<div class="line"><span class="lineno">  601</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_create failed: mutex setup failed&quot;</span>);</div>
 <div class="line"><span class="lineno">  602</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  603</span><span class="preprocessor">#else</span></div>
 <div class="line"><span class="lineno">  604</span>    (void) arena;</div>
@@ -516,15 +513,7 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__internal_8h.html">arena_internal.h</a>&gt;</code></p>
 
-<p>Check whether the given arena is in a valid, initialized state. </p>
-<p>Check whether an arena is in a valid state.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arena</td><td>Pointer to the arena to check. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd><code>true</code> if the arena is valid, <code>false</code> otherwise.</dd></dl>
+<p>Check whether an arena is in a valid state. </p>
 <p>This function verifies the structural integrity of a <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code> instance. It ensures:</p><ul>
 <li>The arena pointer is not <code>NULL</code>.</li>
 <li>The buffer pointer is initialized.</li>
@@ -603,7 +592,7 @@ Functions</h2></td></tr>
 <dd>
 <a class="el" href="arena__create_8c.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a> </dd>
 <dd>
-<a class="el" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d" title="Report an error from an arena using its configured error callback.">arena_report_error</a> </dd>
+<a class="el" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a> </dd>
 <dd>
 <a class="el" href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a> </dd>
 <dd>
@@ -613,10 +602,10 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  459</span>{</div>
 <div class="line"><span class="lineno">  460</span>    <span class="keywordflow">if</span> (!arena || !*arena)</div>
 <div class="line"><span class="lineno">  461</span>    {</div>
-<div class="line"><span class="lineno">  462</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
+<div class="line"><span class="lineno">  462</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
 <div class="line"><span class="lineno">  463</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">  464</span>    }</div>
-<div class="line"><span class="lineno">  465</span>    <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(*arena, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
+<div class="line"><span class="lineno">  465</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(*arena, <span class="stringliteral">&quot;%s&quot;</span>, msg);</div>
 <div class="line"><span class="lineno">  466</span>    <a class="code hl_function" href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a>(*arena);</div>
 <div class="line"><span class="lineno">  467</span>    <a class="code hl_function" href="arena_8h.html#a7821a62eaf6d9f982322e49eaf6153e8">arena_delete</a>(arena);</div>
 <div class="line"><span class="lineno">  468</span>}</div>
@@ -684,14 +673,14 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  537</span>    arena-&gt;parent_ref = NULL;</div>
 <div class="line"><span class="lineno">  538</span> </div>
 <div class="line"><span class="lineno">  539</span>    arena-&gt;grow_cb             = <a class="code hl_function" href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a>;</div>
-<div class="line"><span class="lineno">  540</span>    arena-&gt;debug.error_cb      = <a class="code hl_function" href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a>;</div>
+<div class="line"><span class="lineno">  540</span>    arena-&gt;debug.error_cb      = <a class="code hl_function" href="arena__debug_8h.html#a3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a>;</div>
 <div class="line"><span class="lineno">  541</span>    arena-&gt;debug.error_context = NULL;</div>
 <div class="line"><span class="lineno">  542</span>    arena-&gt;debug.label         = NULL;</div>
 <div class="line"><span class="lineno">  543</span> </div>
 <div class="line"><span class="lineno">  544</span>    arena-&gt;hooks.hook_cb = NULL;</div>
 <div class="line"><span class="lineno">  545</span>    arena-&gt;hooks.context = NULL;</div>
 <div class="line"><span class="lineno">  546</span> </div>
-<div class="line"><span class="lineno">  547</span>    <a class="code hl_function" href="group__arena__stats.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a>(&amp;arena-&gt;stats);</div>
+<div class="line"><span class="lineno">  547</span>    <a class="code hl_function" href="group__arena__state.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a>(&amp;arena-&gt;stats);</div>
 <div class="line"><span class="lineno">  548</span> </div>
 <div class="line"><span class="lineno">  549</span>    atomic_store_explicit(&amp;arena-&gt;owns_buffer, <span class="keyword">false</span>, memory_order_release);</div>
 <div class="line"><span class="lineno">  550</span>    atomic_store_explicit(&amp;arena-&gt;can_grow, <span class="keyword">false</span>, memory_order_release);</div>
@@ -701,9 +690,9 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  554</span>    arena-&gt;use_lock = <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  555</span><span class="preprocessor">#endif</span></div>
 <div class="line"><span class="lineno">  556</span>}</div>
-<div class="ttc" id="agroup__arena__debug_html_ga3e58b128a2f84c4ed41102243bf38634"><div class="ttname"><a href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a></div><div class="ttdeci">void arena_default_error_callback(const char *msg, void *ctx)</div><div class="ttdoc">Default fallback error callback (prints to stderr).</div><div class="ttdef"><b>Definition</b> arena_debug.c:310</div></div>
-<div class="ttc" id="agroup__arena__internal_html_ga627d4fdc46e225dccde0388ae40d04de"><div class="ttname"><a href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a></div><div class="ttdeci">size_t default_grow_cb(size_t current_size, size_t requested_size)</div><div class="ttdoc">Default growth policy callback for arena resizing.</div><div class="ttdef"><b>Definition</b> arena_internal.c:78</div></div>
-<div class="ttc" id="agroup__arena__stats_html_ga158f6a0623850d3dc681d9ecab1fe27f"><div class="ttname"><a href="group__arena__stats.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a></div><div class="ttdeci">void arena_stats_reset(t_arena_stats *stats)</div><div class="ttdoc">Reset the given statistics structure to zero.</div><div class="ttdef"><b>Definition</b> arena_internal.c:187</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a3e58b128a2f84c4ed41102243bf38634"><div class="ttname"><a href="arena__debug_8h.html#a3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a></div><div class="ttdeci">void arena_default_error_callback(const char *msg, void *ctx)</div><div class="ttdef"><b>Definition</b> arena_debug.c:310</div></div>
+<div class="ttc" id="agroup__arena__internal_html_ga627d4fdc46e225dccde0388ae40d04de"><div class="ttname"><a href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a></div><div class="ttdeci">size_t default_grow_cb(size_t current_size, size_t requested_size)</div><div class="ttdoc">Default growth strategy for arenas that support dynamic resizing.</div><div class="ttdef"><b>Definition</b> arena_internal.c:78</div></div>
+<div class="ttc" id="agroup__arena__state_html_ga158f6a0623850d3dc681d9ecab1fe27f"><div class="ttname"><a href="group__arena__state.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a></div><div class="ttdeci">void arena_stats_reset(t_arena_stats *stats)</div><div class="ttdoc">Reset all allocation statistics in an arena stats structure.</div><div class="ttdef"><b>Definition</b> arena_internal.c:187</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -763,7 +752,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  684</span>    <span class="keywordtype">void</span>* buffer = calloc(1, size);</div>
 <div class="line"><span class="lineno">  685</span>    <span class="keywordflow">if</span> (!buffer)</div>
 <div class="line"><span class="lineno">  686</span>    {</div>
-<div class="line"><span class="lineno">  687</span>        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_init_with_buffer: malloc for %zu bytes failed&quot;</span>, size);</div>
+<div class="line"><span class="lineno">  687</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;arena_init_with_buffer: malloc for %zu bytes failed&quot;</span>, size);</div>
 <div class="line"><span class="lineno">  688</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line"><span class="lineno">  689</span>    }</div>
 <div class="line"><span class="lineno">  690</span>    arena-&gt;buffer = (uint8_t*) buffer;</div>
@@ -974,79 +963,6 @@ Functions</h2></td></tr>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ga158f6a0623850d3dc681d9ecab1fe27f" name="ga158f6a0623850d3dc681d9ecab1fe27f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga158f6a0623850d3dc681d9ecab1fe27f">&#9670;&#160;</a></span>arena_stats_reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void arena_stats_reset </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__arena__stats.html#ga5c30fe6780dafbd7e5a8c3b86d25afba">t_arena_stats</a> *&#160;</td>
-          <td class="paramname"><em>stats</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="arena__internal_8c.html">arena_internal.c</a>&gt;</code></p>
-
-<p>Reset all allocation statistics in an arena stats structure. </p>
-<p>Reset the given statistics structure to zero.</p>
-<p>This function clears all fields in a <code>t_arena_stats</code> structure, effectively resetting the arena's statistical tracking to an initial state.</p>
-<p>It resets:</p><ul>
-<li>Allocation and reallocation counters.</li>
-<li>Total bytes allocated and wasted.</li>
-<li>Peak usage and live allocation tracking.</li>
-<li>Last allocation metadata (size, offset, ID).</li>
-<li>Growth history tracking and counter.</li>
-</ul>
-<p>This is typically called during arena initialization or reuse.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stats</td><td>Pointer to the <code>t_arena_stats</code> structure to reset.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If <code>stats</code> is <code>NULL</code>, the function does nothing.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4" title="Zero out and reset all debug/stats metadata associated with the arena.">arena_zero_metadata</a> </dd></dl>
-<div class="fragment"><div class="line"><span class="lineno">  188</span>{</div>
-<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">if</span> (!stats)</div>
-<div class="line"><span class="lineno">  190</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  191</span> </div>
-<div class="line"><span class="lineno">  192</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#ad93d7ddf5a3dda959013c4777d724b6b">allocations</a>            = 0;</div>
-<div class="line"><span class="lineno">  193</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a3341518cae0114bfbcc644c60963568b">reallocations</a>          = 0;</div>
-<div class="line"><span class="lineno">  194</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a8e3b629d6141cbf57e67ea8e9597b29c">failed_allocations</a>     = 0;</div>
-<div class="line"><span class="lineno">  195</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#af2fda128c113473fa548f320a6a32017">live_allocations</a>       = 0;</div>
-<div class="line"><span class="lineno">  196</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#ad231cae09d7bdf212cc9570cb74e8c1c">bytes_allocated</a>        = 0;</div>
-<div class="line"><span class="lineno">  197</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a9e638ee160cb3bb7f1cdb538a4f93568">wasted_alignment_bytes</a> = 0;</div>
-<div class="line"><span class="lineno">  198</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a1cdea807971dd72497ae281f5588c4f1">shrinks</a>                = 0;</div>
-<div class="line"><span class="lineno">  199</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a22524712472720b802d5a4131e43b098">peak_usage</a>             = 0;</div>
-<div class="line"><span class="lineno">  200</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a0313fcbfc15c79a0cae03df3d14adc2b">last_alloc_size</a>        = 0;</div>
-<div class="line"><span class="lineno">  201</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#af74b04da79e57175f192c40ede1a59aa">last_alloc_offset</a>      = 0;</div>
-<div class="line"><span class="lineno">  202</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#aaef1554ba87f5c259f22c96ea403288d">last_alloc_id</a>          = (size_t) -1;</div>
-<div class="line"><span class="lineno">  203</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#ad8952303c875bfe6f549c7b695690c8f">alloc_id_counter</a>       = 0;</div>
-<div class="line"><span class="lineno">  204</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#ad45b4e0b914c54b8fdb2251aa233988a">growth_history</a>         = NULL;</div>
-<div class="line"><span class="lineno">  205</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a35beeb231377f3d77ffef0fc8d7e9fbb">growth_history_count</a>   = 0;</div>
-<div class="line"><span class="lineno">  206</span>}</div>
-<div class="ttc" id="agroup__arena__stats_html_a0313fcbfc15c79a0cae03df3d14adc2b"><div class="ttname"><a href="group__arena__stats.html#a0313fcbfc15c79a0cae03df3d14adc2b">s_arena_stats::last_alloc_size</a></div><div class="ttdeci">size_t last_alloc_size</div><div class="ttdoc">Size of the last allocation.</div><div class="ttdef"><b>Definition</b> arena_stats.h:64</div></div>
-<div class="ttc" id="agroup__arena__stats_html_a1cdea807971dd72497ae281f5588c4f1"><div class="ttname"><a href="group__arena__stats.html#a1cdea807971dd72497ae281f5588c4f1">s_arena_stats::shrinks</a></div><div class="ttdeci">size_t shrinks</div><div class="ttdoc">Number of times the arena was shrunk.</div><div class="ttdef"><b>Definition</b> arena_stats.h:60</div></div>
-<div class="ttc" id="agroup__arena__stats_html_a22524712472720b802d5a4131e43b098"><div class="ttname"><a href="group__arena__stats.html#a22524712472720b802d5a4131e43b098">s_arena_stats::peak_usage</a></div><div class="ttdeci">size_t peak_usage</div><div class="ttdoc">Highest offset reached (i.e., peak memory usage)</div><div class="ttdef"><b>Definition</b> arena_stats.h:58</div></div>
-<div class="ttc" id="agroup__arena__stats_html_a3341518cae0114bfbcc644c60963568b"><div class="ttname"><a href="group__arena__stats.html#a3341518cae0114bfbcc644c60963568b">s_arena_stats::reallocations</a></div><div class="ttdeci">size_t reallocations</div><div class="ttdoc">Total number of reallocations (via arena_realloc_last)</div><div class="ttdef"><b>Definition</b> arena_stats.h:56</div></div>
-<div class="ttc" id="agroup__arena__stats_html_a35beeb231377f3d77ffef0fc8d7e9fbb"><div class="ttname"><a href="group__arena__stats.html#a35beeb231377f3d77ffef0fc8d7e9fbb">s_arena_stats::growth_history_count</a></div><div class="ttdeci">size_t growth_history_count</div><div class="ttdoc">Number of growth events recorded.</div><div class="ttdef"><b>Definition</b> arena_stats.h:62</div></div>
-<div class="ttc" id="agroup__arena__stats_html_a8e3b629d6141cbf57e67ea8e9597b29c"><div class="ttname"><a href="group__arena__stats.html#a8e3b629d6141cbf57e67ea8e9597b29c">s_arena_stats::failed_allocations</a></div><div class="ttdeci">size_t failed_allocations</div><div class="ttdoc">Number of failed allocation attempts.</div><div class="ttdef"><b>Definition</b> arena_stats.h:68</div></div>
-<div class="ttc" id="agroup__arena__stats_html_a9e638ee160cb3bb7f1cdb538a4f93568"><div class="ttname"><a href="group__arena__stats.html#a9e638ee160cb3bb7f1cdb538a4f93568">s_arena_stats::wasted_alignment_bytes</a></div><div class="ttdeci">size_t wasted_alignment_bytes</div><div class="ttdoc">Total bytes wasted due to alignment padding.</div><div class="ttdef"><b>Definition</b> arena_stats.h:59</div></div>
-<div class="ttc" id="agroup__arena__stats_html_aaef1554ba87f5c259f22c96ea403288d"><div class="ttname"><a href="group__arena__stats.html#aaef1554ba87f5c259f22c96ea403288d">s_arena_stats::last_alloc_id</a></div><div class="ttdeci">size_t last_alloc_id</div><div class="ttdoc">Unique ID of the last allocation.</div><div class="ttdef"><b>Definition</b> arena_stats.h:66</div></div>
-<div class="ttc" id="agroup__arena__stats_html_ad231cae09d7bdf212cc9570cb74e8c1c"><div class="ttname"><a href="group__arena__stats.html#ad231cae09d7bdf212cc9570cb74e8c1c">s_arena_stats::bytes_allocated</a></div><div class="ttdeci">size_t bytes_allocated</div><div class="ttdoc">Cumulative bytes allocated.</div><div class="ttdef"><b>Definition</b> arena_stats.h:57</div></div>
-<div class="ttc" id="agroup__arena__stats_html_ad45b4e0b914c54b8fdb2251aa233988a"><div class="ttname"><a href="group__arena__stats.html#ad45b4e0b914c54b8fdb2251aa233988a">s_arena_stats::growth_history</a></div><div class="ttdeci">size_t * growth_history</div><div class="ttdoc">Array of size values recorded during arena growth.</div><div class="ttdef"><b>Definition</b> arena_stats.h:61</div></div>
-<div class="ttc" id="agroup__arena__stats_html_ad8952303c875bfe6f549c7b695690c8f"><div class="ttname"><a href="group__arena__stats.html#ad8952303c875bfe6f549c7b695690c8f">s_arena_stats::alloc_id_counter</a></div><div class="ttdeci">size_t alloc_id_counter</div><div class="ttdoc">Total allocation ID counter (used for tracking)</div><div class="ttdef"><b>Definition</b> arena_stats.h:67</div></div>
-<div class="ttc" id="agroup__arena__stats_html_ad93d7ddf5a3dda959013c4777d724b6b"><div class="ttname"><a href="group__arena__stats.html#ad93d7ddf5a3dda959013c4777d724b6b">s_arena_stats::allocations</a></div><div class="ttdeci">size_t allocations</div><div class="ttdoc">Total number of successful allocations.</div><div class="ttdef"><b>Definition</b> arena_stats.h:55</div></div>
-<div class="ttc" id="agroup__arena__stats_html_af2fda128c113473fa548f320a6a32017"><div class="ttname"><a href="group__arena__stats.html#af2fda128c113473fa548f320a6a32017">s_arena_stats::live_allocations</a></div><div class="ttdeci">size_t live_allocations</div><div class="ttdoc">Number of active allocations (not yet released)</div><div class="ttdef"><b>Definition</b> arena_stats.h:63</div></div>
-<div class="ttc" id="agroup__arena__stats_html_af74b04da79e57175f192c40ede1a59aa"><div class="ttname"><a href="group__arena__stats.html#af74b04da79e57175f192c40ede1a59aa">s_arena_stats::last_alloc_offset</a></div><div class="ttdeci">size_t last_alloc_offset</div><div class="ttdoc">Offset of the last allocation.</div><div class="ttdef"><b>Definition</b> arena_stats.h:65</div></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="gaa3a1838aa18111801b980c0b81e37813" name="gaa3a1838aa18111801b980c0b81e37813"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaa3a1838aa18111801b980c0b81e37813">&#9670;&#160;</a></span>arena_update_peak()</h2>
 
@@ -1065,15 +981,7 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__internal_8h.html">arena_internal.h</a>&gt;</code></p>
 
-<p>Update the arena’s peak memory usage if the current usage exceeds it. </p>
-<p>Update the peak usage metric of the arena.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arena</td><td>Pointer to the arena to update. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>Update the peak usage metric of the arena. </p>
 <p>This internal function updates the <code>peak_usage</code> statistic in the arena if the current offset exceeds the previously recorded peak. This metric reflects the highest memory usage observed since the arena was initialized or last reset.</p>
 <p>It uses locking to ensure thread-safe updates in concurrent environments.</p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -1117,21 +1025,13 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__internal_8h.html">arena_internal.h</a>&gt;</code></p>
 
-<p>Zero out and reset all debug/stats metadata associated with the arena. </p>
-<p>Reset all metadata fields in an arena to their default values.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arena</td><td>Pointer to the arena to zero. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
+<p>Reset all metadata fields in an arena to their default values. </p>
 <p>This function clears all metadata inside a <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code> structure, preparing it for safe reinitialization. It does <b>not</b> free or allocate memory, but resets all fields related to memory layout, statistics, growth policies, debugging, and hooks.</p>
 <p>Specifically, it:</p><ul>
 <li>Sets the buffer pointer, size, and offset to zero.</li>
 <li>Resets ownership and growth flags atomically.</li>
 <li>Clears growth callback and parent references.</li>
-<li>Resets all statistical counters via <code><a class="el" href="group__arena__internal.html#ga158f6a0623850d3dc681d9ecab1fe27f" title="Reset all allocation statistics in an arena stats structure.">arena_stats_reset()</a></code>.</li>
+<li>Resets all statistical counters via <code><a class="el" href="group__arena__state.html#ga158f6a0623850d3dc681d9ecab1fe27f" title="Reset all allocation statistics in an arena stats structure.">arena_stats_reset()</a></code>.</li>
 <li>Clears debug fields including ID, label, and error context.</li>
 <li>Resets hook-related pointers.</li>
 </ul>
@@ -1146,7 +1046,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section note"><dt>Note</dt><dd>This does <b>not</b> destroy any allocated memory. It should typically be called before initializing the arena with a new or reused buffer.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__internal.html#ga158f6a0623850d3dc681d9ecab1fe27f" title="Reset all allocation statistics in an arena stats structure.">arena_stats_reset</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__state.html#ga158f6a0623850d3dc681d9ecab1fe27f" title="Reset all allocation statistics in an arena stats structure.">arena_stats_reset</a> </dd>
 <dd>
 <a class="el" href="arena_8h.html#a4a0d8e453e26366da91c18877495ad42">arena_init_with_buffer</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_cleanup_8c-example.html#a8">/home/toonsa/myProjects/memoryArena/srcs/core/arena_cleanup.c</a>.</dd>
@@ -1162,7 +1062,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  250</span>    arena-&gt;grow_cb    = NULL;</div>
 <div class="line"><span class="lineno">  251</span>    arena-&gt;parent_ref = NULL;</div>
 <div class="line"><span class="lineno">  252</span> </div>
-<div class="line"><span class="lineno">  253</span>    <a class="code hl_function" href="group__arena__internal.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a>(&amp;arena-&gt;stats);</div>
+<div class="line"><span class="lineno">  253</span>    <a class="code hl_function" href="group__arena__state.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a>(&amp;arena-&gt;stats);</div>
 <div class="line"><span class="lineno">  254</span> </div>
 <div class="line"><span class="lineno">  255</span>    memset(arena-&gt;debug.id, 0, <a class="code hl_define" href="arena__config_8h.html#a5489ebed19870e9f0cdbe626a20521e9">ARENA_ID_LEN</a>);</div>
 <div class="line"><span class="lineno">  256</span>    arena-&gt;debug.label            = NULL;</div>
@@ -1174,7 +1074,6 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  262</span>    arena-&gt;hooks.context = NULL;</div>
 <div class="line"><span class="lineno">  263</span>}</div>
 <div class="ttc" id="aarena__config_8h_html_a5489ebed19870e9f0cdbe626a20521e9"><div class="ttname"><a href="arena__config_8h.html#a5489ebed19870e9f0cdbe626a20521e9">ARENA_ID_LEN</a></div><div class="ttdeci">#define ARENA_ID_LEN</div><div class="ttdoc">Max characters for arena ID strings.</div><div class="ttdef"><b>Definition</b> arena_config.h:6</div></div>
-<div class="ttc" id="agroup__arena__internal_html_ga158f6a0623850d3dc681d9ecab1fe27f"><div class="ttname"><a href="group__arena__internal.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a></div><div class="ttdeci">void arena_stats_reset(t_arena_stats *stats)</div><div class="ttdoc">Reset all allocation statistics in an arena stats structure.</div><div class="ttdef"><b>Definition</b> arena_internal.c:187</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1206,17 +1105,7 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__internal_8h.html">arena_internal.h</a>&gt;</code></p>
 
-<p>Default growth policy callback for arena resizing. </p>
-<p>Default growth strategy for arenas that support dynamic resizing.</p>
-<p>Computes the next size for an arena that needs to grow. The result is typically a geometric increase (e.g., 2x rule), optionally adjusted to accommodate the requested size.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">current_size</td><td>The current buffer size of the arena. </td></tr>
-    <tr><td class="paramname">requested_size</td><td>The size that triggered the growth. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A new size value suitable for reallocation.</dd></dl>
+<p>Default growth strategy for arenas that support dynamic resizing. </p>
 <p>This function computes a new arena size when a memory allocation request exceeds the current capacity. The growth strategy works as follows:</p>
 <ul>
 <li>If the current size is 0, it starts with a base size of 64 bytes.</li>
