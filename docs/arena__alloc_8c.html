@@ -232,7 +232,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  113</span>{</div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__alloc__internal.html#ga133779294340b3b7b1353e5e41870855">arena_alloc_internal</a>(arena, size, <a class="code hl_define" href="arena__config_8h.html#a66ef203ef1d1e5112ebc6c81a3237e98">ARENA_DEFAULT_ALIGNMENT</a>, <span class="stringliteral">&quot;arena_alloc&quot;</span>);</div>
+<div class="line"><span class="lineno">  115</span>}</div>
+<div class="ttc" id="aarena__config_8h_html_a66ef203ef1d1e5112ebc6c81a3237e98"><div class="ttname"><a href="arena__config_8h.html#a66ef203ef1d1e5112ebc6c81a3237e98">ARENA_DEFAULT_ALIGNMENT</a></div><div class="ttdeci">#define ARENA_DEFAULT_ALIGNMENT</div><div class="ttdoc">Default alignment value supported.</div><div class="ttdef"><b>Definition</b> arena_config.h:31</div></div>
+<div class="ttc" id="agroup__arena__alloc__internal_html_ga133779294340b3b7b1353e5e41870855"><div class="ttname"><a href="group__arena__alloc__internal.html#ga133779294340b3b7b1353e5e41870855">arena_alloc_internal</a></div><div class="ttdeci">void * arena_alloc_internal(t_arena *arena, size_t size, size_t alignment, const char *label)</div><div class="ttdoc">Core internal allocator with alignment and labeling support.</div><div class="ttdef"><b>Definition</b> arena_alloc.c:721</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3c9a2623dab46020e9d9462d48120261" name="a3c9a2623dab46020e9d9462d48120261"></a>
@@ -266,7 +271,10 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  168</span>{</div>
+<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__alloc__internal.html#ga133779294340b3b7b1353e5e41870855">arena_alloc_internal</a>(arena, size, alignment, <span class="stringliteral">&quot;arena_alloc_aligned&quot;</span>);</div>
+<div class="line"><span class="lineno">  170</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a3847ae3fc45fb33e564091409263abfb" name="a3847ae3fc45fb33e564091409263abfb"></a>
@@ -306,7 +314,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  275</span>{</div>
+<div class="line"><span class="lineno">  276</span>    <span class="keywordflow">if</span> (!label)</div>
+<div class="line"><span class="lineno">  277</span>        label = <span class="stringliteral">&quot;arena_alloc_aligned_labeled&quot;</span>;</div>
+<div class="line"><span class="lineno">  278</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__alloc__internal.html#ga133779294340b3b7b1353e5e41870855">arena_alloc_internal</a>(arena, size, alignment, label);</div>
+<div class="line"><span class="lineno">  279</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ad0e41d4f7cc6043cab06d317e13f298e" name="ad0e41d4f7cc6043cab06d317e13f298e"></a>
@@ -340,7 +353,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  218</span>{</div>
+<div class="line"><span class="lineno">  219</span>    <span class="keywordflow">if</span> (!label)</div>
+<div class="line"><span class="lineno">  220</span>        label = <span class="stringliteral">&quot;arena_alloc_labeled&quot;</span>;</div>
+<div class="line"><span class="lineno">  221</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__alloc__internal.html#ga133779294340b3b7b1353e5e41870855">arena_alloc_internal</a>(arena, size, <a class="code hl_define" href="arena__config_8h.html#a66ef203ef1d1e5112ebc6c81a3237e98">ARENA_DEFAULT_ALIGNMENT</a>, label);</div>
+<div class="line"><span class="lineno">  222</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

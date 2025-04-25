@@ -140,17 +140,14 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:gaf3f40a4bc5a7dcaf7c8d4f85839deb32" id="r_gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#gaf3f40a4bc5a7dcaf7c8d4f85839deb32">arena_stack_clear</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack)</td></tr>
-<tr class="memdesc:gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all stack frames without modifying arena state.  <br /></td></tr>
+<tr class="memdesc:gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all frames in the arena stack without altering arena memory.  <br /></td></tr>
 <tr class="separator:gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaec8a215b6c2fc96130eb45ec6ee55818" id="r_gaec8a215b6c2fc96130eb45ec6ee55818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#gaec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack, <a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
-<tr class="memdesc:gaec8a215b6c2fc96130eb45ec6ee55818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an arena stack with a given arena.  <br /></td></tr>
-<tr class="separator:gaec8a215b6c2fc96130eb45ec6ee55818"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga305d7e272b7d661e7c45235ac1b57b2a" id="r_ga305d7e272b7d661e7c45235ac1b57b2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack)</td></tr>
-<tr class="memdesc:ga305d7e272b7d661e7c45235ac1b57b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop and restore the last saved state from the stack.  <br /></td></tr>
-<tr class="separator:ga305d7e272b7d661e7c45235ac1b57b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1e6b0aa692652c987b3d4367ca7969e1" id="r_ga1e6b0aa692652c987b3d4367ca7969e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack)</td></tr>
-<tr class="memdesc:ga1e6b0aa692652c987b3d4367ca7969e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push the current arena state onto the stack.  <br /></td></tr>
-<tr class="separator:ga1e6b0aa692652c987b3d4367ca7969e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec8a215b6c2fc96130eb45ec6ee55818" id="r_aec8a215b6c2fc96130eb45ec6ee55818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__stack_8c.html#aec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack, <a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
+<tr class="separator:aec8a215b6c2fc96130eb45ec6ee55818"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a305d7e272b7d661e7c45235ac1b57b2a" id="r_a305d7e272b7d661e7c45235ac1b57b2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__stack_8c.html#a305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack)</td></tr>
+<tr class="separator:a305d7e272b7d661e7c45235ac1b57b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e6b0aa692652c987b3d4367ca7969e1" id="r_a1e6b0aa692652c987b3d4367ca7969e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__stack_8c.html#a1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack)</td></tr>
+<tr class="separator:a1e6b0aa692652c987b3d4367ca7969e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Stack-based scoped memory management for arenas. </p>
@@ -170,7 +167,102 @@ Functions</h2></td></tr>
 <li>Systems requiring fast and deterministic memory rollback.</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>Stack operations (<code>push</code>, <code>pop</code>, <code>clear</code>) are local to the arena and safe to use as long as the arena is not destroyed or reset externally. </dd></dl>
-</div></div><!-- contents -->
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="aec8a215b6c2fc96130eb45ec6ee55818" name="aec8a215b6c2fc96130eb45ec6ee55818"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec8a215b6c2fc96130eb45ec6ee55818">&#9670;&#160;</a></span>arena_stack_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void arena_stack_init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *&#160;</td>
+          <td class="paramname"><em>stack</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structt__arena.html">t_arena</a> *&#160;</td>
+          <td class="paramname"><em>arena</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">  145</span>{</div>
+<div class="line"><span class="lineno">  146</span>    <span class="keywordflow">if</span> (!stack || !arena)</div>
+<div class="line"><span class="lineno">  147</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  148</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a> = arena;</div>
+<div class="line"><span class="lineno">  149</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>   = NULL;</div>
+<div class="line"><span class="lineno">  150</span>}</div>
+<div class="ttc" id="agroup__arena__state_html_a89b42a42c09b6bd9fe3af1962510c8cf"><div class="ttname"><a href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">s_arena_stack::top</a></div><div class="ttdeci">t_arena_stack_frame * top</div><div class="ttdoc">Top of the stack (most recent frame)</div><div class="ttdef"><b>Definition</b> arena_stack.h:73</div></div>
+<div class="ttc" id="agroup__arena__state_html_adf25497af2a178cc477e64e56fa35983"><div class="ttname"><a href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">s_arena_stack::arena</a></div><div class="ttdeci">t_arena * arena</div><div class="ttdoc">Arena associated with this stack.</div><div class="ttdef"><b>Definition</b> arena_stack.h:72</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a305d7e272b7d661e7c45235ac1b57b2a" name="a305d7e272b7d661e7c45235ac1b57b2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a305d7e272b7d661e7c45235ac1b57b2a">&#9670;&#160;</a></span>arena_stack_pop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void arena_stack_pop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *&#160;</td>
+          <td class="paramname"><em>stack</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">  255</span>{</div>
+<div class="line"><span class="lineno">  256</span>    <span class="keywordflow">if</span> (!stack || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a> || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>)</div>
+<div class="line"><span class="lineno">  257</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  258</span>    <a class="code hl_function" href="arena_8h.html#a43f443882d11939468a2c6a33bdb88af">arena_pop</a>(stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>, stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>-&gt;<a class="code hl_variable" href="group__arena__state.html#a2986354d9a2df94334c182e1420c3b58">marker</a>);</div>
+<div class="line"><span class="lineno">  259</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a> = stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>-&gt;<a class="code hl_variable" href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">prev</a>;</div>
+<div class="line"><span class="lineno">  260</span>}</div>
+<div class="ttc" id="aarena_8h_html_a43f443882d11939468a2c6a33bdb88af"><div class="ttname"><a href="arena_8h.html#a43f443882d11939468a2c6a33bdb88af">arena_pop</a></div><div class="ttdeci">void arena_pop(t_arena *arena, t_arena_marker marker)</div><div class="ttdef"><b>Definition</b> arena_state.c:283</div></div>
+<div class="ttc" id="agroup__arena__state_html_a2986354d9a2df94334c182e1420c3b58"><div class="ttname"><a href="group__arena__state.html#a2986354d9a2df94334c182e1420c3b58">s_arena_stack_frame::marker</a></div><div class="ttdeci">size_t marker</div><div class="ttdoc">Marker to rewind arena to this point.</div><div class="ttdef"><b>Definition</b> arena_stack.h:56</div></div>
+<div class="ttc" id="agroup__arena__state_html_ae3f6958ad1d72d4ac255bfbebfd3a560"><div class="ttname"><a href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">s_arena_stack_frame::prev</a></div><div class="ttdeci">struct s_arena_stack_frame * prev</div><div class="ttdoc">Previous frame in the stack.</div><div class="ttdef"><b>Definition</b> arena_stack.h:57</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a1e6b0aa692652c987b3d4367ca7969e1" name="a1e6b0aa692652c987b3d4367ca7969e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e6b0aa692652c987b3d4367ca7969e1">&#9670;&#160;</a></span>arena_stack_push()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void arena_stack_push </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *&#160;</td>
+          <td class="paramname"><em>stack</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="fragment"><div class="line"><span class="lineno">  198</span>{</div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">if</span> (!stack || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>)</div>
+<div class="line"><span class="lineno">  200</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  201</span>    <a class="code hl_struct" href="group__arena__state.html#structs__arena__stack__frame">t_arena_stack_frame</a>* frame = (<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack__frame">t_arena_stack_frame</a>*) <a class="code hl_function" href="arena_8h.html#a1def00c6156e8df19f0a1af7cd6f26dd">arena_alloc</a>(stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack__frame">t_arena_stack_frame</a>));</div>
+<div class="line"><span class="lineno">  202</span>    <span class="keywordflow">if</span> (!frame)</div>
+<div class="line"><span class="lineno">  203</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  204</span>    frame-&gt;<a class="code hl_variable" href="group__arena__state.html#a2986354d9a2df94334c182e1420c3b58">marker</a> = <a class="code hl_function" href="arena_8h.html#abc6eabbcdd6ff5c3c187cd782644dfff">arena_mark</a>(stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>);</div>
+<div class="line"><span class="lineno">  205</span>    frame-&gt;<a class="code hl_variable" href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">prev</a>   = stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>;</div>
+<div class="line"><span class="lineno">  206</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>    = frame;</div>
+<div class="line"><span class="lineno">  207</span>}</div>
+<div class="ttc" id="aarena_8h_html_a1def00c6156e8df19f0a1af7cd6f26dd"><div class="ttname"><a href="arena_8h.html#a1def00c6156e8df19f0a1af7cd6f26dd">arena_alloc</a></div><div class="ttdeci">void * arena_alloc(t_arena *arena, size_t size)</div><div class="ttdef"><b>Definition</b> arena_alloc.c:112</div></div>
+<div class="ttc" id="aarena_8h_html_abc6eabbcdd6ff5c3c187cd782644dfff"><div class="ttname"><a href="arena_8h.html#abc6eabbcdd6ff5c3c187cd782644dfff">arena_mark</a></div><div class="ttdeci">t_arena_marker arena_mark(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_state.c:227</div></div>
+<div class="ttc" id="agroup__arena__state_html_structs__arena__stack__frame"><div class="ttname"><a href="group__arena__state.html#structs__arena__stack__frame">s_arena_stack_frame</a></div><div class="ttdoc">Internal frame representing a single state snapshot in the stack.</div><div class="ttdef"><b>Definition</b> arena_stack.h:55</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8

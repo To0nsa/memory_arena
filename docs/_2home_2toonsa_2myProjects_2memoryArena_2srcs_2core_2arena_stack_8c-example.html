@@ -73,7 +73,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <p>Initialize a stack-based frame system for scoped arena memory management.</p>
-<p>Initialize a stack-based frame system for scoped arena memory management.This function sets up a <code>t_arena_stack</code> structure and associates it with a given arena. The stack starts empty (<code>top == NULL</code>) and can be used to push/pop memory frames using <code><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push()</a></code> and <code><a class="el" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a" title="Pop and restore the last saved state from the stack.">arena_stack_pop()</a></code> respectively.</p>
+<p>Initialize a stack-based frame system for scoped arena memory management.This function sets up a <code>t_arena_stack</code> structure and associates it with a given arena. The stack starts empty (<code>top == NULL</code>) and can be used to push/pop memory frames using <code><a class="el" href="arena__stack_8c.html#a1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push()</a></code> and <code><a class="el" href="arena__stack_8c.html#a305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop()</a></code> respectively.</p>
 <p>This is useful for:</p><ul>
 <li>Managing nested scopes of temporary memory.</li>
 <li>Restoring previous arena states in reverse order (like a call stack).</li>
@@ -86,31 +86,31 @@ $(function() {
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>No memory is allocated by this function. Frames are allocated on the arena itself when calling <code><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push()</a></code>.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push</a> </dd>
+<dl class="section note"><dt>Note</dt><dd>No memory is allocated by this function. Frames are allocated on the arena itself when calling <code><a class="el" href="arena__stack_8c.html#a1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push()</a></code>.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__stack_8c.html#a1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a> </dd>
 <dd>
-<a class="el" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a" title="Pop and restore the last saved state from the stack.">arena_stack_pop</a> </dd>
+<a class="el" href="arena__stack_8c.html#a305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a> </dd>
 <dd>
-<a class="el" href="group__arena__state.html#gaf3f40a4bc5a7dcaf7c8d4f85839deb32" title="Clear all stack frames without modifying arena state.">arena_stack_clear</a></dd></dl>
+<a class="el" href="group__arena__state.html#gaf3f40a4bc5a7dcaf7c8d4f85839deb32" title="Clear all frames in the arena stack without altering arena memory.">arena_stack_clear</a></dd></dl>
 <div class="fragment"><div class="line"><a id="_a0" name="_a0"></a><a class="code hl_struct" href="group__arena__state.html#structs__arena__stack">t_arena_stack</a> stack;</div>
 <div class="line"><a id="_a1" name="_a1"></a><a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena = <a id="a2" name="a2"></a><a class="code hl_function" href="arena_8h.html#ad623b3dfc5761c29d44f78c58821c932">arena_create</a>(1024, <span class="keyword">true</span>);</div>
-<div class="line"><a id="a3" name="a3"></a><a class="code hl_function" href="group__arena__state.html#gaec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a>(&amp;stack, arena);</div>
-<div class="line"><a id="a4" name="a4"></a><a class="code hl_function" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a>(&amp;stack);</div>
+<div class="line"><a id="a3" name="a3"></a><a class="code hl_function" href="arena__stack_8h.html#aec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a>(&amp;stack, arena);</div>
+<div class="line"><a id="a4" name="a4"></a><a class="code hl_function" href="arena__stack_8h.html#a1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a>(&amp;stack);</div>
 <div class="line"><span class="comment">// allocate temporary memory...</span></div>
-<div class="line"><a id="a5" name="a5"></a><a class="code hl_function" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a>(&amp;stack); <span class="comment">// clean up</span></div>
+<div class="line"><a id="a5" name="a5"></a><a class="code hl_function" href="arena__stack_8h.html#a305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a>(&amp;stack); <span class="comment">// clean up</span></div>
 <div class="line"><a id="a6" name="a6"></a><a class="code hl_function" href="arena_8h.html#a7821a62eaf6d9f982322e49eaf6153e8">arena_delete</a>(&amp;arena);</div>
 <div class="ttc" id="aarena_8h_html_a7821a62eaf6d9f982322e49eaf6153e8"><div class="ttname"><a href="arena_8h.html#a7821a62eaf6d9f982322e49eaf6153e8">arena_delete</a></div><div class="ttdeci">void arena_delete(t_arena **arena)</div><div class="ttdef"><b>Definition</b> arena_cleanup.c:148</div></div>
 <div class="ttc" id="aarena_8h_html_ad623b3dfc5761c29d44f78c58821c932"><div class="ttname"><a href="arena_8h.html#ad623b3dfc5761c29d44f78c58821c932">arena_create</a></div><div class="ttdeci">t_arena * arena_create(size_t size, bool allow_grow)</div><div class="ttdef"><b>Definition</b> arena_create.c:111</div></div>
-<div class="ttc" id="agroup__arena__state_html_ga1e6b0aa692652c987b3d4367ca7969e1"><div class="ttname"><a href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a></div><div class="ttdeci">void arena_stack_push(t_arena_stack *stack)</div><div class="ttdoc">Push the current arena state onto the stack.</div><div class="ttdef"><b>Definition</b> arena_stack.c:197</div></div>
-<div class="ttc" id="agroup__arena__state_html_ga305d7e272b7d661e7c45235ac1b57b2a"><div class="ttname"><a href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a></div><div class="ttdeci">void arena_stack_pop(t_arena_stack *stack)</div><div class="ttdoc">Pop and restore the last saved state from the stack.</div><div class="ttdef"><b>Definition</b> arena_stack.c:254</div></div>
-<div class="ttc" id="agroup__arena__state_html_gaec8a215b6c2fc96130eb45ec6ee55818"><div class="ttname"><a href="group__arena__state.html#gaec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a></div><div class="ttdeci">void arena_stack_init(t_arena_stack *stack, t_arena *arena)</div><div class="ttdoc">Initialize an arena stack with a given arena.</div><div class="ttdef"><b>Definition</b> arena_stack.c:144</div></div>
+<div class="ttc" id="aarena__stack_8h_html_a1e6b0aa692652c987b3d4367ca7969e1"><div class="ttname"><a href="arena__stack_8h.html#a1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a></div><div class="ttdeci">void arena_stack_push(t_arena_stack *stack)</div><div class="ttdef"><b>Definition</b> arena_stack.c:197</div></div>
+<div class="ttc" id="aarena__stack_8h_html_a305d7e272b7d661e7c45235ac1b57b2a"><div class="ttname"><a href="arena__stack_8h.html#a305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a></div><div class="ttdeci">void arena_stack_pop(t_arena_stack *stack)</div><div class="ttdef"><b>Definition</b> arena_stack.c:254</div></div>
+<div class="ttc" id="aarena__stack_8h_html_aec8a215b6c2fc96130eb45ec6ee55818"><div class="ttname"><a href="arena__stack_8h.html#aec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a></div><div class="ttdeci">void arena_stack_init(t_arena_stack *stack, t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_stack.c:144</div></div>
 <div class="ttc" id="agroup__arena__state_html_structs__arena__stack"><div class="ttname"><a href="group__arena__state.html#structs__arena__stack">s_arena_stack</a></div><div class="ttdoc">Stack structure for scoped arena memory control.</div><div class="ttdef"><b>Definition</b> arena_stack.h:71</div></div>
 <div class="ttc" id="astructt__arena_html"><div class="ttname"><a href="structt__arena.html">t_arena</a></div><div class="ttdoc">The main memory arena structure used for fast allocation.</div></div>
 </div><!-- fragment --><div class="fragment"><div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="arena__stack_8h.html">arena_stack.h</a>&quot;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__arena__state.html#gaec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a>(<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack">t_arena_stack</a>* stack, <a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena)</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="arena__stack_8h.html#aec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a>(<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack">t_arena_stack</a>* stack, <a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!stack || !arena)</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -118,7 +118,7 @@ $(function() {
 <div class="line">    stack-&gt;<a id="a8" name="a8"></a><a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>   = NULL;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a>(<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack">t_arena_stack</a>* stack)</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="arena__stack_8h.html#a1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a>(<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack">t_arena_stack</a>* stack)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!stack || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>)</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -130,7 +130,7 @@ $(function() {
 <div class="line">    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>    = frame;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a>(<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack">t_arena_stack</a>* stack)</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="arena__stack_8h.html#a305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a>(<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack">t_arena_stack</a>* stack)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!stack || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a> || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>)</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -152,7 +152,7 @@ $(function() {
 <div class="ttc" id="agroup__arena__state_html_a89b42a42c09b6bd9fe3af1962510c8cf"><div class="ttname"><a href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">s_arena_stack::top</a></div><div class="ttdeci">t_arena_stack_frame * top</div><div class="ttdoc">Top of the stack (most recent frame)</div><div class="ttdef"><b>Definition</b> arena_stack.h:73</div></div>
 <div class="ttc" id="agroup__arena__state_html_adf25497af2a178cc477e64e56fa35983"><div class="ttname"><a href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">s_arena_stack::arena</a></div><div class="ttdeci">t_arena * arena</div><div class="ttdoc">Arena associated with this stack.</div><div class="ttdef"><b>Definition</b> arena_stack.h:72</div></div>
 <div class="ttc" id="agroup__arena__state_html_ae3f6958ad1d72d4ac255bfbebfd3a560"><div class="ttname"><a href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">s_arena_stack_frame::prev</a></div><div class="ttdeci">struct s_arena_stack_frame * prev</div><div class="ttdoc">Previous frame in the stack.</div><div class="ttdef"><b>Definition</b> arena_stack.h:57</div></div>
-<div class="ttc" id="agroup__arena__state_html_gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><div class="ttname"><a href="group__arena__state.html#gaf3f40a4bc5a7dcaf7c8d4f85839deb32">arena_stack_clear</a></div><div class="ttdeci">void arena_stack_clear(t_arena_stack *stack)</div><div class="ttdoc">Clear all stack frames without modifying arena state.</div><div class="ttdef"><b>Definition</b> arena_stack.c:295</div></div>
+<div class="ttc" id="agroup__arena__state_html_gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><div class="ttname"><a href="group__arena__state.html#gaf3f40a4bc5a7dcaf7c8d4f85839deb32">arena_stack_clear</a></div><div class="ttdeci">void arena_stack_clear(t_arena_stack *stack)</div><div class="ttdoc">Clear all frames in the arena stack without altering arena memory.</div><div class="ttdef"><b>Definition</b> arena_stack.c:295</div></div>
 <div class="ttc" id="agroup__arena__state_html_structs__arena__stack__frame"><div class="ttname"><a href="group__arena__state.html#structs__arena__stack__frame">s_arena_stack_frame</a></div><div class="ttdoc">Internal frame representing a single state snapshot in the stack.</div><div class="ttdef"><b>Definition</b> arena_stack.h:55</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->

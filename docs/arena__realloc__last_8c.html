@@ -188,7 +188,28 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
+<div class="line"><span class="lineno">  124</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__alloc__internal.html#ga59787ca32537e09f2b7bb6087540d35a">arena_realloc_validate</a>(arena, old_ptr, new_size))</div>
+<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_define" href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a>(arena);</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordtype">bool</span>  is_last = <a class="code hl_function" href="group__arena__alloc__internal.html#ga7344d4d188eb129d3d35a47a46569d1e">is_last_allocation</a>(arena, old_ptr, old_size);</div>
+<div class="line"><span class="lineno">  131</span>    <span class="keywordtype">void</span>* result  = is_last ? <a class="code hl_function" href="group__arena__alloc__internal.html#ga2d7433d074678a86dbeae84e99ac8f94">realloc_in_place</a>(arena, old_ptr, old_size, new_size) : NULL;</div>
+<div class="line"><span class="lineno">  132</span> </div>
+<div class="line"><span class="lineno">  133</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  134</span> </div>
+<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">return</span> is_last ? result : <a class="code hl_function" href="group__arena__alloc__internal.html#ga5f5f39015c38a0eb93f501a0aac30904">realloc_fallback</a>(arena, old_ptr, old_size, new_size);</div>
+<div class="line"><span class="lineno">  136</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_af130b4bbc0466511d1efc74412d5ef3c"><div class="ttname"><a href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a></div><div class="ttdeci">#define ARENA_CHECK(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:419</div></div>
+<div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> arena_internal.h:62</div></div>
+<div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> arena_internal.h:61</div></div>
+<div class="ttc" id="agroup__arena__alloc__internal_html_ga2d7433d074678a86dbeae84e99ac8f94"><div class="ttname"><a href="group__arena__alloc__internal.html#ga2d7433d074678a86dbeae84e99ac8f94">realloc_in_place</a></div><div class="ttdeci">static void * realloc_in_place(t_arena *arena, void *old_ptr, size_t old_size, size_t new_size)</div><div class="ttdoc">Attempt to resize the last allocation in place.</div><div class="ttdef"><b>Definition</b> arena_realloc_last.c:284</div></div>
+<div class="ttc" id="agroup__arena__alloc__internal_html_ga59787ca32537e09f2b7bb6087540d35a"><div class="ttname"><a href="group__arena__alloc__internal.html#ga59787ca32537e09f2b7bb6087540d35a">arena_realloc_validate</a></div><div class="ttdeci">static bool arena_realloc_validate(t_arena *arena, void *old_ptr, size_t new_size)</div><div class="ttdoc">Validate input arguments for arena_realloc_last.</div><div class="ttdef"><b>Definition</b> arena_realloc_last.c:167</div></div>
+<div class="ttc" id="agroup__arena__alloc__internal_html_ga5f5f39015c38a0eb93f501a0aac30904"><div class="ttname"><a href="group__arena__alloc__internal.html#ga5f5f39015c38a0eb93f501a0aac30904">realloc_fallback</a></div><div class="ttdeci">static void * realloc_fallback(t_arena *arena, void *old_ptr, size_t old_size, size_t new_size)</div><div class="ttdoc">Perform a fallback reallocation by allocating new memory and copying data.</div><div class="ttdef"><b>Definition</b> arena_realloc_last.c:330</div></div>
+<div class="ttc" id="agroup__arena__alloc__internal_html_ga7344d4d188eb129d3d35a47a46569d1e"><div class="ttname"><a href="group__arena__alloc__internal.html#ga7344d4d188eb129d3d35a47a46569d1e">is_last_allocation</a></div><div class="ttdeci">static bool is_last_allocation(t_arena *arena, void *old_ptr, size_t old_size)</div><div class="ttdoc">Check if a given pointer corresponds to the most recent allocation.</div><div class="ttdef"><b>Definition</b> arena_realloc_last.c:201</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

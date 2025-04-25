@@ -84,14 +84,14 @@ $(function() {
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>If the arena is <code>NULL</code>, the function does nothing.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__debug.html#ga744fe6131dcbab131363be8e8760128f" title="Assign a debug label to an arena.">arena_set_debug_label</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__debug_8c.html#a744fe6131dcbab131363be8e8760128f">arena_set_debug_label</a> </dd>
 <dd>
 <a class="el" href="group__arena__debug.html#ga546ff0ddaab0fa267366384405c98c4a" title="Global atomic counter for generating unique arena IDs.">g_arena_id_counter</a></dd></dl>
 <div class="fragment"><div class="line"><a id="_a0" name="_a0"></a><a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena = <a id="a1" name="a1"></a><a class="code hl_function" href="arena_8h.html#ad623b3dfc5761c29d44f78c58821c932">arena_create</a>(1024, <span class="keyword">true</span>);</div>
-<div class="line"><a id="a2" name="a2"></a><a class="code hl_function" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
+<div class="line"><a id="a2" name="a2"></a><a class="code hl_function" href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(arena);</div>
 <div class="line">printf(<span class="stringliteral">&quot;Arena ID: %s\n&quot;</span>, arena-&gt;debug.id); <span class="comment">// Output: A#0001, A#0002, ...</span></div>
 <div class="ttc" id="aarena_8h_html_ad623b3dfc5761c29d44f78c58821c932"><div class="ttname"><a href="arena_8h.html#ad623b3dfc5761c29d44f78c58821c932">arena_create</a></div><div class="ttdeci">t_arena * arena_create(size_t size, bool allow_grow)</div><div class="ttdef"><b>Definition</b> arena_create.c:111</div></div>
-<div class="ttc" id="agroup__arena__debug_html_ga04a9de28f7c7ffe93039cce9927ac875"><div class="ttname"><a href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a></div><div class="ttdeci">void arena_generate_id(t_arena *arena)</div><div class="ttdoc">Generate a unique debug ID for an arena.</div><div class="ttdef"><b>Definition</b> arena_debug.c:102</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a04a9de28f7c7ffe93039cce9927ac875"><div class="ttname"><a href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a></div><div class="ttdeci">void arena_generate_id(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_debug.c:102</div></div>
 <div class="ttc" id="astructt__arena_html"><div class="ttname"><a href="structt__arena.html">t_arena</a></div><div class="ttdoc">The main memory arena structure used for fast allocation.</div></div>
 </div><!-- fragment --><div class="fragment"><div class="line"> </div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="arena__debug_8h.html">arena_debug.h</a>&quot;</span></div>
@@ -104,7 +104,7 @@ $(function() {
 <div class="line"> </div>
 <div class="line"><span class="keyword">static</span> atomic_int <a id="a3" name="a3"></a><a class="code hl_variable" href="group__arena__debug.html#ga546ff0ddaab0fa267366384405c98c4a">g_arena_id_counter</a> = 0;</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__arena__debug.html#ga04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(<a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena)</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="arena__debug_8h.html#a04a9de28f7c7ffe93039cce9927ac875">arena_generate_id</a>(<a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!arena)</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
@@ -112,22 +112,22 @@ $(function() {
 <div class="line">    snprintf(arena-&gt;debug.id, <a id="a4" name="a4"></a><a class="code hl_define" href="arena__config_8h.html#a5489ebed19870e9f0cdbe626a20521e9">ARENA_ID_LEN</a>, <span class="stringliteral">&quot;A#%04d&quot;</span>, atomic_fetch_add(&amp;<a class="code hl_variable" href="group__arena__debug.html#ga546ff0ddaab0fa267366384405c98c4a">g_arena_id_counter</a>, 1));</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> <a id="a5" name="a5"></a><a class="code hl_function" href="group__arena__debug.html#ga744fe6131dcbab131363be8e8760128f">arena_set_debug_label</a>(<a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena, <span class="keyword">const</span> <span class="keywordtype">char</span>* label)</div>
+<div class="line"><span class="keywordtype">void</span> <a id="a5" name="a5"></a><a class="code hl_function" href="arena__debug_8h.html#a744fe6131dcbab131363be8e8760128f">arena_set_debug_label</a>(<a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena, <span class="keyword">const</span> <span class="keywordtype">char</span>* label)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (arena)</div>
 <div class="line">        arena-&gt;debug.label = label;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> <a id="a6" name="a6"></a><a class="code hl_function" href="group__arena__debug.html#ga4750eb2d8122ed76c9396a65bcb47aaa">arena_set_error_callback</a>(<a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena, <a id="a7" name="a7"></a><a class="code hl_typedef" href="arena__debug_8h.html#a2877be7952d7022448151c3c2c53033b">arena_error_callback</a> cb, <span class="keywordtype">void</span>* context)</div>
+<div class="line"><span class="keywordtype">void</span> <a id="a6" name="a6"></a><a class="code hl_function" href="arena__debug_8h.html#a4750eb2d8122ed76c9396a65bcb47aaa">arena_set_error_callback</a>(<a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena, <a id="a7" name="a7"></a><a class="code hl_typedef" href="arena__debug_8h.html#a2877be7952d7022448151c3c2c53033b">arena_error_callback</a> cb, <span class="keywordtype">void</span>* context)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!arena)</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line"> </div>
-<div class="line">    arena-&gt;debug.error_cb      = cb ? cb : <a id="a8" name="a8"></a><a class="code hl_function" href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a>;</div>
+<div class="line">    arena-&gt;debug.error_cb      = cb ? cb : <a id="a8" name="a8"></a><a class="code hl_function" href="arena__debug_8h.html#a3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a>;</div>
 <div class="line">    arena-&gt;debug.error_context = cb ? context : NULL;</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> <a id="a9" name="a9"></a><a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(<a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena, <span class="keyword">const</span> <span class="keywordtype">char</span>* fmt, ...)</div>
+<div class="line"><span class="keywordtype">void</span> <a id="a9" name="a9"></a><a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(<a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena, <span class="keyword">const</span> <span class="keywordtype">char</span>* fmt, ...)</div>
 <div class="line">{</div>
 <div class="line">    va_list args;</div>
 <div class="line">    va_start(args, fmt);</div>
@@ -149,7 +149,7 @@ $(function() {
 <div class="line">    }</div>
 <div class="line">}</div>
 <div class="line"> </div>
-<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg, <span class="keywordtype">void</span>* ctx)</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="arena__debug_8h.html#a3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* msg, <span class="keywordtype">void</span>* ctx)</div>
 <div class="line">{</div>
 <div class="line">    (void) ctx;</div>
 <div class="line">    fprintf(stderr, <span class="stringliteral">&quot;[ARENA ERROR] %s\n&quot;</span>, msg);</div>
@@ -181,7 +181,7 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!arena)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, LOG_LOCATION, <span class="stringliteral">&quot; Arena is NULL&quot;</span>, file, line, func);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, LOG_LOCATION, <span class="stringliteral">&quot; Arena is NULL&quot;</span>, file, line, func);</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -199,42 +199,42 @@ $(function() {
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (!arena-&gt;buffer &amp;&amp; arena-&gt;size &gt; 0)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Buffer is NULL but size is %zu&quot;</span>, file, line, func, arena-&gt;size);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Buffer is NULL but size is %zu&quot;</span>, file, line, func, arena-&gt;size);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (arena-&gt;offset &gt; arena-&gt;size)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Offset (%zu) exceeds size (%zu)&quot;</span>, file, line, func, arena-&gt;offset,</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Offset (%zu) exceeds size (%zu)&quot;</span>, file, line, func, arena-&gt;offset,</div>
 <div class="line">                           arena-&gt;size);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (arena-&gt;stats.peak_usage &gt; arena-&gt;size)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Peak usage (%zu) exceeds size (%zu)&quot;</span>, file, line, func,</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Peak usage (%zu) exceeds size (%zu)&quot;</span>, file, line, func,</div>
 <div class="line">                           arena-&gt;stats.peak_usage, arena-&gt;size);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (arena-&gt;stats.reallocations &gt; arena-&gt;stats.allocations)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Reallocations (%zu) exceed allocations (%zu)&quot;</span>, file, line, func,</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Reallocations (%zu) exceed allocations (%zu)&quot;</span>, file, line, func,</div>
 <div class="line">                           arena-&gt;stats.reallocations, arena-&gt;stats.allocations);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (arena-&gt;offset &gt; arena-&gt;stats.peak_usage)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Offset (%zu) exceeds peak usage (%zu)&quot;</span>, file, line, func,</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Offset (%zu) exceeds peak usage (%zu)&quot;</span>, file, line, func,</div>
 <div class="line">                           arena-&gt;offset, arena-&gt;stats.peak_usage);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (arena-&gt;stats.wasted_alignment_bytes &gt; arena-&gt;stats.bytes_allocated)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Wasted (%zu) exceeds allocated (%zu)&quot;</span>, file, line, func,</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Wasted (%zu) exceeds allocated (%zu)&quot;</span>, file, line, func,</div>
 <div class="line">                           arena-&gt;stats.wasted_alignment_bytes, arena-&gt;stats.bytes_allocated);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">if</span> (arena-&gt;stats.growth_history_count &gt; 0 &amp;&amp; !arena-&gt;stats.growth_history)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Growth history count &gt; 0 but pointer is NULL&quot;</span>, file, line, func);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, LOG_LOCATION, <span class="stringliteral">&quot; Growth history count &gt; 0 but pointer is NULL&quot;</span>, file, line, func);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
 <div class="line"><span class="preprocessor">#ifdef ARENA_ENABLE_THREAD_SAFE</span></div>
@@ -247,14 +247,14 @@ $(function() {
 <div class="ttc" id="aarena__config_8h_html_a5489ebed19870e9f0cdbe626a20521e9"><div class="ttname"><a href="arena__config_8h.html#a5489ebed19870e9f0cdbe626a20521e9">ARENA_ID_LEN</a></div><div class="ttdeci">#define ARENA_ID_LEN</div><div class="ttdoc">Max characters for arena ID strings.</div><div class="ttdef"><b>Definition</b> arena_config.h:6</div></div>
 <div class="ttc" id="aarena__debug_8h_html"><div class="ttname"><a href="arena__debug_8h.html">arena_debug.h</a></div><div class="ttdoc">Debugging utilities and hooks for the arena memory allocator.</div></div>
 <div class="ttc" id="aarena__debug_8h_html_a2877be7952d7022448151c3c2c53033b"><div class="ttname"><a href="arena__debug_8h.html#a2877be7952d7022448151c3c2c53033b">arena_error_callback</a></div><div class="ttdeci">void(* arena_error_callback)(const char *message, void *context)</div><div class="ttdoc">Type for error callback functions.</div><div class="ttdef"><b>Definition</b> arena_debug.h:58</div></div>
-<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:123</div></div>
-<div class="ttc" id="aarena__debug_8h_html_ac83845c104fd7ff36eac229817e3fa00"><div class="ttname"><a href="arena__debug_8h.html#ac83845c104fd7ff36eac229817e3fa00">ARENA_POISON_PATTERN</a></div><div class="ttdeci">#define ARENA_POISON_PATTERN</div><div class="ttdoc">Poison value used when overwriting memory in debug mode.</div><div class="ttdef"><b>Definition</b> arena_debug.h:111</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a3e58b128a2f84c4ed41102243bf38634"><div class="ttname"><a href="arena__debug_8h.html#a3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a></div><div class="ttdeci">void arena_default_error_callback(const char *msg, void *ctx)</div><div class="ttdef"><b>Definition</b> arena_debug.c:310</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a4750eb2d8122ed76c9396a65bcb47aaa"><div class="ttname"><a href="arena__debug_8h.html#a4750eb2d8122ed76c9396a65bcb47aaa">arena_set_error_callback</a></div><div class="ttdeci">void arena_set_error_callback(t_arena *arena, arena_error_callback cb, void *context)</div><div class="ttdef"><b>Definition</b> arena_debug.c:201</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a744fe6131dcbab131363be8e8760128f"><div class="ttname"><a href="arena__debug_8h.html#a744fe6131dcbab131363be8e8760128f">arena_set_debug_label</a></div><div class="ttdeci">void arena_set_debug_label(t_arena *arena, const char *label)</div><div class="ttdef"><b>Definition</b> arena_debug.c:147</div></div>
+<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:334</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ac83845c104fd7ff36eac229817e3fa00"><div class="ttname"><a href="arena__debug_8h.html#ac83845c104fd7ff36eac229817e3fa00">ARENA_POISON_PATTERN</a></div><div class="ttdeci">#define ARENA_POISON_PATTERN</div><div class="ttdoc">Poison value used when overwriting memory in debug mode.</div><div class="ttdef"><b>Definition</b> arena_debug.h:288</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="aarena__stats_8h_html"><div class="ttname"><a href="arena__stats_8h.html">arena_stats.h</a></div><div class="ttdoc">Runtime statistics tracking and diagnostics for memory arenas.</div></div>
-<div class="ttc" id="agroup__arena__debug_html_ga3e58b128a2f84c4ed41102243bf38634"><div class="ttname"><a href="group__arena__debug.html#ga3e58b128a2f84c4ed41102243bf38634">arena_default_error_callback</a></div><div class="ttdeci">void arena_default_error_callback(const char *msg, void *ctx)</div><div class="ttdoc">Default fallback error callback (prints to stderr).</div><div class="ttdef"><b>Definition</b> arena_debug.c:310</div></div>
-<div class="ttc" id="agroup__arena__debug_html_ga4750eb2d8122ed76c9396a65bcb47aaa"><div class="ttname"><a href="group__arena__debug.html#ga4750eb2d8122ed76c9396a65bcb47aaa">arena_set_error_callback</a></div><div class="ttdeci">void arena_set_error_callback(t_arena *arena, arena_error_callback cb, void *context)</div><div class="ttdoc">Set a custom error callback function for reporting arena errors.</div><div class="ttdef"><b>Definition</b> arena_debug.c:201</div></div>
 <div class="ttc" id="agroup__arena__debug_html_ga546ff0ddaab0fa267366384405c98c4a"><div class="ttname"><a href="group__arena__debug.html#ga546ff0ddaab0fa267366384405c98c4a">g_arena_id_counter</a></div><div class="ttdeci">static atomic_int g_arena_id_counter</div><div class="ttdoc">Global atomic counter for generating unique arena IDs.</div><div class="ttdef"><b>Definition</b> arena_debug.c:66</div></div>
-<div class="ttc" id="agroup__arena__debug_html_ga744fe6131dcbab131363be8e8760128f"><div class="ttname"><a href="group__arena__debug.html#ga744fe6131dcbab131363be8e8760128f">arena_set_debug_label</a></div><div class="ttdeci">void arena_set_debug_label(t_arena *arena, const char *label)</div><div class="ttdoc">Assign a debug label to an arena.</div><div class="ttdef"><b>Definition</b> arena_debug.c:147</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 </div><!-- fragment --> </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

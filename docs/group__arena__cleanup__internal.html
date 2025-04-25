@@ -147,7 +147,18 @@ Functions</h2></td></tr>
 <a class="el" href="group__arena__internal.html#ga8e94425910ed0ce27fd21cda3937ad56" title="Allocate and assign a zero-initialized buffer to an arena.">arena_set_allocated_buffer</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_cleanup_8c-example.html#a4">/home/toonsa/myProjects/memoryArena/srcs/core/arena_cleanup.c</a>.</dd>
 </dl>
-
+<div class="fragment"><div class="line"><span class="lineno">  187</span>{</div>
+<div class="line"><span class="lineno">  188</span>    <span class="keywordtype">bool</span> owns = atomic_load_explicit(&amp;arena-&gt;owns_buffer, memory_order_acquire);</div>
+<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">if</span> (owns &amp;&amp; arena-&gt;buffer)</div>
+<div class="line"><span class="lineno">  190</span>    {</div>
+<div class="line"><span class="lineno">  191</span>        <a class="code hl_define" href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a>(arena-&gt;buffer, arena-&gt;size);</div>
+<div class="line"><span class="lineno">  192</span>        free(arena-&gt;buffer);</div>
+<div class="line"><span class="lineno">  193</span>        arena-&gt;buffer = NULL;</div>
+<div class="line"><span class="lineno">  194</span>        atomic_store_explicit(&amp;arena-&gt;owns_buffer, <span class="keyword">false</span>, memory_order_release);</div>
+<div class="line"><span class="lineno">  195</span>    }</div>
+<div class="line"><span class="lineno">  196</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:334</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="ga46d3cb036c51fdf0f6f3cad6d0fcc3a6" name="ga46d3cb036c51fdf0f6f3cad6d0fcc3a6"></a>
@@ -190,12 +201,20 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__stats.html#gae37ca0bd35bd1f89eaed4c88e69f4ad0" title="Append a new growth event to the growth_history array.">arena_stats_record_growth</a> </dd>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__stats.html#gae37ca0bd35bd1f89eaed4c88e69f4ad0" title="Record a new arena growth event in the statistics.">arena_stats_record_growth</a> </dd>
 <dd>
 <a class="el" href="arena__cleanup_8c.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_cleanup_8c-example.html#a5">/home/toonsa/myProjects/memoryArena/srcs/core/arena_cleanup.c</a>.</dd>
 </dl>
-
+<div class="fragment"><div class="line"><span class="lineno">  222</span>{</div>
+<div class="line"><span class="lineno">  223</span>    <span class="keywordflow">if</span> (arena-&gt;stats.growth_history)</div>
+<div class="line"><span class="lineno">  224</span>    {</div>
+<div class="line"><span class="lineno">  225</span>        <a class="code hl_define" href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a>(arena-&gt;stats.growth_history, <span class="keyword">sizeof</span>(<span class="keywordtype">size_t</span>) * arena-&gt;stats.growth_history_count);</div>
+<div class="line"><span class="lineno">  226</span>        free(arena-&gt;stats.growth_history);</div>
+<div class="line"><span class="lineno">  227</span>        arena-&gt;stats.growth_history = NULL;</div>
+<div class="line"><span class="lineno">  228</span>    }</div>
+<div class="line"><span class="lineno">  229</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

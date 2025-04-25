@@ -152,7 +152,7 @@ $(function() {
 <div class="line"><span class="keywordtype">bool</span> <a class="code hl_function" href="group__arena__scratch.html#gaacf85b896eca809714ae5b80bce9b998">scratch_pool_init</a>(<a class="code hl_struct" href="group__arena__scratch.html#structs__scratch__arena__pool">t_scratch_arena_pool</a>* pool, <span class="keywordtype">size_t</span> slot_size, <span class="keywordtype">bool</span> thread_safe)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!pool || slot_size == 0)</div>
-<div class="line">        <span class="keywordflow">return</span> <a id="a9" name="a9"></a><a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_pool_init failed: invalid arguments&quot;</span>), <span class="keyword">false</span>;</div>
+<div class="line">        <span class="keywordflow">return</span> <a id="a9" name="a9"></a><a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_pool_init failed: invalid arguments&quot;</span>), <span class="keyword">false</span>;</div>
 <div class="line"> </div>
 <div class="line">    memset(pool, 0, <span class="keyword">sizeof</span>(*pool));</div>
 <div class="line">    pool-&gt;<a id="a10" name="a10"></a><a class="code hl_variable" href="group__arena__scratch.html#a64c052156b441b7adf46af210b8fcf95">slot_size</a>   = slot_size;</div>
@@ -193,7 +193,7 @@ $(function() {
 <div class="line"><a class="code hl_struct" href="structt__arena.html">t_arena</a>* <a class="code hl_function" href="group__arena__scratch.html#ga244f078e83929f392e441ca375c2230a">scratch_acquire</a>(<a class="code hl_struct" href="group__arena__scratch.html#structs__scratch__arena__pool">t_scratch_arena_pool</a>* pool)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!pool)</div>
-<div class="line">        <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_acquire failed: pool is NULL&quot;</span>), NULL;</div>
+<div class="line">        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_acquire failed: pool is NULL&quot;</span>), NULL;</div>
 <div class="line"> </div>
 <div class="line">    <a id="a17" name="a17"></a><a class="code hl_define" href="arena__scratch_8h.html#abce4c0e1d69d3b9850e36d69968c2d64">SCRATCH_LOCK</a>(pool);</div>
 <div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a>; ++i)</div>
@@ -206,14 +206,14 @@ $(function() {
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line">    <a class="code hl_define" href="arena__scratch_8h.html#a2f8510d38c4a460a6defc40c47e197dd">SCRATCH_UNLOCK</a>(pool);</div>
-<div class="line">    <span class="keywordflow">return</span> <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_acquire failed: all slots in use&quot;</span>), NULL;</div>
+<div class="line">    <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_acquire failed: all slots in use&quot;</span>), NULL;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="group__arena__scratch.html#gade0c7f0a1b88c47211db8f2c9f3f3660">scratch_release</a>(<a class="code hl_struct" href="group__arena__scratch.html#structs__scratch__arena__pool">t_scratch_arena_pool</a>* pool, <a class="code hl_struct" href="structt__arena.html">t_arena</a>* arena)</div>
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!pool || !arena)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_release failed: null pool or arena&quot;</span>);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_release failed: null pool or arena&quot;</span>);</div>
 <div class="line">        <span class="keywordflow">return</span>;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
@@ -226,7 +226,7 @@ $(function() {
 <div class="line">        }</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;scratch_release failed: arena not found in pool&quot;</span>);</div>
+<div class="line">    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;scratch_release failed: arena not found in pool&quot;</span>);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">/*</span></div>
@@ -237,7 +237,7 @@ $(function() {
 <div class="line">{</div>
 <div class="line">    <span class="keywordflow">if</span> (!<a id="a21" name="a21"></a><a class="code hl_function" href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a>(&amp;slot-&gt;<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>, slot_size, <span class="keyword">true</span>))</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code hl_function" href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_slot_init failed: arena_init failed for slot %d&quot;</span>, index);</div>
+<div class="line">        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_slot_init failed: arena_init failed for slot %d&quot;</span>, index);</div>
 <div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
 <div class="line">    }</div>
 <div class="line">    atomic_store(&amp;slot-&gt;<a class="code hl_variable" href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">in_use</a>, <span class="keyword">false</span>);</div>
@@ -246,10 +246,10 @@ $(function() {
 <div class="ttc" id="aarena_8h_html_a1a2582ca5fb4e571ac150fbd77bd0d82"><div class="ttname"><a href="arena_8h.html#a1a2582ca5fb4e571ac150fbd77bd0d82">arena_reset</a></div><div class="ttdeci">void arena_reset(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_state.c:345</div></div>
 <div class="ttc" id="aarena_8h_html_a245dff47ef4fe5693b657a42deecf988"><div class="ttname"><a href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a></div><div class="ttdeci">bool arena_init(t_arena *arena, size_t size, bool allow_grow)</div><div class="ttdef"><b>Definition</b> arena_create.c:190</div></div>
 <div class="ttc" id="aarena_8h_html_a640f54190aa0b356bc55787bfde1dcc5"><div class="ttname"><a href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a></div><div class="ttdeci">void arena_destroy(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_cleanup.c:82</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="aarena__scratch_8h_html_a2f8510d38c4a460a6defc40c47e197dd"><div class="ttname"><a href="arena__scratch_8h.html#a2f8510d38c4a460a6defc40c47e197dd">SCRATCH_UNLOCK</a></div><div class="ttdeci">#define SCRATCH_UNLOCK(pool)</div><div class="ttdef"><b>Definition</b> arena_scratch.h:55</div></div>
 <div class="ttc" id="aarena__scratch_8h_html_a7896fb10ff84dd7be54082cf4c301829"><div class="ttname"><a href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a></div><div class="ttdeci">#define SCRATCH_MAX_SLOTS</div><div class="ttdoc">Maximum number of concurrently usable scratch arenas in the pool.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:41</div></div>
 <div class="ttc" id="aarena__scratch_8h_html_abce4c0e1d69d3b9850e36d69968c2d64"><div class="ttname"><a href="arena__scratch_8h.html#abce4c0e1d69d3b9850e36d69968c2d64">SCRATCH_LOCK</a></div><div class="ttdeci">#define SCRATCH_LOCK(pool)</div><div class="ttdoc">Thread-safe locking macro (enabled only if ARENA_ENABLE_THREAD_SAFE is set)</div><div class="ttdef"><b>Definition</b> arena_scratch.h:54</div></div>
-<div class="ttc" id="agroup__arena__debug_html_gad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="group__arena__debug.html#gad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdoc">Report an error from an arena using its configured error callback.</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
 <div class="ttc" id="agroup__arena__scratch__internal_html_a52279bc596790848ee8b4c00064f3782"><div class="ttname"><a href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">s_scratch_slot::in_use</a></div><div class="ttdeci">atomic_bool in_use</div><div class="ttdoc">Atomic flag for acquisition tracking.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:76</div></div>
 <div class="ttc" id="agroup__arena__scratch__internal_html_a8e53aefa580a0552977802026307e540"><div class="ttname"><a href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">s_scratch_slot::arena</a></div><div class="ttdeci">t_arena arena</div><div class="ttdoc">Memory arena associated with this slot.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:75</div></div>
 <div class="ttc" id="agroup__arena__scratch__internal_html_gae37e23cb6b3d190982157208a850d840"><div class="ttname"><a href="group__arena__scratch__internal.html#gae37e23cb6b3d190982157208a850d840">scratch_slot_init</a></div><div class="ttdeci">static bool scratch_slot_init(t_scratch_slot *slot, size_t slot_size, int index)</div><div class="ttdoc">Initialize a single scratch slot with its own arena.</div><div class="ttdef"><b>Definition</b> arena_scratch.c:449</div></div>

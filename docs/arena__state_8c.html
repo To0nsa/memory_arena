@@ -179,7 +179,18 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  228</span>{</div>
+<div class="line"><span class="lineno">  229</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">  230</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  231</span> </div>
+<div class="line"><span class="lineno">  232</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  233</span>    <span class="keywordtype">size_t</span> offset = arena-&gt;offset;</div>
+<div class="line"><span class="lineno">  234</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  235</span>    <span class="keywordflow">return</span> offset;</div>
+<div class="line"><span class="lineno">  236</span>}</div>
+<div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> arena_internal.h:62</div></div>
+<div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> arena_internal.h:61</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a6e261f2520d969c662266ce7f7a0390c" name="a6e261f2520d969c662266ce7f7a0390c"></a>
@@ -197,7 +208,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  176</span>{</div>
+<div class="line"><span class="lineno">  177</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">  178</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  179</span> </div>
+<div class="line"><span class="lineno">  180</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  181</span>    <span class="keywordtype">size_t</span> peak = arena-&gt;stats.peak_usage;</div>
+<div class="line"><span class="lineno">  182</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  183</span>    <span class="keywordflow">return</span> peak;</div>
+<div class="line"><span class="lineno">  184</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a43f443882d11939468a2c6a33bdb88af" name="a43f443882d11939468a2c6a33bdb88af"></a>
@@ -225,7 +245,25 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  284</span>{</div>
+<div class="line"><span class="lineno">  285</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">  286</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  287</span> </div>
+<div class="line"><span class="lineno">  288</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  289</span>    <span class="keywordflow">if</span> (marker &gt; arena-&gt;offset)</div>
+<div class="line"><span class="lineno">  290</span>    {</div>
+<div class="line"><span class="lineno">  291</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_pop failed: invalid marker %zu (offset: %zu)&quot;</span>, marker, arena-&gt;offset);</div>
+<div class="line"><span class="lineno">  292</span>        <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  293</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  294</span>    }</div>
+<div class="line"><span class="lineno">  295</span> </div>
+<div class="line"><span class="lineno">  296</span>    <a class="code hl_define" href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a>(arena-&gt;buffer + marker, arena-&gt;offset - marker);</div>
+<div class="line"><span class="lineno">  297</span>    arena-&gt;offset = marker;</div>
+<div class="line"><span class="lineno">  298</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  299</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:334</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a366e9bd9ae716c21f10df35c34a50ccf" name="a366e9bd9ae716c21f10df35c34a50ccf"></a>
@@ -243,7 +281,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
+<div class="line"><span class="lineno">  124</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordtype">size_t</span> remaining = arena-&gt;size - arena-&gt;offset;</div>
+<div class="line"><span class="lineno">  129</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">return</span> remaining;</div>
+<div class="line"><span class="lineno">  131</span>}</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a1a2582ca5fb4e571ac150fbd77bd0d82" name="a1a2582ca5fb4e571ac150fbd77bd0d82"></a>
@@ -261,7 +308,20 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  346</span>{</div>
+<div class="line"><span class="lineno">  347</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">  348</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  349</span> </div>
+<div class="line"><span class="lineno">  350</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  351</span>    <a class="code hl_define" href="arena__debug_8h.html#a45fe83c0004caeffb8724c787d022110">ARENA_ASSERT_VALID</a>(arena);</div>
+<div class="line"><span class="lineno">  352</span> </div>
+<div class="line"><span class="lineno">  353</span>    <a class="code hl_define" href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a>(arena-&gt;buffer, arena-&gt;size);</div>
+<div class="line"><span class="lineno">  354</span>    arena-&gt;offset = 0;</div>
+<div class="line"><span class="lineno">  355</span> </div>
+<div class="line"><span class="lineno">  356</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  357</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_a45fe83c0004caeffb8724c787d022110"><div class="ttname"><a href="arena__debug_8h.html#a45fe83c0004caeffb8724c787d022110">ARENA_ASSERT_VALID</a></div><div class="ttdeci">#define ARENA_ASSERT_VALID(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:420</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a34c7c4eb11cde7b892e1d7c0cd20c886" name="a34c7c4eb11cde7b892e1d7c0cd20c886"></a>
@@ -279,7 +339,17 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
+<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a> = arena-&gt;offset;</div>
+<div class="line"><span class="lineno">   80</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a>;</div>
+<div class="line"><span class="lineno">   82</span>}</div>
+<div class="ttc" id="aarena__io_8h_html_ae8cc011bf3ee2d3c19743095ffc0f7a5"><div class="ttname"><a href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a></div><div class="ttdeci">size_t used</div><div class="ttdoc">Number of bytes used in the arena buffer.</div><div class="ttdef"><b>Definition</b> arena_io.h:2</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

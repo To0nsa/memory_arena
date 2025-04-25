@@ -182,7 +182,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  188</span>{</div>
+<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="arena__alloc__sub_8c.html#a26e47ae542c86e90b3011b118a3b7f17">arena_alloc_sub_labeled</a>(parent, child, size, <span class="stringliteral">&quot;subarena&quot;</span>);</div>
+<div class="line"><span class="lineno">  190</span>}</div>
+<div class="ttc" id="aarena__alloc__sub_8c_html_a26e47ae542c86e90b3011b118a3b7f17"><div class="ttname"><a href="arena__alloc__sub_8c.html#a26e47ae542c86e90b3011b118a3b7f17">arena_alloc_sub_labeled</a></div><div class="ttdeci">bool arena_alloc_sub_labeled(t_arena *parent, t_arena *child, size_t size, const char *label)</div><div class="ttdef"><b>Definition</b> arena_alloc_sub.c:327</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="afdccf432c5fa06bc362a283550785041" name="afdccf432c5fa06bc362a283550785041"></a>
@@ -222,7 +226,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  258</span>{</div>
+<div class="line"><span class="lineno">  259</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="arena__alloc__sub_8c.html#abd71bdff5e034d0f8d91abe288edd3f6">arena_alloc_sub_labeled_aligned</a>(parent, child, size, alignment, <span class="stringliteral">&quot;subarena&quot;</span>);</div>
+<div class="line"><span class="lineno">  260</span>}</div>
+<div class="ttc" id="aarena__alloc__sub_8c_html_abd71bdff5e034d0f8d91abe288edd3f6"><div class="ttname"><a href="arena__alloc__sub_8c.html#abd71bdff5e034d0f8d91abe288edd3f6">arena_alloc_sub_labeled_aligned</a></div><div class="ttdeci">bool arena_alloc_sub_labeled_aligned(t_arena *parent, t_arena *child, size_t size, size_t alignment, const char *label)</div><div class="ttdef"><b>Definition</b> arena_alloc_sub.c:399</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a26e47ae542c86e90b3011b118a3b7f17" name="a26e47ae542c86e90b3011b118a3b7f17"></a>
@@ -262,7 +270,11 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  328</span>{</div>
+<div class="line"><span class="lineno">  329</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="arena__alloc__sub_8c.html#abd71bdff5e034d0f8d91abe288edd3f6">arena_alloc_sub_labeled_aligned</a>(parent, child, size, <a class="code hl_define" href="arena__config_8h.html#a66ef203ef1d1e5112ebc6c81a3237e98">ARENA_DEFAULT_ALIGNMENT</a>, label);</div>
+<div class="line"><span class="lineno">  330</span>}</div>
+<div class="ttc" id="aarena__config_8h_html_a66ef203ef1d1e5112ebc6c81a3237e98"><div class="ttname"><a href="arena__config_8h.html#a66ef203ef1d1e5112ebc6c81a3237e98">ARENA_DEFAULT_ALIGNMENT</a></div><div class="ttdeci">#define ARENA_DEFAULT_ALIGNMENT</div><div class="ttdoc">Default alignment value supported.</div><div class="ttdef"><b>Definition</b> arena_config.h:31</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="abd71bdff5e034d0f8d91abe288edd3f6" name="abd71bdff5e034d0f8d91abe288edd3f6"></a>
@@ -308,7 +320,30 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-
+<div class="fragment"><div class="line"><span class="lineno">  400</span>{</div>
+<div class="line"><span class="lineno">  401</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__sub__internal.html#gae96fa9880ee38d0981f6c49b98c46669">arena_alloc_sub_validate</a>(parent, child))</div>
+<div class="line"><span class="lineno">  402</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  403</span> </div>
+<div class="line"><span class="lineno">  404</span>    <span class="keywordtype">void</span>* mem = <a class="code hl_function" href="arena_8h.html#a3c9a2623dab46020e9d9462d48120261">arena_alloc_aligned</a>(parent, size, alignment);</div>
+<div class="line"><span class="lineno">  405</span>    <span class="keywordflow">if</span> (!mem)</div>
+<div class="line"><span class="lineno">  406</span>    {</div>
+<div class="line"><span class="lineno">  407</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(parent, <span class="stringliteral">&quot;arena_alloc_sub failed: allocation from parent arena failed&quot;</span>);</div>
+<div class="line"><span class="lineno">  408</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  409</span>    }</div>
+<div class="line"><span class="lineno">  410</span> </div>
+<div class="line"><span class="lineno">  411</span>    <a class="code hl_function" href="group__arena__sub__internal.html#gabb5f9c8ef5719aa84370c319da3523aa">arena_setup_subarena</a>(parent, child, mem, size, label);</div>
+<div class="line"><span class="lineno">  412</span> </div>
+<div class="line"><span class="lineno">  413</span>    <a class="code hl_define" href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a>(<span class="stringliteral">&quot;[arena_alloc_sub] Created sub-arena (%s) of %zu bytes from %p → %p\n&quot;</span>, child-&gt;debug.label, size,</div>
+<div class="line"><span class="lineno">  414</span>         (<span class="keywordtype">void</span>*) parent, (<span class="keywordtype">void</span>*) child);</div>
+<div class="line"><span class="lineno">  415</span> </div>
+<div class="line"><span class="lineno">  416</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  417</span>}</div>
+<div class="ttc" id="aarena_8h_html_a3c9a2623dab46020e9d9462d48120261"><div class="ttname"><a href="arena_8h.html#a3c9a2623dab46020e9d9462d48120261">arena_alloc_aligned</a></div><div class="ttdeci">void * arena_alloc_aligned(t_arena *arena, size_t size, size_t alignment)</div><div class="ttdef"><b>Definition</b> arena_alloc.c:167</div></div>
+<div class="ttc" id="aarena__debug_8h_html_abf0e7a681c28a08824cb678ec3f9a6c6"><div class="ttname"><a href="arena__debug_8h.html#abf0e7a681c28a08824cb678ec3f9a6c6">ALOG</a></div><div class="ttdeci">#define ALOG(...)</div><div class="ttdoc">Debug logging macro (enabled only if ARENA_DEBUG_LOG is set).</div><div class="ttdef"><b>Definition</b> arena_debug.h:434</div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+<div class="ttc" id="agroup__arena__sub__internal_html_gabb5f9c8ef5719aa84370c319da3523aa"><div class="ttname"><a href="group__arena__sub__internal.html#gabb5f9c8ef5719aa84370c319da3523aa">arena_setup_subarena</a></div><div class="ttdeci">static void arena_setup_subarena(t_arena *parent, t_arena *child, void *buffer, size_t size, const char *label)</div><div class="ttdoc">Initialize a child arena as a sub-arena of a parent using a provided memory block.</div><div class="ttdef"><b>Definition</b> arena_alloc_sub.c:493</div></div>
+<div class="ttc" id="agroup__arena__sub__internal_html_gae96fa9880ee38d0981f6c49b98c46669"><div class="ttname"><a href="group__arena__sub__internal.html#gae96fa9880ee38d0981f6c49b98c46669">arena_alloc_sub_validate</a></div><div class="ttdeci">static bool arena_alloc_sub_validate(t_arena *parent, t_arena *child)</div><div class="ttdoc">Validate the input parameters for creating a sub-arena.</div><div class="ttdef"><b>Definition</b> arena_alloc_sub.c:446</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

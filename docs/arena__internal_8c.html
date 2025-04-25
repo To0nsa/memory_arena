@@ -136,19 +136,19 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga621d65813296246955027fa3f7f05838" id="r_ga621d65813296246955027fa3f7f05838"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga621d65813296246955027fa3f7f05838">arena_is_valid</a> (const <a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
-<tr class="memdesc:ga621d65813296246955027fa3f7f05838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether the given arena is in a valid, initialized state.  <br /></td></tr>
+<tr class="memdesc:ga621d65813296246955027fa3f7f05838"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether an arena is in a valid state.  <br /></td></tr>
 <tr class="separator:ga621d65813296246955027fa3f7f05838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga158f6a0623850d3dc681d9ecab1fe27f" id="r_ga158f6a0623850d3dc681d9ecab1fe27f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a> (<a class="el" href="group__arena__stats.html#ga5c30fe6780dafbd7e5a8c3b86d25afba">t_arena_stats</a> *stats)</td></tr>
+<tr class="memitem:ga158f6a0623850d3dc681d9ecab1fe27f" id="r_ga158f6a0623850d3dc681d9ecab1fe27f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a> (<a class="el" href="group__arena__stats.html#ga5c30fe6780dafbd7e5a8c3b86d25afba">t_arena_stats</a> *stats)</td></tr>
 <tr class="memdesc:ga158f6a0623850d3dc681d9ecab1fe27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all allocation statistics in an arena stats structure.  <br /></td></tr>
 <tr class="separator:ga158f6a0623850d3dc681d9ecab1fe27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa3a1838aa18111801b980c0b81e37813" id="r_gaa3a1838aa18111801b980c0b81e37813"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813">arena_update_peak</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
-<tr class="memdesc:gaa3a1838aa18111801b980c0b81e37813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the arena’s peak memory usage if the current usage exceeds it.  <br /></td></tr>
+<tr class="memdesc:gaa3a1838aa18111801b980c0b81e37813"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the peak usage metric of the arena.  <br /></td></tr>
 <tr class="separator:gaa3a1838aa18111801b980c0b81e37813"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga268aa3f7256dbdf405391501fedbabd4" id="r_ga268aa3f7256dbdf405391501fedbabd4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4">arena_zero_metadata</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
-<tr class="memdesc:ga268aa3f7256dbdf405391501fedbabd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zero out and reset all debug/stats metadata associated with the arena.  <br /></td></tr>
+<tr class="memdesc:ga268aa3f7256dbdf405391501fedbabd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all metadata fields in an arena to their default values.  <br /></td></tr>
 <tr class="separator:ga268aa3f7256dbdf405391501fedbabd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga627d4fdc46e225dccde0388ae40d04de" id="r_ga627d4fdc46e225dccde0388ae40d04de"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__internal.html#ga627d4fdc46e225dccde0388ae40d04de">default_grow_cb</a> (size_t current_size, size_t requested_size)</td></tr>
-<tr class="memdesc:ga627d4fdc46e225dccde0388ae40d04de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default growth policy callback for arena resizing.  <br /></td></tr>
+<tr class="memdesc:ga627d4fdc46e225dccde0388ae40d04de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default growth strategy for arenas that support dynamic resizing.  <br /></td></tr>
 <tr class="separator:ga627d4fdc46e225dccde0388ae40d04de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>

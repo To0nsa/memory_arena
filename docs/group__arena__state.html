@@ -114,17 +114,11 @@ Typedefs</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:gaf3f40a4bc5a7dcaf7c8d4f85839deb32" id="r_gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#gaf3f40a4bc5a7dcaf7c8d4f85839deb32">arena_stack_clear</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack)</td></tr>
-<tr class="memdesc:gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all stack frames without modifying arena state.  <br /></td></tr>
+<tr class="memdesc:gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear all frames in the arena stack without altering arena memory.  <br /></td></tr>
 <tr class="separator:gaf3f40a4bc5a7dcaf7c8d4f85839deb32"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaec8a215b6c2fc96130eb45ec6ee55818" id="r_gaec8a215b6c2fc96130eb45ec6ee55818"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#gaec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack, <a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
-<tr class="memdesc:gaec8a215b6c2fc96130eb45ec6ee55818"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize an arena stack with a given arena.  <br /></td></tr>
-<tr class="separator:gaec8a215b6c2fc96130eb45ec6ee55818"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga305d7e272b7d661e7c45235ac1b57b2a" id="r_ga305d7e272b7d661e7c45235ac1b57b2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack)</td></tr>
-<tr class="memdesc:ga305d7e272b7d661e7c45235ac1b57b2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop and restore the last saved state from the stack.  <br /></td></tr>
-<tr class="separator:ga305d7e272b7d661e7c45235ac1b57b2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1e6b0aa692652c987b3d4367ca7969e1" id="r_ga1e6b0aa692652c987b3d4367ca7969e1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a> (<a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *stack)</td></tr>
-<tr class="memdesc:ga1e6b0aa692652c987b3d4367ca7969e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Push the current arena state onto the stack.  <br /></td></tr>
-<tr class="separator:ga1e6b0aa692652c987b3d4367ca7969e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga158f6a0623850d3dc681d9ecab1fe27f" id="r_ga158f6a0623850d3dc681d9ecab1fe27f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__state.html#ga158f6a0623850d3dc681d9ecab1fe27f">arena_stats_reset</a> (<a class="el" href="group__arena__stats.html#ga5c30fe6780dafbd7e5a8c3b86d25afba">t_arena_stats</a> *stats)</td></tr>
+<tr class="memdesc:ga158f6a0623850d3dc681d9ecab1fe27f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all allocation statistics in an arena stats structure.  <br /></td></tr>
+<tr class="separator:ga158f6a0623850d3dc681d9ecab1fe27f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Functions for inspecting and manipulating arena usage state. </p>
@@ -143,7 +137,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <div class="textblock"><p>Stack structure for scoped arena memory control. </p>
 <p>Holds a pointer to an arena and a linked list of frames representing saved arena states. Frames are allocated from the arena itself. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#_a0">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#_a0">arena_stack_parser.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#_a0">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#_a0">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#_a0">arena_stack_parser.c</a>.</dd>
 </dl>
 </div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for s_arena_stack:</div>
@@ -183,7 +177,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Arena associated with this stack. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a7">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a3">arena_stack_parser.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a11">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a7">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a3">arena_stack_parser.c</a>.</dd>
 </dl>
 
 </div>
@@ -201,7 +195,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Top of the stack (most recent frame) </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a8">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a12">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a8">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>.</dd>
 </dl>
 
 </div>
@@ -222,7 +216,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <div class="textblock"><p>Internal frame representing a single state snapshot in the stack. </p>
 <p>Each frame holds a marker (offset) representing the arena state at the time of <code>push</code>, and a pointer to the previous frame for LIFO traversal. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#_a9">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#_a7">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#_a9">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>.</dd>
 </dl>
 </div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for s_arena_stack_frame:</div>
@@ -258,7 +252,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Marker to rewind arena to this point. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a11">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a8">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a11">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>.</dd>
 </dl>
 
 </div>
@@ -276,7 +270,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Previous frame in the stack. </p>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a13">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a9">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, and <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a13">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>.</dd>
 </dl>
 
 </div>
@@ -301,6 +295,8 @@ Functions</h2></td></tr>
 
 <p>Stack structure for scoped arena memory control. </p>
 <p>Holds a pointer to an arena and a linked list of frames representing saved arena states. Frames are allocated from the arena itself. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a13">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -320,6 +316,8 @@ Functions</h2></td></tr>
 
 <p>Internal frame representing a single state snapshot in the stack. </p>
 <p>Each frame holds a marker (offset) representing the arena state at the time of <code>push</code>, and a pointer to the previous frame for LIFO traversal. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a10">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>.</dd>
+</dl>
 
 </div>
 </div>
@@ -342,15 +340,7 @@ Functions</h2></td></tr>
 
 <p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
 
-<p>Clear all stack frames without modifying arena state. </p>
-<p>Clear all frames in the arena stack without altering arena memory.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stack</td><td>Pointer to the arena stack to clear.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>This does not rewind or pop memory. It only resets the internal frame pointer.</dd></dl>
+<p>Clear all frames in the arena stack without altering arena memory. </p>
 <p>This function discards all frames from the arena stack by resetting the <code>top</code> pointer to <code>NULL</code>. It does <b>not</b> modify the arena’s allocation state or release memory. It's a logical reset of the stack structure, not a memory rollback.</p>
 <p>Use this when:</p><ul>
 <li>You want to abandon saved states without restoring them.</li>
@@ -364,128 +354,96 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>This operation does not reclaim memory or modify arena contents. Use <code><a class="el" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a" title="Pop and restore the last saved state from the stack.">arena_stack_pop()</a></code> to actually revert memory state.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>Clearing the stack invalidates all saved markers in <code><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push()</a></code>. Use with care if frames are still expected to be restored.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__state.html#gaec8a215b6c2fc96130eb45ec6ee55818" title="Initialize an arena stack with a given arena.">arena_stack_init</a> </dd>
+<dl class="section note"><dt>Note</dt><dd>This operation does not reclaim memory or modify arena contents. Use <code><a class="el" href="arena__stack_8h.html#a305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop()</a></code> to actually revert memory state.</dd></dl>
+<dl class="section warning"><dt>Warning</dt><dd>Clearing the stack invalidates all saved markers in <code><a class="el" href="arena__stack_8h.html#a1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push()</a></code>. Use with care if frames are still expected to be restored.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="arena__stack_8h.html#aec8a215b6c2fc96130eb45ec6ee55818">arena_stack_init</a> </dd>
 <dd>
-<a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push</a> </dd>
+<a class="el" href="arena__stack_8h.html#a1e6b0aa692652c987b3d4367ca7969e1">arena_stack_push</a> </dd>
 <dd>
-<a class="el" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a" title="Pop and restore the last saved state from the stack.">arena_stack_pop</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a15">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a8">arena_stack_parser.c</a>.</dd>
+<a class="el" href="arena__stack_8h.html#a305d7e272b7d661e7c45235ac1b57b2a">arena_stack_pop</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a14">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a15">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a8">arena_stack_parser.c</a>.</dd>
 </dl>
-
+<div class="fragment"><div class="line"><span class="lineno">  296</span>{</div>
+<div class="line"><span class="lineno">  297</span>    <span class="keywordflow">if</span> (!stack)</div>
+<div class="line"><span class="lineno">  298</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  299</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a> = NULL;</div>
+<div class="line"><span class="lineno">  300</span>}</div>
+<div class="ttc" id="agroup__arena__state_html_a89b42a42c09b6bd9fe3af1962510c8cf"><div class="ttname"><a href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">s_arena_stack::top</a></div><div class="ttdeci">t_arena_stack_frame * top</div><div class="ttdoc">Top of the stack (most recent frame)</div><div class="ttdef"><b>Definition</b> arena_stack.h:73</div></div>
+</div><!-- fragment -->
 </div>
 </div>
-<a id="gaec8a215b6c2fc96130eb45ec6ee55818" name="gaec8a215b6c2fc96130eb45ec6ee55818"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaec8a215b6c2fc96130eb45ec6ee55818">&#9670;&#160;</a></span>arena_stack_init()</h2>
+<a id="ga158f6a0623850d3dc681d9ecab1fe27f" name="ga158f6a0623850d3dc681d9ecab1fe27f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga158f6a0623850d3dc681d9ecab1fe27f">&#9670;&#160;</a></span>arena_stats_reset()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void arena_stack_init </td>
+          <td class="memname">void arena_stats_reset </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *&#160;</td>
-          <td class="paramname"><em>stack</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structt__arena.html">t_arena</a> *&#160;</td>
-          <td class="paramname"><em>arena</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
-
-<p>Initialize an arena stack with a given arena. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stack</td><td>Pointer to the arena stack to initialize. </td></tr>
-    <tr><td class="paramname">arena</td><td>Pointer to the arena the stack will manage.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>Does not allocate any memory until <code><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push()</a></code> is called.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push</a> </dd>
-<dd>
-<a class="el" href="group__arena__state.html#gaf3f40a4bc5a7dcaf7c8d4f85839deb32" title="Clear all stack frames without modifying arena state.">arena_stack_clear</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a3">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a7">arena_stack_parser.c</a>.</dd>
-</dl>
-
-</div>
-</div>
-<a id="ga305d7e272b7d661e7c45235ac1b57b2a" name="ga305d7e272b7d661e7c45235ac1b57b2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga305d7e272b7d661e7c45235ac1b57b2a">&#9670;&#160;</a></span>arena_stack_pop()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void arena_stack_pop </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *&#160;</td>
-          <td class="paramname"><em>stack</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="group__arena__stats.html#ga5c30fe6780dafbd7e5a8c3b86d25afba">t_arena_stats</a> *&#160;</td>
+          <td class="paramname"><em>stats</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__stats_8h.html">arena_stats.h</a>&gt;</code></p>
 
-<p>Pop and restore the last saved state from the stack. </p>
-<p>Restores the arena to the previous state (marker) and discards all allocations made since the last <code><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push()</a></code> call.</p>
+<p>Reset all allocation statistics in an arena stats structure. </p>
+<p>This function clears all fields in a <code>t_arena_stats</code> structure, effectively resetting the arena's statistical tracking to an initial state.</p>
+<p>It resets:</p><ul>
+<li>Allocation and reallocation counters.</li>
+<li>Total bytes allocated and wasted.</li>
+<li>Peak usage and live allocation tracking.</li>
+<li>Last allocation metadata (size, offset, ID).</li>
+<li>Growth history tracking and counter.</li>
+</ul>
+<p>This is typically called during arena initialization or reuse.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">stack</td><td>Pointer to the arena stack to pop from.</td></tr>
+    <tr><td class="paramname">stats</td><td>Pointer to the <code>t_arena_stats</code> structure to reset.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section note"><dt>Note</dt><dd>Does nothing if the stack is empty or uninitialized.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a5">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a4">arena_stack_parser.c</a>.</dd>
+<dl class="section note"><dt>Note</dt><dd>If <code>stats</code> is <code>NULL</code>, the function does nothing.</dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4" title="Reset all metadata fields in an arena to their default values.">arena_zero_metadata</a> </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_create_8c-example.html#a22">/home/toonsa/myProjects/memoryArena/srcs/core/arena_create.c</a>.</dd>
 </dl>
-
-</div>
-</div>
-<a id="ga1e6b0aa692652c987b3d4367ca7969e1" name="ga1e6b0aa692652c987b3d4367ca7969e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga1e6b0aa692652c987b3d4367ca7969e1">&#9670;&#160;</a></span>arena_stack_push()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void arena_stack_push </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__arena__state.html#gaa9563cbc836d0b50dd1d0ece8fc6d040">t_arena_stack</a> *&#160;</td>
-          <td class="paramname"><em>stack</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
-
-<p>Push the current arena state onto the stack. </p>
-<p>Saves the current allocation offset into a new stack frame. All allocations made after the push can later be discarded with <code><a class="el" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a" title="Pop and restore the last saved state from the stack.">arena_stack_pop()</a></code>.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">stack</td><td>Pointer to the arena stack to push onto.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>The stack frame is allocated from the same arena being managed.</dd></dl>
-<dl class="section warning"><dt>Warning</dt><dd>If the arena is out of memory, the push will silently fail.</dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a" title="Pop and restore the last saved state from the stack.">arena_stack_pop</a> </dd></dl>
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a4">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a1">arena_stack_parser.c</a>.</dd>
-</dl>
-
+<div class="fragment"><div class="line"><span class="lineno">  188</span>{</div>
+<div class="line"><span class="lineno">  189</span>    <span class="keywordflow">if</span> (!stats)</div>
+<div class="line"><span class="lineno">  190</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  191</span> </div>
+<div class="line"><span class="lineno">  192</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#ad93d7ddf5a3dda959013c4777d724b6b">allocations</a>            = 0;</div>
+<div class="line"><span class="lineno">  193</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a3341518cae0114bfbcc644c60963568b">reallocations</a>          = 0;</div>
+<div class="line"><span class="lineno">  194</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a8e3b629d6141cbf57e67ea8e9597b29c">failed_allocations</a>     = 0;</div>
+<div class="line"><span class="lineno">  195</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#af2fda128c113473fa548f320a6a32017">live_allocations</a>       = 0;</div>
+<div class="line"><span class="lineno">  196</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#ad231cae09d7bdf212cc9570cb74e8c1c">bytes_allocated</a>        = 0;</div>
+<div class="line"><span class="lineno">  197</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a9e638ee160cb3bb7f1cdb538a4f93568">wasted_alignment_bytes</a> = 0;</div>
+<div class="line"><span class="lineno">  198</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a1cdea807971dd72497ae281f5588c4f1">shrinks</a>                = 0;</div>
+<div class="line"><span class="lineno">  199</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a22524712472720b802d5a4131e43b098">peak_usage</a>             = 0;</div>
+<div class="line"><span class="lineno">  200</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a0313fcbfc15c79a0cae03df3d14adc2b">last_alloc_size</a>        = 0;</div>
+<div class="line"><span class="lineno">  201</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#af74b04da79e57175f192c40ede1a59aa">last_alloc_offset</a>      = 0;</div>
+<div class="line"><span class="lineno">  202</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#aaef1554ba87f5c259f22c96ea403288d">last_alloc_id</a>          = (size_t) -1;</div>
+<div class="line"><span class="lineno">  203</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#ad8952303c875bfe6f549c7b695690c8f">alloc_id_counter</a>       = 0;</div>
+<div class="line"><span class="lineno">  204</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#ad45b4e0b914c54b8fdb2251aa233988a">growth_history</a>         = NULL;</div>
+<div class="line"><span class="lineno">  205</span>    stats-&gt;<a class="code hl_variable" href="group__arena__stats.html#a35beeb231377f3d77ffef0fc8d7e9fbb">growth_history_count</a>   = 0;</div>
+<div class="line"><span class="lineno">  206</span>}</div>
+<div class="ttc" id="agroup__arena__stats_html_a0313fcbfc15c79a0cae03df3d14adc2b"><div class="ttname"><a href="group__arena__stats.html#a0313fcbfc15c79a0cae03df3d14adc2b">s_arena_stats::last_alloc_size</a></div><div class="ttdeci">size_t last_alloc_size</div><div class="ttdoc">Size of the last allocation.</div><div class="ttdef"><b>Definition</b> arena_stats.h:64</div></div>
+<div class="ttc" id="agroup__arena__stats_html_a1cdea807971dd72497ae281f5588c4f1"><div class="ttname"><a href="group__arena__stats.html#a1cdea807971dd72497ae281f5588c4f1">s_arena_stats::shrinks</a></div><div class="ttdeci">size_t shrinks</div><div class="ttdoc">Number of times the arena was shrunk.</div><div class="ttdef"><b>Definition</b> arena_stats.h:60</div></div>
+<div class="ttc" id="agroup__arena__stats_html_a22524712472720b802d5a4131e43b098"><div class="ttname"><a href="group__arena__stats.html#a22524712472720b802d5a4131e43b098">s_arena_stats::peak_usage</a></div><div class="ttdeci">size_t peak_usage</div><div class="ttdoc">Highest offset reached (i.e., peak memory usage)</div><div class="ttdef"><b>Definition</b> arena_stats.h:58</div></div>
+<div class="ttc" id="agroup__arena__stats_html_a3341518cae0114bfbcc644c60963568b"><div class="ttname"><a href="group__arena__stats.html#a3341518cae0114bfbcc644c60963568b">s_arena_stats::reallocations</a></div><div class="ttdeci">size_t reallocations</div><div class="ttdoc">Total number of reallocations (via arena_realloc_last)</div><div class="ttdef"><b>Definition</b> arena_stats.h:56</div></div>
+<div class="ttc" id="agroup__arena__stats_html_a35beeb231377f3d77ffef0fc8d7e9fbb"><div class="ttname"><a href="group__arena__stats.html#a35beeb231377f3d77ffef0fc8d7e9fbb">s_arena_stats::growth_history_count</a></div><div class="ttdeci">size_t growth_history_count</div><div class="ttdoc">Number of growth events recorded.</div><div class="ttdef"><b>Definition</b> arena_stats.h:62</div></div>
+<div class="ttc" id="agroup__arena__stats_html_a8e3b629d6141cbf57e67ea8e9597b29c"><div class="ttname"><a href="group__arena__stats.html#a8e3b629d6141cbf57e67ea8e9597b29c">s_arena_stats::failed_allocations</a></div><div class="ttdeci">size_t failed_allocations</div><div class="ttdoc">Number of failed allocation attempts.</div><div class="ttdef"><b>Definition</b> arena_stats.h:68</div></div>
+<div class="ttc" id="agroup__arena__stats_html_a9e638ee160cb3bb7f1cdb538a4f93568"><div class="ttname"><a href="group__arena__stats.html#a9e638ee160cb3bb7f1cdb538a4f93568">s_arena_stats::wasted_alignment_bytes</a></div><div class="ttdeci">size_t wasted_alignment_bytes</div><div class="ttdoc">Total bytes wasted due to alignment padding.</div><div class="ttdef"><b>Definition</b> arena_stats.h:59</div></div>
+<div class="ttc" id="agroup__arena__stats_html_aaef1554ba87f5c259f22c96ea403288d"><div class="ttname"><a href="group__arena__stats.html#aaef1554ba87f5c259f22c96ea403288d">s_arena_stats::last_alloc_id</a></div><div class="ttdeci">size_t last_alloc_id</div><div class="ttdoc">Unique ID of the last allocation.</div><div class="ttdef"><b>Definition</b> arena_stats.h:66</div></div>
+<div class="ttc" id="agroup__arena__stats_html_ad231cae09d7bdf212cc9570cb74e8c1c"><div class="ttname"><a href="group__arena__stats.html#ad231cae09d7bdf212cc9570cb74e8c1c">s_arena_stats::bytes_allocated</a></div><div class="ttdeci">size_t bytes_allocated</div><div class="ttdoc">Cumulative bytes allocated.</div><div class="ttdef"><b>Definition</b> arena_stats.h:57</div></div>
+<div class="ttc" id="agroup__arena__stats_html_ad45b4e0b914c54b8fdb2251aa233988a"><div class="ttname"><a href="group__arena__stats.html#ad45b4e0b914c54b8fdb2251aa233988a">s_arena_stats::growth_history</a></div><div class="ttdeci">size_t * growth_history</div><div class="ttdoc">Array of size values recorded during arena growth.</div><div class="ttdef"><b>Definition</b> arena_stats.h:61</div></div>
+<div class="ttc" id="agroup__arena__stats_html_ad8952303c875bfe6f549c7b695690c8f"><div class="ttname"><a href="group__arena__stats.html#ad8952303c875bfe6f549c7b695690c8f">s_arena_stats::alloc_id_counter</a></div><div class="ttdeci">size_t alloc_id_counter</div><div class="ttdoc">Total allocation ID counter (used for tracking)</div><div class="ttdef"><b>Definition</b> arena_stats.h:67</div></div>
+<div class="ttc" id="agroup__arena__stats_html_ad93d7ddf5a3dda959013c4777d724b6b"><div class="ttname"><a href="group__arena__stats.html#ad93d7ddf5a3dda959013c4777d724b6b">s_arena_stats::allocations</a></div><div class="ttdeci">size_t allocations</div><div class="ttdoc">Total number of successful allocations.</div><div class="ttdef"><b>Definition</b> arena_stats.h:55</div></div>
+<div class="ttc" id="agroup__arena__stats_html_af2fda128c113473fa548f320a6a32017"><div class="ttname"><a href="group__arena__stats.html#af2fda128c113473fa548f320a6a32017">s_arena_stats::live_allocations</a></div><div class="ttdeci">size_t live_allocations</div><div class="ttdoc">Number of active allocations (not yet released)</div><div class="ttdef"><b>Definition</b> arena_stats.h:63</div></div>
+<div class="ttc" id="agroup__arena__stats_html_af74b04da79e57175f192c40ede1a59aa"><div class="ttname"><a href="group__arena__stats.html#af74b04da79e57175f192c40ede1a59aa">s_arena_stats::last_alloc_offset</a></div><div class="ttdeci">size_t last_alloc_offset</div><div class="ttdoc">Offset of the last allocation.</div><div class="ttdef"><b>Definition</b> arena_stats.h:65</div></div>
+</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->
