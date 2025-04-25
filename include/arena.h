@@ -122,7 +122,7 @@ extern "C"
 	 * @ingroup arena_core
 	 *
 	 * @note
-	 * Use the API functions (e.g., `arena_alloc`, `arena_reset`) rather than
+	 * Use the API functions (`arena_alloc`, `arena_reset`) rather than
 	 * manipulating this structure directly.
 	 */
 	typedef struct s_arena
