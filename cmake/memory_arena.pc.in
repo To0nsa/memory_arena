@@ -1,0 +1,23 @@
+# Installation prefix (/usr/local or custom CMAKE_INSTALL_PREFIX)
+prefix=@CMAKE_INSTALL_PREFIX@
+
+# Exec prefix usually matches prefix unless overridden
+exec_prefix=${prefix}
+
+# Library directory (/usr/local/lib or lib64)
+libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
+
+# Header files location (/usr/local/include)
+includedir=${prefix}/@CMAKE_INSTALL_INCLUDEDIR@
+
+# Package metadata
+Name: memory_arena											# Name of the library/package
+Description: High-performance arena-style memory allocator	# Brief description
+Version: @PROJECT_VERSION@									# Substituted from CMake project version
+
+# Linker flags for users of this package
+Libs: -L${libdir} -lmemory_arena			# How to link against this library
+Libs.private: -lpthread						# Additional libs needed when statically linking
+
+# Compiler flags for users (include paths)
+Cflags: -I${includedir}					# Include path needed to use the library

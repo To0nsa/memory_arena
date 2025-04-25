@@ -1,0 +1,107 @@
+{
+	"version": 3,
+	"cmakeMinimumRequired": {
+	  "major": 3,
+	  "minor": 16
+	},
+	"configurePresets": [
+	  {
+		"name": "debug",
+		"displayName": "Debug Build",
+		"generator": "Ninja",
+		"binaryDir": "${sourceDir}/build/debug",
+		"cacheVariables": {
+		  "CMAKE_BUILD_TYPE": "Debug",
+		  "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+		  "ARENA_ENABLE_THREAD_SAFE": "ON",
+		  "ARENA_DEBUG_CHECKS": "ON",
+		  "ARENA_POISON_MEMORY": "ON",
+		  "BUILD_TESTING": "ON"
+		}
+	  },
+	  {
+		"name": "asan",
+		"inherits": "debug",
+		"displayName": "ASAN Build",
+		"binaryDir": "${sourceDir}/build/asan",
+		"cacheVariables": {
+		  "USE_ADDRESS_SANITIZER": "ON",
+		  "BUILD_TESTING": "ON"
+		}
+	  },
+	  {
+		"name": "tsan",
+		"inherits": "debug",
+		"displayName": "TSAN Build",
+		"binaryDir": "${sourceDir}/build/tsan",
+		"cacheVariables": {
+		  "USE_THREAD_SANITIZER": "ON",
+		  "ARENA_ENABLE_THREAD_SAFE": "ON",
+		  "ARENA_POISON_MEMORY": "OFF",
+		  "BUILD_TESTING": "ON"
+		}
+	  },
+	  {
+		"name": "release",
+		"displayName": "Release Build",
+		"generator": "Ninja",
+		"binaryDir": "${sourceDir}/build/release",
+		"cacheVariables": {
+		  "CMAKE_BUILD_TYPE": "Release",
+		  "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+		  "ARENA_ENABLE_THREAD_SAFE": "ON",
+		  "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/_install",
+		  "BUILD_TESTING": "OFF"
+		}
+	  }
+	],
+	"buildPresets": [
+	  {
+		"name": "debug",
+		"configurePreset": "debug"
+	  },
+	  {
+		"name": "asan",
+		"configurePreset": "asan"
+	  },
+	  {
+		"name": "tsan",
+		"configurePreset": "tsan"
+	  },
+	  {
+		"name": "release",
+		"configurePreset": "release"
+	  }
+	],
+	"testPresets": [
+	  {
+		"name": "debug",
+		"configurePreset": "debug",
+		"output": {
+		  "outputOnFailure": true
+		}
+	  },
+	  {
+		"name": "asan",
+		"configurePreset": "asan",
+		"output": {
+		  "outputOnFailure": true
+		}
+	  },
+	  {
+		"name": "tsan",
+		"configurePreset": "tsan",
+		"output": {
+		  "outputOnFailure": true
+		}
+	  },
+	  {
+		"name": "release",
+		"configurePreset": "release",
+		"output": {
+		  "outputOnFailure": true
+		}
+	  }
+	]
+  }
+  

@@ -1,0 +1,8 @@
+@PACKAGE_INIT@
+
+# This file is installed as part of the memory_arena package
+# It gets included by CMake when someone uses `find_package(memory_arena)`.
+
+# Include the targets exported by memory_arena during installation.
+# This makes `memory_arena::static` and `memory_arena::shared` available to consumers.
+include("${CMAKE_CURRENT_LIST_DIR}/memory_arenaTargets.cmake")
