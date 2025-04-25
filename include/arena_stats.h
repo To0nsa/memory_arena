@@ -73,137 +73,53 @@ extern "C"
 
 	/**
 	 * @brief
-	 * Print detailed diagnostics about the given arena to a stream.
-	 *
-	 * @details
-	 * This function outputs a formatted summary of the current arena state to the
-	 * specified `FILE*` stream. It includes memory layout, allocation statistics,
-	 * debug metadata, and growth history (if available).
-	 *
-	 * Sections reported:
-	 * - Basic layout: buffer address, size, offset, remaining space
-	 * - Allocation stats: total allocations, reallocations, failures, alignment waste
-	 * - Last allocation metadata: size, offset, ID
-	 * - Debug info: ID, label, hook presence, thread safety
-	 * - Growth history: sizes recorded during dynamic expansion
-	 *
-	 * This function is useful for:
-	 * - Debugging memory usage patterns
-	 * - Verifying arena configuration at runtime
-	 * - Profiling custom allocators using arena-backed systems
+	 * Print formatted diagnostics about the arena to a stream.
 	 *
 	 * @param arena  Pointer to the arena to inspect.
-	 * @param stream Output stream to write the diagnostics to (e.g., `stdout`, `stderr`, or a log file).
-	 *
-	 * @return void
+	 * @param stream Stream to write the output to (e.g., `stdout`, `stderr`).
 	 *
 	 * @ingroup arena_stats
 	 *
-	 * @note
-	 * If `arena` or `stream` is `NULL`, the function does nothing.
+	 * @see arena_get_stats
 	 */
 	void arena_print_stats(t_arena* arena, FILE* stream);
 
 	/**
 	 * @brief
-	 * Retrieve a snapshot of the current arena statistics.
+	 * Return a snapshot of the arena's internal statistics.
 	 *
-	 * @details
-	 * This function returns a copy of the `t_arena_stats` structure from
-	 * the specified arena. The statistics include information such as:
-	 * - Number of allocations and reallocations
-	 * - Bytes allocated and alignment overhead
-	 * - Peak usage and current allocation ID
-	 * - Growth history and tracking counters
-	 *
-	 * This is useful for diagnostics, profiling, logging, or exporting
-	 * memory usage metrics to external tools.
-	 *
-	 * The returned stats are safe to use outside the arena and will not
-	 * be affected by future changes to the arena state.
-	 *
-	 * Thread-safe: acquires the arena lock before reading the data.
-	 *
-	 * @param arena Pointer to the arena to inspect.
-	 *
-	 * @return A copy of the arena’s current statistics. If `arena` is `NULL`,
-	 *         returns a zero-initialized `t_arena_stats` structure.
+	 * @param arena Pointer to the arena.
+	 * @return A copy of its `t_arena_stats` structure.
 	 *
 	 * @ingroup arena_stats
 	 *
-	 * @note
-	 * This function performs a shallow copy. The `growth_history` pointer
-	 * in the returned struct still points to internal memory managed by the arena.
-	 * Do not modify or free it manually.
-	 *
 	 * @see arena_print_stats
-	 * @see arena_stats_record_growth
 	 * @see arena_stats_reset
 	 */
 	t_arena_stats arena_get_stats(const t_arena* arena);
 
 	/**
 	 * @brief
-	 * Reset all allocation statistics in an arena stats structure.
+	 * Reset the given statistics structure to zero.
 	 *
-	 * @details
-	 * This function clears all fields in a `t_arena_stats` structure,
-	 * effectively resetting the arena's statistical tracking to an initial state.
+	 * @param stats Pointer to the stats structure to reset.
 	 *
-	 * It resets:
-	 * - Allocation and reallocation counters.
-	 * - Total bytes allocated and wasted.
-	 * - Peak usage and live allocation tracking.
-	 * - Last allocation metadata (size, offset, ID).
-	 * - Growth history tracking and counter.
-	 *
-	 * This is typically called during arena initialization or reuse.
-	 *
-	 * @param stats Pointer to the `t_arena_stats` structure to reset.
-	 *
-	 * @ingroup arena_state
+	 * @ingroup arena_stats
 	 *
 	 * @note
-	 * If `stats` is `NULL`, the function does nothing.
-	 *
-	 * @see arena_zero_metadata
+	 * This does not affect the arena’s internal stats unless you explicitly assign it back.
 	 */
 	void arena_stats_reset(t_arena_stats* stats);
 
 	/**
 	 * @brief
-	 * Record a new arena growth event in the statistics.
+	 * Append a new growth event to the `growth_history` array.
 	 *
-	 * @details
-	 * This function appends a new size value to the `growth_history` array
-	 * inside the provided `t_arena_stats` structure. It tracks each time
-	 * the arena grows dynamically (via `arena_grow()`), enabling tools and
-	 * diagnostics to analyze memory usage trends over time.
-	 *
-	 * Internally:
-	 * - It reallocates the `growth_history` array to make room for the new entry.
-	 * - Appends the `new_size` to the end of the list.
-	 * - Increments the `growth_history_count`.
-	 *
-	 * If memory reallocation fails, the function logs a debug message via `ALOG`
-	 * (if debug logging is enabled) and exits silently without recording the growth.
-	 *
-	 * @param stats     Pointer to the `t_arena_stats` structure to update.
-	 * @param new_size  The new arena size (in bytes) after a growth operation.
-	 *
-	 * @return void
+	 * @param stats     Pointer to the stats structure to update.
+	 * @param size      The new size of the arena after a growth.
 	 *
 	 * @ingroup arena_stats
 	 *
-	 * @note
-	 * This function is typically called automatically by `arena_grow()`.
-	 * The `growth_history` buffer is dynamically managed and grows linearly.
-	 *
-	 * @warning
-	 * This function does nothing if `stats` is `NULL`.
-	 * Memory allocation failure is non-fatal but results in data loss for this event.
-	 *
-	 * @see arena_grow
 	 * @see arena_print_stats
 	 */
 	void arena_stats_record_growth(t_arena_stats* stats, size_t size);

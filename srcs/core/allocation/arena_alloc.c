@@ -59,16 +59,161 @@ void*                arena_alloc_internal(t_arena* arena, size_t size, size_t al
  * Public API
  */
 
+/**
+ * @brief
+ * Allocate a block of memory from the arena with default alignment.
+ *
+ * @details
+ * This function allocates `size` bytes of memory from the given `arena` using
+ * the default alignment (`ARENA_DEFAULT_ALIGNMENT`). It delegates to the internal
+ * `arena_alloc_internal()` and uses the label `"arena_alloc"` for tracking and
+ * debugging purposes.
+ *
+ * Use this when:
+ * - You want a simple allocation without needing to specify alignment or label.
+ * - You’re working with data that doesn’t require special alignment (e.g., byte arrays).
+ *
+ * On success, a pointer to the allocated memory block is returned. On failure,
+ * `NULL` is returned and an error is reported via the arena’s error callback.
+ *
+ * @param arena Pointer to the `t_arena` from which to allocate memory.
+ * @param size  Number of bytes to allocate.
+ *
+ * @return Pointer to the allocated memory block, or `NULL` on failure.
+ *
+ * @ingroup arena_alloc
+ *
+ * @see arena_alloc_internal
+ * @see arena_alloc_aligned
+ * @see arena_alloc_labeled
+ *
+ * @example
+ * @code
+ * // Example: Allocate a raw buffer for general-purpose use
+ * #include <string.h>
+ *
+ * t_arena arena;
+ * arena_init(&arena, 8192, false);
+ *
+ * // Allocate a 256-byte buffer
+ * void* buffer = arena_alloc(&arena, 256);
+ *
+ * if (!buffer) {
+ *     // Handle allocation failure
+ * }
+ *
+ * // Use the buffer (e.g., zero it)
+ * memset(buffer, 0, 256);
+ *
+ * arena_destroy(&arena);
+ * @endcode
+ *
+ */
 void* arena_alloc(t_arena* arena, size_t size)
 {
 	return arena_alloc_internal(arena, size, ARENA_DEFAULT_ALIGNMENT, "arena_alloc");
 }
 
+/**
+ * @brief
+ * Allocate a block of memory from the arena with a specified alignment.
+ *
+ * @details
+ * This function allocates `size` bytes from the arena using the provided `alignment`.
+ * It is useful when allocating data structures that require specific memory alignment
+ * (e.g., SIMD types, hardware buffers).
+ *
+ * Internally, this delegates to `arena_alloc_internal()` and uses the label
+ * `"arena_alloc_aligned"` for debugging and tracking.
+ *
+ * On failure, `NULL` is returned and the error is reported through the arena's
+ * error reporting mechanism.
+ *
+ * @param arena     Pointer to the `t_arena` from which to allocate memory.
+ * @param size      Number of bytes to allocate.
+ * @param alignment Required alignment (must be a power of two).
+ *
+ * @return Pointer to aligned memory block, or `NULL` on failure.
+ *
+ * @ingroup arena_alloc
+ *
+ * @note
+ * Alignment must be a power of two. Use `arena_alloc()` if default alignment is sufficient.
+ *
+ * @see arena_alloc
+ * @see arena_alloc_internal
+ * @see arena_alloc_aligned_labeled
+ *
+ * @example
+ * @code
+ * // Example: Allocate memory aligned for SIMD operations
+ * #include <immintrin.h> // For __m128 or AVX types (if using SIMD)
+ *
+ * t_arena arena;
+ * arena_init(&arena, 4096, false);
+ *
+ * // Allocate 128 bytes aligned to 32-byte boundary for AVX usage
+ * void* simd_buffer = arena_alloc_aligned(&arena, 128, 32);
+ * if (!simd_buffer) {
+ *     // Handle allocation failure
+ * }
+ *
+ * // Cast to __m256* if needed (e.g., for AVX vector operations)
+ * __m256* vectors = (__m256*)simd_buffer;
+ *
+ * arena_destroy(&arena);
+ * @endcode
+ */
 void* arena_alloc_aligned(t_arena* arena, size_t size, size_t alignment)
 {
 	return arena_alloc_internal(arena, size, alignment, "arena_alloc_aligned");
 }
 
+/**
+ * @brief
+ * Allocate a block of memory from the arena with a custom debug label.
+ *
+ * @details
+ * This function allocates `size` bytes from the arena using the default alignment,
+ * and tags the allocation with a custom `label` for debugging or profiling purposes.
+ *
+ * If `label` is `NULL`, it defaults to `"arena_alloc_labeled"`.
+ * The label is passed through to internal logging and tracking hooks.
+ *
+ * This function is useful when you want to track or categorize allocations
+ * based on usage context (e.g., "sprites", "config", "network_packet").
+ *
+ * @param arena Pointer to the `t_arena` from which to allocate memory.
+ * @param size  Number of bytes to allocate.
+ * @param label Optional string label for debugging/tracking. Can be `NULL`.
+ *
+ * @return Pointer to allocated memory block, or `NULL` on failure.
+ *
+ * @ingroup arena_alloc
+ *
+ * @note
+ * If you also require alignment control, use `arena_alloc_aligned_labeled()`.
+ *
+ * @see arena_alloc
+ * @see arena_alloc_aligned
+ * @see arena_alloc_aligned_labeled
+ * @see arena_alloc_internal
+ *
+ * @example
+ * @code
+ * // Example: Track separate categories of allocations for profiling
+ * t_arena arena;
+ * arena_init(&arena, 8192, false);
+ *
+ * // Allocate memory for a configuration block
+ * void* config = arena_alloc_labeled(&arena, 512, "config_data");
+ *
+ * // Allocate memory for UI layout caching
+ * void* ui_cache = arena_alloc_labeled(&arena, 256, "ui_layout_cache");
+ *
+ * arena_destroy(&arena);
+ * @endcode
+ */
 void* arena_alloc_labeled(t_arena* arena, size_t size, const char* label)
 {
 	if (!label)
@@ -76,6 +221,56 @@ void* arena_alloc_labeled(t_arena* arena, size_t size, const char* label)
 	return arena_alloc_internal(arena, size, ARENA_DEFAULT_ALIGNMENT, label);
 }
 
+/**
+ * @brief
+ * Allocate a block of memory from the arena with custom alignment and label.
+ *
+ * @details
+ * This function allocates `size` bytes from the arena, ensuring the memory
+ * block starts at an address aligned to `alignment`. It also assigns a
+ * debug `label` to the allocation for logging or tracking purposes.
+ *
+ * This is the most flexible allocation function in the arena system:
+ * - It allows specifying a custom memory alignment (must be a power of two).
+ * - It allows tagging the allocation with a label for debugging or profiling.
+ *
+ * If `label` is `NULL`, a default label `"arena_alloc_aligned_labeled"` is used.
+ *
+ * @param arena     Pointer to the `t_arena` from which to allocate memory.
+ * @param size      Number of bytes to allocate.
+ * @param alignment Required alignment (must be power-of-two).
+ * @param label     Optional debug label (can be `NULL`).
+ *
+ * @return Pointer to aligned, allocated memory, or `NULL` on failure.
+ *
+ * @ingroup arena_alloc
+ *
+ * @note
+ * For default alignment or simpler usage, see `arena_alloc_labeled()` or `arena_alloc_aligned()`.
+ *
+ * @see arena_alloc
+ * @see arena_alloc_aligned
+ * @see arena_alloc_labeled
+ * @see arena_alloc_internal
+ *
+ * @example
+ * @code
+ * // Example: Allocate aligned memory for a video frame buffer
+ * t_arena arena;
+ * arena_init(&arena, 16384, true);
+ *
+ * // Allocate 1024 bytes aligned to 64 bytes for SIMD processing
+ * void* frame_buffer = arena_alloc_aligned_labeled(&arena, 1024, 64, "video_frame");
+ * if (!frame_buffer) {
+ *     // Handle allocation failure
+ * }
+ *
+ * // Use the memory...
+ *
+ * arena_destroy(&arena);
+ * @endcode
+ *
+ */
 void* arena_alloc_aligned_labeled(t_arena* arena, size_t size, size_t alignment, const char* label)
 {
 	if (!label)

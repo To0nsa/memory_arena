@@ -64,146 +64,36 @@ extern "C"
 
 	/**
 	 * @brief
-	 * Save the contents of an arena to a binary file.
+	 * Save the current contents of an arena to a file.
 	 *
 	 * @details
-	 * This function writes a snapshot of the arena’s current state to the file
-	 * specified by `path`. The snapshot includes:
-	 * - A fixed header with a magic identifier, version, and used size.
-	 * - The active contents of the arena buffer up to `arena->offset`.
+	 * This function writes a snapshot of the arena to the specified file path.
+	 * The snapshot includes a header and all memory up to `arena->offset`.
 	 *
-	 * Only arenas that **own** their buffer can be saved. If the arena does not own
-	 * its buffer (e.g., sub-arenas), the function returns `false` without writing.
-	 *
-	 * The output file format consists of:
-	 * 1. A `t_arena_snapshot_header` struct.
-	 * 2. Raw buffer bytes up to the used offset.
-	 *
-	 * This function acquires the arena lock to ensure thread-safe access to the buffer.
-	 *
-	 * @param arena Pointer to the arena to serialize.
-	 * @param path  Filesystem path to write the snapshot file.
-	 *
-	 * @return `true` on success, or `false` on failure.
+	 * @param arena Pointer to the arena to save.
+	 * @param path  Path to the output file.
+	 * @return `true` on success, `false` on failure.
 	 *
 	 * @ingroup arena_io
-	 *
-	 * @note
-	 * This function only saves the memory content and usage, not the full arena state
-	 * (e.g., labels, parent references, or hooks).
-	 *
-	 * @see arena_load_from_file
-	 *
-	 * @example
-	 * @code
-	 * #include "arena.h"
-	 * #include <stdio.h>
-	 *
-	 * int main(void)
-	 * {
-	 *     t_arena arena;
-	 *     if (!arena_init(&arena, 1024, true))
-	 *     {
-	 *         fprintf(stderr, "Failed to initialize arena.\n");
-	 *         return 1;
-	 *     }
-	 *
-	 *     // Allocate some data
-	 *     int* numbers = (int*) arena_alloc(&arena, 10 * sizeof(int));
-	 *     if (!numbers)
-	 *     {
-	 *         fprintf(stderr, "Allocation failed.\n");
-	 *         arena_destroy(&arena);
-	 *         return 1;
-	 *     }
-	 *     for (int i = 0; i < 10; ++i)
-	 *         numbers[i] = i * 10;
-	 *
-	 *     // Save the arena state to a file
-	 *     if (!arena_save_to_file(&arena, "snapshot.bin"))
-	 *     {
-	 *         fprintf(stderr, "Failed to save arena to file.\n");
-	 *     }
-	 *     else
-	 *     {
-	 *         printf("Arena snapshot saved to snapshot.bin\n");
-	 *     }
-	 *
-	 *     arena_destroy(&arena);
-	 *     return 0;
-	 * }
-	 * @endcode
 	 */
 	bool arena_save_to_file(const t_arena* arena, const char* path);
 
 	/**
 	 * @brief
-	 * Load arena memory contents from a binary snapshot file.
+	 * Load arena contents from a snapshot file.
 	 *
 	 * @details
-	 * This function restores a previously saved arena memory region from a file
-	 * created with `arena_save_to_file()`. It only restores the raw buffer content
-	 * and the current `offset`, not the full internal state (e.g., labels, hooks, stats).
+	 * This function reads a snapshot file created with `arena_save_to_file()`
+	 * and writes the contents into the provided arena buffer.
 	 *
-	 * The file must contain a valid `t_arena_snapshot_header` followed by raw memory
-	 * data. The header is validated using a magic string and version number.
+	 * The arena must have been initialized with a buffer large enough to hold
+	 * the restored data. The arena's internal offset will be updated accordingly.
 	 *
-	 * This function performs:
-	 * - Basic argument validation (`arena` and `path` must be non-NULL).
-	 * - Ownership check (only arenas that own their buffer can be restored).
-	 * - File open and header verification (magic string and version).
-	 * - Safe size checks to prevent buffer overflows.
-	 * - Memory restoration using `fread()`.
-	 * - `arena->offset` is updated only on success.
-	 *
-	 * @param arena Pointer to the `t_arena` structure to populate.
+	 * @param arena Pointer to the arena to restore.
 	 * @param path  Path to the snapshot file.
+	 * @return `true` on success, `false` on failure.
 	 *
-	 * @return `true` if the file was successfully loaded, `false` otherwise.
-	 *
-	 * @ingroup arena_internal
-	 *
-	 * @note
-	 * This does **not** restore debug labels, allocation stats, hooks, or metadata.
-	 * Only arenas with internally-owned buffers are supported (`owns_buffer == true`).
-	 *
-	 * @warning
-	 * If the snapshot file was generated on a different platform or architecture,
-	 * compatibility is not guaranteed.
-	 *
-	 * @see arena_save_to_file
-	 * @see t_arena_snapshot_header
-	 *
-	 * @example
-	 * @code
-	 * #include "arena.h"
-	 * #include <stdio.h>
-	 *
-	 * int main(void)
-	 * {
-	 *     t_arena arena;
-	 *     if (!arena_init(&arena, 1024, false))
-	 *     {
-	 *         fprintf(stderr, "Failed to initialize arena.\n");
-	 *         return 1;
-	 *     }
-	 *
-	 *     // Load a previously saved snapshot
-	 *     if (!arena_load_from_file(&arena, "snapshot.bin"))
-	 *     {
-	 *         fprintf(stderr, "Failed to load arena from file.\n");
-	 *         arena_destroy(&arena);
-	 *         return 1;
-	 *     }
-	 *
-	 *     // Access memory loaded from snapshot
-	 *     int* numbers = (int*) arena.buffer;
-	 *     printf("First value: %d\n", numbers[0]);  // Should print whatever was saved
-	 *
-	 *     arena_destroy(&arena);
-	 *     return 0;
-	 * }
-	 * @endcode
+	 * @ingroup arena_io
 	 */
 	bool arena_load_from_file(t_arena* arena, const char* path);
 

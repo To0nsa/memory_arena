@@ -56,6 +56,89 @@ static inline size_t arena_shrink_target(size_t used);
  * PUBLIC API
  */
 
+/**
+ * @brief
+ * Dynamically grow the arena's memory buffer to accommodate more data.
+ *
+ * @details
+ * This function expands the size of the arena’s backing buffer to ensure
+ * that at least `required_size` bytes can be allocated on top of the
+ * current usage. It follows a growth policy defined by `arena->grow_cb`,
+ * or defaults to `default_grow_cb` if none is provided.
+ *
+ * Growth is allowed only if:
+ * - The arena is not `NULL`.
+ * - `arena->owns_buffer` and `arena->can_grow` are `true`.
+ * - The resulting size does not overflow `SIZE_MAX`.
+ *
+ * On success:
+ * - The arena buffer is reallocated to a larger size.
+ * - Internal stats are updated, including the `reallocations` counter and
+ *   `growth_history`.
+ * - The function returns `true`.
+ *
+ * On failure:
+ * - An appropriate error is reported via `arena_report_error`.
+ * - The function returns `false` without modifying the buffer.
+ *
+ * This function is thread-safe and acquires the arena lock during growth.
+ *
+ * @param arena          Pointer to the `t_arena` to grow.
+ * @param required_size  Additional bytes needed beyond current usage.
+ *
+ * @return `true` if growth succeeded, `false` otherwise.
+ *
+ * @ingroup arena_resize
+ *
+ * @note
+ * If `required_size` is `0`, the function returns `true` without making changes.
+ *
+ * @note
+ * This function is normally called internally by `arena_alloc()` or `arena_realloc_last()`.
+ * Users may call it directly to reserve memory in advance, but doing so is optional
+ * and rarely necessary.
+ *
+ * @see default_grow_cb
+ * @see arena_grow_validate
+ * @see arena_grow_compute_new_size
+ * @see arena_grow_realloc_buffer
+ *
+ * @example
+ * @code
+ * #include "arena.h"
+ * #include <stdio.h>
+ *
+ * int main(void)
+ * {
+ *     // Create an arena with an initial size of 128 bytes
+ *     t_arena* arena = arena_create(128, true);
+ *     if (!arena)
+ *     {
+ *         fprintf(stderr, "Failed to create arena\n");
+ *         return 1;
+ *     }
+ *
+ *     // Manually grow the arena to ensure space for an additional 1024 bytes
+ *     if (!arena_grow(arena, 1024))
+ *     {
+ *         fprintf(stderr, "Arena growth failed\n");
+ *         arena_delete(&arena);
+ *         return 1;
+ *     }
+ *
+ *     printf("Arena successfully grown to %zu bytes\n", arena->size);
+ *
+ *     // Proceed with allocations as needed
+ *     void* ptr = arena_alloc(arena, 512);
+ *     if (!ptr)
+ *         fprintf(stderr, "Allocation failed\n");
+ *
+ *     // Cleanup
+ *     arena_delete(&arena);
+ *     return 0;
+ * }
+ * @endcode
+ */
 bool arena_grow(t_arena* arena, size_t required_size)
 {
 	if (!arena)
@@ -91,6 +174,96 @@ bool arena_grow(t_arena* arena, size_t required_size)
 	return success;
 }
 
+/**
+ * @brief
+ * Shrink the arena’s memory buffer to a smaller size if conditions allow.
+ *
+ * @details
+ * This function attempts to reduce the size of the arena's internal buffer
+ * to `new_size` bytes. It performs the following steps:
+ *
+ * - Acquires a lock for thread safety.
+ * - Validates whether shrinking is allowed using `arena_shrink_validate()`.
+ * - If valid, applies the shrink via `arena_shrink_apply()`.
+ * - Releases the lock regardless of the result.
+ *
+ * Shrinking is permitted only if:
+ * - The arena owns its buffer and growth is enabled.
+ * - The new size is not smaller than the current usage (`offset`).
+ * - The ratio of new size to old size meets the configured shrink threshold.
+ *
+ * This function is useful in long-running applications or memory-constrained
+ * environments where:
+ * - A large arena was temporarily expanded to handle peak load.
+ * - That memory is no longer in active use.
+ * - You want to proactively release unused memory back to the system.
+ *
+ * For automatic shrink decisions, consider using `arena_might_shrink()`.
+ *
+ * @param arena     Pointer to the arena to shrink.
+ * @param new_size  Desired size of the buffer after shrinking (in bytes).
+ *
+ * @return void
+ *
+ * @ingroup arena_resize
+ *
+ * @note
+ * The arena is only shrunk if all validation conditions are satisfied.
+ * Otherwise, the operation is silently ignored.
+ *
+ * @see arena_can_shrink
+ * @see arena_shrink_validate
+ * @see arena_shrink_apply
+ *
+ * @example
+ * @code
+ * #include "arena.h"
+ * #include <stdio.h>
+ *
+ * // Simulate a large temporary operation (e.g., file parsing)
+ * void parse_file_simulation(t_arena* arena)
+ * {
+ *     // Simulate loading a large file into memory
+ *     void* tmp = arena_alloc(arena, 4096);
+ *     if (!tmp)
+ *     {
+ *         fprintf(stderr, "Failed to allocate temporary buffer\n");
+ *         return;
+ *     }
+
+ *     // ... parse and extract relevant data ...
+
+ *     // After parsing, we only need the first 512 bytes for indexing
+ *     arena->offset = 512;  // Keep only what’s needed
+ * }
+ *
+ * int main(void)
+ * {
+ *     t_arena* arena = arena_create(8192, true);
+ *     if (!arena)
+ *     {
+ *         fprintf(stderr, "Arena initialization failed\n");
+ *         return 1;
+ *     }
+
+ *     // Temporary workload
+ *     parse_file_simulation(arena);
+
+ *     // Shrink the arena to free up unused memory
+ *     arena_shrink(arena, 512);
+
+ *     printf("Shrunk arena to %zu bytes after parsing\n", arena->size);
+
+ *     // Continue using the arena efficiently...
+ *     void* data = arena_alloc(arena, 128);
+ *     if (!data)
+ *         fprintf(stderr, "Follow-up allocation failed\n");
+
+ *     arena_delete(&arena);
+ *     return 0;
+ * }
+ * @endcode
+ */
 void arena_shrink(t_arena* arena, size_t new_size)
 {
 	if (!arena)
@@ -104,6 +277,110 @@ void arena_shrink(t_arena* arena, size_t new_size)
 	(void) ok;
 	ARENA_UNLOCK(arena);
 }
+
+/**
+ * @brief
+ * Attempt to shrink the arena's buffer if underutilized.
+ *
+ * @details
+ * This function evaluates whether the current memory usage of the arena
+ * is significantly lower than its allocated size. If so, and if the arena
+ * allows dynamic resizing, it attempts to shrink the buffer to reduce
+ * memory footprint.
+ *
+ * The shrink target is computed as the current used size plus a padding
+ * (`ARENA_SHRINK_PADDING`) to avoid immediate re-expansion.
+ *
+ * Conditions for shrinking:
+ * - `arena != NULL`
+ * - `can_grow` is true
+ * - The usage ratio (`offset / size`) is below `ARENA_MIN_SHRINK_RATIO`
+ * - The computed target size is smaller than the current buffer size
+ *
+ * This function is thread-safe and acquires the arena lock internally.
+ *
+ * @param arena Pointer to the arena to check for shrinking opportunity.
+ *
+ * @ingroup arena_resize
+ *
+ * @note
+ * This is a non-destructive optimization. It has no effect if the arena
+ * does not support resizing, is already compact, or if shrinking would
+ * not release significant memory.
+ *
+ * @see arena_shrink
+ * @see arena_should_maybe_shrink
+ * @see arena_shrink_target
+ *
+ * @example arena_shrink_monitor.c
+ * @brief
+ * Example of running a background thread to monitor and shrink an arena.
+ *
+ * @details
+ * This example creates a shared arena that is used for allocations,
+ * while a background thread periodically checks whether the arena
+ * should be shrunk using `arena_might_shrink()`.
+ *
+ * This pattern is useful in applications that experience temporary
+ * spikes in memory usage but want to reclaim memory afterward
+ * without destroying the arena.
+ *
+ * @code
+ * #include "arena.h"
+ * #include <pthread.h>
+ * #include <stdio.h>
+ * #include <unistd.h>
+ * #include <stdatomic.h>
+ *
+ * static atomic_bool keep_running = true;
+ *
+ * void* shrink_monitor_thread(void* arg)
+ * {
+ *     t_arena* arena = (t_arena*) arg;
+ *
+ *     while (atomic_load(&keep_running))
+ *     {
+ *         arena_might_shrink(arena);
+ *         sleep(1); // Check every second
+ *     }
+ *
+ *     return NULL;
+ * }
+ *
+ * int main(void)
+ * {
+ *     t_arena* arena = arena_create(1024, true); // Growable arena
+ *     if (!arena)
+ *     {
+ *         fprintf(stderr, "Failed to create arena.\n");
+ *         return 1;
+ *     }
+ *
+ *     pthread_t thread;
+ *     if (pthread_create(&thread, NULL, shrink_monitor_thread, arena) != 0)
+ *     {
+ *         fprintf(stderr, "Failed to create shrink monitor thread.\n");
+ *         arena_delete(&arena);
+ *         return 1;
+ *     }
+ *
+ *     // Simulate allocations and deallocations
+ *     for (int i = 0; i < 10; ++i)
+ *     {
+ *         arena_alloc(arena, 1024 * 32); // allocate 32 KB
+ *         usleep(200 * 1000);            // wait 200ms
+ *         arena_reset(arena);            // simulate freeing all
+ *     }
+ *
+ *     // Stop background thread
+ *     atomic_store(&keep_running, false);
+ *     pthread_join(thread, NULL);
+ *
+ *     arena_delete(&arena);
+ *     return 0;
+ * }
+ * @endcode
+ */
 
 bool arena_might_shrink(t_arena* arena)
 {

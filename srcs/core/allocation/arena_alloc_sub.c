@@ -132,21 +132,270 @@ static inline void arena_generate_subarena_id(t_arena* parent, t_arena* child);
  * PUBLIC API
  */
 
+/**
+ * @brief
+ * Allocate a sub-arena from a parent arena using default alignment and label.
+ *
+ * @details
+ * This function allocates a memory region of `size` bytes from the `parent` arena,
+ * then initializes the `child` arena to use that region as its buffer. The child
+ * arena does not take ownership of the buffer and uses the default debug label `"subarena"`.
+ *
+ * Internally, this delegates to `arena_alloc_sub_labeled()` with a default label.
+ *
+ * @param parent Pointer to the parent arena to allocate memory from.
+ * @param child  Pointer to the arena structure to initialize as a sub-arena.
+ * @param size   Number of bytes to allocate for the sub-arena.
+ *
+ * @return `true` on success, `false` on failure.
+ *
+ * @ingroup arena_sub
+ *
+ * @note
+ * The sub-arena shares memory with the parent and must not be destroyed using `arena_delete()`.
+ * Only `arena_destroy()` should be used to reset it.
+ *
+ * @see arena_alloc_sub_labeled
+ * @see arena_destroy
+ * @see arena_init_with_buffer
+ *
+ * @example
+ * @code
+ * t_arena main_arena;
+ * arena_init(&main_arena, 8192, false);
+ *
+ * t_arena sub_arena;
+ * if (!arena_alloc_sub(&main_arena, &sub_arena, 2048))
+ * {
+ *     // Handle failure
+ *     return;
+ * }
+ *
+ * void* ptr = arena_alloc(&sub_arena, 128);
+ * if (!ptr)
+ * {
+ *     // Handle allocation failure in sub-arena
+ * }
+ *
+ * // Cleanup sub-arena (does not free its memory)
+ * arena_destroy(&sub_arena);
+ *
+ * // Cleanup main arena (frees both its own and sub-arena’s memory)
+ * arena_destroy(&main_arena);
+ * @endcode
+ */
 bool arena_alloc_sub(t_arena* parent, t_arena* child, size_t size)
 {
 	return arena_alloc_sub_labeled(parent, child, size, "subarena");
 }
 
+/**
+ * @brief
+ * Allocate a sub-arena from a parent arena with custom alignment.
+ *
+ * @details
+ * This function allocates `size` bytes from the `parent` arena using the
+ * specified `alignment`, and initializes the `child` arena with that memory.
+ * It behaves like `arena_alloc_sub_labeled_aligned()` but uses a default
+ * label `"subarena"` for tracking.
+ *
+ * Use this when:
+ * - You want to embed a sub-arena inside a parent arena with specific alignment constraints.
+ * - You don't need a custom label for the sub-arena.
+ *
+ * Internally:
+ * - Memory is allocated from the parent with the requested alignment.
+ * - The child arena is initialized using that memory (but does not own it).
+ * - A unique sub-arena ID is generated.
+ *
+ * @param parent     The parent `t_arena` to allocate memory from.
+ * @param child      The `t_arena` to initialize as a sub-arena.
+ * @param size       Number of bytes to allocate.
+ * @param alignment  Required memory alignment (must be a power of two).
+ *
+ * @return `true` if allocation and setup succeed, `false` otherwise.
+ *
+ * @ingroup arena_sub
+ *
+ * @note
+ * The child arena must be destroyed before the parent arena.
+ *
+ * @see arena_alloc_sub_labeled_aligned
+ * @see arena_init_with_buffer
+ * @see arena_destroy
+ *
+ * @example
+ * @code
+ * #include "arena.h"
+ *
+ * int main(void)
+ * {
+ *     t_arena parent;
+ *     t_arena child;
+ *
+ *     // Initialize a parent arena with 8 KB of memory
+ *     if (!arena_init(&parent, 8192, false))
+ *         return 1;
+ *
+ *     // Create a sub-arena of 1 KB aligned to 64 bytes
+ *     if (!arena_alloc_sub_aligned(&parent, &child, 1024, 64))
+ *     {
+ *         arena_destroy(&parent);
+ *         return 1;
+ *     }
+ *
+ *     // Allocate memory from the sub-arena
+ *     void* data = arena_alloc(&child, 256);
+ *
+ *     // Perform cleanup
+ *     arena_destroy(&child);  // Only destroys metadata, memory is still owned by parent
+ *     arena_destroy(&parent); // Frees memory if owned
+ *     return 0;
+ * }
+ * @endcode
+ */
 bool arena_alloc_sub_aligned(t_arena* parent, t_arena* child, size_t size, size_t alignment)
 {
 	return arena_alloc_sub_labeled_aligned(parent, child, size, alignment, "subarena");
 }
 
+/**
+ * @brief
+ * Allocate and initialize a sub-arena with a custom label using default alignment.
+ *
+ * @details
+ * This function creates a sub-arena from the given `parent` arena by allocating
+ * a block of memory of size `size` and initializing the `child` arena to use it.
+ * The sub-arena is assigned a debug `label` for tracking or diagnostic purposes.
+ *
+ * Internally, this delegates to `arena_alloc_sub_labeled_aligned()` using the
+ * default alignment (`ARENA_DEFAULT_ALIGNMENT`).
+ *
+ * Use this when:
+ * - You want to segment memory within a parent arena for modular usage.
+ * - You don’t need custom alignment but want to distinguish allocations logically.
+ *
+ * The resulting sub-arena:
+ * - Shares memory with its parent and does not own its buffer.
+ * - Should be destroyed with `arena_destroy()` (but not freed).
+ *
+ * @param parent Pointer to the parent arena.
+ * @param child  Pointer to the arena to initialize as a sub-arena.
+ * @param size   Size of the memory block to allocate from the parent.
+ * @param label  Optional debug label. If `NULL`, defaults to `"subarena"`.
+ *
+ * @return `true` on success, `false` if allocation or initialization fails.
+ *
+ * @ingroup arena_sub
+ *
+ * @note
+ * The parent arena must remain valid as long as the sub-arena is in use.
+ *
+ * @see arena_alloc_sub
+ * @see arena_alloc_sub_labeled_aligned
+ * @see arena_destroy
+ * @example
+ * @code
+ * #include "arena.h"
+ *
+ * int main(void)
+ * {
+ *     // Create and initialize a parent arena
+ *     t_arena parent;
+ *     arena_init(&parent, 4096, false);
+ *
+ *     // Declare a child arena
+ *     t_arena child;
+ *
+ *     // Allocate a sub-arena of 1024 bytes from the parent
+ *     if (!arena_alloc_sub_labeled(&parent, &child, 1024, "child_stack"))
+ *     {
+ *         // Handle allocation failure
+ *         return 1;
+ *     }
+ *
+ *     // Use the child arena
+ *     void* ptr = arena_alloc(&child, 128);
+ *
+ *     // Destroy both arenas (child first)
+ *     arena_destroy(&child);
+ *     arena_destroy(&parent);
+ *     return 0;
+ * }
+ * @endcode
+ */
 bool arena_alloc_sub_labeled(t_arena* parent, t_arena* child, size_t size, const char* label)
 {
 	return arena_alloc_sub_labeled_aligned(parent, child, size, ARENA_DEFAULT_ALIGNMENT, label);
 }
 
+/**
+ * @brief
+ * Allocate and initialize a sub-arena from a parent arena with custom alignment and label.
+ *
+ * @details
+ * This function allocates a memory block of `size` bytes from the `parent` arena
+ * with the specified `alignment`, and uses it to initialize the `child` arena.
+ * The `child` will reference the parent as its backing source but will not take
+ * ownership of the buffer.
+ *
+ * A debug `label` is assigned to the sub-arena for tracking and logging purposes.
+ * If `label` is `NULL`, the label defaults to `"subarena"`.
+ *
+ * Use this when:
+ * - You want to partition a region of memory within an arena for isolated use.
+ * - You need alignment control and want to track the sub-arena via a label.
+ *
+ * @param parent     Pointer to the parent `t_arena` from which to allocate memory.
+ * @param child      Pointer to the `t_arena` to initialize as a sub-arena.
+ * @param size       Number of bytes to allocate for the sub-arena.
+ * @param alignment  Alignment requirement for the memory block (must be a power of two).
+ * @param label      Optional string label for the sub-arena. If `NULL`, defaults to "subarena".
+ *
+ * @return `true` on success, `false` on failure.
+ *
+ * @ingroup arena_sub
+ *
+ * @note
+ * The child arena will not free its buffer on destruction, as it does not own it.
+ * The parent arena must outlive all sub-arenas allocated from it.
+ *
+ * @see arena_alloc_sub
+ * @see arena_setup_subarena
+ * @see arena_alloc_aligned
+ *
+ * @example
+    @code
+    #include "arena.h"
+
+    int main(void)
+    {
+        // Create and initialize the parent arena
+        t_arena parent;
+        arena_init(&parent, 4096, false);
+
+        // Define a child arena (sub-arena)
+        t_arena child;
+
+        // Allocate a 1024-byte sub-arena aligned to 64 bytes, with a custom label
+        if (!arena_alloc_sub_labeled_aligned(&parent, &child, 1024, 64, "temp_scope"))
+        {
+            fprintf(stderr, "Failed to create sub-arena\n");
+            return 1;
+        }
+
+        // Use the sub-arena
+        void* data = arena_alloc(&child, 256);
+
+        // When done, destroy the sub-arena (does not free buffer)
+        arena_destroy(&child);
+
+        // Finally, destroy the parent arena (frees the backing buffer)
+        arena_destroy(&parent);
+        return 0;
+    }
+    @endcode
+ */
 bool arena_alloc_sub_labeled_aligned(t_arena* parent, t_arena* child, size_t size, size_t alignment, const char* label)
 {
 	if (!arena_alloc_sub_validate(parent, child))

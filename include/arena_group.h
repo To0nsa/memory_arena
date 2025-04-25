@@ -10,6 +10,7 @@
  * @note
  * This file is used purely to structure documentation.
  *
+ * @ingroup arena_core
  * @author Toonsa
  */
 
@@ -27,6 +28,7 @@
 /**
  * @defgroup arena_cleanup Arena Cleanup
  * @brief Public functions for destroying and deleting arenas.
+ * @ingroup arena_core
  */
 
 /**
@@ -38,6 +40,7 @@
 /**
  * @defgroup arena_alloc Arena Allocation
  * @brief Public functions for memory allocation from an arena.
+ * @ingroup arena_core
  */
 
 /**
@@ -53,6 +56,7 @@
  * @details
  * Sub-arenas are memory arenas that are backed by allocations from a parent arena.
  * These functions allow modular memory segmentation without extra heap allocation.
+ * @ingroup arena_core
  */
 
 /**
@@ -68,6 +72,7 @@
  * @details
  * These functions handle memory growth and optional shrinking of an arena's
  * buffer, providing adaptive memory behavior for changing workloads.
+ * @ingroup arena_core
  */
 
 /**
@@ -83,6 +88,7 @@
  * @details
  * Scratch arenas are useful for high-frequency temporary allocations in performance-critical paths.
  * These APIs support fast, reusable memory arenas from a preallocated pool with optional thread safety.
+ * @ingroup arena_core
  */
 
 /**
@@ -98,6 +104,7 @@
  * @details
  * These functions provide insight into memory usage (`used`, `remaining`, `peak`)
  * and allow for scoped rollback (`mark`, `pop`) and reset operations.
+ * @ingroup arena_core
  */
 
 /**
@@ -119,6 +126,7 @@
  * @note
  * This system is independent of the global `scratch_arena_pool`.
  * It is **not** safe to share the returned arena between threads.
+ * @ingroup arena_core
  */
 
 /**
@@ -133,6 +141,7 @@
  * - Arena integrity validation for development and testing
  *
  * These are primarily intended for debug builds and are configurable via macros like `ARENA_DEBUG_CHECKS`.
+ * @ingroup arena_core
  */
 
 /**
@@ -146,6 +155,7 @@
  * - Peak usage, growth history, and current state
  *
  * Useful for profiling, visualization, or custom allocator analytics.
+ * @ingroup arena_core
  */
 
 /**
