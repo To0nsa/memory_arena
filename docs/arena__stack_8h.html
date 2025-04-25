@@ -197,6 +197,8 @@ Functions</h2></td></tr>
 <li>Pop to discard all of it in one go</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>Stack frames are themselves allocated from the arena. Be cautious when pushing deeply in arenas with tight space. </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="arena__stack_8h_source.html">arena_stack.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="aec8a215b6c2fc96130eb45ec6ee55818" name="aec8a215b6c2fc96130eb45ec6ee55818"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aec8a215b6c2fc96130eb45ec6ee55818">&#9670;&#160;</a></span>arena_stack_init()</h2>
@@ -223,17 +225,21 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a3">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a3">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a7">arena_stack_parser.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a3">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a7">arena_stack_parser.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  145</span>{</div>
-<div class="line"><span class="lineno">  146</span>    <span class="keywordflow">if</span> (!stack || !arena)</div>
-<div class="line"><span class="lineno">  147</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  148</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a> = arena;</div>
-<div class="line"><span class="lineno">  149</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>   = NULL;</div>
-<div class="line"><span class="lineno">  150</span>}</div>
-<div class="ttc" id="agroup__arena__state_html_a89b42a42c09b6bd9fe3af1962510c8cf"><div class="ttname"><a href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">s_arena_stack::top</a></div><div class="ttdeci">t_arena_stack_frame * top</div><div class="ttdoc">Top of the stack (most recent frame)</div><div class="ttdef"><b>Definition</b> arena_stack.h:73</div></div>
-<div class="ttc" id="agroup__arena__state_html_adf25497af2a178cc477e64e56fa35983"><div class="ttname"><a href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">s_arena_stack::arena</a></div><div class="ttdeci">t_arena * arena</div><div class="ttdoc">Arena associated with this stack.</div><div class="ttdef"><b>Definition</b> arena_stack.h:72</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__stack_8c_source.html#l00106">106</a> of file <a class="el" href="arena__stack_8c_source.html">arena_stack.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  107</span>{</div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">if</span> (!stack || !arena)</div>
+<div class="line"><span class="lineno">  109</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  110</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a> = arena;</div>
+<div class="line"><span class="lineno">  111</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>   = NULL;</div>
+<div class="line"><span class="lineno">  112</span>}</div>
+<div class="ttc" id="agroup__arena__state_html_a89b42a42c09b6bd9fe3af1962510c8cf"><div class="ttname"><a href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">s_arena_stack::top</a></div><div class="ttdeci">t_arena_stack_frame * top</div><div class="ttdoc">Top of the stack (most recent frame)</div><div class="ttdef"><b>Definition</b> <a href="arena__stack_8h_source.html#l00073">arena_stack.h:73</a></div></div>
+<div class="ttc" id="agroup__arena__state_html_adf25497af2a178cc477e64e56fa35983"><div class="ttname"><a href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">s_arena_stack::arena</a></div><div class="ttdeci">t_arena * arena</div><div class="ttdoc">Arena associated with this stack.</div><div class="ttdef"><b>Definition</b> <a href="arena__stack_8h_source.html#l00072">arena_stack.h:72</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__stack_8h_source.html#l00072">s_arena_stack::arena</a>, and <a class="el" href="arena__stack_8h_source.html#l00073">s_arena_stack::top</a>.</p>
+
 </div>
 </div>
 <a id="a305d7e272b7d661e7c45235ac1b57b2a" name="a305d7e272b7d661e7c45235ac1b57b2a"></a>
@@ -251,18 +257,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a5">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a5">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a4">arena_stack_parser.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a5">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a4">arena_stack_parser.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  255</span>{</div>
-<div class="line"><span class="lineno">  256</span>    <span class="keywordflow">if</span> (!stack || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a> || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>)</div>
-<div class="line"><span class="lineno">  257</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  258</span>    <a class="code hl_function" href="arena_8h.html#a43f443882d11939468a2c6a33bdb88af">arena_pop</a>(stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>, stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>-&gt;<a class="code hl_variable" href="group__arena__state.html#a2986354d9a2df94334c182e1420c3b58">marker</a>);</div>
-<div class="line"><span class="lineno">  259</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a> = stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>-&gt;<a class="code hl_variable" href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">prev</a>;</div>
-<div class="line"><span class="lineno">  260</span>}</div>
-<div class="ttc" id="aarena_8h_html_a43f443882d11939468a2c6a33bdb88af"><div class="ttname"><a href="arena_8h.html#a43f443882d11939468a2c6a33bdb88af">arena_pop</a></div><div class="ttdeci">void arena_pop(t_arena *arena, t_arena_marker marker)</div><div class="ttdef"><b>Definition</b> arena_state.c:283</div></div>
-<div class="ttc" id="agroup__arena__state_html_a2986354d9a2df94334c182e1420c3b58"><div class="ttname"><a href="group__arena__state.html#a2986354d9a2df94334c182e1420c3b58">s_arena_stack_frame::marker</a></div><div class="ttdeci">size_t marker</div><div class="ttdoc">Marker to rewind arena to this point.</div><div class="ttdef"><b>Definition</b> arena_stack.h:56</div></div>
-<div class="ttc" id="agroup__arena__state_html_ae3f6958ad1d72d4ac255bfbebfd3a560"><div class="ttname"><a href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">s_arena_stack_frame::prev</a></div><div class="ttdeci">struct s_arena_stack_frame * prev</div><div class="ttdoc">Previous frame in the stack.</div><div class="ttdef"><b>Definition</b> arena_stack.h:57</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__stack_8c_source.html#l00126">126</a> of file <a class="el" href="arena__stack_8c_source.html">arena_stack.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  127</span>{</div>
+<div class="line"><span class="lineno">  128</span>    <span class="keywordflow">if</span> (!stack || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a> || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>)</div>
+<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  130</span>    <a class="code hl_function" href="arena_8h.html#a43f443882d11939468a2c6a33bdb88af">arena_pop</a>(stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>, stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>-&gt;<a class="code hl_variable" href="group__arena__state.html#a2986354d9a2df94334c182e1420c3b58">marker</a>);</div>
+<div class="line"><span class="lineno">  131</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a> = stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>-&gt;<a class="code hl_variable" href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">prev</a>;</div>
+<div class="line"><span class="lineno">  132</span>}</div>
+<div class="ttc" id="aarena_8h_html_a43f443882d11939468a2c6a33bdb88af"><div class="ttname"><a href="arena_8h.html#a43f443882d11939468a2c6a33bdb88af">arena_pop</a></div><div class="ttdeci">void arena_pop(t_arena *arena, t_arena_marker marker)</div><div class="ttdef"><b>Definition</b> <a href="arena__state_8c_source.html#l00079">arena_state.c:79</a></div></div>
+<div class="ttc" id="agroup__arena__state_html_a2986354d9a2df94334c182e1420c3b58"><div class="ttname"><a href="group__arena__state.html#a2986354d9a2df94334c182e1420c3b58">s_arena_stack_frame::marker</a></div><div class="ttdeci">size_t marker</div><div class="ttdoc">Marker to rewind arena to this point.</div><div class="ttdef"><b>Definition</b> <a href="arena__stack_8h_source.html#l00056">arena_stack.h:56</a></div></div>
+<div class="ttc" id="agroup__arena__state_html_ae3f6958ad1d72d4ac255bfbebfd3a560"><div class="ttname"><a href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">s_arena_stack_frame::prev</a></div><div class="ttdeci">struct s_arena_stack_frame * prev</div><div class="ttdoc">Previous frame in the stack.</div><div class="ttdef"><b>Definition</b> <a href="arena__stack_8h_source.html#l00057">arena_stack.h:57</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__stack_8h_source.html#l00072">s_arena_stack::arena</a>, <a class="el" href="arena__state_8c_source.html#l00079">arena_pop()</a>, <a class="el" href="arena__stack_8h_source.html#l00056">s_arena_stack_frame::marker</a>, <a class="el" href="arena__stack_8h_source.html#l00057">s_arena_stack_frame::prev</a>, and <a class="el" href="arena__stack_8h_source.html#l00073">s_arena_stack::top</a>.</p>
+
 </div>
 </div>
 <a id="a1e6b0aa692652c987b3d4367ca7969e1" name="a1e6b0aa692652c987b3d4367ca7969e1"></a>
@@ -280,22 +290,26 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a4">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, <a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_stack_8c-example.html#a4">/home/toonsa/myProjects/memoryArena/srcs/core/arena_stack.c</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a1">arena_stack_parser.c</a>.</dd>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2include_2arena_stack_8h-example.html#a4">/home/toonsa/myProjects/memoryArena/include/arena_stack.h</a>, and <a class="el" href="arena_stack_parser_8c-example.html#a1">arena_stack_parser.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  198</span>{</div>
-<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">if</span> (!stack || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>)</div>
-<div class="line"><span class="lineno">  200</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  201</span>    <a class="code hl_struct" href="group__arena__state.html#structs__arena__stack__frame">t_arena_stack_frame</a>* frame = (<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack__frame">t_arena_stack_frame</a>*) <a class="code hl_function" href="arena_8h.html#a1def00c6156e8df19f0a1af7cd6f26dd">arena_alloc</a>(stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack__frame">t_arena_stack_frame</a>));</div>
-<div class="line"><span class="lineno">  202</span>    <span class="keywordflow">if</span> (!frame)</div>
-<div class="line"><span class="lineno">  203</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  204</span>    frame-&gt;<a class="code hl_variable" href="group__arena__state.html#a2986354d9a2df94334c182e1420c3b58">marker</a> = <a class="code hl_function" href="arena_8h.html#abc6eabbcdd6ff5c3c187cd782644dfff">arena_mark</a>(stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>);</div>
-<div class="line"><span class="lineno">  205</span>    frame-&gt;<a class="code hl_variable" href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">prev</a>   = stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>;</div>
-<div class="line"><span class="lineno">  206</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>    = frame;</div>
-<div class="line"><span class="lineno">  207</span>}</div>
-<div class="ttc" id="aarena_8h_html_a1def00c6156e8df19f0a1af7cd6f26dd"><div class="ttname"><a href="arena_8h.html#a1def00c6156e8df19f0a1af7cd6f26dd">arena_alloc</a></div><div class="ttdeci">void * arena_alloc(t_arena *arena, size_t size)</div><div class="ttdef"><b>Definition</b> arena_alloc.c:112</div></div>
-<div class="ttc" id="aarena_8h_html_abc6eabbcdd6ff5c3c187cd782644dfff"><div class="ttname"><a href="arena_8h.html#abc6eabbcdd6ff5c3c187cd782644dfff">arena_mark</a></div><div class="ttdeci">t_arena_marker arena_mark(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_state.c:227</div></div>
-<div class="ttc" id="agroup__arena__state_html_structs__arena__stack__frame"><div class="ttname"><a href="group__arena__state.html#structs__arena__stack__frame">s_arena_stack_frame</a></div><div class="ttdoc">Internal frame representing a single state snapshot in the stack.</div><div class="ttdef"><b>Definition</b> arena_stack.h:55</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__stack_8c_source.html#l00114">114</a> of file <a class="el" href="arena__stack_8c_source.html">arena_stack.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>{</div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">if</span> (!stack || !stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>)</div>
+<div class="line"><span class="lineno">  117</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  118</span>    <a class="code hl_struct" href="group__arena__state.html#structs__arena__stack__frame">t_arena_stack_frame</a>* frame = (<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack__frame">t_arena_stack_frame</a>*) <a class="code hl_function" href="arena_8h.html#a1def00c6156e8df19f0a1af7cd6f26dd">arena_alloc</a>(stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>, <span class="keyword">sizeof</span>(<a class="code hl_struct" href="group__arena__state.html#structs__arena__stack__frame">t_arena_stack_frame</a>));</div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">if</span> (!frame)</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  121</span>    frame-&gt;<a class="code hl_variable" href="group__arena__state.html#a2986354d9a2df94334c182e1420c3b58">marker</a> = <a class="code hl_function" href="arena_8h.html#abc6eabbcdd6ff5c3c187cd782644dfff">arena_mark</a>(stack-&gt;<a class="code hl_variable" href="group__arena__state.html#adf25497af2a178cc477e64e56fa35983">arena</a>);</div>
+<div class="line"><span class="lineno">  122</span>    frame-&gt;<a class="code hl_variable" href="group__arena__state.html#ae3f6958ad1d72d4ac255bfbebfd3a560">prev</a>   = stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>;</div>
+<div class="line"><span class="lineno">  123</span>    stack-&gt;<a class="code hl_variable" href="group__arena__state.html#a89b42a42c09b6bd9fe3af1962510c8cf">top</a>    = frame;</div>
+<div class="line"><span class="lineno">  124</span>}</div>
+<div class="ttc" id="aarena_8h_html_a1def00c6156e8df19f0a1af7cd6f26dd"><div class="ttname"><a href="arena_8h.html#a1def00c6156e8df19f0a1af7cd6f26dd">arena_alloc</a></div><div class="ttdeci">void * arena_alloc(t_arena *arena, size_t size)</div><div class="ttdef"><b>Definition</b> <a href="arena__alloc_8c_source.html#l00062">arena_alloc.c:62</a></div></div>
+<div class="ttc" id="aarena_8h_html_abc6eabbcdd6ff5c3c187cd782644dfff"><div class="ttname"><a href="arena_8h.html#abc6eabbcdd6ff5c3c187cd782644dfff">arena_mark</a></div><div class="ttdeci">t_arena_marker arena_mark(t_arena *arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__state_8c_source.html#l00068">arena_state.c:68</a></div></div>
+<div class="ttc" id="agroup__arena__state_html_structs__arena__stack__frame"><div class="ttname"><a href="group__arena__state.html#structs__arena__stack__frame">s_arena_stack_frame</a></div><div class="ttdoc">Internal frame representing a single state snapshot in the stack.</div><div class="ttdef"><b>Definition</b> <a href="arena__stack_8h_source.html#l00054">arena_stack.h:55</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__stack_8h_source.html#l00072">s_arena_stack::arena</a>, <a class="el" href="arena__alloc_8c_source.html#l00062">arena_alloc()</a>, <a class="el" href="arena__state_8c_source.html#l00068">arena_mark()</a>, <a class="el" href="arena__stack_8h_source.html#l00056">s_arena_stack_frame::marker</a>, <a class="el" href="arena__stack_8h_source.html#l00057">s_arena_stack_frame::prev</a>, and <a class="el" href="arena__stack_8h_source.html#l00073">s_arena_stack::top</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

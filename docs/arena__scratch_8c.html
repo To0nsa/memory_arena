@@ -141,7 +141,9 @@ $(function() {
 <area shape="poly" title=" " alt="" coords="648,252,640,286,635,285,642,250"/>
 </map>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="arena__scratch_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga244f078e83929f392e441ca375c2230a" id="r_ga244f078e83929f392e441ca375c2230a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structt__arena.html">t_arena</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__arena__scratch.html#ga244f078e83929f392e441ca375c2230a">scratch_acquire</a> (<a class="el" href="group__arena__scratch.html#ga88b1e6c61dcb7a9ba184aad63e1816f0">t_scratch_arena_pool</a> *pool)</td></tr>
@@ -188,6 +190,8 @@ Functions</h2></td></tr>
 </ul>
 <p>This implementation uses <code>atomic_bool</code> for per-slot locking and supports optional <code>pthread_mutex_t</code> if <code>ARENA_ENABLE_THREAD_SAFE</code> is defined.</p>
 <dl class="section note"><dt>Note</dt><dd>All scratch arenas are growable by default. A typical use pattern is: acquire → allocate → release (no manual free/reset required). </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="arena__scratch_8c_source.html">arena_scratch.c</a>.</p>
 </div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

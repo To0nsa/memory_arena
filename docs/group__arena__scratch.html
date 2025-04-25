@@ -136,6 +136,8 @@ Functions</h2></td></tr>
 <p>This structure maintains a fixed number of scratch slots that can be individually acquired and reset for temporary memory needs. </p>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#_a0">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8h_source.html#l00089">89</a> of file <a class="el" href="arena__scratch_8h_source.html">arena_scratch.h</a>.</p>
 </div><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Collaboration diagram for s_scratch_arena_pool:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -189,6 +191,10 @@ Functions</h2></td></tr>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a12">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8h_source.html#l00094">94</a> of file <a class="el" href="arena__scratch_8h_source.html">arena_scratch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__scratch_8c_source.html#l00238">scratch_pool_destroy()</a>, and <a class="el" href="arena__scratch_8c_source.html#l00213">scratch_pool_init()</a>.</p>
+
 </div>
 </div>
 <a id="a64c052156b441b7adf46af210b8fcf95" name="a64c052156b441b7adf46af210b8fcf95"></a>
@@ -206,6 +212,10 @@ Functions</h2></td></tr>
 <p>Size of each arena in bytes. </p>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a10">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8h_source.html#l00092">92</a> of file <a class="el" href="arena__scratch_8h_source.html">arena_scratch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__scratch_8c_source.html#l00213">scratch_pool_init()</a>.</p>
 
 </div>
 </div>
@@ -225,6 +235,10 @@ Functions</h2></td></tr>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a14">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8h_source.html#l00091">91</a> of file <a class="el" href="arena__scratch_8h_source.html">arena_scratch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__scratch_8c_source.html#l00254">scratch_acquire()</a>, <a class="el" href="arena__scratch_8c_source.html#l00238">scratch_pool_destroy()</a>, <a class="el" href="arena__scratch_8c_source.html#l00213">scratch_pool_init()</a>, and <a class="el" href="arena__scratch_8c_source.html#l00273">scratch_release()</a>.</p>
+
 </div>
 </div>
 <a id="af715e967b0a60c4da8500be7d3ac7ca3" name="af715e967b0a60c4da8500be7d3ac7ca3"></a>
@@ -242,6 +256,10 @@ Functions</h2></td></tr>
 <p>Whether locking is enabled. </p>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a11">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8h_source.html#l00093">93</a> of file <a class="el" href="arena__scratch_8h_source.html">arena_scratch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__scratch_8c_source.html#l00238">scratch_pool_destroy()</a>, and <a class="el" href="arena__scratch_8c_source.html#l00213">scratch_pool_init()</a>.</p>
 
 </div>
 </div>
@@ -308,32 +326,36 @@ Functions</h2></td></tr>
 <a class="el" href="arena_8h.html#a1a2582ca5fb4e571ac150fbd77bd0d82">arena_reset</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a2">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  351</span>{</div>
-<div class="line"><span class="lineno">  352</span>    <span class="keywordflow">if</span> (!pool)</div>
-<div class="line"><span class="lineno">  353</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_acquire failed: pool is NULL&quot;</span>), NULL;</div>
-<div class="line"><span class="lineno">  354</span> </div>
-<div class="line"><span class="lineno">  355</span>    <a class="code hl_define" href="arena__scratch_8h.html#abce4c0e1d69d3b9850e36d69968c2d64">SCRATCH_LOCK</a>(pool);</div>
-<div class="line"><span class="lineno">  356</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a>; ++i)</div>
-<div class="line"><span class="lineno">  357</span>    {</div>
-<div class="line"><span class="lineno">  358</span>        <span class="keywordflow">if</span> (!atomic_exchange(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">in_use</a>, <span class="keyword">true</span>))</div>
-<div class="line"><span class="lineno">  359</span>        {</div>
-<div class="line"><span class="lineno">  360</span>            <a class="code hl_function" href="arena_8h.html#a1a2582ca5fb4e571ac150fbd77bd0d82">arena_reset</a>(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>);</div>
-<div class="line"><span class="lineno">  361</span>            <a class="code hl_define" href="arena__scratch_8h.html#a2f8510d38c4a460a6defc40c47e197dd">SCRATCH_UNLOCK</a>(pool);</div>
-<div class="line"><span class="lineno">  362</span>            <span class="keywordflow">return</span> &amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>;</div>
-<div class="line"><span class="lineno">  363</span>        }</div>
-<div class="line"><span class="lineno">  364</span>    }</div>
-<div class="line"><span class="lineno">  365</span>    <a class="code hl_define" href="arena__scratch_8h.html#a2f8510d38c4a460a6defc40c47e197dd">SCRATCH_UNLOCK</a>(pool);</div>
-<div class="line"><span class="lineno">  366</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_acquire failed: all slots in use&quot;</span>), NULL;</div>
-<div class="line"><span class="lineno">  367</span>}</div>
-<div class="ttc" id="aarena_8h_html_a1a2582ca5fb4e571ac150fbd77bd0d82"><div class="ttname"><a href="arena_8h.html#a1a2582ca5fb4e571ac150fbd77bd0d82">arena_reset</a></div><div class="ttdeci">void arena_reset(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_state.c:345</div></div>
-<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
-<div class="ttc" id="aarena__scratch_8h_html_a2f8510d38c4a460a6defc40c47e197dd"><div class="ttname"><a href="arena__scratch_8h.html#a2f8510d38c4a460a6defc40c47e197dd">SCRATCH_UNLOCK</a></div><div class="ttdeci">#define SCRATCH_UNLOCK(pool)</div><div class="ttdef"><b>Definition</b> arena_scratch.h:55</div></div>
-<div class="ttc" id="aarena__scratch_8h_html_a7896fb10ff84dd7be54082cf4c301829"><div class="ttname"><a href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a></div><div class="ttdeci">#define SCRATCH_MAX_SLOTS</div><div class="ttdoc">Maximum number of concurrently usable scratch arenas in the pool.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:41</div></div>
-<div class="ttc" id="aarena__scratch_8h_html_abce4c0e1d69d3b9850e36d69968c2d64"><div class="ttname"><a href="arena__scratch_8h.html#abce4c0e1d69d3b9850e36d69968c2d64">SCRATCH_LOCK</a></div><div class="ttdeci">#define SCRATCH_LOCK(pool)</div><div class="ttdoc">Thread-safe locking macro (enabled only if ARENA_ENABLE_THREAD_SAFE is set)</div><div class="ttdef"><b>Definition</b> arena_scratch.h:54</div></div>
-<div class="ttc" id="agroup__arena__scratch__internal_html_a52279bc596790848ee8b4c00064f3782"><div class="ttname"><a href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">s_scratch_slot::in_use</a></div><div class="ttdeci">atomic_bool in_use</div><div class="ttdoc">Atomic flag for acquisition tracking.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:76</div></div>
-<div class="ttc" id="agroup__arena__scratch__internal_html_a8e53aefa580a0552977802026307e540"><div class="ttname"><a href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">s_scratch_slot::arena</a></div><div class="ttdeci">t_arena arena</div><div class="ttdoc">Memory arena associated with this slot.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:75</div></div>
-<div class="ttc" id="agroup__arena__scratch_html_aa36226e6da3d33e85c2f2bbebce6585c"><div class="ttname"><a href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">s_scratch_arena_pool::slots</a></div><div class="ttdeci">t_scratch_slot slots[SCRATCH_MAX_SLOTS]</div><div class="ttdoc">Array of scratch slots.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:91</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8c_source.html#l00254">254</a> of file <a class="el" href="arena__scratch_8c_source.html">arena_scratch.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  255</span>{</div>
+<div class="line"><span class="lineno">  256</span>    <span class="keywordflow">if</span> (!pool)</div>
+<div class="line"><span class="lineno">  257</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_acquire failed: pool is NULL&quot;</span>), NULL;</div>
+<div class="line"><span class="lineno">  258</span> </div>
+<div class="line"><span class="lineno">  259</span>    <a class="code hl_define" href="arena__scratch_8h.html#abce4c0e1d69d3b9850e36d69968c2d64">SCRATCH_LOCK</a>(pool);</div>
+<div class="line"><span class="lineno">  260</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a>; ++i)</div>
+<div class="line"><span class="lineno">  261</span>    {</div>
+<div class="line"><span class="lineno">  262</span>        <span class="keywordflow">if</span> (!atomic_exchange(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">in_use</a>, <span class="keyword">true</span>))</div>
+<div class="line"><span class="lineno">  263</span>        {</div>
+<div class="line"><span class="lineno">  264</span>            <a class="code hl_function" href="arena_8h.html#a1a2582ca5fb4e571ac150fbd77bd0d82">arena_reset</a>(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>);</div>
+<div class="line"><span class="lineno">  265</span>            <a class="code hl_define" href="arena__scratch_8h.html#a2f8510d38c4a460a6defc40c47e197dd">SCRATCH_UNLOCK</a>(pool);</div>
+<div class="line"><span class="lineno">  266</span>            <span class="keywordflow">return</span> &amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>;</div>
+<div class="line"><span class="lineno">  267</span>        }</div>
+<div class="line"><span class="lineno">  268</span>    }</div>
+<div class="line"><span class="lineno">  269</span>    <a class="code hl_define" href="arena__scratch_8h.html#a2f8510d38c4a460a6defc40c47e197dd">SCRATCH_UNLOCK</a>(pool);</div>
+<div class="line"><span class="lineno">  270</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_acquire failed: all slots in use&quot;</span>), NULL;</div>
+<div class="line"><span class="lineno">  271</span>}</div>
+<div class="ttc" id="aarena_8h_html_a1a2582ca5fb4e571ac150fbd77bd0d82"><div class="ttname"><a href="arena_8h.html#a1a2582ca5fb4e571ac150fbd77bd0d82">arena_reset</a></div><div class="ttdeci">void arena_reset(t_arena *arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__state_8c_source.html#l00097">arena_state.c:97</a></div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> <a href="arena__debug_8c_source.html#l00253">arena_debug.c:253</a></div></div>
+<div class="ttc" id="aarena__scratch_8h_html_a2f8510d38c4a460a6defc40c47e197dd"><div class="ttname"><a href="arena__scratch_8h.html#a2f8510d38c4a460a6defc40c47e197dd">SCRATCH_UNLOCK</a></div><div class="ttdeci">#define SCRATCH_UNLOCK(pool)</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00055">arena_scratch.h:55</a></div></div>
+<div class="ttc" id="aarena__scratch_8h_html_a7896fb10ff84dd7be54082cf4c301829"><div class="ttname"><a href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a></div><div class="ttdeci">#define SCRATCH_MAX_SLOTS</div><div class="ttdoc">Maximum number of concurrently usable scratch arenas in the pool.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00041">arena_scratch.h:41</a></div></div>
+<div class="ttc" id="aarena__scratch_8h_html_abce4c0e1d69d3b9850e36d69968c2d64"><div class="ttname"><a href="arena__scratch_8h.html#abce4c0e1d69d3b9850e36d69968c2d64">SCRATCH_LOCK</a></div><div class="ttdeci">#define SCRATCH_LOCK(pool)</div><div class="ttdoc">Thread-safe locking macro (enabled only if ARENA_ENABLE_THREAD_SAFE is set)</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00054">arena_scratch.h:54</a></div></div>
+<div class="ttc" id="agroup__arena__scratch__internal_html_a52279bc596790848ee8b4c00064f3782"><div class="ttname"><a href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">s_scratch_slot::in_use</a></div><div class="ttdeci">atomic_bool in_use</div><div class="ttdoc">Atomic flag for acquisition tracking.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00076">arena_scratch.h:76</a></div></div>
+<div class="ttc" id="agroup__arena__scratch__internal_html_a8e53aefa580a0552977802026307e540"><div class="ttname"><a href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">s_scratch_slot::arena</a></div><div class="ttdeci">t_arena arena</div><div class="ttdoc">Memory arena associated with this slot.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00075">arena_scratch.h:75</a></div></div>
+<div class="ttc" id="agroup__arena__scratch_html_aa36226e6da3d33e85c2f2bbebce6585c"><div class="ttname"><a href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">s_scratch_arena_pool::slots</a></div><div class="ttdeci">t_scratch_slot slots[SCRATCH_MAX_SLOTS]</div><div class="ttdoc">Array of scratch slots.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00091">arena_scratch.h:91</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__scratch_8h_source.html#l00075">s_scratch_slot::arena</a>, <a class="el" href="arena__debug_8c_source.html#l00253">arena_report_error()</a>, <a class="el" href="arena__state_8c_source.html#l00097">arena_reset()</a>, <a class="el" href="arena__scratch_8h_source.html#l00076">s_scratch_slot::in_use</a>, <a class="el" href="arena__scratch_8h_source.html#l00054">SCRATCH_LOCK</a>, <a class="el" href="arena__scratch_8h_source.html#l00041">SCRATCH_MAX_SLOTS</a>, <a class="el" href="arena__scratch_8h_source.html#l00055">SCRATCH_UNLOCK</a>, and <a class="el" href="arena__scratch_8h_source.html#l00091">s_scratch_arena_pool::slots</a>.</p>
+
 </div>
 </div>
 <a id="ga11827715e3ea2c02b2ddd7313bf7551c" name="ga11827715e3ea2c02b2ddd7313bf7551c"></a>
@@ -371,24 +393,30 @@ Functions</h2></td></tr>
 <a class="el" href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a6">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  303</span>{</div>
-<div class="line"><span class="lineno">  304</span>    <span class="keywordflow">if</span> (!pool)</div>
-<div class="line"><span class="lineno">  305</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  306</span> </div>
-<div class="line"><span class="lineno">  307</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a>; ++i)</div>
-<div class="line"><span class="lineno">  308</span>        <a class="code hl_function" href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a>(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>);</div>
-<div class="line"><span class="lineno">  309</span> </div>
-<div class="line"><span class="lineno">  310</span><span class="preprocessor">#ifdef ARENA_ENABLE_THREAD_SAFE</span></div>
-<div class="line"><span class="lineno">  311</span>    <span class="keywordflow">if</span> (pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#af715e967b0a60c4da8500be7d3ac7ca3">thread_safe</a>)</div>
-<div class="line"><span class="lineno">  312</span>        pthread_mutex_destroy(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#a6504b8d51c2b438853b18f89cb70d9a0">lock</a>);</div>
-<div class="line"><span class="lineno">  313</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">  314</span> </div>
-<div class="line"><span class="lineno">  315</span>    memset(pool, 0, <span class="keyword">sizeof</span>(*pool));</div>
-<div class="line"><span class="lineno">  316</span>}</div>
-<div class="ttc" id="aarena_8h_html_a640f54190aa0b356bc55787bfde1dcc5"><div class="ttname"><a href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a></div><div class="ttdeci">void arena_destroy(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_cleanup.c:82</div></div>
-<div class="ttc" id="agroup__arena__scratch_html_a6504b8d51c2b438853b18f89cb70d9a0"><div class="ttname"><a href="group__arena__scratch.html#a6504b8d51c2b438853b18f89cb70d9a0">s_scratch_arena_pool::lock</a></div><div class="ttdeci">pthread_mutex_t lock</div><div class="ttdoc">Mutex for protecting slot access.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:94</div></div>
-<div class="ttc" id="agroup__arena__scratch_html_af715e967b0a60c4da8500be7d3ac7ca3"><div class="ttname"><a href="group__arena__scratch.html#af715e967b0a60c4da8500be7d3ac7ca3">s_scratch_arena_pool::thread_safe</a></div><div class="ttdeci">bool thread_safe</div><div class="ttdoc">Whether locking is enabled.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:93</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8c_source.html#l00238">238</a> of file <a class="el" href="arena__scratch_8c_source.html">arena_scratch.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  239</span>{</div>
+<div class="line"><span class="lineno">  240</span>    <span class="keywordflow">if</span> (!pool)</div>
+<div class="line"><span class="lineno">  241</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  242</span> </div>
+<div class="line"><span class="lineno">  243</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a>; ++i)</div>
+<div class="line"><span class="lineno">  244</span>        <a class="code hl_function" href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a>(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>);</div>
+<div class="line"><span class="lineno">  245</span> </div>
+<div class="line"><span class="lineno">  246</span><span class="preprocessor">#ifdef ARENA_ENABLE_THREAD_SAFE</span></div>
+<div class="line"><span class="lineno">  247</span>    <span class="keywordflow">if</span> (pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#af715e967b0a60c4da8500be7d3ac7ca3">thread_safe</a>)</div>
+<div class="line"><span class="lineno">  248</span>        pthread_mutex_destroy(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#a6504b8d51c2b438853b18f89cb70d9a0">lock</a>);</div>
+<div class="line"><span class="lineno">  249</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  250</span> </div>
+<div class="line"><span class="lineno">  251</span>    memset(pool, 0, <span class="keyword">sizeof</span>(*pool));</div>
+<div class="line"><span class="lineno">  252</span>}</div>
+<div class="ttc" id="aarena_8h_html_a640f54190aa0b356bc55787bfde1dcc5"><div class="ttname"><a href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a></div><div class="ttdeci">void arena_destroy(t_arena *arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__cleanup_8c_source.html#l00036">arena_cleanup.c:36</a></div></div>
+<div class="ttc" id="agroup__arena__scratch_html_a6504b8d51c2b438853b18f89cb70d9a0"><div class="ttname"><a href="group__arena__scratch.html#a6504b8d51c2b438853b18f89cb70d9a0">s_scratch_arena_pool::lock</a></div><div class="ttdeci">pthread_mutex_t lock</div><div class="ttdoc">Mutex for protecting slot access.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00094">arena_scratch.h:94</a></div></div>
+<div class="ttc" id="agroup__arena__scratch_html_af715e967b0a60c4da8500be7d3ac7ca3"><div class="ttname"><a href="group__arena__scratch.html#af715e967b0a60c4da8500be7d3ac7ca3">s_scratch_arena_pool::thread_safe</a></div><div class="ttdeci">bool thread_safe</div><div class="ttdoc">Whether locking is enabled.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00093">arena_scratch.h:93</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__scratch_8h_source.html#l00075">s_scratch_slot::arena</a>, <a class="el" href="arena__cleanup_8c_source.html#l00036">arena_destroy()</a>, <a class="el" href="arena__scratch_8h_source.html#l00094">s_scratch_arena_pool::lock</a>, <a class="el" href="arena__scratch_8h_source.html#l00041">SCRATCH_MAX_SLOTS</a>, <a class="el" href="arena__scratch_8h_source.html#l00091">s_scratch_arena_pool::slots</a>, and <a class="el" href="arena__scratch_8h_source.html#l00093">s_scratch_arena_pool::thread_safe</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__scratch_8c_source.html#l00213">scratch_pool_init()</a>.</p>
+
 </div>
 </div>
 <a id="gaacf85b896eca809714ae5b80bce9b998" name="gaacf85b896eca809714ae5b80bce9b998"></a>
@@ -452,33 +480,37 @@ Functions</h2></td></tr>
 <a class="el" href="group__arena__scratch.html#gade0c7f0a1b88c47211db8f2c9f3f3660" title="Release a scratch arena back to the pool for reuse.">scratch_release</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a5">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  250</span>{</div>
-<div class="line"><span class="lineno">  251</span>    <span class="keywordflow">if</span> (!pool || slot_size == 0)</div>
-<div class="line"><span class="lineno">  252</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_pool_init failed: invalid arguments&quot;</span>), <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  253</span> </div>
-<div class="line"><span class="lineno">  254</span>    memset(pool, 0, <span class="keyword">sizeof</span>(*pool));</div>
-<div class="line"><span class="lineno">  255</span>    pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#a64c052156b441b7adf46af210b8fcf95">slot_size</a>   = slot_size;</div>
-<div class="line"><span class="lineno">  256</span>    pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#af715e967b0a60c4da8500be7d3ac7ca3">thread_safe</a> = thread_safe;</div>
-<div class="line"><span class="lineno">  257</span> </div>
-<div class="line"><span class="lineno">  258</span><span class="preprocessor">#ifdef ARENA_ENABLE_THREAD_SAFE</span></div>
-<div class="line"><span class="lineno">  259</span>    <span class="keywordflow">if</span> (thread_safe)</div>
-<div class="line"><span class="lineno">  260</span>        pthread_mutex_init(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#a6504b8d51c2b438853b18f89cb70d9a0">lock</a>, NULL);</div>
-<div class="line"><span class="lineno">  261</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">  262</span> </div>
-<div class="line"><span class="lineno">  263</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a>; ++i)</div>
-<div class="line"><span class="lineno">  264</span>    {</div>
-<div class="line"><span class="lineno">  265</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__scratch__internal.html#gae37e23cb6b3d190982157208a850d840">scratch_slot_init</a>(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i], slot_size, i))</div>
-<div class="line"><span class="lineno">  266</span>        {</div>
-<div class="line"><span class="lineno">  267</span>            <a class="code hl_function" href="group__arena__scratch.html#ga11827715e3ea2c02b2ddd7313bf7551c">scratch_pool_destroy</a>(pool);</div>
-<div class="line"><span class="lineno">  268</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  269</span>        }</div>
-<div class="line"><span class="lineno">  270</span>    }</div>
-<div class="line"><span class="lineno">  271</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  272</span>}</div>
-<div class="ttc" id="agroup__arena__scratch__internal_html_gae37e23cb6b3d190982157208a850d840"><div class="ttname"><a href="group__arena__scratch__internal.html#gae37e23cb6b3d190982157208a850d840">scratch_slot_init</a></div><div class="ttdeci">static bool scratch_slot_init(t_scratch_slot *slot, size_t slot_size, int index)</div><div class="ttdoc">Initialize a single scratch slot with its own arena.</div><div class="ttdef"><b>Definition</b> arena_scratch.c:449</div></div>
-<div class="ttc" id="agroup__arena__scratch_html_a64c052156b441b7adf46af210b8fcf95"><div class="ttname"><a href="group__arena__scratch.html#a64c052156b441b7adf46af210b8fcf95">s_scratch_arena_pool::slot_size</a></div><div class="ttdeci">size_t slot_size</div><div class="ttdoc">Size of each arena in bytes.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:92</div></div>
-<div class="ttc" id="agroup__arena__scratch_html_ga11827715e3ea2c02b2ddd7313bf7551c"><div class="ttname"><a href="group__arena__scratch.html#ga11827715e3ea2c02b2ddd7313bf7551c">scratch_pool_destroy</a></div><div class="ttdeci">void scratch_pool_destroy(t_scratch_arena_pool *pool)</div><div class="ttdoc">Destroy all arenas in a scratch pool and reset its metadata.</div><div class="ttdef"><b>Definition</b> arena_scratch.c:302</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8c_source.html#l00213">213</a> of file <a class="el" href="arena__scratch_8c_source.html">arena_scratch.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  214</span>{</div>
+<div class="line"><span class="lineno">  215</span>    <span class="keywordflow">if</span> (!pool || slot_size == 0)</div>
+<div class="line"><span class="lineno">  216</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_pool_init failed: invalid arguments&quot;</span>), <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  217</span> </div>
+<div class="line"><span class="lineno">  218</span>    memset(pool, 0, <span class="keyword">sizeof</span>(*pool));</div>
+<div class="line"><span class="lineno">  219</span>    pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#a64c052156b441b7adf46af210b8fcf95">slot_size</a>   = slot_size;</div>
+<div class="line"><span class="lineno">  220</span>    pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#af715e967b0a60c4da8500be7d3ac7ca3">thread_safe</a> = thread_safe;</div>
+<div class="line"><span class="lineno">  221</span> </div>
+<div class="line"><span class="lineno">  222</span><span class="preprocessor">#ifdef ARENA_ENABLE_THREAD_SAFE</span></div>
+<div class="line"><span class="lineno">  223</span>    <span class="keywordflow">if</span> (thread_safe)</div>
+<div class="line"><span class="lineno">  224</span>        pthread_mutex_init(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#a6504b8d51c2b438853b18f89cb70d9a0">lock</a>, NULL);</div>
+<div class="line"><span class="lineno">  225</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">  226</span> </div>
+<div class="line"><span class="lineno">  227</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a>; ++i)</div>
+<div class="line"><span class="lineno">  228</span>    {</div>
+<div class="line"><span class="lineno">  229</span>        <span class="keywordflow">if</span> (!<a class="code hl_function" href="group__arena__scratch__internal.html#gae37e23cb6b3d190982157208a850d840">scratch_slot_init</a>(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i], slot_size, i))</div>
+<div class="line"><span class="lineno">  230</span>        {</div>
+<div class="line"><span class="lineno">  231</span>            <a class="code hl_function" href="group__arena__scratch.html#ga11827715e3ea2c02b2ddd7313bf7551c">scratch_pool_destroy</a>(pool);</div>
+<div class="line"><span class="lineno">  232</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  233</span>        }</div>
+<div class="line"><span class="lineno">  234</span>    }</div>
+<div class="line"><span class="lineno">  235</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  236</span>}</div>
+<div class="ttc" id="agroup__arena__scratch__internal_html_gae37e23cb6b3d190982157208a850d840"><div class="ttname"><a href="group__arena__scratch__internal.html#gae37e23cb6b3d190982157208a850d840">scratch_slot_init</a></div><div class="ttdeci">static bool scratch_slot_init(t_scratch_slot *slot, size_t slot_size, int index)</div><div class="ttdoc">Initialize a single scratch slot with its own arena.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8c_source.html#l00324">arena_scratch.c:324</a></div></div>
+<div class="ttc" id="agroup__arena__scratch_html_a64c052156b441b7adf46af210b8fcf95"><div class="ttname"><a href="group__arena__scratch.html#a64c052156b441b7adf46af210b8fcf95">s_scratch_arena_pool::slot_size</a></div><div class="ttdeci">size_t slot_size</div><div class="ttdoc">Size of each arena in bytes.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00092">arena_scratch.h:92</a></div></div>
+<div class="ttc" id="agroup__arena__scratch_html_ga11827715e3ea2c02b2ddd7313bf7551c"><div class="ttname"><a href="group__arena__scratch.html#ga11827715e3ea2c02b2ddd7313bf7551c">scratch_pool_destroy</a></div><div class="ttdeci">void scratch_pool_destroy(t_scratch_arena_pool *pool)</div><div class="ttdoc">Destroy all arenas in a scratch pool and reset its metadata.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8c_source.html#l00238">arena_scratch.c:238</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__debug_8c_source.html#l00253">arena_report_error()</a>, <a class="el" href="arena__scratch_8h_source.html#l00094">s_scratch_arena_pool::lock</a>, <a class="el" href="arena__scratch_8h_source.html#l00041">SCRATCH_MAX_SLOTS</a>, <a class="el" href="arena__scratch_8c_source.html#l00238">scratch_pool_destroy()</a>, <a class="el" href="arena__scratch_8c_source.html#l00324">scratch_slot_init()</a>, <a class="el" href="arena__scratch_8h_source.html#l00092">s_scratch_arena_pool::slot_size</a>, <a class="el" href="arena__scratch_8h_source.html#l00091">s_scratch_arena_pool::slots</a>, and <a class="el" href="arena__scratch_8h_source.html#l00093">s_scratch_arena_pool::thread_safe</a>.</p>
+
 </div>
 </div>
 <a id="gade0c7f0a1b88c47211db8f2c9f3f3660" name="gade0c7f0a1b88c47211db8f2c9f3f3660"></a>
@@ -525,25 +557,29 @@ Functions</h2></td></tr>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="group__arena__scratch.html#ga244f078e83929f392e441ca375c2230a" title="Acquire a temporary scratch arena from the pool.">scratch_acquire</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a4">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  399</span>{</div>
-<div class="line"><span class="lineno">  400</span>    <span class="keywordflow">if</span> (!pool || !arena)</div>
-<div class="line"><span class="lineno">  401</span>    {</div>
-<div class="line"><span class="lineno">  402</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_release failed: null pool or arena&quot;</span>);</div>
-<div class="line"><span class="lineno">  403</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  404</span>    }</div>
-<div class="line"><span class="lineno">  405</span> </div>
-<div class="line"><span class="lineno">  406</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a>; ++i)</div>
-<div class="line"><span class="lineno">  407</span>    {</div>
-<div class="line"><span class="lineno">  408</span>        <span class="keywordflow">if</span> (&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a> == arena)</div>
-<div class="line"><span class="lineno">  409</span>        {</div>
-<div class="line"><span class="lineno">  410</span>            atomic_store(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">in_use</a>, <span class="keyword">false</span>);</div>
-<div class="line"><span class="lineno">  411</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  412</span>        }</div>
-<div class="line"><span class="lineno">  413</span>    }</div>
-<div class="line"><span class="lineno">  414</span> </div>
-<div class="line"><span class="lineno">  415</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;scratch_release failed: arena not found in pool&quot;</span>);</div>
-<div class="line"><span class="lineno">  416</span>}</div>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8c_source.html#l00273">273</a> of file <a class="el" href="arena__scratch_8c_source.html">arena_scratch.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  274</span>{</div>
+<div class="line"><span class="lineno">  275</span>    <span class="keywordflow">if</span> (!pool || !arena)</div>
+<div class="line"><span class="lineno">  276</span>    {</div>
+<div class="line"><span class="lineno">  277</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_release failed: null pool or arena&quot;</span>);</div>
+<div class="line"><span class="lineno">  278</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  279</span>    }</div>
+<div class="line"><span class="lineno">  280</span> </div>
+<div class="line"><span class="lineno">  281</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="arena__scratch_8h.html#a7896fb10ff84dd7be54082cf4c301829">SCRATCH_MAX_SLOTS</a>; ++i)</div>
+<div class="line"><span class="lineno">  282</span>    {</div>
+<div class="line"><span class="lineno">  283</span>        <span class="keywordflow">if</span> (&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a> == arena)</div>
+<div class="line"><span class="lineno">  284</span>        {</div>
+<div class="line"><span class="lineno">  285</span>            atomic_store(&amp;pool-&gt;<a class="code hl_variable" href="group__arena__scratch.html#aa36226e6da3d33e85c2f2bbebce6585c">slots</a>[i].<a class="code hl_variable" href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">in_use</a>, <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">  286</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  287</span>        }</div>
+<div class="line"><span class="lineno">  288</span>    }</div>
+<div class="line"><span class="lineno">  289</span> </div>
+<div class="line"><span class="lineno">  290</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;scratch_release failed: arena not found in pool&quot;</span>);</div>
+<div class="line"><span class="lineno">  291</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__scratch_8h_source.html#l00075">s_scratch_slot::arena</a>, <a class="el" href="arena__debug_8c_source.html#l00253">arena_report_error()</a>, <a class="el" href="arena__scratch_8h_source.html#l00076">s_scratch_slot::in_use</a>, <a class="el" href="arena__scratch_8h_source.html#l00041">SCRATCH_MAX_SLOTS</a>, and <a class="el" href="arena__scratch_8h_source.html#l00091">s_scratch_arena_pool::slots</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

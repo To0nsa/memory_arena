@@ -127,6 +127,8 @@ Functions</h2></td></tr>
 <p>Each slot holds a memory arena (<code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code>) and an atomic flag indicating whether the slot is currently in use. </p>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#_a8">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8h_source.html#l00073">73</a> of file <a class="el" href="arena__scratch_8h_source.html">arena_scratch.h</a>.</p>
 </div><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-1-trigger" src="closed.png" alt="+"/> Collaboration diagram for s_scratch_slot:</div>
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
@@ -172,6 +174,10 @@ Functions</h2></td></tr>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a16">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8h_source.html#l00075">75</a> of file <a class="el" href="arena__scratch_8h_source.html">arena_scratch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__scratch_8c_source.html#l00254">scratch_acquire()</a>, <a class="el" href="arena__scratch_8c_source.html#l00238">scratch_pool_destroy()</a>, <a class="el" href="arena__scratch_8c_source.html#l00273">scratch_release()</a>, and <a class="el" href="arena__scratch_8c_source.html#l00324">scratch_slot_init()</a>.</p>
+
 </div>
 </div>
 <a id="a52279bc596790848ee8b4c00064f3782" name="a52279bc596790848ee8b4c00064f3782"></a>
@@ -189,6 +195,10 @@ Functions</h2></td></tr>
 <p>Atomic flag for acquisition tracking. </p>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a18">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8h_source.html#l00076">76</a> of file <a class="el" href="arena__scratch_8h_source.html">arena_scratch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__scratch_8c_source.html#l00254">scratch_acquire()</a>, <a class="el" href="arena__scratch_8c_source.html#l00273">scratch_release()</a>, and <a class="el" href="arena__scratch_8c_source.html#l00324">scratch_slot_init()</a>.</p>
 
 </div>
 </div>
@@ -276,20 +286,26 @@ Functions</h2></td></tr>
 <a class="el" href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_scratch_8c-example.html#a7">/home/toonsa/myProjects/memoryArena/srcs/core/arena_scratch.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  450</span>{</div>
-<div class="line"><span class="lineno">  451</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a>(&amp;slot-&gt;<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>, slot_size, <span class="keyword">true</span>))</div>
-<div class="line"><span class="lineno">  452</span>    {</div>
-<div class="line"><span class="lineno">  453</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_slot_init failed: arena_init failed for slot %d&quot;</span>, index);</div>
-<div class="line"><span class="lineno">  454</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  455</span>    }</div>
-<div class="line"><span class="lineno">  456</span>    atomic_store(&amp;slot-&gt;<a class="code hl_variable" href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">in_use</a>, <span class="keyword">false</span>);</div>
-<div class="line"><span class="lineno">  457</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  458</span>}</div>
-<div class="ttc" id="aarena_8h_html_a245dff47ef4fe5693b657a42deecf988"><div class="ttname"><a href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a></div><div class="ttdeci">bool arena_init(t_arena *arena, size_t size, bool allow_grow)</div><div class="ttdef"><b>Definition</b> arena_create.c:190</div></div>
-<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
-<div class="ttc" id="agroup__arena__scratch__internal_html_a52279bc596790848ee8b4c00064f3782"><div class="ttname"><a href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">s_scratch_slot::in_use</a></div><div class="ttdeci">atomic_bool in_use</div><div class="ttdoc">Atomic flag for acquisition tracking.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:76</div></div>
-<div class="ttc" id="agroup__arena__scratch__internal_html_a8e53aefa580a0552977802026307e540"><div class="ttname"><a href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">s_scratch_slot::arena</a></div><div class="ttdeci">t_arena arena</div><div class="ttdoc">Memory arena associated with this slot.</div><div class="ttdef"><b>Definition</b> arena_scratch.h:75</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__scratch_8c_source.html#l00324">324</a> of file <a class="el" href="arena__scratch_8c_source.html">arena_scratch.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  325</span>{</div>
+<div class="line"><span class="lineno">  326</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a>(&amp;slot-&gt;<a class="code hl_variable" href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">arena</a>, slot_size, <span class="keyword">true</span>))</div>
+<div class="line"><span class="lineno">  327</span>    {</div>
+<div class="line"><span class="lineno">  328</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;scratch_slot_init failed: arena_init failed for slot %d&quot;</span>, index);</div>
+<div class="line"><span class="lineno">  329</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  330</span>    }</div>
+<div class="line"><span class="lineno">  331</span>    atomic_store(&amp;slot-&gt;<a class="code hl_variable" href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">in_use</a>, <span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">  332</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  333</span>}</div>
+<div class="ttc" id="aarena_8h_html_a245dff47ef4fe5693b657a42deecf988"><div class="ttname"><a href="arena_8h.html#a245dff47ef4fe5693b657a42deecf988">arena_init</a></div><div class="ttdeci">bool arena_init(t_arena *arena, size_t size, bool allow_grow)</div><div class="ttdef"><b>Definition</b> <a href="arena__create_8c_source.html#l00092">arena_create.c:92</a></div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> <a href="arena__debug_8c_source.html#l00253">arena_debug.c:253</a></div></div>
+<div class="ttc" id="agroup__arena__scratch__internal_html_a52279bc596790848ee8b4c00064f3782"><div class="ttname"><a href="group__arena__scratch__internal.html#a52279bc596790848ee8b4c00064f3782">s_scratch_slot::in_use</a></div><div class="ttdeci">atomic_bool in_use</div><div class="ttdoc">Atomic flag for acquisition tracking.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00076">arena_scratch.h:76</a></div></div>
+<div class="ttc" id="agroup__arena__scratch__internal_html_a8e53aefa580a0552977802026307e540"><div class="ttname"><a href="group__arena__scratch__internal.html#a8e53aefa580a0552977802026307e540">s_scratch_slot::arena</a></div><div class="ttdeci">t_arena arena</div><div class="ttdoc">Memory arena associated with this slot.</div><div class="ttdef"><b>Definition</b> <a href="arena__scratch_8h_source.html#l00075">arena_scratch.h:75</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__scratch_8h_source.html#l00075">s_scratch_slot::arena</a>, <a class="el" href="arena__create_8c_source.html#l00092">arena_init()</a>, <a class="el" href="arena__debug_8c_source.html#l00253">arena_report_error()</a>, and <a class="el" href="arena__scratch_8h_source.html#l00076">s_scratch_slot::in_use</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__scratch_8c_source.html#l00213">scratch_pool_init()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

@@ -130,7 +130,9 @@ $(function() {
 <area shape="poly" title=" " alt="" coords="589,178,583,212,577,211,584,177"/>
 </map>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="arena__state_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:abc6eabbcdd6ff5c3c187cd782644dfff" id="r_abc6eabbcdd6ff5c3c187cd782644dfff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="arena_8h.html#ad7902c92dd6262f1f86cdb4086bd144b">t_arena_marker</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__state_8c.html#abc6eabbcdd6ff5c3c187cd782644dfff">arena_mark</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
@@ -163,6 +165,8 @@ Functions</h2></td></tr>
 <li>Profiling and diagnostics (e.g., monitoring peak usage). </li>
 </ul>
 </dd></dl>
+
+<p class="definition">Definition in file <a class="el" href="arena__state_8c_source.html">arena_state.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="abc6eabbcdd6ff5c3c187cd782644dfff" name="abc6eabbcdd6ff5c3c187cd782644dfff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abc6eabbcdd6ff5c3c187cd782644dfff">&#9670;&#160;</a></span>arena_mark()</h2>
@@ -179,18 +183,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  228</span>{</div>
-<div class="line"><span class="lineno">  229</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  230</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  231</span> </div>
-<div class="line"><span class="lineno">  232</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  233</span>    <span class="keywordtype">size_t</span> offset = arena-&gt;offset;</div>
-<div class="line"><span class="lineno">  234</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  235</span>    <span class="keywordflow">return</span> offset;</div>
-<div class="line"><span class="lineno">  236</span>}</div>
-<div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> arena_internal.h:62</div></div>
-<div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> arena_internal.h:61</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__state_8c_source.html#l00068">68</a> of file <a class="el" href="arena__state_8c_source.html">arena_state.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keywordtype">size_t</span> offset = arena-&gt;offset;</div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">return</span> offset;</div>
+<div class="line"><span class="lineno">   77</span>}</div>
+<div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__internal_8h_source.html#l00062">arena_internal.h:62</a></div></div>
+<div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> <a href="arena__internal_8h_source.html#l00061">arena_internal.h:61</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__internal_8h_source.html#l00061">ARENA_LOCK</a>, and <a class="el" href="arena__internal_8h_source.html#l00062">ARENA_UNLOCK</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__stack_8c_source.html#l00114">arena_stack_push()</a>.</p>
+
 </div>
 </div>
 <a id="a6e261f2520d969c662266ce7f7a0390c" name="a6e261f2520d969c662266ce7f7a0390c"></a>
@@ -208,16 +218,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  176</span>{</div>
-<div class="line"><span class="lineno">  177</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  178</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  179</span> </div>
-<div class="line"><span class="lineno">  180</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  181</span>    <span class="keywordtype">size_t</span> peak = arena-&gt;stats.peak_usage;</div>
-<div class="line"><span class="lineno">  182</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  183</span>    <span class="keywordflow">return</span> peak;</div>
-<div class="line"><span class="lineno">  184</span>}</div>
+
+<p class="definition">Definition at line <a class="el" href="arena__state_8c_source.html#l00057">57</a> of file <a class="el" href="arena__state_8c_source.html">arena_state.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   58</span>{</div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordtype">size_t</span> peak = arena-&gt;stats.peak_usage;</div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">return</span> peak;</div>
+<div class="line"><span class="lineno">   66</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__internal_8h_source.html#l00061">ARENA_LOCK</a>, and <a class="el" href="arena__internal_8h_source.html#l00062">ARENA_UNLOCK</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__visualizer_8c_source.html#l00089">draw_visualizer()</a>.</p>
+
 </div>
 </div>
 <a id="a43f443882d11939468a2c6a33bdb88af" name="a43f443882d11939468a2c6a33bdb88af"></a>
@@ -245,25 +261,31 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  284</span>{</div>
-<div class="line"><span class="lineno">  285</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  286</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  287</span> </div>
-<div class="line"><span class="lineno">  288</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  289</span>    <span class="keywordflow">if</span> (marker &gt; arena-&gt;offset)</div>
-<div class="line"><span class="lineno">  290</span>    {</div>
-<div class="line"><span class="lineno">  291</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_pop failed: invalid marker %zu (offset: %zu)&quot;</span>, marker, arena-&gt;offset);</div>
-<div class="line"><span class="lineno">  292</span>        <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  293</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  294</span>    }</div>
-<div class="line"><span class="lineno">  295</span> </div>
-<div class="line"><span class="lineno">  296</span>    <a class="code hl_define" href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a>(arena-&gt;buffer + marker, arena-&gt;offset - marker);</div>
-<div class="line"><span class="lineno">  297</span>    arena-&gt;offset = marker;</div>
-<div class="line"><span class="lineno">  298</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  299</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> arena_debug.h:334</div></div>
-<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__state_8c_source.html#l00079">79</a> of file <a class="el" href="arena__state_8c_source.html">arena_state.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   80</span>{</div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   85</span>    <span class="keywordflow">if</span> (marker &gt; arena-&gt;offset)</div>
+<div class="line"><span class="lineno">   86</span>    {</div>
+<div class="line"><span class="lineno">   87</span>        <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(arena, <span class="stringliteral">&quot;arena_pop failed: invalid marker %zu (offset: %zu)&quot;</span>, marker, arena-&gt;offset);</div>
+<div class="line"><span class="lineno">   88</span>        <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   90</span>    }</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>    <a class="code hl_define" href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a>(arena-&gt;buffer + marker, arena-&gt;offset - marker);</div>
+<div class="line"><span class="lineno">   93</span>    arena-&gt;offset = marker;</div>
+<div class="line"><span class="lineno">   94</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   95</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_a904e1da25faaab32ade91d8232c60364"><div class="ttname"><a href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a></div><div class="ttdeci">#define arena_poison_memory(ptr, size)</div><div class="ttdoc">No-op poison macro when poisoning is disabled.</div><div class="ttdef"><b>Definition</b> <a href="arena__debug_8h_source.html#l00334">arena_debug.h:334</a></div></div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> <a href="arena__debug_8c_source.html#l00253">arena_debug.c:253</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__internal_8h_source.html#l00061">ARENA_LOCK</a>, <a class="el" href="arena__debug_8h_source.html#l00334">arena_poison_memory</a>, <a class="el" href="arena__debug_8c_source.html#l00253">arena_report_error()</a>, and <a class="el" href="arena__internal_8h_source.html#l00062">ARENA_UNLOCK</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__stack_8c_source.html#l00126">arena_stack_pop()</a>.</p>
+
 </div>
 </div>
 <a id="a366e9bd9ae716c21f10df35c34a50ccf" name="a366e9bd9ae716c21f10df35c34a50ccf"></a>
@@ -281,16 +303,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
-<div class="line"><span class="lineno">  124</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  125</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  128</span>    <span class="keywordtype">size_t</span> remaining = arena-&gt;size - arena-&gt;offset;</div>
-<div class="line"><span class="lineno">  129</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">return</span> remaining;</div>
-<div class="line"><span class="lineno">  131</span>}</div>
+
+<p class="definition">Definition at line <a class="el" href="arena__state_8c_source.html#l00046">46</a> of file <a class="el" href="arena__state_8c_source.html">arena_state.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>{</div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">   49</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   52</span>    <span class="keywordtype">size_t</span> remaining = arena-&gt;size - arena-&gt;offset;</div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">return</span> remaining;</div>
+<div class="line"><span class="lineno">   55</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__internal_8h_source.html#l00061">ARENA_LOCK</a>, and <a class="el" href="arena__internal_8h_source.html#l00062">ARENA_UNLOCK</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__visualizer_8c_source.html#l00089">draw_visualizer()</a>.</p>
+
 </div>
 </div>
 <a id="a1a2582ca5fb4e571ac150fbd77bd0d82" name="a1a2582ca5fb4e571ac150fbd77bd0d82"></a>
@@ -308,20 +336,26 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  346</span>{</div>
-<div class="line"><span class="lineno">  347</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">  348</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  349</span> </div>
-<div class="line"><span class="lineno">  350</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  351</span>    <a class="code hl_define" href="arena__debug_8h.html#a45fe83c0004caeffb8724c787d022110">ARENA_ASSERT_VALID</a>(arena);</div>
-<div class="line"><span class="lineno">  352</span> </div>
-<div class="line"><span class="lineno">  353</span>    <a class="code hl_define" href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a>(arena-&gt;buffer, arena-&gt;size);</div>
-<div class="line"><span class="lineno">  354</span>    arena-&gt;offset = 0;</div>
-<div class="line"><span class="lineno">  355</span> </div>
-<div class="line"><span class="lineno">  356</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  357</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_a45fe83c0004caeffb8724c787d022110"><div class="ttname"><a href="arena__debug_8h.html#a45fe83c0004caeffb8724c787d022110">ARENA_ASSERT_VALID</a></div><div class="ttdeci">#define ARENA_ASSERT_VALID(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:420</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__state_8c_source.html#l00097">97</a> of file <a class="el" href="arena__state_8c_source.html">arena_state.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>{</div>
+<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">  100</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  101</span> </div>
+<div class="line"><span class="lineno">  102</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  103</span>    <a class="code hl_define" href="arena__debug_8h.html#a45fe83c0004caeffb8724c787d022110">ARENA_ASSERT_VALID</a>(arena);</div>
+<div class="line"><span class="lineno">  104</span> </div>
+<div class="line"><span class="lineno">  105</span>    <a class="code hl_define" href="arena__debug_8h.html#a904e1da25faaab32ade91d8232c60364">arena_poison_memory</a>(arena-&gt;buffer, arena-&gt;size);</div>
+<div class="line"><span class="lineno">  106</span>    arena-&gt;offset = 0;</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">  109</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_a45fe83c0004caeffb8724c787d022110"><div class="ttname"><a href="arena__debug_8h.html#a45fe83c0004caeffb8724c787d022110">ARENA_ASSERT_VALID</a></div><div class="ttdeci">#define ARENA_ASSERT_VALID(arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__debug_8h_source.html#l00420">arena_debug.h:420</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__debug_8h_source.html#l00420">ARENA_ASSERT_VALID</a>, <a class="el" href="arena__internal_8h_source.html#l00061">ARENA_LOCK</a>, <a class="el" href="arena__debug_8h_source.html#l00334">arena_poison_memory</a>, and <a class="el" href="arena__internal_8h_source.html#l00062">ARENA_UNLOCK</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__scratch_8c_source.html#l00254">scratch_acquire()</a>.</p>
+
 </div>
 </div>
 <a id="a34c7c4eb11cde7b892e1d7c0cd20c886" name="a34c7c4eb11cde7b892e1d7c0cd20c886"></a>
@@ -339,17 +373,23 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
-<div class="line"><span class="lineno">   79</span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a> = arena-&gt;offset;</div>
-<div class="line"><span class="lineno">   80</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a>;</div>
-<div class="line"><span class="lineno">   82</span>}</div>
-<div class="ttc" id="aarena__io_8h_html_ae8cc011bf3ee2d3c19743095ffc0f7a5"><div class="ttname"><a href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a></div><div class="ttdeci">size_t used</div><div class="ttdoc">Number of bytes used in the arena buffer.</div><div class="ttdef"><b>Definition</b> arena_io.h:2</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__state_8c_source.html#l00035">35</a> of file <a class="el" href="arena__state_8c_source.html">arena_state.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>{</div>
+<div class="line"><span class="lineno">   37</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordtype">size_t</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a> = arena-&gt;offset;</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a>;</div>
+<div class="line"><span class="lineno">   44</span>}</div>
+<div class="ttc" id="aarena__io_8h_html_ae8cc011bf3ee2d3c19743095ffc0f7a5"><div class="ttname"><a href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a></div><div class="ttdeci">size_t used</div><div class="ttdoc">Number of bytes used in the arena buffer.</div><div class="ttdef"><b>Definition</b> <a href="arena__io_8h_source.html#l00002">arena_io.h:2</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__internal_8h_source.html#l00061">ARENA_LOCK</a>, <a class="el" href="arena__internal_8h_source.html#l00062">ARENA_UNLOCK</a>, and <a class="el" href="arena__io_8h_source.html#l00002">used</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__visualizer_8c_source.html#l00047">arena_visualizer_allocation_hook()</a>, and <a class="el" href="arena__visualizer_8c_source.html#l00089">draw_visualizer()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

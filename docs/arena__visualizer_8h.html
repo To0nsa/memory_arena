@@ -213,6 +213,8 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="arena__visualizer_8h_source.html#l00011">11</a> of file <a class="el" href="arena__visualizer_8h_source.html">arena_visualizer.h</a>.</p>
+
 </div>
 </div>
 <a id="a071cf0979e8f6775b9fe1d93263380d0" name="a071cf0979e8f6775b9fe1d93263380d0"></a>
@@ -226,6 +228,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="arena__visualizer_8h_source.html#l00012">12</a> of file <a class="el" href="arena__visualizer_8h_source.html">arena_visualizer.h</a>.</p>
 
 </div>
 </div>
@@ -291,6 +295,8 @@ Functions</h2></td></tr>
 
 <p>Start the interactive session (blocks until user quits). </p>
 <p>The user can scroll the ring buffer with arrow keys, press 'n' to do next step, press 'q' to quit, etc. </p>
+
+<p class="definition">Definition at line <a class="el" href="arena__visualizer_8c_source.html#l00257">257</a> of file <a class="el" href="arena__visualizer_8c_source.html">arena_visualizer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  258</span>{</div>
 <div class="line"><span class="lineno">  259</span>    <span class="keywordflow">if</span> (!vis || !arena)</div>
 <div class="line"><span class="lineno">  260</span>        <span class="keywordflow">return</span>;</div>
@@ -324,16 +330,18 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  288</span>    <a class="code hl_function" href="arena__visualizer_8c.html#a11f0c521d02522501dca7d60fb5fcff2">interactive_loop</a>(vis);</div>
 <div class="line"><span class="lineno">  289</span>    <span class="comment">// user pressed q or n =&gt; we return</span></div>
 <div class="line"><span class="lineno">  290</span>}</div>
-<div class="ttc" id="aarena__visualizer_8c_html_a11f0c521d02522501dca7d60fb5fcff2"><div class="ttname"><a href="arena__visualizer_8c.html#a11f0c521d02522501dca7d60fb5fcff2">interactive_loop</a></div><div class="ttdeci">static void interactive_loop(t_arena_visualizer *vis)</div><div class="ttdoc">The main interactive loop: 1) user sees ring buffer 2) user presses 'n' to run next script step 3) us...</div><div class="ttdef"><b>Definition</b> arena_visualizer.c:232</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html_a3760845fee468b266cec06c0c0ebbbd7"><div class="ttname"><a href="structs__arena__visualizer.html#a3760845fee468b266cec06c0c0ebbbd7">s_arena_visualizer::script_done</a></div><div class="ttdeci">bool script_done</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:54</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html_a49c36c34b8d97cf70e2c381d9363f687"><div class="ttname"><a href="structs__arena__visualizer.html#a49c36c34b8d97cf70e2c381d9363f687">s_arena_visualizer::scroll_offset</a></div><div class="ttdeci">int scroll_offset</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:52</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html_a4a6bda0082a4cd282255cbb7879d61e3"><div class="ttname"><a href="structs__arena__visualizer.html#a4a6bda0082a4cd282255cbb7879d61e3">s_arena_visualizer::main_plane</a></div><div class="ttdeci">struct ncplane * main_plane</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:45</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html_a5d10ee973ae83b9a6b205113269b1184"><div class="ttname"><a href="structs__arena__visualizer.html#a5d10ee973ae83b9a6b205113269b1184">s_arena_visualizer::nc</a></div><div class="ttdeci">struct notcurses * nc</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:44</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html_ab04fefbd0c8822629b36c092a8332fa9"><div class="ttname"><a href="structs__arena__visualizer.html#ab04fefbd0c8822629b36c092a8332fa9">s_arena_visualizer::lock</a></div><div class="ttdeci">pthread_mutex_t lock</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:42</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html_ac1b9e79ef850053dbf8aa898c8dbc095"><div class="ttname"><a href="structs__arena__visualizer.html#ac1b9e79ef850053dbf8aa898c8dbc095">s_arena_visualizer::history_index</a></div><div class="ttdeci">atomic_size_t history_index</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:48</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html_aca62c318554be711e80ebcd2f6327280"><div class="ttname"><a href="structs__arena__visualizer.html#aca62c318554be711e80ebcd2f6327280">s_arena_visualizer::history_count</a></div><div class="ttdeci">atomic_size_t history_count</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:49</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html_aeed1fcd30ee8dbf86e9fe14c648e7be5"><div class="ttname"><a href="structs__arena__visualizer.html#aeed1fcd30ee8dbf86e9fe14c648e7be5">s_arena_visualizer::arena</a></div><div class="ttdeci">t_arena * arena</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:41</div></div>
+<div class="ttc" id="aarena__visualizer_8c_html_a11f0c521d02522501dca7d60fb5fcff2"><div class="ttname"><a href="arena__visualizer_8c.html#a11f0c521d02522501dca7d60fb5fcff2">interactive_loop</a></div><div class="ttdeci">static void interactive_loop(t_arena_visualizer *vis)</div><div class="ttdoc">The main interactive loop: 1) user sees ring buffer 2) user presses 'n' to run next script step 3) us...</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8c_source.html#l00232">arena_visualizer.c:232</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html_a3760845fee468b266cec06c0c0ebbbd7"><div class="ttname"><a href="structs__arena__visualizer.html#a3760845fee468b266cec06c0c0ebbbd7">s_arena_visualizer::script_done</a></div><div class="ttdeci">bool script_done</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00054">arena_visualizer.h:54</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html_a49c36c34b8d97cf70e2c381d9363f687"><div class="ttname"><a href="structs__arena__visualizer.html#a49c36c34b8d97cf70e2c381d9363f687">s_arena_visualizer::scroll_offset</a></div><div class="ttdeci">int scroll_offset</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00052">arena_visualizer.h:52</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html_a4a6bda0082a4cd282255cbb7879d61e3"><div class="ttname"><a href="structs__arena__visualizer.html#a4a6bda0082a4cd282255cbb7879d61e3">s_arena_visualizer::main_plane</a></div><div class="ttdeci">struct ncplane * main_plane</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00045">arena_visualizer.h:45</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html_a5d10ee973ae83b9a6b205113269b1184"><div class="ttname"><a href="structs__arena__visualizer.html#a5d10ee973ae83b9a6b205113269b1184">s_arena_visualizer::nc</a></div><div class="ttdeci">struct notcurses * nc</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00044">arena_visualizer.h:44</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html_ab04fefbd0c8822629b36c092a8332fa9"><div class="ttname"><a href="structs__arena__visualizer.html#ab04fefbd0c8822629b36c092a8332fa9">s_arena_visualizer::lock</a></div><div class="ttdeci">pthread_mutex_t lock</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00042">arena_visualizer.h:42</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html_ac1b9e79ef850053dbf8aa898c8dbc095"><div class="ttname"><a href="structs__arena__visualizer.html#ac1b9e79ef850053dbf8aa898c8dbc095">s_arena_visualizer::history_index</a></div><div class="ttdeci">atomic_size_t history_index</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00048">arena_visualizer.h:48</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html_aca62c318554be711e80ebcd2f6327280"><div class="ttname"><a href="structs__arena__visualizer.html#aca62c318554be711e80ebcd2f6327280">s_arena_visualizer::history_count</a></div><div class="ttdeci">atomic_size_t history_count</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00049">arena_visualizer.h:49</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html_aeed1fcd30ee8dbf86e9fe14c648e7be5"><div class="ttname"><a href="structs__arena__visualizer.html#aeed1fcd30ee8dbf86e9fe14c648e7be5">s_arena_visualizer::arena</a></div><div class="ttdeci">t_arena * arena</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00041">arena_visualizer.h:41</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__visualizer_8h_source.html#l00041">s_arena_visualizer::arena</a>, <a class="el" href="arena__visualizer_8h_source.html#l00049">s_arena_visualizer::history_count</a>, <a class="el" href="arena__visualizer_8h_source.html#l00048">s_arena_visualizer::history_index</a>, <a class="el" href="arena__visualizer_8c_source.html#l00232">interactive_loop()</a>, <a class="el" href="arena__visualizer_8h_source.html#l00042">s_arena_visualizer::lock</a>, <a class="el" href="arena__visualizer_8h_source.html#l00045">s_arena_visualizer::main_plane</a>, <a class="el" href="arena__visualizer_8h_source.html#l00044">s_arena_visualizer::nc</a>, <a class="el" href="arena__visualizer_8h_source.html#l00054">s_arena_visualizer::script_done</a>, and <a class="el" href="arena__visualizer_8h_source.html#l00052">s_arena_visualizer::scroll_offset</a>.</p>
+
 </div>
 </div>
 <a id="aedd34147a821c760870c103ce5d5a186" name="aedd34147a821c760870c103ce5d5a186"></a>
@@ -393,6 +401,8 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>The ring buffer hooks. </p>
+
+<p class="definition">Definition at line <a class="el" href="arena__visualizer_8c_source.html#l00047">47</a> of file <a class="el" href="arena__visualizer_8c_source.html">arena_visualizer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   49</span>{</div>
 <div class="line"><span class="lineno">   50</span>    (void) <span class="keywordtype">id</span>;</div>
 <div class="line"><span class="lineno">   51</span>    (void) ptr;</div>
@@ -409,10 +419,14 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   62</span> </div>
 <div class="line"><span class="lineno">   63</span>    <a class="code hl_function" href="arena__visualizer_8c.html#abc11036c0673c3bdf930e0d69ce8fa8c">vis_record_event</a>(vis, is_sub, <span class="keyword">false</span>, <span class="keyword">false</span>, usage, size, offset, label);</div>
 <div class="line"><span class="lineno">   64</span>}</div>
-<div class="ttc" id="aarena_8h_html_a34c7c4eb11cde7b892e1d7c0cd20c886"><div class="ttname"><a href="arena_8h.html#a34c7c4eb11cde7b892e1d7c0cd20c886">arena_used</a></div><div class="ttdeci">size_t arena_used(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_state.c:73</div></div>
-<div class="ttc" id="aarena__visualizer_8c_html_abc11036c0673c3bdf930e0d69ce8fa8c"><div class="ttname"><a href="arena__visualizer_8c.html#abc11036c0673c3bdf930e0d69ce8fa8c">vis_record_event</a></div><div class="ttdeci">static void vis_record_event(t_arena_visualizer *vis, bool is_sub, bool is_step, bool is_error, size_t usage, size_t size, size_t offset, const char *msg)</div><div class="ttdef"><b>Definition</b> arena_visualizer.c:22</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html"><div class="ttname"><a href="structs__arena__visualizer.html">s_arena_visualizer</a></div><div class="ttdoc">The main interactive visualizer.</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:40</div></div>
+<div class="ttc" id="aarena_8h_html_a34c7c4eb11cde7b892e1d7c0cd20c886"><div class="ttname"><a href="arena_8h.html#a34c7c4eb11cde7b892e1d7c0cd20c886">arena_used</a></div><div class="ttdeci">size_t arena_used(t_arena *arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__state_8c_source.html#l00035">arena_state.c:35</a></div></div>
+<div class="ttc" id="aarena__visualizer_8c_html_abc11036c0673c3bdf930e0d69ce8fa8c"><div class="ttname"><a href="arena__visualizer_8c.html#abc11036c0673c3bdf930e0d69ce8fa8c">vis_record_event</a></div><div class="ttdeci">static void vis_record_event(t_arena_visualizer *vis, bool is_sub, bool is_step, bool is_error, size_t usage, size_t size, size_t offset, const char *msg)</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8c_source.html#l00022">arena_visualizer.c:22</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html"><div class="ttname"><a href="structs__arena__visualizer.html">s_arena_visualizer</a></div><div class="ttdoc">The main interactive visualizer.</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00039">arena_visualizer.h:40</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__state_8c_source.html#l00035">arena_used()</a>, and <a class="el" href="arena__visualizer_8c_source.html#l00022">vis_record_event()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__visualizer_8c_source.html#l00250">arena_visualizer_enable_history_hook()</a>.</p>
+
 </div>
 </div>
 <a id="aafbb12c19592fb148ae3238ce9b5ee91" name="aafbb12c19592fb148ae3238ce9b5ee91"></a>
@@ -442,14 +456,18 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Attach our allocation hook to an arena. </p>
+
+<p class="definition">Definition at line <a class="el" href="arena__visualizer_8c_source.html#l00250">250</a> of file <a class="el" href="arena__visualizer_8c_source.html">arena_visualizer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  251</span>{</div>
 <div class="line"><span class="lineno">  252</span>    <span class="keywordflow">if</span> (!vis || !arena)</div>
 <div class="line"><span class="lineno">  253</span>        <span class="keywordflow">return</span>;</div>
 <div class="line"><span class="lineno">  254</span>    <a class="code hl_function" href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46">arena_set_allocation_hook</a>(arena, <a class="code hl_function" href="arena__visualizer_8c.html#aedd34147a821c760870c103ce5d5a186">arena_visualizer_allocation_hook</a>, vis);</div>
 <div class="line"><span class="lineno">  255</span>}</div>
-<div class="ttc" id="aarena__visualizer_8c_html_aedd34147a821c760870c103ce5d5a186"><div class="ttname"><a href="arena__visualizer_8c.html#aedd34147a821c760870c103ce5d5a186">arena_visualizer_allocation_hook</a></div><div class="ttdeci">void arena_visualizer_allocation_hook(t_arena *arena, int id, void *ptr, size_t size, size_t offset, size_t wasted, const char *label)</div><div class="ttdoc">The ring buffer hooks.</div><div class="ttdef"><b>Definition</b> arena_visualizer.c:47</div></div>
-<div class="ttc" id="agroup__arena__alloc_html_ga049a09c0c438a1e77064022a9c26fd46"><div class="ttname"><a href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46">arena_set_allocation_hook</a></div><div class="ttdeci">void arena_set_allocation_hook(t_arena *arena, arena_allocation_hook cb, void *context)</div><div class="ttdoc">Set a custom allocation hook for the given arena.</div><div class="ttdef"><b>Definition</b> arena_hooks.c:163</div></div>
+<div class="ttc" id="aarena__visualizer_8c_html_aedd34147a821c760870c103ce5d5a186"><div class="ttname"><a href="arena__visualizer_8c.html#aedd34147a821c760870c103ce5d5a186">arena_visualizer_allocation_hook</a></div><div class="ttdeci">void arena_visualizer_allocation_hook(t_arena *arena, int id, void *ptr, size_t size, size_t offset, size_t wasted, const char *label)</div><div class="ttdoc">The ring buffer hooks.</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8c_source.html#l00047">arena_visualizer.c:47</a></div></div>
+<div class="ttc" id="agroup__arena__alloc_html_ga049a09c0c438a1e77064022a9c26fd46"><div class="ttname"><a href="group__arena__alloc.html#ga049a09c0c438a1e77064022a9c26fd46">arena_set_allocation_hook</a></div><div class="ttdeci">void arena_set_allocation_hook(t_arena *arena, arena_allocation_hook cb, void *context)</div><div class="ttdoc">Set a custom allocation hook for the given arena.</div><div class="ttdef"><b>Definition</b> <a href="arena__hooks_8c_source.html#l00123">arena_hooks.c:123</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__hooks_8c_source.html#l00123">arena_set_allocation_hook()</a>, and <a class="el" href="arena__visualizer_8c_source.html#l00047">arena_visualizer_allocation_hook()</a>.</p>
+
 </div>
 </div>
 <a id="a3367628644d1ad2fa6625e5d3b0d80cf" name="a3367628644d1ad2fa6625e5d3b0d80cf"></a>
@@ -477,6 +495,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="arena__visualizer_8c_source.html#l00066">66</a> of file <a class="el" href="arena__visualizer_8c_source.html">arena_visualizer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   67</span>{</div>
 <div class="line"><span class="lineno">   68</span>    <a class="code hl_struct" href="structs__arena__visualizer.html">t_arena_visualizer</a>* vis = (<a class="code hl_struct" href="structs__arena__visualizer.html">t_arena_visualizer</a>*) context;</div>
 <div class="line"><span class="lineno">   69</span>    <span class="keywordflow">if</span> (!vis)</div>
@@ -488,6 +508,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   75</span>    <a class="code hl_function" href="arena__visualizer_8c.html#abc11036c0673c3bdf930e0d69ce8fa8c">vis_record_event</a>(vis, <span class="keyword">false</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, 0, 0, 0, msg);</div>
 <div class="line"><span class="lineno">   76</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__visualizer_8c_source.html#l00022">vis_record_event()</a>.</p>
+
 </div>
 </div>
 <a id="ad95ef746a34b7d19d7d142e7a36cbcca" name="ad95ef746a34b7d19d7d142e7a36cbcca"></a>
@@ -505,6 +527,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="arena__visualizer_8c_source.html#l00089">89</a> of file <a class="el" href="arena__visualizer_8c_source.html">arena_visualizer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   90</span>{</div>
 <div class="line"><span class="lineno">   91</span>    <span class="keywordflow">if</span> (!vis-&gt;<a class="code hl_variable" href="structs__arena__visualizer.html#a5d10ee973ae83b9a6b205113269b1184">nc</a> || !vis-&gt;<a class="code hl_variable" href="structs__arena__visualizer.html#a4a6bda0082a4cd282255cbb7879d61e3">main_plane</a> || !vis-&gt;<a class="code hl_variable" href="structs__arena__visualizer.html#aeed1fcd30ee8dbf86e9fe14c648e7be5">arena</a>)</div>
 <div class="line"><span class="lineno">   92</span>        <span class="keywordflow">return</span>;</div>
@@ -604,21 +628,25 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  186</span>    ncplane_set_fg_default(vis-&gt;<a class="code hl_variable" href="structs__arena__visualizer.html#a4a6bda0082a4cd282255cbb7879d61e3">main_plane</a>);</div>
 <div class="line"><span class="lineno">  187</span>    notcurses_render(vis-&gt;<a class="code hl_variable" href="structs__arena__visualizer.html#a5d10ee973ae83b9a6b205113269b1184">nc</a>);</div>
 <div class="line"><span class="lineno">  188</span>}</div>
-<div class="ttc" id="aarena_8h_html_a366e9bd9ae716c21f10df35c34a50ccf"><div class="ttname"><a href="arena_8h.html#a366e9bd9ae716c21f10df35c34a50ccf">arena_remaining</a></div><div class="ttdeci">size_t arena_remaining(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_state.c:122</div></div>
-<div class="ttc" id="aarena_8h_html_a6e261f2520d969c662266ce7f7a0390c"><div class="ttname"><a href="arena_8h.html#a6e261f2520d969c662266ce7f7a0390c">arena_peak</a></div><div class="ttdeci">size_t arena_peak(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_state.c:175</div></div>
-<div class="ttc" id="aarena__io_8h_html_ae8cc011bf3ee2d3c19743095ffc0f7a5"><div class="ttname"><a href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a></div><div class="ttdeci">size_t used</div><div class="ttdoc">Number of bytes used in the arena buffer.</div><div class="ttdef"><b>Definition</b> arena_io.h:2</div></div>
-<div class="ttc" id="aarena__visualizer_8c_html_a1c6fc801e77825c9b5235c39ae0611a2"><div class="ttname"><a href="arena__visualizer_8c.html#a1c6fc801e77825c9b5235c39ae0611a2">draw_bar_to_plane</a></div><div class="ttdeci">void draw_bar_to_plane(struct ncplane *plane, unsigned y, const char *label, size_t value, size_t max, int width)</div><div class="ttdef"><b>Definition</b> arena_visualizer.c:9</div></div>
-<div class="ttc" id="aarena__visualizer_8h_html_abf8d8994f09509f9e061f5bf82daf4cd"><div class="ttname"><a href="arena__visualizer_8h.html#abf8d8994f09509f9e061f5bf82daf4cd">MAX_HISTORY</a></div><div class="ttdeci">#define MAX_HISTORY</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:11</div></div>
-<div class="ttc" id="astructs__arena__history__entry_html"><div class="ttname"><a href="structs__arena__history__entry.html">s_arena_history_entry</a></div><div class="ttdoc">Each ring-buffer event: error, step, normal or sub-alloc.</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:26</div></div>
-<div class="ttc" id="astructs__arena__history__entry_html_a0cbf018838b73d6f31d84889824ff1a3"><div class="ttname"><a href="structs__arena__history__entry.html#a0cbf018838b73d6f31d84889824ff1a3">s_arena_history_entry::usage</a></div><div class="ttdeci">size_t usage</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:30</div></div>
-<div class="ttc" id="astructs__arena__history__entry_html_a3c37d085336bdf7beafda83aec6e0771"><div class="ttname"><a href="structs__arena__history__entry.html#a3c37d085336bdf7beafda83aec6e0771">s_arena_history_entry::offset</a></div><div class="ttdeci">size_t offset</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:32</div></div>
-<div class="ttc" id="astructs__arena__history__entry_html_a4e100dd7c519ab50259882f485bb1297"><div class="ttname"><a href="structs__arena__history__entry.html#a4e100dd7c519ab50259882f485bb1297">s_arena_history_entry::is_error</a></div><div class="ttdeci">bool is_error</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:29</div></div>
-<div class="ttc" id="astructs__arena__history__entry_html_a6a12fe6f4c06f88af3a2fe09865d39ca"><div class="ttname"><a href="structs__arena__history__entry.html#a6a12fe6f4c06f88af3a2fe09865d39ca">s_arena_history_entry::is_sub</a></div><div class="ttdeci">bool is_sub</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:27</div></div>
-<div class="ttc" id="astructs__arena__history__entry_html_adb0713727ba14f655cb174e1826046c2"><div class="ttname"><a href="structs__arena__history__entry.html#adb0713727ba14f655cb174e1826046c2">s_arena_history_entry::label</a></div><div class="ttdeci">char label[MAX_LABEL_LEN]</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:33</div></div>
-<div class="ttc" id="astructs__arena__history__entry_html_ade9780eab8282aed5151129b5b4b0fbb"><div class="ttname"><a href="structs__arena__history__entry.html#ade9780eab8282aed5151129b5b4b0fbb">s_arena_history_entry::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:31</div></div>
-<div class="ttc" id="astructs__arena__history__entry_html_aea5ce99aeacdbc193c4ddce757eddcce"><div class="ttname"><a href="structs__arena__history__entry.html#aea5ce99aeacdbc193c4ddce757eddcce">s_arena_history_entry::is_step</a></div><div class="ttdeci">bool is_step</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:28</div></div>
-<div class="ttc" id="astructs__arena__visualizer_html_a448a2f069d629b5533ce8685c661b6e9"><div class="ttname"><a href="structs__arena__visualizer.html#a448a2f069d629b5533ce8685c661b6e9">s_arena_visualizer::history</a></div><div class="ttdeci">t_arena_history_entry history[MAX_HISTORY]</div><div class="ttdef"><b>Definition</b> arena_visualizer.h:47</div></div>
+<div class="ttc" id="aarena_8h_html_a366e9bd9ae716c21f10df35c34a50ccf"><div class="ttname"><a href="arena_8h.html#a366e9bd9ae716c21f10df35c34a50ccf">arena_remaining</a></div><div class="ttdeci">size_t arena_remaining(t_arena *arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__state_8c_source.html#l00046">arena_state.c:46</a></div></div>
+<div class="ttc" id="aarena_8h_html_a6e261f2520d969c662266ce7f7a0390c"><div class="ttname"><a href="arena_8h.html#a6e261f2520d969c662266ce7f7a0390c">arena_peak</a></div><div class="ttdeci">size_t arena_peak(t_arena *arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__state_8c_source.html#l00057">arena_state.c:57</a></div></div>
+<div class="ttc" id="aarena__io_8h_html_ae8cc011bf3ee2d3c19743095ffc0f7a5"><div class="ttname"><a href="arena__io_8h.html#ae8cc011bf3ee2d3c19743095ffc0f7a5">used</a></div><div class="ttdeci">size_t used</div><div class="ttdoc">Number of bytes used in the arena buffer.</div><div class="ttdef"><b>Definition</b> <a href="arena__io_8h_source.html#l00002">arena_io.h:2</a></div></div>
+<div class="ttc" id="aarena__visualizer_8c_html_a1c6fc801e77825c9b5235c39ae0611a2"><div class="ttname"><a href="arena__visualizer_8c.html#a1c6fc801e77825c9b5235c39ae0611a2">draw_bar_to_plane</a></div><div class="ttdeci">void draw_bar_to_plane(struct ncplane *plane, unsigned y, const char *label, size_t value, size_t max, int width)</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8c_source.html#l00009">arena_visualizer.c:9</a></div></div>
+<div class="ttc" id="aarena__visualizer_8h_html_abf8d8994f09509f9e061f5bf82daf4cd"><div class="ttname"><a href="arena__visualizer_8h.html#abf8d8994f09509f9e061f5bf82daf4cd">MAX_HISTORY</a></div><div class="ttdeci">#define MAX_HISTORY</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00011">arena_visualizer.h:11</a></div></div>
+<div class="ttc" id="astructs__arena__history__entry_html"><div class="ttname"><a href="structs__arena__history__entry.html">s_arena_history_entry</a></div><div class="ttdoc">Each ring-buffer event: error, step, normal or sub-alloc.</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00025">arena_visualizer.h:26</a></div></div>
+<div class="ttc" id="astructs__arena__history__entry_html_a0cbf018838b73d6f31d84889824ff1a3"><div class="ttname"><a href="structs__arena__history__entry.html#a0cbf018838b73d6f31d84889824ff1a3">s_arena_history_entry::usage</a></div><div class="ttdeci">size_t usage</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00030">arena_visualizer.h:30</a></div></div>
+<div class="ttc" id="astructs__arena__history__entry_html_a3c37d085336bdf7beafda83aec6e0771"><div class="ttname"><a href="structs__arena__history__entry.html#a3c37d085336bdf7beafda83aec6e0771">s_arena_history_entry::offset</a></div><div class="ttdeci">size_t offset</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00032">arena_visualizer.h:32</a></div></div>
+<div class="ttc" id="astructs__arena__history__entry_html_a4e100dd7c519ab50259882f485bb1297"><div class="ttname"><a href="structs__arena__history__entry.html#a4e100dd7c519ab50259882f485bb1297">s_arena_history_entry::is_error</a></div><div class="ttdeci">bool is_error</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00029">arena_visualizer.h:29</a></div></div>
+<div class="ttc" id="astructs__arena__history__entry_html_a6a12fe6f4c06f88af3a2fe09865d39ca"><div class="ttname"><a href="structs__arena__history__entry.html#a6a12fe6f4c06f88af3a2fe09865d39ca">s_arena_history_entry::is_sub</a></div><div class="ttdeci">bool is_sub</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00027">arena_visualizer.h:27</a></div></div>
+<div class="ttc" id="astructs__arena__history__entry_html_adb0713727ba14f655cb174e1826046c2"><div class="ttname"><a href="structs__arena__history__entry.html#adb0713727ba14f655cb174e1826046c2">s_arena_history_entry::label</a></div><div class="ttdeci">char label[MAX_LABEL_LEN]</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00033">arena_visualizer.h:33</a></div></div>
+<div class="ttc" id="astructs__arena__history__entry_html_ade9780eab8282aed5151129b5b4b0fbb"><div class="ttname"><a href="structs__arena__history__entry.html#ade9780eab8282aed5151129b5b4b0fbb">s_arena_history_entry::size</a></div><div class="ttdeci">size_t size</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00031">arena_visualizer.h:31</a></div></div>
+<div class="ttc" id="astructs__arena__history__entry_html_aea5ce99aeacdbc193c4ddce757eddcce"><div class="ttname"><a href="structs__arena__history__entry.html#aea5ce99aeacdbc193c4ddce757eddcce">s_arena_history_entry::is_step</a></div><div class="ttdeci">bool is_step</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00028">arena_visualizer.h:28</a></div></div>
+<div class="ttc" id="astructs__arena__visualizer_html_a448a2f069d629b5533ce8685c661b6e9"><div class="ttname"><a href="structs__arena__visualizer.html#a448a2f069d629b5533ce8685c661b6e9">s_arena_visualizer::history</a></div><div class="ttdeci">t_arena_history_entry history[MAX_HISTORY]</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8h_source.html#l00047">arena_visualizer.h:47</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__visualizer_8h_source.html#l00041">s_arena_visualizer::arena</a>, <a class="el" href="arena__state_8c_source.html#l00057">arena_peak()</a>, <a class="el" href="arena__state_8c_source.html#l00046">arena_remaining()</a>, <a class="el" href="arena__state_8c_source.html#l00035">arena_used()</a>, <a class="el" href="arena__visualizer_8c_source.html#l00009">draw_bar_to_plane()</a>, <a class="el" href="arena__visualizer_8h_source.html#l00047">s_arena_visualizer::history</a>, <a class="el" href="arena__visualizer_8h_source.html#l00049">s_arena_visualizer::history_count</a>, <a class="el" href="arena__visualizer_8h_source.html#l00048">s_arena_visualizer::history_index</a>, <a class="el" href="arena__visualizer_8h_source.html#l00029">s_arena_history_entry::is_error</a>, <a class="el" href="arena__visualizer_8h_source.html#l00028">s_arena_history_entry::is_step</a>, <a class="el" href="arena__visualizer_8h_source.html#l00027">s_arena_history_entry::is_sub</a>, <a class="el" href="arena__visualizer_8h_source.html#l00033">s_arena_history_entry::label</a>, <a class="el" href="arena__visualizer_8h_source.html#l00045">s_arena_visualizer::main_plane</a>, <a class="el" href="arena__visualizer_8h_source.html#l00011">MAX_HISTORY</a>, <a class="el" href="arena__visualizer_8h_source.html#l00044">s_arena_visualizer::nc</a>, <a class="el" href="arena__visualizer_8h_source.html#l00032">s_arena_history_entry::offset</a>, <a class="el" href="arena__visualizer_8h_source.html#l00052">s_arena_visualizer::scroll_offset</a>, <a class="el" href="arena__visualizer_8h_source.html#l00031">s_arena_history_entry::size</a>, <a class="el" href="arena__visualizer_8h_source.html#l00030">s_arena_history_entry::usage</a>, and <a class="el" href="arena__io_8h_source.html#l00002">used</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__visualizer_8c_source.html#l00198">wait_for_key()</a>.</p>
+
 </div>
 </div>
 <a id="a4105d4f919cc1453e3346c387d143998" name="a4105d4f919cc1453e3346c387d143998"></a>
@@ -646,6 +674,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="arena__visualizer_8c_source.html#l00078">78</a> of file <a class="el" href="arena__visualizer_8c_source.html">arena_visualizer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   79</span>{</div>
 <div class="line"><span class="lineno">   80</span>    <span class="keywordflow">if</span> (!vis)</div>
 <div class="line"><span class="lineno">   81</span>    {</div>
@@ -656,6 +686,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   86</span>    <a class="code hl_function" href="arena__visualizer_8c.html#abc11036c0673c3bdf930e0d69ce8fa8c">vis_record_event</a>(vis, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, 0, 0, 0, msg);</div>
 <div class="line"><span class="lineno">   87</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__visualizer_8c_source.html#l00022">vis_record_event()</a>.</p>
+
 </div>
 </div>
 <a id="a47e9cbc967db08034d96c4e3013aa626" name="a47e9cbc967db08034d96c4e3013aa626"></a>
@@ -681,6 +713,8 @@ Functions</h2></td></tr>
 <li>'n' =&gt; next step =&gt; return 1</li>
 <li>'q' =&gt; quit =&gt; return 0 Otherwise keep waiting </li>
 </ul>
+
+<p class="definition">Definition at line <a class="el" href="arena__visualizer_8c_source.html#l00198">198</a> of file <a class="el" href="arena__visualizer_8c_source.html">arena_visualizer.c</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  199</span>{</div>
 <div class="line"><span class="lineno">  200</span>    <span class="keywordflow">while</span> (1)</div>
 <div class="line"><span class="lineno">  201</span>    {</div>
@@ -707,8 +741,12 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  222</span>        }</div>
 <div class="line"><span class="lineno">  223</span>    }</div>
 <div class="line"><span class="lineno">  224</span>}</div>
-<div class="ttc" id="aarena__visualizer_8c_html_ad95ef746a34b7d19d7d142e7a36cbcca"><div class="ttname"><a href="arena__visualizer_8c.html#ad95ef746a34b7d19d7d142e7a36cbcca">draw_visualizer</a></div><div class="ttdeci">void draw_visualizer(t_arena_visualizer *vis)</div><div class="ttdef"><b>Definition</b> arena_visualizer.c:89</div></div>
+<div class="ttc" id="aarena__visualizer_8c_html_ad95ef746a34b7d19d7d142e7a36cbcca"><div class="ttname"><a href="arena__visualizer_8c.html#ad95ef746a34b7d19d7d142e7a36cbcca">draw_visualizer</a></div><div class="ttdeci">void draw_visualizer(t_arena_visualizer *vis)</div><div class="ttdef"><b>Definition</b> <a href="arena__visualizer_8c_source.html#l00089">arena_visualizer.c:89</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__visualizer_8c_source.html#l00089">draw_visualizer()</a>, <a class="el" href="arena__visualizer_8h_source.html#l00044">s_arena_visualizer::nc</a>, and <a class="el" href="arena__visualizer_8h_source.html#l00052">s_arena_visualizer::scroll_offset</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__visualizer_8c_source.html#l00232">interactive_loop()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

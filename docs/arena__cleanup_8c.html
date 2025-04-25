@@ -130,7 +130,9 @@ $(function() {
 <area shape="poly" title=" " alt="" coords="589,178,583,212,577,211,584,177"/>
 </map>
 </div>
-</div><table class="memberdecls">
+</div>
+<p><a href="arena__cleanup_8c_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a7821a62eaf6d9f982322e49eaf6153e8" id="r_a7821a62eaf6d9f982322e49eaf6153e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__cleanup_8c.html#a7821a62eaf6d9f982322e49eaf6153e8">arena_delete</a> (<a class="el" href="structt__arena.html">t_arena</a> **arena)</td></tr>
@@ -154,6 +156,8 @@ Functions</h2></td></tr>
 <li>Full arena deletion (<code>arena_delete</code>)</li>
 </ul>
 <p>These functions are used internally and publicly to manage arena lifecycles and to ensure memory safety, thread-safety, and diagnostic cleanliness. </p>
+
+<p class="definition">Definition in file <a class="el" href="arena__cleanup_8c_source.html">arena_cleanup.c</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
 <a id="a7821a62eaf6d9f982322e49eaf6153e8" name="a7821a62eaf6d9f982322e49eaf6153e8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7821a62eaf6d9f982322e49eaf6153e8">&#9670;&#160;</a></span>arena_delete()</h2>
@@ -170,16 +174,22 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">  149</span>{</div>
-<div class="line"><span class="lineno">  150</span>    <span class="keywordflow">if</span> (!arena || !*arena)</div>
-<div class="line"><span class="lineno">  151</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  152</span> </div>
-<div class="line"><span class="lineno">  153</span>    <a class="code hl_function" href="arena__cleanup_8c.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a>(*arena);</div>
-<div class="line"><span class="lineno">  154</span>    free(*arena);</div>
-<div class="line"><span class="lineno">  155</span>    *arena = NULL;</div>
-<div class="line"><span class="lineno">  156</span>}</div>
-<div class="ttc" id="aarena__cleanup_8c_html_a640f54190aa0b356bc55787bfde1dcc5"><div class="ttname"><a href="arena__cleanup_8c.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a></div><div class="ttdeci">void arena_destroy(t_arena *arena)</div><div class="ttdef"><b>Definition</b> arena_cleanup.c:82</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__cleanup_8c_source.html#l00068">68</a> of file <a class="el" href="arena__cleanup_8c_source.html">arena_cleanup.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>{</div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">if</span> (!arena || !*arena)</div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   72</span> </div>
+<div class="line"><span class="lineno">   73</span>    <a class="code hl_function" href="arena__cleanup_8c.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a>(*arena);</div>
+<div class="line"><span class="lineno">   74</span>    free(*arena);</div>
+<div class="line"><span class="lineno">   75</span>    *arena = NULL;</div>
+<div class="line"><span class="lineno">   76</span>}</div>
+<div class="ttc" id="aarena__cleanup_8c_html_a640f54190aa0b356bc55787bfde1dcc5"><div class="ttname"><a href="arena__cleanup_8c.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy</a></div><div class="ttdeci">void arena_destroy(t_arena *arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__cleanup_8c_source.html#l00036">arena_cleanup.c:36</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__cleanup_8c_source.html#l00036">arena_destroy()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__create_8c_source.html#l00235">arena_log_and_teardown()</a>.</p>
+
 </div>
 </div>
 <a id="a640f54190aa0b356bc55787bfde1dcc5" name="a640f54190aa0b356bc55787bfde1dcc5"></a>
@@ -197,43 +207,49 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
-<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">if</span> (!arena)</div>
-<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   86</span> </div>
-<div class="line"><span class="lineno">   87</span>    <span class="keywordtype">bool</span> expected = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">if</span> (!atomic_compare_exchange_strong(&amp;arena-&gt;is_destroying, &amp;expected, <span class="keyword">true</span>))</div>
-<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span><span class="preprocessor">#ifdef ARENA_ENABLE_THREAD_SAFE</span></div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">if</span> (arena-&gt;use_lock)</div>
-<div class="line"><span class="lineno">   93</span>    {</div>
-<div class="line"><span class="lineno">   94</span>        <a class="code hl_define" href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a>(arena);</div>
-<div class="line"><span class="lineno">   95</span>        <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
-<div class="line"><span class="lineno">   96</span> </div>
-<div class="line"><span class="lineno">   97</span>        <a class="code hl_function" href="group__arena__cleanup__internal.html#ga10136f5110cb80cb4d54d4a3ff23419f">arena_free_buffer_if_owned</a>(arena);</div>
-<div class="line"><span class="lineno">   98</span>        <a class="code hl_function" href="group__arena__cleanup__internal.html#ga46d3cb036c51fdf0f6f3cad6d0fcc3a6">arena_free_growth_history</a>(arena);</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>        <a class="code hl_function" href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4">arena_zero_metadata</a>(arena);</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>        <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
-<div class="line"><span class="lineno">  103</span>        arena-&gt;use_lock = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  104</span>        pthread_mutex_destroy(&amp;arena-&gt;lock);</div>
-<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  106</span>    }</div>
-<div class="line"><span class="lineno">  107</span><span class="preprocessor">#endif</span></div>
-<div class="line"><span class="lineno">  108</span> </div>
-<div class="line"><span class="lineno">  109</span>    <a class="code hl_function" href="group__arena__cleanup__internal.html#ga10136f5110cb80cb4d54d4a3ff23419f">arena_free_buffer_if_owned</a>(arena);</div>
-<div class="line"><span class="lineno">  110</span>    <a class="code hl_function" href="group__arena__cleanup__internal.html#ga46d3cb036c51fdf0f6f3cad6d0fcc3a6">arena_free_growth_history</a>(arena);</div>
-<div class="line"><span class="lineno">  111</span>    <a class="code hl_function" href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4">arena_zero_metadata</a>(arena);</div>
-<div class="line"><span class="lineno">  112</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_af130b4bbc0466511d1efc74412d5ef3c"><div class="ttname"><a href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a></div><div class="ttdeci">#define ARENA_CHECK(arena)</div><div class="ttdef"><b>Definition</b> arena_debug.h:419</div></div>
-<div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> arena_internal.h:62</div></div>
-<div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> arena_internal.h:61</div></div>
-<div class="ttc" id="agroup__arena__cleanup__internal_html_ga10136f5110cb80cb4d54d4a3ff23419f"><div class="ttname"><a href="group__arena__cleanup__internal.html#ga10136f5110cb80cb4d54d4a3ff23419f">arena_free_buffer_if_owned</a></div><div class="ttdeci">static void arena_free_buffer_if_owned(t_arena *arena)</div><div class="ttdoc">Free the arena's internal buffer if the arena owns it.</div><div class="ttdef"><b>Definition</b> arena_cleanup.c:186</div></div>
-<div class="ttc" id="agroup__arena__cleanup__internal_html_ga46d3cb036c51fdf0f6f3cad6d0fcc3a6"><div class="ttname"><a href="group__arena__cleanup__internal.html#ga46d3cb036c51fdf0f6f3cad6d0fcc3a6">arena_free_growth_history</a></div><div class="ttdeci">static void arena_free_growth_history(t_arena *arena)</div><div class="ttdoc">Free the memory used to store the arena's growth history.</div><div class="ttdef"><b>Definition</b> arena_cleanup.c:221</div></div>
-<div class="ttc" id="agroup__arena__internal_html_ga268aa3f7256dbdf405391501fedbabd4"><div class="ttname"><a href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4">arena_zero_metadata</a></div><div class="ttdeci">void arena_zero_metadata(t_arena *arena)</div><div class="ttdoc">Reset all metadata fields in an arena to their default values.</div><div class="ttdef"><b>Definition</b> arena_internal.c:241</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__cleanup_8c_source.html#l00036">36</a> of file <a class="el" href="arena__cleanup_8c_source.html">arena_cleanup.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>{</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">if</span> (!arena)</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordtype">bool</span> expected = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (!atomic_compare_exchange_strong(&amp;arena-&gt;is_destroying, &amp;expected, <span class="keyword">true</span>))</div>
+<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span><span class="preprocessor">#ifdef ARENA_ENABLE_THREAD_SAFE</span></div>
+<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">if</span> (arena-&gt;use_lock)</div>
+<div class="line"><span class="lineno">   47</span>    {</div>
+<div class="line"><span class="lineno">   48</span>        <a class="code hl_define" href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a>(arena);</div>
+<div class="line"><span class="lineno">   49</span>        <a class="code hl_define" href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>        <a class="code hl_function" href="group__arena__cleanup__internal.html#ga10136f5110cb80cb4d54d4a3ff23419f">arena_free_buffer_if_owned</a>(arena);</div>
+<div class="line"><span class="lineno">   52</span>        <a class="code hl_function" href="group__arena__cleanup__internal.html#ga46d3cb036c51fdf0f6f3cad6d0fcc3a6">arena_free_growth_history</a>(arena);</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>        <a class="code hl_function" href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4">arena_zero_metadata</a>(arena);</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>        <a class="code hl_define" href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a>(arena);</div>
+<div class="line"><span class="lineno">   57</span>        arena-&gt;use_lock = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   58</span>        pthread_mutex_destroy(&amp;arena-&gt;lock);</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   60</span>    }</div>
+<div class="line"><span class="lineno">   61</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno">   62</span> </div>
+<div class="line"><span class="lineno">   63</span>    <a class="code hl_function" href="group__arena__cleanup__internal.html#ga10136f5110cb80cb4d54d4a3ff23419f">arena_free_buffer_if_owned</a>(arena);</div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_function" href="group__arena__cleanup__internal.html#ga46d3cb036c51fdf0f6f3cad6d0fcc3a6">arena_free_growth_history</a>(arena);</div>
+<div class="line"><span class="lineno">   65</span>    <a class="code hl_function" href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4">arena_zero_metadata</a>(arena);</div>
+<div class="line"><span class="lineno">   66</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_af130b4bbc0466511d1efc74412d5ef3c"><div class="ttname"><a href="arena__debug_8h.html#af130b4bbc0466511d1efc74412d5ef3c">ARENA_CHECK</a></div><div class="ttdeci">#define ARENA_CHECK(arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__debug_8h_source.html#l00419">arena_debug.h:419</a></div></div>
+<div class="ttc" id="aarena__internal_8h_html_a22d9551decc1373f55ceb93bcd8b27a3"><div class="ttname"><a href="arena__internal_8h.html#a22d9551decc1373f55ceb93bcd8b27a3">ARENA_UNLOCK</a></div><div class="ttdeci">#define ARENA_UNLOCK(arena)</div><div class="ttdef"><b>Definition</b> <a href="arena__internal_8h_source.html#l00062">arena_internal.h:62</a></div></div>
+<div class="ttc" id="aarena__internal_8h_html_a5aca30bebc88f9c38377ff61521b3796"><div class="ttname"><a href="arena__internal_8h.html#a5aca30bebc88f9c38377ff61521b3796">ARENA_LOCK</a></div><div class="ttdeci">#define ARENA_LOCK(arena)</div><div class="ttdoc">Acquire the mutex lock if thread safety is enabled.</div><div class="ttdef"><b>Definition</b> <a href="arena__internal_8h_source.html#l00061">arena_internal.h:61</a></div></div>
+<div class="ttc" id="agroup__arena__cleanup__internal_html_ga10136f5110cb80cb4d54d4a3ff23419f"><div class="ttname"><a href="group__arena__cleanup__internal.html#ga10136f5110cb80cb4d54d4a3ff23419f">arena_free_buffer_if_owned</a></div><div class="ttdeci">static void arena_free_buffer_if_owned(t_arena *arena)</div><div class="ttdoc">Free the arena's internal buffer if the arena owns it.</div><div class="ttdef"><b>Definition</b> <a href="arena__cleanup_8c_source.html#l00106">arena_cleanup.c:106</a></div></div>
+<div class="ttc" id="agroup__arena__cleanup__internal_html_ga46d3cb036c51fdf0f6f3cad6d0fcc3a6"><div class="ttname"><a href="group__arena__cleanup__internal.html#ga46d3cb036c51fdf0f6f3cad6d0fcc3a6">arena_free_growth_history</a></div><div class="ttdeci">static void arena_free_growth_history(t_arena *arena)</div><div class="ttdoc">Free the memory used to store the arena's growth history.</div><div class="ttdef"><b>Definition</b> <a href="arena__cleanup_8c_source.html#l00141">arena_cleanup.c:141</a></div></div>
+<div class="ttc" id="agroup__arena__internal_html_ga268aa3f7256dbdf405391501fedbabd4"><div class="ttname"><a href="group__arena__internal.html#ga268aa3f7256dbdf405391501fedbabd4">arena_zero_metadata</a></div><div class="ttdeci">void arena_zero_metadata(t_arena *arena)</div><div class="ttdoc">Reset all metadata fields in an arena to their default values.</div><div class="ttdef"><b>Definition</b> <a href="arena__internal_8c_source.html#l00241">arena_internal.c:241</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__debug_8h_source.html#l00419">ARENA_CHECK</a>, <a class="el" href="arena__cleanup_8c_source.html#l00106">arena_free_buffer_if_owned()</a>, <a class="el" href="arena__cleanup_8c_source.html#l00141">arena_free_growth_history()</a>, <a class="el" href="arena__internal_8h_source.html#l00061">ARENA_LOCK</a>, <a class="el" href="arena__internal_8h_source.html#l00062">ARENA_UNLOCK</a>, and <a class="el" href="arena__internal_8c_source.html#l00241">arena_zero_metadata()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="arena__cleanup_8c_source.html#l00068">arena_delete()</a>, <a class="el" href="arena__create_8c_source.html#l00235">arena_log_and_teardown()</a>, <a class="el" href="arena__create_8c_source.html#l00138">arena_reinit_with_buffer()</a>, and <a class="el" href="arena__scratch_8c_source.html#l00238">scratch_pool_destroy()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->

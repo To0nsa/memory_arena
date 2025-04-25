@@ -141,11 +141,15 @@ Functions</h2></td></tr>
 <a class="el" href="group__arena__tlscratch.html#gab2ee547b04bb69903eed01d6afd4487e" title="Set the initial size for the thread-local scratch arena.">set_thread_scratch_arena_size</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_tlscratch_8c-example.html#a7">/home/toonsa/myProjects/memoryArena/srcs/core/arena_tlscratch.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  296</span>{</div>
-<div class="line"><span class="lineno">  297</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;destroy_thread_scratch_arena() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
-<div class="line"><span class="lineno">  298</span>}</div>
-<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> arena_debug.c:253</div></div>
+
+<p class="definition">Definition at line <a class="el" href="arena__tlscratch_8c_source.html#l00187">187</a> of file <a class="el" href="arena__tlscratch_8c_source.html">arena_tlscratch.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  188</span>{</div>
+<div class="line"><span class="lineno">  189</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;destroy_thread_scratch_arena() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
+<div class="line"><span class="lineno">  190</span>}</div>
+<div class="ttc" id="aarena__debug_8h_html_ad19e051bc49dc6b6dcda0f31561e222d"><div class="ttname"><a href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a></div><div class="ttdeci">void arena_report_error(t_arena *arena, const char *fmt,...)</div><div class="ttdef"><b>Definition</b> <a href="arena__debug_8c_source.html#l00253">arena_debug.c:253</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__debug_8c_source.html#l00253">arena_report_error()</a>.</p>
+
 </div>
 </div>
 <a id="ga392826340bc341861ed75127cc012fa9" name="ga392826340bc341861ed75127cc012fa9"></a>
@@ -182,11 +186,15 @@ Functions</h2></td></tr>
 <a class="el" href="arena_8h.html#a1a2582ca5fb4e571ac150fbd77bd0d82">arena_reset</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_tlscratch_8c-example.html#a1">/home/toonsa/myProjects/memoryArena/srcs/core/arena_tlscratch.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  290</span>{</div>
-<div class="line"><span class="lineno">  291</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;get_thread_scratch_arena() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
-<div class="line"><span class="lineno">  292</span>    <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  293</span>}</div>
+
+<p class="definition">Definition at line <a class="el" href="arena__tlscratch_8c_source.html#l00181">181</a> of file <a class="el" href="arena__tlscratch_8c_source.html">arena_tlscratch.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  182</span>{</div>
+<div class="line"><span class="lineno">  183</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;get_thread_scratch_arena() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
+<div class="line"><span class="lineno">  184</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  185</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__debug_8c_source.html#l00253">arena_report_error()</a>.</p>
+
 </div>
 </div>
 <a id="gab24595ce8301a844ccd7d733ce3f6b5b" name="gab24595ce8301a844ccd7d733ce3f6b5b"></a>
@@ -218,11 +226,15 @@ Functions</h2></td></tr>
 <a class="el" href="group__arena__tlscratch.html#ga1a0eb2e7749d6ec6c075f492b1e94b2a" title="Destroy the thread-local scratch arena for the current thread.">destroy_thread_scratch_arena</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_tlscratch_8c-example.html#a4">/home/toonsa/myProjects/memoryArena/srcs/core/arena_tlscratch.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  308</span>{</div>
-<div class="line"><span class="lineno">  309</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;get_thread_scratch_arena_ref() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
-<div class="line"><span class="lineno">  310</span>    <span class="keywordflow">return</span> NULL;</div>
-<div class="line"><span class="lineno">  311</span>}</div>
+
+<p class="definition">Definition at line <a class="el" href="arena__tlscratch_8c_source.html#l00199">199</a> of file <a class="el" href="arena__tlscratch_8c_source.html">arena_tlscratch.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  200</span>{</div>
+<div class="line"><span class="lineno">  201</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;get_thread_scratch_arena_ref() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is disabled&quot;</span>);</div>
+<div class="line"><span class="lineno">  202</span>    <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><span class="lineno">  203</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__debug_8c_source.html#l00253">arena_report_error()</a>.</p>
+
 </div>
 </div>
 <a id="gab2ee547b04bb69903eed01d6afd4487e" name="gab2ee547b04bb69903eed01d6afd4487e"></a>
@@ -259,12 +271,16 @@ Functions</h2></td></tr>
 <a class="el" href="group__arena__tlscratch.html#ga1a0eb2e7749d6ec6c075f492b1e94b2a" title="Destroy the thread-local scratch arena for the current thread.">destroy_thread_scratch_arena</a> </dd></dl>
 <dl class="section examples"><dt>Examples</dt><dd><a class="el" href="_2home_2toonsa_2myProjects_2memoryArena_2srcs_2core_2arena_tlscratch_8c-example.html#a3">/home/toonsa/myProjects/memoryArena/srcs/core/arena_tlscratch.c</a>.</dd>
 </dl>
-<div class="fragment"><div class="line"><span class="lineno">  301</span>{</div>
-<div class="line"><span class="lineno">  302</span>    (void)size;</div>
-<div class="line"><span class="lineno">  303</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;set_thread_scratch_arena_size() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is &quot;</span></div>
-<div class="line"><span class="lineno">  304</span>                             <span class="stringliteral">&quot;disabled&quot;</span>);</div>
-<div class="line"><span class="lineno">  305</span>}</div>
+
+<p class="definition">Definition at line <a class="el" href="arena__tlscratch_8c_source.html#l00192">192</a> of file <a class="el" href="arena__tlscratch_8c_source.html">arena_tlscratch.c</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  193</span>{</div>
+<div class="line"><span class="lineno">  194</span>    (void)size;</div>
+<div class="line"><span class="lineno">  195</span>    <a class="code hl_function" href="arena__debug_8h.html#ad19e051bc49dc6b6dcda0f31561e222d">arena_report_error</a>(NULL, <span class="stringliteral">&quot;set_thread_scratch_arena_size() called but ARENA_ENABLE_THREAD_LOCAL_SCRATCH is &quot;</span></div>
+<div class="line"><span class="lineno">  196</span>                             <span class="stringliteral">&quot;disabled&quot;</span>);</div>
+<div class="line"><span class="lineno">  197</span>}</div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="arena__debug_8c_source.html#l00253">arena_report_error()</a>.</p>
+
 </div>
 </div>
 </div><!-- contents -->
