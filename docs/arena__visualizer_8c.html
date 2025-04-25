@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>memory_arena: srcs/core/arena_visualizer.c File Reference</title>
+<title>memory_arena: arena_visualizer.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,9 +90,9 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="arena__visualizer_8c__incl.png" border="0" usemap="#asrcs_2core_2arena__visualizer_8c" alt=""/></div>
-<map name="asrcs_2core_2arena__visualizer_8c" id="asrcs_2core_2arena__visualizer_8c">
-<area shape="rect" title=" " alt="" coords="706,5,908,31"/>
+<div class="center"><img src="arena__visualizer_8c__incl.png" border="0" usemap="#aarena__visualizer_8c" alt=""/></div>
+<map name="aarena__visualizer_8c" id="aarena__visualizer_8c">
+<area shape="rect" title=" " alt="" coords="738,5,876,31"/>
 <area shape="rect" href="arena__visualizer_8h.html" title=" " alt="" coords="566,79,706,104"/>
 <area shape="poly" title=" " alt="" coords="781,33,678,76,676,71,779,28"/>
 <area shape="rect" href="arena_8h.html" title="Core public API for the Arena memory allocator." alt="" coords="698,152,769,177"/>
@@ -102,7 +102,7 @@ $(function() {
 <area shape="rect" title=" " alt="" coords="1044,225,1114,251"/>
 <area shape="poly" title=" " alt="" coords="818,29,847,63,886,102,972,167,1049,216,1046,220,969,172,883,106,843,67,814,33"/>
 <area shape="rect" title=" " alt="" coords="272,299,339,324"/>
-<area shape="poly" title=" " alt="" coords="717,33,551,59,355,101,260,127,177,157,111,190,87,208,69,227,42,256,20,271,5,273,9,267,32,264,79,265,153,274,260,296,258,301,152,279,78,270,33,270,11,272,9,271,17,266,38,252,65,224,83,204,109,186,175,152,259,122,353,95,550,54,717,28"/>
+<area shape="poly" title=" " alt="" coords="738,31,573,56,370,97,271,123,183,154,114,189,88,207,69,227,42,256,20,271,5,273,9,267,32,264,79,265,153,274,260,296,258,301,152,279,78,270,33,270,11,272,9,271,17,266,38,252,65,224,84,203,111,184,181,149,270,118,369,92,572,50,737,25"/>
 <area shape="rect" title=" " alt="" coords="896,79,1060,104"/>
 <area shape="poly" title=" " alt="" coords="835,28,938,71,936,76,833,33"/>
 <area shape="rect" title=" " alt="" coords="1084,79,1159,104"/>
@@ -152,10 +152,13 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9784f60b4e1b5a9752e166febdb5d703" id="r_a9784f60b4e1b5a9752e166febdb5d703"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8c.html#a9784f60b4e1b5a9752e166febdb5d703">arena_start_interactive_visualizer</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis, <a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
+<tr class="memdesc:a9784f60b4e1b5a9752e166febdb5d703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the interactive session (blocks until user quits).  <br /></td></tr>
 <tr class="separator:a9784f60b4e1b5a9752e166febdb5d703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedd34147a821c760870c103ce5d5a186" id="r_aedd34147a821c760870c103ce5d5a186"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8c.html#aedd34147a821c760870c103ce5d5a186">arena_visualizer_allocation_hook</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, int id, void *ptr, size_t size, size_t offset, size_t wasted, const char *label)</td></tr>
+<tr class="memdesc:aedd34147a821c760870c103ce5d5a186"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ring buffer hooks.  <br /></td></tr>
 <tr class="separator:aedd34147a821c760870c103ce5d5a186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafbb12c19592fb148ae3238ce9b5ee91" id="r_aafbb12c19592fb148ae3238ce9b5ee91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8c.html#aafbb12c19592fb148ae3238ce9b5ee91">arena_visualizer_enable_history_hook</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis, <a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
+<tr class="memdesc:aafbb12c19592fb148ae3238ce9b5ee91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attach our allocation hook to an arena.  <br /></td></tr>
 <tr class="separator:aafbb12c19592fb148ae3238ce9b5ee91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3367628644d1ad2fa6625e5d3b0d80cf" id="r_a3367628644d1ad2fa6625e5d3b0d80cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8c.html#a3367628644d1ad2fa6625e5d3b0d80cf">arena_visualizer_error_callback</a> (const char *msg, void *context)</td></tr>
 <tr class="separator:a3367628644d1ad2fa6625e5d3b0d80cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,12 +167,14 @@ Functions</h2></td></tr>
 <tr class="memitem:ad95ef746a34b7d19d7d142e7a36cbcca" id="r_ad95ef746a34b7d19d7d142e7a36cbcca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8c.html#ad95ef746a34b7d19d7d142e7a36cbcca">draw_visualizer</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis)</td></tr>
 <tr class="separator:ad95ef746a34b7d19d7d142e7a36cbcca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a11f0c521d02522501dca7d60fb5fcff2" id="r_a11f0c521d02522501dca7d60fb5fcff2"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8c.html#a11f0c521d02522501dca7d60fb5fcff2">interactive_loop</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis)</td></tr>
+<tr class="memdesc:a11f0c521d02522501dca7d60fb5fcff2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main interactive loop: 1) user sees ring buffer 2) user presses 'n' to run next script step 3) user presses 'q' any time =&gt; done.  <br /></td></tr>
 <tr class="separator:a11f0c521d02522501dca7d60fb5fcff2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4105d4f919cc1453e3346c387d143998" id="r_a4105d4f919cc1453e3346c387d143998"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8c.html#a4105d4f919cc1453e3346c387d143998">step_message</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis, const char *msg)</td></tr>
 <tr class="separator:a4105d4f919cc1453e3346c387d143998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc11036c0673c3bdf930e0d69ce8fa8c" id="r_abc11036c0673c3bdf930e0d69ce8fa8c"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8c.html#abc11036c0673c3bdf930e0d69ce8fa8c">vis_record_event</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis, bool is_sub, bool is_step, bool is_error, size_t usage, size_t size, size_t offset, const char *msg)</td></tr>
 <tr class="separator:abc11036c0673c3bdf930e0d69ce8fa8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47e9cbc967db08034d96c4e3013aa626" id="r_a47e9cbc967db08034d96c4e3013aa626"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8c.html#a47e9cbc967db08034d96c4e3013aa626">wait_for_key</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis)</td></tr>
+<tr class="memdesc:a47e9cbc967db08034d96c4e3013aa626"><td class="mdescLeft">&#160;</td><td class="mdescRight">function that blocks reading keystrokes:  <br /></td></tr>
 <tr class="separator:a47e9cbc967db08034d96c4e3013aa626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -198,7 +203,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Start the interactive session (blocks until user quits). The user can scroll the ring buffer with arrow keys, press 'n' to do next step, press 'q' to quit, etc. </p>
+
+<p>Start the interactive session (blocks until user quits). </p>
+<p>The user can scroll the ring buffer with arrow keys, press 'n' to do next step, press 'q' to quit, etc. </p>
 
 </div>
 </div>
@@ -257,7 +264,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ring buffer hooks </p>
+
+<p>The ring buffer hooks. </p>
 
 </div>
 </div>
@@ -286,7 +294,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Attach our allocation hook to an arena </p>
+
+<p>Attach our allocation hook to an arena. </p>
 
 </div>
 </div>
@@ -411,7 +420,8 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>The main interactive loop: 1) user sees ring buffer 2) user presses 'n' to run next script step 3) user presses 'q' any time =&gt; done </p>
+
+<p>The main interactive loop: 1) user sees ring buffer 2) user presses 'n' to run next script step 3) user presses 'q' any time =&gt; done. </p>
 
 </div>
 </div>
@@ -530,7 +540,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>function that blocks reading keystrokes:</p><ul>
+
+<p>function that blocks reading keystrokes: </p>
+<ul>
 <li>UP arrow =&gt; scroll_offset++</li>
 <li>DOWN arrow =&gt; scroll_offset&ndash;</li>
 <li>'n' =&gt; next step =&gt; return 1</li>

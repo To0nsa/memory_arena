@@ -162,7 +162,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Determine whether the arena is eligible for shrinking to a smaller size. </p>
 <p>This internal helper checks if the arena can be safely shrunk to <code>new_size</code> based on ownership, growth policy, and current memory usage.</p>
@@ -222,7 +222,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Compute the new size for the arena based on the growth policy. </p>
 <p>This internal function calculates an appropriate new buffer size that satisfies the <code>required_size</code> request, starting from the current size and offset. It uses the user-defined growth callback if set, or defaults to <code>default_grow_cb</code> otherwise.</p>
@@ -291,7 +291,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Reallocate the arena's buffer to a new size. </p>
 <p>This internal function performs the actual <code>realloc()</code> of the arena's buffer during a grow operation. It attempts to allocate a new buffer of <code>new_size</code> bytes, and if successful:</p><ul>
@@ -354,7 +354,7 @@ realloc </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Validate whether the arena is allowed to grow for a given request. </p>
 <p>This internal helper checks if the arena meets the conditions necessary to perform a growth operation. It verifies:</p>
@@ -415,7 +415,7 @@ realloc </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Record the previous size of the arena in the growth history. </p>
 <p>This internal helper appends the <code>old_size</code> of the arena to its <code>growth_history</code> array. This array keeps track of all prior sizes before each successful call to <code><a class="el" href="arena__resize_8c.html#a223081ace38b33a46cc1ed0eaadf867f">arena_grow()</a></code>, allowing for optional introspection, debugging, or visualization of growth patterns.</p>
@@ -458,7 +458,7 @@ realloc </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Check whether the arena is allowed to grow. </p>
 <p>This internal helper verifies if the arena is configured to support dynamic growth. It performs the following checks:</p><ul>
@@ -514,7 +514,7 @@ realloc </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Decide whether the arena buffer should be shrunk based on usage ratio. </p>
 <p>This helper compares the ratio of used bytes to total allocated buffer size. If the usage ratio falls below <code>ARENA_MIN_SHRINK_RATIO</code>, the arena is considered underutilized and may be eligible for shrinking.</p>
@@ -571,7 +571,7 @@ realloc </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Apply the memory shrink operation to an arena's buffer. </p>
 <p>This internal function performs the actual memory reallocation to reduce the arena's backing buffer to <code>new_size</code> bytes.</p>
@@ -622,7 +622,7 @@ realloc </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Compute the target buffer size for a shrink operation. </p>
 <p>This helper calculates a reasonable new size for the arena buffer when shrinking is considered. It adds a small safety margin (<code>ARENA_SHRINK_PADDING</code>) to the current usage (<code>used</code>) to avoid immediate re-growth if a small allocation occurs after shrinking.</p>
@@ -676,7 +676,7 @@ realloc </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Validate whether an arena can be safely shrunk to a new size. </p>
 <p>This internal helper wraps the logic of <code><a class="el" href="group__arena__resize__internal.html#ga770aa7d0f606aecdb9c6858d6d04bc6e" title="Determine whether the arena is eligible for shrinking to a smaller size.">arena_can_shrink()</a></code> with an initial null-check on the arena itself. It is used to guard shrink operations such as <code><a class="el" href="arena__resize_8c.html#ac09092abf5d001bd4ff11af16fed346d">arena_shrink()</a></code> and <code><a class="el" href="arena__resize_8c.html#a43195b93eadf7cbd1155836c887ac54d">arena_might_shrink()</a></code>.</p>
@@ -720,7 +720,7 @@ realloc </dd></dl>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">srcs/core/arena_resize.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__resize_8c.html">arena_resize.c</a>&gt;</code></p>
 
 <p>Determine whether the arena is eligible for dynamic shrinking. </p>
 <p>This helper checks if the arena is in a state that allows shrinking. Shrinking is only permitted if:</p><ul>

@@ -297,7 +297,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">include/arena_stack.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
 
 <p>Stack structure for scoped arena memory control. </p>
 <p>Holds a pointer to an arena and a linked list of frames representing saved arena states. Frames are allocated from the arena itself. </p>
@@ -316,7 +316,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">include/arena_stack.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
 
 <p>Internal frame representing a single state snapshot in the stack. </p>
 <p>Each frame holds a marker (offset) representing the arena state at the time of <code>push</code>, and a pointer to the previous frame for LIFO traversal. </p>
@@ -340,7 +340,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">include/arena_stack.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
 
 <p>Clear all stack frames without modifying arena state. </p>
 <p>Clear all frames in the arena stack without altering arena memory.</p>
@@ -402,7 +402,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">include/arena_stack.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
 
 <p>Initialize an arena stack with a given arena. </p>
 <dl class="params"><dt>Parameters</dt><dd>
@@ -437,7 +437,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">include/arena_stack.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
 
 <p>Pop and restore the last saved state from the stack. </p>
 <p>Restores the arena to the previous state (marker) and discards all allocations made since the last <code><a class="el" href="group__arena__state.html#ga1e6b0aa692652c987b3d4367ca7969e1" title="Push the current arena state onto the stack.">arena_stack_push()</a></code> call.</p>
@@ -470,7 +470,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">include/arena_stack.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__stack_8h.html">arena_stack.h</a>&gt;</code></p>
 
 <p>Push the current arena state onto the stack. </p>
 <p>Saves the current allocation offset into a new stack frame. All allocations made after the push can later be discarded with <code><a class="el" href="group__arena__state.html#ga305d7e272b7d661e7c45235ac1b57b2a" title="Pop and restore the last saved state from the stack.">arena_stack_pop()</a></code>.</p>

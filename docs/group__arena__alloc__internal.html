@@ -181,7 +181,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Core internal allocator with alignment and labeling support. </p>
 <p>This function performs the complete logic for allocating memory from an arena. It supports:</p><ul>
@@ -267,7 +267,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Validate input parameters for arena allocation. </p>
 <p>This internal helper checks that all parameters passed to an arena allocation function are valid before proceeding. It performs the following checks:</p>
@@ -327,7 +327,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Compute the next aligned offset within the arena. </p>
 <p>This helper calculates the next available offset within the arena's buffer that satisfies the specified alignment requirement. It adds the current offset to the base buffer address, rounds the result up to the nearest aligned address, and then subtracts the base address to return the aligned offset.</p>
@@ -388,7 +388,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Check whether an allocation would cause a size_t overflow. </p>
 <p>This helper ensures that the requested allocation does not exceed the bounds of the addressable memory space by checking for integer overflow when adding <code>size</code> to the current <code>arena-&gt;offset</code>.</p>
@@ -458,7 +458,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Update offset, peak usage, and statistics. </p>
 <p>This internal helper is used after determining that an allocation can safely be performed. It updates the arena's <code>offset</code> to reflect the new allocation, invokes <code><a class="el" href="group__arena__internal.html#gaa3a1838aa18111801b980c0b81e37813" title="Update the arena’s peak memory usage if the current usage exceeds it.">arena_update_peak()</a></code> to track maximum usage, and updates internal statistics such as allocation count, total allocated bytes, and alignment waste via <code><a class="el" href="group__arena__alloc__internal.html#gac58e6becbc80f328dce1ad2ecf17c2f0" title="Update allocation statistics after a successful arena allocation.">arena_update_stats()</a></code>.</p>
@@ -540,7 +540,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Ensure that the arena has enough space for a new allocation with alignment. </p>
 <p>This function calculates the aligned offset needed to satisfy an allocation of <code>size</code> bytes with the given <code>alignment</code>. If the allocation fits in the current arena buffer, the function returns <code>true</code>.</p>
@@ -628,7 +628,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Invoke the user-defined allocation hook, if registered. </p>
 <p>This internal utility checks whether an allocation hook has been registered in the arena’s debug hook system (<code>arena-&gt;hooks.hook_cb</code>). If a hook is set, it is called with detailed allocation metadata:</p>
@@ -696,7 +696,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Check whether the arena is currently being destroyed. </p>
 <p>This internal helper inspects the <code>is_destroying</code> atomic flag to determine whether the arena is in the process of being torn down (e.g., via <code><a class="el" href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy()</a></code>).</p>
@@ -758,7 +758,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">srcs/core/allocation/arena_realloc_last.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">arena_realloc_last.c</a>&gt;</code></p>
 
 <p>Validate input arguments for <code>arena_realloc_last</code>. </p>
 <p>This internal helper checks that the inputs to <code>arena_realloc_last</code> are valid before proceeding with reallocation logic. It ensures:</p>
@@ -825,7 +825,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Attempt to grow the arena's buffer to satisfy an upcoming allocation. </p>
 <p>This internal helper checks whether the arena is allowed to grow (<code>can_grow</code> flag) and, if so, attempts to expand its memory region by calling <code><a class="el" href="arena_8h.html#a223081ace38b33a46cc1ed0eaadf867f">arena_grow()</a></code>.</p>
@@ -888,7 +888,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Update allocation statistics after a successful arena allocation. </p>
 <p>This function increments and records key allocation-related statistics inside the <code>arena-&gt;stats</code> structure. These statistics include:</p><ul>
@@ -956,7 +956,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">srcs/core/allocation/arena_alloc.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__alloc_8c.html">arena_alloc.c</a>&gt;</code></p>
 
 <p>Zero or poison a memory region depending on allocation label. </p>
 <p>This internal utility determines whether a newly allocated block of memory should be zero-initialized or poisoned for debugging purposes.</p>
@@ -1019,7 +1019,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">srcs/core/allocation/arena_realloc_last.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">arena_realloc_last.c</a>&gt;</code></p>
 
 <p>Check if a given pointer corresponds to the most recent allocation. </p>
 <p>This helper determines whether <code>old_ptr</code> is the last allocation made by the arena. It does so by comparing the pointer to the expected end of the buffer based on <code>arena-&gt;offset</code> and the known <code>old_size</code>.</p>
@@ -1087,7 +1087,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">srcs/core/allocation/arena_realloc_last.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">arena_realloc_last.c</a>&gt;</code></p>
 
 <p>Perform a fallback reallocation by allocating new memory and copying data. </p>
 <p>This internal function is used when <code><a class="el" href="arena__realloc__last_8c.html#a6c647c686994ff6f760d3590696c0976">arena_realloc_last()</a></code> cannot perform an in-place reallocation (e.g., when the old pointer is not the last allocation).</p>
@@ -1164,7 +1164,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">srcs/core/allocation/arena_realloc_last.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">arena_realloc_last.c</a>&gt;</code></p>
 
 <p>Attempt to resize the last allocation in place. </p>
 <p>This internal function resizes the most recent allocation made by the arena, assuming that <code>old_ptr</code> points to the last allocated block.</p>
@@ -1243,7 +1243,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">srcs/core/allocation/arena_realloc_last.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__realloc__last_8c.html">arena_realloc_last.c</a>&gt;</code></p>
 
 <p>Update arena statistics after a successful reallocation. </p>
 <p>This internal helper updates the arena's internal state to reflect a successful in-place reallocation. It performs the following:</p><ul>

@@ -221,7 +221,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__math_8h.html">include/internal/arena_math.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__math_8h.html">arena_math.h</a>&gt;</code></p>
 
 <p>Align a value upwards to the nearest multiple of <code>alignment</code>. </p>
 <p>Returns the smallest multiple of <code>alignment</code> that is greater than or equal to <code>value</code>. <code>alignment</code> must be a power of two.</p>
@@ -263,7 +263,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Allocate a zero-initialized memory buffer for the arena. </p>
 <p>This function wraps <code>calloc</code> to allocate a contiguous zeroed memory region of <code>size</code> bytes. It is used when the arena needs to allocate its own internal memory buffer (rather than relying on an external one provided by the user).</p>
@@ -308,7 +308,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Allocate and zero-initialize a new arena struct. </p>
 <p>This internal helper allocates memory for a <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code> structure using <code>calloc</code>, which ensures all fields are zero-initialized. This guarantees a clean slate before any initialization logic is applied, helping avoid undefined behavior from stale data.</p>
@@ -367,7 +367,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Finalize the initialization of an arena with a provided buffer. </p>
 <p>This internal helper is used to complete the setup of an arena after a memory buffer has been successfully allocated.</p>
@@ -421,7 +421,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Initialize the mutex used for thread-safe arena operations. </p>
 <p>If <code>ARENA_ENABLE_THREAD_SAFE</code> is defined, this function sets up a recursive <code>pthread_mutex_t</code> for the arena, enabling safe concurrent access to mutable fields like <code>offset</code> or marker stack state.</p>
@@ -459,7 +459,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__internal_8h.html">include/internal/arena_internal.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__internal_8h.html">arena_internal.h</a>&gt;</code></p>
 
 <p>Check whether the given arena is in a valid, initialized state. </p>
 <p>Check whether an arena is in a valid state.</p>
@@ -522,7 +522,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Report an error, destroy the arena, and free its memory. </p>
 <p>This helper is used to cleanly handle failure paths in arena creation or initialization. It prints a formatted error message using <code>arena_report_error</code>, then proceeds to safely destroy the arena and free the <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code> structure via <code><a class="el" href="arena_8h.html#a640f54190aa0b356bc55787bfde1dcc5">arena_destroy()</a></code> and <code><a class="el" href="arena_8h.html#a7821a62eaf6d9f982322e49eaf6153e8">arena_delete()</a></code>.</p>
@@ -573,7 +573,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Reset all arena metadata fields to their default initial state. </p>
 <p>This function clears the entire <code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code> structure's internal metadata, ensuring a clean and consistent base before the arena is initialized.</p>
@@ -636,7 +636,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Allocate and assign a zero-initialized buffer to an arena. </p>
 <p>This function is used internally when no user-supplied buffer is provided during <code>arena_init_with_buffer</code>. It dynamically allocates a memory region of the requested size using <code>calloc</code>, stores the resulting buffer and size into the arena, and marks the arena as the owner of the buffer so it can be freed on destruction.</p>
@@ -691,7 +691,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Set a fallback debug label if none is set. </p>
 <p>This internal utility ensures that an arena has a human-readable label for debugging and error reporting. If the <code>arena-&gt;debug.label</code> is <code>NULL</code>, it assigns the provided fallback label.</p>
@@ -755,7 +755,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Configure an arena's buffer by either assigning a user-provided region or allocating one internally. </p>
 <p>This helper determines whether to allocate memory or use an existing buffer based on the parameters:</p><ul>
@@ -818,7 +818,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__create_8c.html">srcs/core/arena_create.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__create_8c.html">arena_create.c</a>&gt;</code></p>
 
 <p>Assign a user-provided buffer to an arena without taking ownership. </p>
 <p>This function sets up the arena's buffer and size fields using a buffer provided by the caller. It does not allocate or copy memory — it simply stores the pointer and size, and marks the arena as not owning the buffer. This means the buffer will not be freed when the arena is destroyed.</p>
@@ -855,7 +855,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__internal_8c.html">srcs/internal/arena_internal.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__internal_8c.html">arena_internal.c</a>&gt;</code></p>
 
 <p>Reset all allocation statistics in an arena stats structure. </p>
 <p>Reset the given statistics structure to zero.</p>
@@ -895,7 +895,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__internal_8h.html">include/internal/arena_internal.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__internal_8h.html">arena_internal.h</a>&gt;</code></p>
 
 <p>Update the arena’s peak memory usage if the current usage exceeds it. </p>
 <p>Update the peak usage metric of the arena.</p>
@@ -939,7 +939,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__internal_8h.html">include/internal/arena_internal.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__internal_8h.html">arena_internal.h</a>&gt;</code></p>
 
 <p>Zero out and reset all debug/stats metadata associated with the arena. </p>
 <p>Reset all metadata fields in an arena to their default values.</p>
@@ -1004,7 +1004,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__internal_8h.html">include/internal/arena_internal.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__internal_8h.html">arena_internal.h</a>&gt;</code></p>
 
 <p>Default growth policy callback for arena resizing. </p>
 <p>Default growth strategy for arenas that support dynamic resizing.</p>
@@ -1074,7 +1074,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__math_8h.html">include/internal/arena_math.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__math_8h.html">arena_math.h</a>&gt;</code></p>
 
 <p>Return the next power of two greater than or equal to <code>x</code>. </p>
 <p>If <code>x</code> is already a power of two, it is returned unchanged. If <code>x</code> is zero, the function returns 1.</p>
@@ -1129,7 +1129,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__math_8h.html">include/internal/arena_math.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__math_8h.html">arena_math.h</a>&gt;</code></p>
 
 <p>Perform a checked multiplication of two <code>size_t</code> values. </p>
 <p>Computes <code>a * b</code> and stores the result in <code>*result</code>. If the multiplication would overflow <code>SIZE_MAX</code>, the function returns <code>true</code> and does not modify <code>*result</code>.</p>

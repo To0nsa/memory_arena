@@ -208,7 +208,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__scratch_8h.html">include/arena_scratch.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__scratch_8h.html">arena_scratch.h</a>&gt;</code></p>
 
 <p>Represents a single slot in the scratch arena pool. </p>
 <p>Each slot holds a memory arena (<code><a class="el" href="structt__arena.html" title="The main memory arena structure used for fast allocation.">t_arena</a></code>) and an atomic flag indicating whether the slot is currently in use. </p>
@@ -256,7 +256,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__scratch_8c.html">srcs/core/arena_scratch.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__scratch_8c.html">arena_scratch.c</a>&gt;</code></p>
 
 <p>Initialize a single scratch slot with its own arena. </p>
 <p>This internal helper sets up a <code>t_scratch_slot</code> by initializing the internal arena with the given <code>slot_size</code>. The arena is marked as growable, and the slot is initially marked as not in use.</p>

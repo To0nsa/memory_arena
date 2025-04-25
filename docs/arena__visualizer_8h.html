@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>memory_arena: include/arena_visualizer.h File Reference</title>
+<title>memory_arena: arena_visualizer.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -91,15 +91,15 @@ $(function() {
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-0-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="arena__visualizer_8h__incl.png" border="0" usemap="#ainclude_2arena__visualizer_8h" alt=""/></div>
-<map name="ainclude_2arena__visualizer_8h" id="ainclude_2arena__visualizer_8h">
-<area shape="rect" title=" " alt="" coords="128,5,319,31"/>
+<div class="center"><img src="arena__visualizer_8h__incl.png" border="0" usemap="#aarena__visualizer_8h" alt=""/></div>
+<map name="aarena__visualizer_8h" id="aarena__visualizer_8h">
+<area shape="rect" title=" " alt="" coords="153,5,293,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,89,104"/>
 <area shape="poly" title=" " alt="" coords="196,33,90,76,88,71,194,28"/>
 <area shape="rect" title=" " alt="" coords="174,225,273,251"/>
 <area shape="poly" title=" " alt="" coords="217,32,184,83,168,117,155,153,153,165,155,176,171,198,191,216,188,220,167,202,150,178,147,165,150,151,163,115,180,80,212,30"/>
 <area shape="rect" title=" " alt="" coords="1067,225,1150,251"/>
-<area shape="poly" title=" " alt="" coords="319,22,551,39,833,67,967,84,1082,103,1168,125,1197,137,1215,150,1221,161,1222,173,1209,192,1185,209,1156,223,1154,218,1182,205,1205,189,1216,171,1216,163,1211,154,1194,142,1166,130,1081,109,966,89,832,72,550,45,319,28"/>
+<area shape="poly" title=" " alt="" coords="294,21,520,37,812,64,953,82,1074,102,1165,125,1196,137,1215,150,1221,161,1222,173,1209,192,1185,209,1156,223,1154,218,1182,205,1205,189,1216,171,1216,163,1211,154,1193,142,1164,130,1073,107,952,87,811,69,520,42,294,26"/>
 <area shape="rect" href="arena_8h.html" title="Core public API for the Arena memory allocator." alt="" coords="597,79,668,104"/>
 <area shape="poly" title=" " alt="" coords="290,28,584,79,583,84,289,33"/>
 <area shape="rect" href="arena__hooks_8h.html" title="Allocation hook system for arena&#45;based memory tracking and introspection." alt="" coords="165,152,282,177"/>
@@ -144,11 +144,11 @@ $(function() {
 <div id="dynsection-1-summary" class="dynsummary" style="display:block;">
 </div>
 <div id="dynsection-1-content" class="dyncontent" style="display:none;">
-<div class="center"><img src="arena__visualizer_8h__dep__incl.png" border="0" usemap="#ainclude_2arena__visualizer_8hdep" alt=""/></div>
-<map name="ainclude_2arena__visualizer_8hdep" id="ainclude_2arena__visualizer_8hdep">
-<area shape="rect" title=" " alt="" coords="11,5,201,31"/>
-<area shape="rect" href="arena__visualizer_8c.html" title=" " alt="" coords="5,79,207,104"/>
-<area shape="poly" title=" " alt="" coords="109,44,109,79,103,79,103,44"/>
+<div class="center"><img src="arena__visualizer_8h__dep__incl.png" border="0" usemap="#aarena__visualizer_8hdep" alt=""/></div>
+<map name="aarena__visualizer_8hdep" id="aarena__visualizer_8hdep">
+<area shape="rect" title=" " alt="" coords="5,5,145,31"/>
+<area shape="rect" href="arena__visualizer_8c.html" title=" " alt="" coords="6,79,145,104"/>
+<area shape="poly" title=" " alt="" coords="78,44,78,79,73,79,73,44"/>
 </map>
 </div>
 </div>
@@ -157,8 +157,10 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena__history__entry.html">s_arena_history_entry</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each ring-buffer event: error, step, normal or sub-alloc.  <a href="structs__arena__history__entry.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena__visualizer.html">s_arena_visualizer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main interactive visualizer.  <a href="structs__arena__visualizer.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -171,17 +173,22 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a4dfb2bf23e55a366c3713b60809aee29" id="r_a4dfb2bf23e55a366c3713b60809aee29"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structs__arena__history__entry.html">s_arena_history_entry</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8h.html#a4dfb2bf23e55a366c3713b60809aee29">t_arena_history_entry</a></td></tr>
+<tr class="memdesc:a4dfb2bf23e55a366c3713b60809aee29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Each ring-buffer event: error, step, normal or sub-alloc.  <br /></td></tr>
 <tr class="separator:a4dfb2bf23e55a366c3713b60809aee29"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae746c4d4532dbb9cc7d7388ba3ecedaf" id="r_ae746c4d4532dbb9cc7d7388ba3ecedaf"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structs__arena__visualizer.html">s_arena_visualizer</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a></td></tr>
+<tr class="memdesc:ae746c4d4532dbb9cc7d7388ba3ecedaf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The main interactive visualizer.  <br /></td></tr>
 <tr class="separator:ae746c4d4532dbb9cc7d7388ba3ecedaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a9784f60b4e1b5a9752e166febdb5d703" id="r_a9784f60b4e1b5a9752e166febdb5d703"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8h.html#a9784f60b4e1b5a9752e166febdb5d703">arena_start_interactive_visualizer</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis, <a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
+<tr class="memdesc:a9784f60b4e1b5a9752e166febdb5d703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start the interactive session (blocks until user quits).  <br /></td></tr>
 <tr class="separator:a9784f60b4e1b5a9752e166febdb5d703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aedd34147a821c760870c103ce5d5a186" id="r_aedd34147a821c760870c103ce5d5a186"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8h.html#aedd34147a821c760870c103ce5d5a186">arena_visualizer_allocation_hook</a> (<a class="el" href="structt__arena.html">t_arena</a> *arena, int id, void *ptr, size_t size, size_t offset, size_t wasted, const char *label)</td></tr>
+<tr class="memdesc:aedd34147a821c760870c103ce5d5a186"><td class="mdescLeft">&#160;</td><td class="mdescRight">The ring buffer hooks.  <br /></td></tr>
 <tr class="separator:aedd34147a821c760870c103ce5d5a186"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafbb12c19592fb148ae3238ce9b5ee91" id="r_aafbb12c19592fb148ae3238ce9b5ee91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8h.html#aafbb12c19592fb148ae3238ce9b5ee91">arena_visualizer_enable_history_hook</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis, <a class="el" href="structt__arena.html">t_arena</a> *arena)</td></tr>
+<tr class="memdesc:aafbb12c19592fb148ae3238ce9b5ee91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Attach our allocation hook to an arena.  <br /></td></tr>
 <tr class="separator:aafbb12c19592fb148ae3238ce9b5ee91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3367628644d1ad2fa6625e5d3b0d80cf" id="r_a3367628644d1ad2fa6625e5d3b0d80cf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8h.html#a3367628644d1ad2fa6625e5d3b0d80cf">arena_visualizer_error_callback</a> (const char *msg, void *context)</td></tr>
 <tr class="separator:a3367628644d1ad2fa6625e5d3b0d80cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -190,6 +197,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a4105d4f919cc1453e3346c387d143998" id="r_a4105d4f919cc1453e3346c387d143998"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8h.html#a4105d4f919cc1453e3346c387d143998">step_message</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis, const char *msg)</td></tr>
 <tr class="separator:a4105d4f919cc1453e3346c387d143998"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47e9cbc967db08034d96c4e3013aa626" id="r_a47e9cbc967db08034d96c4e3013aa626"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="arena__visualizer_8h.html#a47e9cbc967db08034d96c4e3013aa626">wait_for_key</a> (<a class="el" href="arena__visualizer_8h.html#ae746c4d4532dbb9cc7d7388ba3ecedaf">t_arena_visualizer</a> *vis)</td></tr>
+<tr class="memdesc:a47e9cbc967db08034d96c4e3013aa626"><td class="mdescLeft">&#160;</td><td class="mdescRight">function that blocks reading keystrokes:  <br /></td></tr>
 <tr class="separator:a47e9cbc967db08034d96c4e3013aa626"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -233,7 +241,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Each ring-buffer event: error, step, normal or sub-alloc </p>
+
+<p>Each ring-buffer event: error, step, normal or sub-alloc. </p>
 
 </div>
 </div>
@@ -248,7 +257,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The main interactive visualizer </p>
+
+<p>The main interactive visualizer. </p>
 
 </div>
 </div>
@@ -278,7 +288,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Start the interactive session (blocks until user quits). The user can scroll the ring buffer with arrow keys, press 'n' to do next step, press 'q' to quit, etc. </p>
+
+<p>Start the interactive session (blocks until user quits). </p>
+<p>The user can scroll the ring buffer with arrow keys, press 'n' to do next step, press 'q' to quit, etc. </p>
 
 </div>
 </div>
@@ -337,7 +349,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>The ring buffer hooks </p>
+
+<p>The ring buffer hooks. </p>
 
 </div>
 </div>
@@ -366,7 +379,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Attach our allocation hook to an arena </p>
+
+<p>Attach our allocation hook to an arena. </p>
 
 </div>
 </div>
@@ -459,7 +473,9 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>function that blocks reading keystrokes:</p><ul>
+
+<p>function that blocks reading keystrokes: </p>
+<ul>
 <li>UP arrow =&gt; scroll_offset++</li>
 <li>DOWN arrow =&gt; scroll_offset&ndash;</li>
 <li>'n' =&gt; next step =&gt; return 1</li>

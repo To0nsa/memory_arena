@@ -125,7 +125,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__cleanup_8c.html">srcs/core/arena_cleanup.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__cleanup_8c.html">arena_cleanup.c</a>&gt;</code></p>
 
 <p>Free the arena's internal buffer if the arena owns it. </p>
 <p>This internal helper checks the <code>owns_buffer</code> atomic flag to determine whether the arena is responsible for freeing its memory buffer. If ownership is confirmed and the buffer is non-null, the function:</p>
@@ -174,7 +174,7 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="arena__cleanup_8c.html">srcs/core/arena_cleanup.c</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="arena__cleanup_8c.html">arena_cleanup.c</a>&gt;</code></p>
 
 <p>Free the memory used to store the arena's growth history. </p>
 <p>This internal helper checks whether the arena has recorded any growth history via the <code>growth_history</code> pointer in its stats. If so, it:</p>

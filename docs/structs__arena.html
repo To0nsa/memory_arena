@@ -97,30 +97,43 @@ $(function() {
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Data Fields</h2></td></tr>
 <tr class="memitem:ae8fd61930e050d71133d30c608695baf" id="r_ae8fd61930e050d71133d30c608695baf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__arena.html#a141d803f0973f3f680a05fbaa01ab9a9">uint8_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#ae8fd61930e050d71133d30c608695baf">buffer</a></td></tr>
+<tr class="memdesc:ae8fd61930e050d71133d30c608695baf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the memory buffer.  <br /></td></tr>
 <tr class="separator:ae8fd61930e050d71133d30c608695baf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add86f59070d7ea7a87b320cb758d2e09" id="r_add86f59070d7ea7a87b320cb758d2e09"><td class="memItemLeft" align="right" valign="top">_Atomic <a class="el" href="structs__arena.html#a141d803f0973f3f680a05fbaa01ab9a9">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#add86f59070d7ea7a87b320cb758d2e09">can_grow</a></td></tr>
+<tr class="memdesc:add86f59070d7ea7a87b320cb758d2e09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether the arena supports dynamic growth.  <br /></td></tr>
 <tr class="separator:add86f59070d7ea7a87b320cb758d2e09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab463f2435b8c5f2251bc0ac51e683d27" id="r_ab463f2435b8c5f2251bc0ac51e683d27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="arena__debug_8h.html#a8287e15b5e1047cd54ebc4bd5efa7c42">t_arena_debug</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#ab463f2435b8c5f2251bc0ac51e683d27">debug</a></td></tr>
+<tr class="memdesc:ab463f2435b8c5f2251bc0ac51e683d27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Debugging and diagnostic metadata.  <br /></td></tr>
 <tr class="separator:ab463f2435b8c5f2251bc0ac51e683d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f38d2d3b5b0f5839859959fdd2a404c" id="r_a9f38d2d3b5b0f5839859959fdd2a404c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="arena_8h.html#abb1be1f36e6a52d5673bdd0e98cfb7f1">arena_grow_callback</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#a9f38d2d3b5b0f5839859959fdd2a404c">grow_cb</a></td></tr>
+<tr class="memdesc:a9f38d2d3b5b0f5839859959fdd2a404c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional callback for dynamic resizing.  <br /></td></tr>
 <tr class="separator:a9f38d2d3b5b0f5839859959fdd2a404c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35f85312386a83d7d9f7522af2b56a71" id="r_a35f85312386a83d7d9f7522af2b56a71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="arena__hooks_8h.html#a16961209621a21c3fc33fdfd28dc84d5">t_arena_hooks</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#a35f85312386a83d7d9f7522af2b56a71">hooks</a></td></tr>
+<tr class="memdesc:a35f85312386a83d7d9f7522af2b56a71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocation hooks for monitoring/debugging.  <br /></td></tr>
 <tr class="separator:a35f85312386a83d7d9f7522af2b56a71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7fc3a6cef394a42b58538f4aaae990e7" id="r_a7fc3a6cef394a42b58538f4aaae990e7"><td class="memItemLeft" align="right" valign="top">_Atomic <a class="el" href="structs__arena.html#a141d803f0973f3f680a05fbaa01ab9a9">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#a7fc3a6cef394a42b58538f4aaae990e7">is_destroying</a></td></tr>
+<tr class="memdesc:a7fc3a6cef394a42b58538f4aaae990e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Indicates the arena is being destroyed.  <br /></td></tr>
 <tr class="separator:a7fc3a6cef394a42b58538f4aaae990e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ee56e32559a006d37c2c17eb2db7a40" id="r_a8ee56e32559a006d37c2c17eb2db7a40"><td class="memItemLeft" align="right" valign="top"><a class="el" href="arena_8h.html#ad7902c92dd6262f1f86cdb4086bd144b">t_arena_marker</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#a8ee56e32559a006d37c2c17eb2db7a40">marker_stack</a> [<a class="el" href="arena__config_8h.html#a7a88db887c2b5e44b5fb68cb431321bf">ARENA_MAX_STACK_DEPTH</a>]</td></tr>
+<tr class="memdesc:a8ee56e32559a006d37c2c17eb2db7a40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stack of saved markers.  <br /></td></tr>
 <tr class="separator:a8ee56e32559a006d37c2c17eb2db7a40"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa87ed93fed9007a0e3126a1722d3f585" id="r_aa87ed93fed9007a0e3126a1722d3f585"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__arena.html#a141d803f0973f3f680a05fbaa01ab9a9">int</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#aa87ed93fed9007a0e3126a1722d3f585">marker_stack_top</a></td></tr>
+<tr class="memdesc:aa87ed93fed9007a0e3126a1722d3f585"><td class="mdescLeft">&#160;</td><td class="mdescRight">Top index of marker stack.  <br /></td></tr>
 <tr class="separator:aa87ed93fed9007a0e3126a1722d3f585"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8d69b72cc34170e50cfb52d4121fe7ab" id="r_a8d69b72cc34170e50cfb52d4121fe7ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__arena.html#a141d803f0973f3f680a05fbaa01ab9a9">size_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#a8d69b72cc34170e50cfb52d4121fe7ab">offset</a></td></tr>
+<tr class="memdesc:a8d69b72cc34170e50cfb52d4121fe7ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current used offset (bump pointer).  <br /></td></tr>
 <tr class="separator:a8d69b72cc34170e50cfb52d4121fe7ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0c50e519f238b43ac018e50c429b7307" id="r_a0c50e519f238b43ac018e50c429b7307"><td class="memItemLeft" align="right" valign="top">_Atomic <a class="el" href="structs__arena.html#a141d803f0973f3f680a05fbaa01ab9a9">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#a0c50e519f238b43ac018e50c429b7307">owns_buffer</a></td></tr>
+<tr class="memdesc:a0c50e519f238b43ac018e50c429b7307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Whether this arena owns the buffer memory.  <br /></td></tr>
 <tr class="separator:a0c50e519f238b43ac018e50c429b7307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13e30ede2a0b44db82df179d5862d3e0" id="r_a13e30ede2a0b44db82df179d5862d3e0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structs__arena.html#a141d803f0973f3f680a05fbaa01ab9a9">struct</a> <a class="el" href="structs__arena.html">s_arena</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#a13e30ede2a0b44db82df179d5862d3e0">parent_ref</a></td></tr>
+<tr class="memdesc:a13e30ede2a0b44db82df179d5862d3e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reference to parent arena if this is a sub-arena.  <br /></td></tr>
 <tr class="separator:a13e30ede2a0b44db82df179d5862d3e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a141d803f0973f3f680a05fbaa01ab9a9" id="r_a141d803f0973f3f680a05fbaa01ab9a9"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#a141d803f0973f3f680a05fbaa01ab9a9">size</a></td></tr>
+<tr class="memdesc:a141d803f0973f3f680a05fbaa01ab9a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total size of the buffer.  <br /></td></tr>
 <tr class="separator:a141d803f0973f3f680a05fbaa01ab9a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a068ebd8d7f3dc3b666f579947b1edf6e" id="r_a068ebd8d7f3dc3b666f579947b1edf6e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__arena__stats.html#ga5c30fe6780dafbd7e5a8c3b86d25afba">t_arena_stats</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structs__arena.html#a068ebd8d7f3dc3b666f579947b1edf6e">stats</a></td></tr>
+<tr class="memdesc:a068ebd8d7f3dc3b666f579947b1edf6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Allocation and memory usage statistics.  <br /></td></tr>
 <tr class="separator:a068ebd8d7f3dc3b666f579947b1edf6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Field Documentation</h2>
@@ -135,6 +148,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Pointer to the memory buffer. </p>
 
 </div>
@@ -150,6 +164,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Whether the arena supports dynamic growth. </p>
 
 </div>
@@ -165,6 +180,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Debugging and diagnostic metadata. </p>
 
 </div>
@@ -180,6 +196,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Optional callback for dynamic resizing. </p>
 
 </div>
@@ -195,6 +212,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Allocation hooks for monitoring/debugging. </p>
 
 </div>
@@ -210,6 +228,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Indicates the arena is being destroyed. </p>
 
 </div>
@@ -225,6 +244,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Stack of saved markers. </p>
 
 </div>
@@ -240,6 +260,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Top index of marker stack. </p>
 
 </div>
@@ -255,6 +276,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Current used offset (bump pointer). </p>
 
 </div>
@@ -270,6 +292,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Whether this arena owns the buffer memory. </p>
 
 </div>
@@ -285,6 +308,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Reference to parent arena if this is a sub-arena. </p>
 
 </div>
@@ -300,6 +324,7 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Total size of the buffer. </p>
 
 </div>
@@ -315,12 +340,13 @@ Data Fields</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
 <p>Allocation and memory usage statistics. </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>include/<a class="el" href="arena_8h_source.html">arena.h</a></li>
+<li><a class="el" href="arena_8h_source.html">arena.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
