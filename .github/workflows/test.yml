@@ -1,11 +1,3 @@
-name: Build and Test memory_arena
-
-on:
-  push:
-    branches: [ main, dev ]
-  pull_request:
-    branches: [ main, dev ]
-
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -13,6 +5,11 @@ jobs:
     strategy:
       matrix:
         preset: [debug, asan, tsan, release]
+      max-parallel: 1   # ← limit matrix execution
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ matrix.preset }}
+      cancel-in-progress: false
 
     steps:
     - name: Checkout code
@@ -36,8 +33,8 @@ jobs:
       run: |
         ctest --preset ${{ matrix.preset }} --output-on-failure
 
-    concurrency:
-      group: ${{ github.workflow }}-${{ matrix.preset }}
-      cancel-in-progress: false
-    max-parallel: 1
-
+    - name: Upload build artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-${{ matrix.preset }}
+        path: build/${{ matrix.preset }}
