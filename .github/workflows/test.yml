@@ -1,0 +1,37 @@
+name: Build and Test memory_arena
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        preset: [debug, asan, tsan, release]
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install dependencies
+      run: |
+        sudo apt update
+        sudo apt install -y cmake ninja-build valgrind pkg-config libnotcurses-dev
+
+    - name: Configure using preset
+      run: |
+        cmake --preset ${{ matrix.preset }}
+
+    - name: Build using preset
+      run: |
+        cmake --build --preset ${{ matrix.preset }}
+
+    - name: Run tests (only if BUILD_TESTING=ON)
+      if: matrix.preset != 'release'
+      run: |
+        ctest --preset ${{ matrix.preset }} --output-on-failure
