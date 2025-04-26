@@ -35,3 +35,9 @@ jobs:
       if: matrix.preset != 'release'
       run: |
         ctest --preset ${{ matrix.preset }} --output-on-failure
+
+    concurrency:
+      group: ${{ github.workflow }}-${{ matrix.preset }}
+      cancel-in-progress: false
+    max-parallel: 1
+
